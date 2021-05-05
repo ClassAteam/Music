@@ -9,7 +9,6 @@ static int
     S2_3341;
     if (exchange::ush1p >= 18.0)
     {
-
         // S2 100% mode
         if (S2_3341 == 1)
         {
@@ -28,10 +27,7 @@ static int
                 PVMV100 = true;
             }
 
-            if((S2_1_tick * TICK) >= 1200)
-            {
-                S2_1_tick = 0;
-            }
+            if((S2_1_tick * TICK) >= 1200) S2_1_tick = 0;
         }
         else
         {
@@ -43,12 +39,9 @@ static int
         // S2 low mode
         if (S2_3341 == 2)
         {
-            if (exchange::P2OBLOP &&
-                (exchange::PRD1dv &&
-                 exchange::PRD4dv &&
-                 exchange::F32_3250))
+            if (exchange::P2OBLOP && (exchange::PRD1dv &&
+                 exchange::PRD4dv && exchange::F32_3250))
             {
-
                 S2_2_tick++;
 
                 if ((S2_2_tick * TICK) < 600)

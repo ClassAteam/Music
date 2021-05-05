@@ -3,7 +3,7 @@
 void powerdc_int::powerdc_7() //7
 {
     //start logic
-    if(s17_2430 == s17_2430_pos::akk1_rap1)
+    if(exchange::s17_2430 == static_cast<int>(exchange::s17_2430::akk1_rap1))
     {
         if(purg27lk5)
         {
@@ -23,7 +23,7 @@ void powerdc_int::powerdc_7() //7
     }
     else
     {
-        if(s17_2430 == s17_2430_pos::akk2_rap2)
+        if(exchange::s17_2430 == static_cast<int>(exchange::s17_2430::akk2_rap2))
         {
             if(purg27pk5)
             {
@@ -43,7 +43,7 @@ void powerdc_int::powerdc_7() //7
         }
         else
         {
-            if(s17_2430 == s17_2430_pos::vsu)
+            if(exchange::s17_2430 == static_cast<int>(exchange::s17_2430::vsu))
             {
                 ipr = ingvsu_27;
             }
@@ -54,30 +54,30 @@ void powerdc_int::powerdc_7() //7
         }
     }
 
-    switch(s16_2430)
+    switch(exchange::s16_2430)
     {
-    case s16_2430_pos::akk1:
+    case static_cast<int>(exchange::s16_2430::akk1):
         powerdc_int::ipr = uak1;
         break;
-    case s16_2430_pos::akk2:
+    case static_cast<int>(exchange::s16_2430::akk2):
         powerdc_int::ipr = uak2;
         break;
-    case s16_2430_pos::avar1:
+    case static_cast<int>(exchange::s16_2430::avar1):
         powerdc_int::ipr = exchange::ushal;
         break;
-    case s16_2430_pos::avar2:
+    case static_cast<int>(exchange::s16_2430::avar2):
         powerdc_int::ipr = exchange::ushap;
         break;
-    case s16_2430_pos::sh1lev:
+    case static_cast<int>(exchange::s16_2430::sh1lev):
         powerdc_int::ipr = exchange::ush1l;
         break;
-    case s16_2430_pos::sh2lev:
+    case static_cast<int>(exchange::s16_2430::sh2lev):
         powerdc_int::ipr = exchange::ush2l;
         break;
-    case s16_2430_pos::sh1prav:
+    case static_cast<int>(exchange::s16_2430::sh1prav):
         powerdc_int::ipr = exchange::ush1p;
         break;
-    case s16_2430_pos::sh2prav:
+    case static_cast<int>(exchange::s16_2430::sh2prav):
         powerdc_int::ipr = exchange::ush2p;
         break;
     default:

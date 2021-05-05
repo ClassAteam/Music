@@ -1,25 +1,21 @@
 #pragma once
-#include "interfacing.h"
 #include "exchange.h"
 #include "bss.h"
 #include "uks.h"
 #include "allElCons.h"
-extern double TICK;
-
 
 extern bss bss_inst;
 extern uks uks_inst;
 
-class antiicing_int //: public interfacing
+class antiicing_int
 {
-   // Q_OBJECT
 public:
 
     bool
-        OTKAZ_vtsepiob_pos1dv,//otkaz v tsepi obograva POS 1 dvigatelya
-        OTKAZ_vtsepiob_pos2dv,//otkaz v tsepi obograva POS 2 dvigatelya
-        OTKAZ_vtsepiob_pos3dv,//otkaz v tsepi obograva POS 3 dvigatelya
-        OTKAZ_vtsepiob_pos4dv,//otkaz v tsepi obograva POS 4 dvigatelya
+        OTKAZ_vtsepiob_pos1dv{},//otkaz v tsepi obograva POS 1 dvigatelya
+        OTKAZ_vtsepiob_pos2dv{},//otkaz v tsepi obograva POS 2 dvigatelya
+        OTKAZ_vtsepiob_pos3dv{},//otkaz v tsepi obograva POS 3 dvigatelya
+        OTKAZ_vtsepiob_pos4dv{},//otkaz v tsepi obograva POS 4 dvigatelya
         POLOBST{},//priznak obogreva lobovogo stekla
         POLST{},//priznak obogreva levogo stekla
         POPST{},//priznak obogreva pravogo stekla
@@ -27,34 +23,14 @@ public:
         POV3dv2{},//priznak obograeva vozduhozabornika 2 dvigatelya
         POV3dv3{},//priznak obograeva vozduhozabornika 3 dvigatelya
         POV3dv4{},//priznak obograeva vozduhozabornika 4 dvigatelya
-        S1_3030{},//knopka KONTROL' PPD
-        S1_3080{},//viklyuchatel' SIGNAL OBLED LEVIY
-        S2_3030{},//viklyuchatel' OBOGREV PPD
-        S2_3040{},//viklyuchatel' OBOGREV STEKL LEVOE
-        S2_3080{},//viklyuchatel' SIGNAL OBLED PRAVIY
-        S3_3080{},//knopka CO-121VM KONTR
-        S4_3040{},//viklyuchatel' OBOGREV STEKL LOBOVOE
-        S6_3020{},//viklyuchatel' OBOGREV V/3 PODKLYUCHENIE NA ZEMLE
-        S6_3040{},//viklyuchatel' OBOGREV STEKL PRAVOE
-        S8_3040{},//knopka OBOGREV STEKOL KONTROL'
-        otkaz_l_so121,//otkaz levogo kanala CO-121
-        otkaz_lozhn_srab_lev_so121,//oozhnoe stabativanie levogo kanala CO_121
-        otkaz_lozhn_srab_prav_so121,//oozhnoe stabativanie pravogo kanala CO_121
-        otkaz_p_so121,//otkaz pravogo kanala CO-121
-        otkaz_vozduhozabor,//otkaz POS vozduhozabornikov
+        otkaz_l_so121{},//otkaz levogo kanala CO-121
+        otkaz_lozhn_srab_lev_so121{},//oozhnoe stabativanie levogo kanala CO_121
+        otkaz_lozhn_srab_prav_so121{},//oozhnoe stabativanie pravogo kanala CO_121
+        otkaz_p_so121{},//otkaz pravogo kanala CO-121
+        otkaz_vozduhozabor{},//otkaz POS vozduhozabornikov
         poppd1{},//priznak obogreva PPD #1
         poppd2{},//priznak obogreva PPD #2
-        poppd3{},//priznak obogreva PPD #3
-        s2_3020{},//vikluchateli OTKLUCHENIE OBOGREVA VOZUHOZABORNIKOV 1
-        s3_3020{},//vikluchateli OTKLUCHENIE OBOGREVA VOZUHOZABORNIKOV 2
-        s4_3020{},//vikluchateli OTKLUCHENIE OBOGREVA VOZUHOZABORNIKOV 3
-        s5_3020{};//vikluchateli OTKLUCHENIE OBOGREVA VOZUHOZABORNIKOV 4
-
-    int S7_3040;//pereklyuchatel OTKL-LEV-BOL-PRAV
-    enum s7_3040_pos{otkl, lev, lob, prav};
-
-    int S1_3020;//perekluchatel T NARUZH VOZDUH
-    enum s1_3020_pos{neytr, minus6minus15, zerominus6, minus15};
+        poppd3{};//priznak obogreva PPD #3
 
     double
         usho1p{},
@@ -66,6 +42,9 @@ public:
         alpha_rud_4dv{};//polozhenie richaga upravleniya dvigatelem 4, grad
 
     bool
+        PZ1{},
+        PZ2{},
+        PZ3{},
         F110_3020{},
         F11_3040{},
         F125_3020{},
@@ -169,8 +148,6 @@ public:
         signal_obled{};
 
 public:
-    //antiicing_int(QWidget *parent = nullptr);
-        antiicing_int(){};
     virtual void updateLogic();
 
     void antiicing_1();

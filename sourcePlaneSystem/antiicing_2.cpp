@@ -21,29 +21,29 @@ static int
         f32_3020 = false;
 
     f319_3020 = f353_3020 = f356_3020 = f32_3020;
-    f319_3020 = allElConsDir::f319_3020;
+//    f319_3020 = allElConsDir::f319_3020;
 
     //K52, K54, K55 toggle
     //1
-    if(usho1p >= 18.0 && s2_3020)
+    if(usho1p >= 18.0 && exchange::s2_3020)
         K52_3020 = true;
     else
         K52_3020 = false;
 
     //2
-    if(usho1p >= 18.0 && s3_3020)
+    if(usho1p >= 18.0 && exchange::s3_3020)
         K53_3020 = true;
     else
         K53_3020 = false;
 
     //3
-    if(usho1p >= 18.0 && s4_3020)
+    if(usho1p >= 18.0 && exchange::s4_3020)
         K54_3020 = true;
     else
         K54_3020 = false;
 
     //4
-    if(usho1p >= 18.0 && s5_3020)
+    if(usho1p >= 18.0 && exchange::s5_3020)
         K55_3020 = true;
     else
         K55_3020 = false;

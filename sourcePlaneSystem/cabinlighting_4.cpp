@@ -33,58 +33,33 @@ static bool
 //    alpha_ra_a14;
     // A1
 
-    if (exchange::ush1l >= 18.0 &&
-        F1_3311 == true &&
-        otkaz_vstrosv_busto3_1_k1_lev == false)
-    {
+    if (exchange::ush1l >= 18.0 && F1_3311 && !otkaz_vstrosv_busto3_1_k1_lev)
         PBUSTO3_1_1k = true;
-    }
     else
-    {
         PBUSTO3_1_1k = false;
-    }
 
     // A2
 
-    if (exchange::ush2p >= 18.0 &&
-        F2_3311 == true &&
-        otkaz_vstrosv_busto3_1_k1_prav == false)
-    {
+    if(exchange::ush2p >= 18.0 && F2_3311 && !otkaz_vstrosv_busto3_1_k1_prav)
         PBUSTO3_1_2k = true;
-    }
     else
-    {
         PBUSTO3_1_2k = false;
-    }
 
     // A3
 
-    if (exchange::ush1dpl >= 18.0 &&
-        F3_3311 == true &&
-        otkaz_vstrosv_busto3_2_k1_lev == false)
-    {
+    if(exchange::ush1dpl >= 18.0 && F3_3311 && !otkaz_vstrosv_busto3_2_k1_lev)
         PBUSTO3_2_1k = true;
-    }
     else
-    {
         PBUSTO3_2_1k = false;
-    }
 
     // A4
 
-    if (exchange::ush2dpp >= 18.0 &&
-        F4_3311 == true &&
-        otkaz_vstrosv_busto3_2_k2_prav == false)
-    {
+    if(exchange::ush2dpp >= 18.0 && F4_3311 && !otkaz_vstrosv_busto3_2_k2_prav)
         PBUSTO3_2_2k = true;
-    }
     else
-    {
         PBUSTO3_2_2k = false;
-    }
 
     // B1
-
 
     // C1
 
@@ -135,55 +110,30 @@ static bool
     //////////////////////////////////////////////////////////////////////////////
     // A5
 
-    if (exchange::ush1l >= 18.0 &&
-        F5_3311 == true &&
-        otkaz_vstrosv_busto3_1_k1_shto == false)
-    {
+    if (exchange::ush1l >= 18.0 && F5_3311 && !otkaz_vstrosv_busto3_1_k1_shto)
         PBUSTO3_3_1k = true;
-    }
     else
-    {
         PBUSTO3_3_1k = false;
-    }
 
     // A6
 
-    if (exchange::ush2p >= 18.0 &&
-        F6_3311 == true &&
-        otkaz_vstrosv_busto3_1_k2_shto == false)
-    {
+    if(exchange::ush2p >= 18.0 && F6_3311 && !otkaz_vstrosv_busto3_1_k2_shto)
         PBUSTO3_3_2k = true;
-    }
     else
-    {
         PBUSTO3_3_2k = false;
-    }
 
     // A7
 
-    if (exchange::ush1dpl >= 18.0 &&
-        F7_3311 == true &&
-        otkaz_vstrosv_busto3_1_k1_shtn == false)
-    {
+    if(exchange::ush1dpl >= 18.0 && F7_3311 && !otkaz_vstrosv_busto3_1_k1_shtn)
         PBUSTO3_4_1k = true;
-    }
     else
-    {
         PBUSTO3_4_1k = false;
-    }
 
     // A8
-
-    if (exchange::ush2dpp >= 18.0 &&
-        F8_3311 == true &&
-        otkaz_vstrosv_busto3_1_k2_shtn == false)
-    {
+    if(exchange::ush2dpp >= 18.0 && F8_3311 && !otkaz_vstrosv_busto3_1_k2_shtn)
         PBUSTO3_4_2k = true;
-    }
     else
-    {
         PBUSTO3_4_2k = false;
-    }
 
     // B2
 

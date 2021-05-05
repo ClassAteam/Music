@@ -485,7 +485,7 @@ void allElConsDir::makeCorresCurr()
     }
     else
     {
-        if(!powerdc_int::s14_2430)
+        if(!exchange::s14_2430)
             powerdc_int::iak1 = 0;
         else
         {
@@ -535,7 +535,7 @@ void allElConsDir::makeCorresCurr()
         }
     }
 
-    if(!powerdc_int::s15_2430)
+    if(!exchange::s15_2430)
         powerdc_int::iak2 = 0;
     else
     {

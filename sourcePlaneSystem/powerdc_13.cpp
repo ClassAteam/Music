@@ -19,7 +19,7 @@ void powerdc_int::powerdc_13()
         exchange::frap = 0;
     }
 
-    if(exchange::ushap >= 18.0 && pprap && s9_2420)
+    if(exchange::ushap >= 18.0 && pprap && exchange::s9_2420)
         purgpk3 = true;
     else
         purgpk3 = false;
@@ -65,7 +65,7 @@ void powerdc_int::powerdc_13()
         }
         else
         {
-            if(s2_2420)
+            if(exchange::s2_2420)
             {
                 purglk7 = true;
                 purgpk7 = true;
@@ -110,7 +110,7 @@ void powerdc_int::powerdc_13()
     {
         if(pp400[1])
         {
-            if(s2_2420)
+            if(exchange::s2_2420)
             {
                 purglk7 = true;
                 purgpk7 = true;

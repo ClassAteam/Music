@@ -1,16 +1,14 @@
 #pragma once
-#include "interfacing.h"
 #include "exchange.h"
 #include "bss.h"
 #include "allElCons.h"
-extern  double TICK;
 
 extern bss bss_inst;
 
-class landinggear_int //: public interfacing
-{
-    //Q_OBJECT
+extern double TICK;
 
+class landinggear_int
+{
 public:
     bool
         PUPLOP{},//priznak ubrannogo polozheniya levoy opori shassi
@@ -21,11 +19,6 @@ public:
         PVPPOP{},//priznak vipushennogo polozheniya pravoy opori shassi
         S30_3230{},//viklyuchatel' "AVARIYNIY VIPUSK SHASSI"
         S3_3230{},//pereklyuchatel' "OTKLYUCHENIE OSNOVN UPRAVLENIYA SHASSI"
-        S4_3250{},//viklyuchatel' "POVOROT KOLES RULENIE"
-        S55_3230{},//pereklyuchatel' "IMITAZIYA" "SHASSI NE OBZHATO OPORA LEVAYA 1"
-        S56_3230{},//pereklyuchatel' "IMITAZIYA" "SHASSI NE OBZHATO OPORA PRAVAYA 1"
-        S57_3230{},//pereklyuchatel' "IMITAZIYA" "SHASSI NE OBZHATO OPORA LEVAYA 2"
-        S58_3230{},//pereklyuchatel' "IMITAZIYA" "SHASSI NE OBZHATO OPORA PRAVAYA 2"
         gk_ush{},//intaking hydro valve
         gk_vsh{},//releasing hydro valve
         nedovip_osn_op_l{},//otkaz nedovipusk osnovnoy opori levoy
@@ -57,24 +50,18 @@ public:
         Sp{},//right presure check against the ground
         delta_shift_l{1.0},//main racks shifting left one
         delta_shift_p{1.0};//main racks shifting right one
-    int
-        S31_3230{};
-    enum s31_3230_pos{opora_pered, opora_lev, opora_prav};
-    int
-        s2_3230{};//pereklyuchatel' "SHASSI" "VIPUSK - UBORKA"
-    enum s2_3230{release, intake};
 
     static bool
+        K9_3230,
+        K5_3250,
+        K6_3250,
         S18_2930,
         S38_3230;
     bool
         K3_3250{},
         K4_3250{},
-        K5_3250{},
-        K6_3250{},
         K7_3250{},
         K8_3250{},
-        S1_3250{},
         PPBU_1{},
         PPBU_2{},
         PR_R1{},
@@ -156,7 +143,6 @@ public:
         K5_3230{},
         K6_3230{},
 //        K8_3230,
-        K9_3230{},
         K10_3230{},
         K11_3230{},
         K12_3230{},
@@ -231,8 +217,6 @@ public:
         GK_dvp{};
 
 public:
-   // landinggear_int(QWidget *parent = nullptr);
-        landinggear_int(){};
     virtual void updateLogic();
     void landinggear_1();
     void landinggear_2();

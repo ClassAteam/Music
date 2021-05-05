@@ -1,9 +1,5 @@
 #include "emergencyalarm_int.h"
 
-//emergencyalarm_int::emergencyalarm_int(QWidget *parent)
-//    : interfacing(parent)
-//{
-//}
 void emergencyalarm_int::updateLogic()
 {
     emergencyalarm_1();

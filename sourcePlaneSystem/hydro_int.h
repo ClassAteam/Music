@@ -1,20 +1,17 @@
 #pragma once
-//#include "interfacing.h"
-
 #include "wind_functions.h"
 #include "algorithms.h"
 #include "exchange.h"
 #include "bss.h"
 #include "uks.h"
-extern  double TICK;
 
 extern bss bss_inst;
 extern uks uks_inst;
 
-class hydro_int //: public interfacing
-{
-   // Q_OBJECT
+extern double TICK;
 
+class hydro_int
+{
 public:
     bool
         s1_2910{},//perekluchatel' PRINUD PODKL G/NASOSOV
@@ -164,141 +161,139 @@ public:
     //s3_2920 perekluchatel GIDROPITANIE SUR GS3,
     //s4_2920 perekluchatel GIDROPITANIE SUR GS4,
 
-    QVector<bool> Fsecond4_2920{false, false, false, false};
-    //s5_2920 perekluchatel KRANI KOLCEVANIYA GS1
-    //s6_2920 perekluchatel KRANI KOLCEVANIYA GS2
-    //s7_2920 perekluchatel KRANI KOLCEVANIYA GS3
-    //s8_2920 perekluchatel KRANI KOLCEVANIYA GS4
+        QVector<bool> Fsecond4_2920{false, false, false, false};
+        //s5_2920 perekluchatel KRANI KOLCEVANIYA GS1
+        //s6_2920 perekluchatel KRANI KOLCEVANIYA GS2
+        //s7_2920 perekluchatel KRANI KOLCEVANIYA GS3
+        //s8_2920 perekluchatel KRANI KOLCEVANIYA GS4
 
-    QVector<bool> Sfirst4_2920{false, false, false, false};
-    QVector<bool> Ssecond4_2920{false, false, false, false};
-    QVector<int> Sthird4_2920{0, 0, 0, 0};
-    //S9_2920 perekluchatel TNU GS1
-    //S10_2920 perekluchatel TNU GS2
-    //S11_2920 perekluchatel TNU GS3
-    //S12_2920 perekluchatel TNU GS4
+        QVector<bool> Sfirst4_2920{false, false, false, false};
+        QVector<bool> Ssecond4_2920{false, false, false, false};
+        QVector<int> Sthird4_2920{0, 0, 0, 0};
+        //S9_2920 perekluchatel TNU GS1
+        //S10_2920 perekluchatel TNU GS2
+        //S11_2920 perekluchatel TNU GS3
+        //S12_2920 perekluchatel TNU GS4
 
-    bool
-        K5_2910,
-        K7_2910,
-        K8_2910,
-        K9_2910,
-        F101_2910{true},
-        F18_2910{true},
-        F318_2910{true},
-        F31_2910{true},
-        F32_2910{true},
-        F323_2910{true},
-        F3_10010{true},
-        F3_2910{true},
-        F58_2910{true},
-        F78_2910{true},
-        F88_2910{true},
-        F8_2910{true},
-        F91_2910{true},
-        F9_2910{true},
-        F9_7322{true},
-        K1_2930{},
-        K2_2930{},
-        K3_2930{},
-        K4_2930{},
-        K10_2910{},
-        K11_2910{},
-        K12_2910{},
-        K13_2910{},
-        K14_2910{},
-        K15_2910{},
-        K16_2910{},
-        K17_2910{},
-        K18_2910{},
-        K19_2910{},
-        K1_2910{},
-        K20_2910{},
-        K21_2910{},
-        K22_2910{},
-        K23_2910{},
-        K25_2910{},
-        K26_2910{},
-        K27_2910{},
-        K28_2910{},
-        K29_2910{},
-        K2_2910{},
-        K30_2910{},
-        K31_2910{},
-        K32_2910{},
-        K33_2910{},
-        K34_2910{},
-        K35_2910{},
-        K36_2910{},
-        K37_2910{},
-        K38_2910{},
-        K3_2910{},
-        K4_2910{},
-        prn1gs1{},
-        prn1gs2{},
-        prn1gs3{},
-        prn1gs4{},
-        prn2gs1{},
-        prn2gs2{},
-        prn2gs3{},
-        prn2gs4{};
-    double
-        pn1gs1{},
-        pn1gs2{},
-        pn1gs3{},
-        pn1gs4{},
-        pn2gs1{},
-        pn2gs2{},
-        pn2gs3{},
-        pn2gs4{};
+        bool
+            K5_2910,
+            K7_2910,
+            K8_2910,
+            K9_2910,
+            F101_2910{true},
+            F18_2910{true},
+            F318_2910{true},
+            F31_2910{true},
+            F32_2910{true},
+            F323_2910{true},
+            F3_10010{true},
+            F3_2910{true},
+            F58_2910{true},
+            F78_2910{true},
+            F88_2910{true},
+            F8_2910{true},
+            F91_2910{true},
+            F9_2910{true},
+            F9_7322{true},
+            K1_2930{},
+            K2_2930{},
+            K3_2930{},
+            K4_2930{},
+            K10_2910{},
+            K11_2910{},
+            K12_2910{},
+            K13_2910{},
+            K14_2910{},
+            K15_2910{},
+            K16_2910{},
+            K17_2910{},
+            K18_2910{},
+            K19_2910{},
+            K1_2910{},
+            K20_2910{},
+            K21_2910{},
+            K22_2910{},
+            K23_2910{},
+            K25_2910{},
+            K26_2910{},
+            K27_2910{},
+            K28_2910{},
+            K29_2910{},
+            K2_2910{},
+            K30_2910{},
+            K31_2910{},
+            K32_2910{},
+            K33_2910{},
+            K34_2910{},
+            K35_2910{},
+            K36_2910{},
+            K37_2910{},
+            K38_2910{},
+            K3_2910{},
+            K4_2910{},
+            prn1gs1{},
+            prn1gs2{},
+            prn1gs3{},
+            prn1gs4{},
+            prn2gs1{},
+            prn2gs2{},
+            prn2gs3{},
+            prn2gs4{};
+        double
+            pn1gs1{},
+            pn1gs2{},
+            pn1gs3{},
+            pn1gs4{},
+            pn2gs1{},
+            pn2gs2{},
+            pn2gs3{},
+            pn2gs4{};
 
-    QVector<bool>pnngs1{false, false};
-    QVector<bool>pnngs2{false, false};
-    QVector<bool>pnngs3{false, false};
-    QVector<bool>pnngs4{false, false};
+        QVector<bool>pnngs1{false, false};
+        QVector<bool>pnngs2{false, false};
+        QVector<bool>pnngs3{false, false};
+        QVector<bool>pnngs4{false, false};
 
-    QVector<double>Qngngs1{0.0, 0.0};
-    QVector<double>Qngngs2{0.0, 0.0};
-    QVector<double>Qngngs3{0.0, 0.0};
-    QVector<double>Qngngs4{0.0, 0.0};
+        QVector<double>Qngngs1{0.0, 0.0};
+        QVector<double>Qngngs2{0.0, 0.0};
+        QVector<double>Qngngs3{0.0, 0.0};
+        QVector<double>Qngngs4{0.0, 0.0};
 
-    static QVector<double>nVDfirst2;
-    //nvd1 chastota vrasheniya rotora visokogo davleniya 1 dvigatelya
-    //nvd2 chastota vrasheniya rotora visokogo davleniya 2 dvigatelya
-    static QVector<double>nVDsecond2;
-    //nvd3 chastota vrasheniya rotora visokogo davleniya 3 dvigatelya
-    //nvd4 chastota vrasheniya rotora visokogo davleniya 4 dvigatelya
+        static QVector<double>nVDfirst2;
+        //nvd1 chastota vrasheniya rotora visokogo davleniya 1 dvigatelya
+        //nvd2 chastota vrasheniya rotora visokogo davleniya 2 dvigatelya
+        static QVector<double>nVDsecond2;
+        //nvd3 chastota vrasheniya rotora visokogo davleniya 3 dvigatelya
+        //nvd4 chastota vrasheniya rotora visokogo davleniya 4 dvigatelya
 
-    QVector<double>Kngs1{0.0, 0.0};
-    QVector<double>Kngs2{0.0, 0.0};
-    QVector<double>Kngs3{0.0, 0.0};
-    QVector<double>Kngs4{0.0, 0.0};
-    QVector<double>l_gs1{0.0, 0.0};
-    QVector<double>l_gs2{0.0, 0.0};
-    QVector<double>l_gs3{0.0, 0.0};
-    QVector<double>l_gs4{0.0, 0.0};
+        QVector<double>Kngs1{0.0, 0.0};
+        QVector<double>Kngs2{0.0, 0.0};
+        QVector<double>Kngs3{0.0, 0.0};
+        QVector<double>Kngs4{0.0, 0.0};
+        QVector<double>l_gs1{0.0, 0.0};
+        QVector<double>l_gs2{0.0, 0.0};
+        QVector<double>l_gs3{0.0, 0.0};
+        QVector<double>l_gs4{0.0, 0.0};
 
-    static double
-        pgs1,//davlenie gidrozhidkosti v GS1
-        pgs2,//davlenie gidrozhidkosti v GS2
-        pgs3,//davlenie gidrozhidkosti v GS3
-        pgs4;//davlenie gidrozhidkosti v GS4
+        static double
+            pgs1,//davlenie gidrozhidkosti v GS1
+            pgs2,//davlenie gidrozhidkosti v GS2
+            pgs3,//davlenie gidrozhidkosti v GS3
+            pgs4;//davlenie gidrozhidkosti v GS4
 
 
-public:
-    //hydro_int(QWidget *parent = nullptr);
-    hydro_int(){};
-    virtual void updateLogic();
+    public:
+        virtual void updateLogic();
 
-    void hydro_1();
-    void hydro_2();
-    void hydro_3();
-    void hydro_4();
-    void hydro_5();
-    void hydro_6();
-    void hydro_7();
-    void hydro_8();
-    void hydro_9();
+        void hydro_1();
+        void hydro_2();
+        void hydro_3();
+        void hydro_4();
+        void hydro_5();
+        void hydro_6();
+        void hydro_7();
+        void hydro_8();
+        void hydro_9();
 
 };
 

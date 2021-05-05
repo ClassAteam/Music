@@ -1,4 +1,5 @@
 #include "pneumatic_1.h"
+#include <QDeadlineTimer>
 
 
 void pneumatic_int::pneumatic_1()
@@ -79,7 +80,7 @@ void pneumatic_int::pneumatic_1()
     }
 
     static bool firstTimeY1{true};
-    if(exchange::ush1l >= 18.0 && s1_2830)
+    if(exchange::ush1l >= 18.0 && exchange::s1_2830)
     {
         DVslt1 = Vslt * Kslt1;
         Kslt1 = 0.0;
@@ -102,7 +103,7 @@ void pneumatic_int::pneumatic_1()
     }
 
     static bool firstTimeY2{true};
-    if(exchange::ush1p >= 18.0 && s2_2830)
+    if(exchange::ush1p >= 18.0 && exchange::s2_2830)
     {
         DVslt2 = Vslt * Kslt2;
         Kslt2 = 0.0;
@@ -143,7 +144,7 @@ void pneumatic_int::pneumatic_1()
     uks_inst.UKS3X17 = false;
     uks_inst.UKS3X18 = false;
 
-    if(exchange::ush1l >= 18.0 && s1_3650)
+    if(exchange::ush1l >= 18.0 && exchange::s1_3650)
     {
         y1_3650 = true;
         pzsnpb = true;
@@ -160,7 +161,7 @@ void pneumatic_int::pneumatic_1()
         uks_inst.UKS3X17 = true;
     }
 
-    if(exchange::ush1l >= 18.0 && s2_3650)
+    if(exchange::ush1l >= 18.0 && exchange::s2_3650)
     {
         y2_3650 = true;
         pzsnzb = true;

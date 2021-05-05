@@ -7,6 +7,11 @@
 #include <QLineEdit>
 #include <QTimer>
 
+
+extern double TICK;
+const double tS{TICK / 1000};
+
+
 class interfacing : public QWidget
 {
     Q_OBJECT

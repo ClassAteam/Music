@@ -95,7 +95,7 @@ void emergencyalarm_int::emergencyalarm_4()
         }
 
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364 == true)
         {
             PZH913_X1C_b = true;
         }
@@ -122,7 +122,7 @@ void emergencyalarm_int::emergencyalarm_4()
         }
 
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364 == true)
         {
             PZH913_X1E_b = true;
         }
@@ -148,7 +148,7 @@ void emergencyalarm_int::emergencyalarm_4()
             PZH913_X1G = false;
         }
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364 == true)
         {
             PZH913_X1G_b = true;
         }
@@ -176,7 +176,7 @@ void emergencyalarm_int::emergencyalarm_4()
         }
 
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364 == true)
         {
             PZH913_X1J_b = true;
         }
@@ -203,7 +203,7 @@ void emergencyalarm_int::emergencyalarm_4()
         }
 
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364 == true)
         {
             PZH913_X1L_b = true;
         }
@@ -230,7 +230,7 @@ void emergencyalarm_int::emergencyalarm_4()
         }
 
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364 == true)
         {
             PZH913_X1N_b = true;
         }
@@ -257,7 +257,7 @@ void emergencyalarm_int::emergencyalarm_4()
         }
 
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364 == true)
         {
             PZH913_X1T_b = true;
         }
@@ -284,7 +284,7 @@ void emergencyalarm_int::emergencyalarm_4()
         }
 
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364 == true)
         {
             PZH913_X1V_b = true;
         }
@@ -311,7 +311,7 @@ void emergencyalarm_int::emergencyalarm_4()
         }
 
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364 == true)
         {
             PZH913_X1X_b = true;
         }
@@ -338,7 +338,7 @@ void emergencyalarm_int::emergencyalarm_4()
         }
 
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364 == true)
         {
             PZH913_X1Z_b = true;
         }
@@ -365,7 +365,7 @@ void emergencyalarm_int::emergencyalarm_4()
         }
 
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364 == true)
         {
             PZH913_X1b_b = true;
         }
@@ -392,7 +392,7 @@ void emergencyalarm_int::emergencyalarm_4()
         }
 
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364 == true)
         {
             PZH913_X1d_b = true;
         }
@@ -419,7 +419,7 @@ void emergencyalarm_int::emergencyalarm_4()
         }
 
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364 == true)
         {
             PZH913_X1h_b = true;
         }
@@ -446,7 +446,7 @@ void emergencyalarm_int::emergencyalarm_4()
         }
 
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364 == true)
         {
             PZH913_X1j_b = true;
         }
@@ -473,7 +473,7 @@ void emergencyalarm_int::emergencyalarm_4()
         }
 
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364 == true)
         {
             PZH913_X1n_b = true;
         }
@@ -500,7 +500,7 @@ void emergencyalarm_int::emergencyalarm_4()
         }
 
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364 == true)
         {
             PZH913_X1p_b = true;
         }
@@ -527,7 +527,7 @@ void emergencyalarm_int::emergencyalarm_4()
         }
 
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364 == true)
         {
             PZH913_X1r_b = true;
         }
@@ -554,7 +554,7 @@ void emergencyalarm_int::emergencyalarm_4()
         }
 
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364 == true)
         {
             PZH913_X1t_b = true;
         }
@@ -581,7 +581,7 @@ void emergencyalarm_int::emergencyalarm_4()
         }
 
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364 == true)
         {
             PZH913_X1x_b = true;
         }
@@ -608,7 +608,7 @@ void emergencyalarm_int::emergencyalarm_4()
         }
 
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364 == true)
         {
             PZH913_X1z_b = true;
         }
@@ -635,7 +635,7 @@ void emergencyalarm_int::emergencyalarm_4()
         }
 
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364 == true)
         {
             PZH913_X1BB_b = true;
         }
@@ -662,7 +662,7 @@ void emergencyalarm_int::emergencyalarm_4()
         }
 
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364 == true)
         {
             PZH913_X1DD_b = true;
         }
@@ -689,7 +689,7 @@ void emergencyalarm_int::emergencyalarm_4()
         }
 
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364 == true)
         {
             PZH913_X1FF_b = true;
         }
@@ -716,7 +716,7 @@ void emergencyalarm_int::emergencyalarm_4()
         }
 
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364 == true)
         {
             PZH913_X1HH_b = true;
         }
@@ -743,7 +743,7 @@ void emergencyalarm_int::emergencyalarm_4()
         }
 
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364 == true)
         {
             PZH913_X3E_b = true;
         }
@@ -770,7 +770,7 @@ void emergencyalarm_int::emergencyalarm_4()
         }
 
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364 == true)
         {
             PZH913_X3G_b = true;
         }
@@ -834,7 +834,7 @@ void emergencyalarm_int::emergencyalarm_4()
         }
 
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364 == true)
         {
             PK913_X1A_b = true;
         }
@@ -861,7 +861,7 @@ void emergencyalarm_int::emergencyalarm_4()
         }
 
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364 == true)
         {
             PK913_X1R_b = true;
         }
@@ -888,7 +888,7 @@ void emergencyalarm_int::emergencyalarm_4()
         }
 
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364 == true)
         {
             PK913_X1f_b = true;
         }
@@ -915,7 +915,7 @@ void emergencyalarm_int::emergencyalarm_4()
         }
 
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364 == true)
         {
             PK913_X1v_b = true;
         }

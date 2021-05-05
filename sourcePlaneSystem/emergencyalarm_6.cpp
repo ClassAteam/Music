@@ -78,7 +78,7 @@ void emergencyalarm_int::emergencyalarm_6()
         }
 
 
-        if(S2_3364 == true)
+        if(exchange::s2_3364 == true)
         {
             PZH825_X5A_b = true;
         }
@@ -104,7 +104,7 @@ void emergencyalarm_int::emergencyalarm_6()
             PZH825_X5C = false;
         }
 
-        if(S2_3364 == true)
+        if(exchange::s2_3364 == true)
         {
             PZH825_X5C_b = true;
         }
@@ -130,7 +130,7 @@ void emergencyalarm_int::emergencyalarm_6()
             PZH825_X5E = false;
         }
 
-        if(S2_3364 == true)
+        if(exchange::s2_3364 == true)
         {
             PZH825_X5E_b = true;
         }
@@ -156,7 +156,7 @@ void emergencyalarm_int::emergencyalarm_6()
             PZH825_X5G = false;
         }
 
-        if(S2_3364 == true)
+        if(exchange::s2_3364 == true)
         {
             PZH825_X5G_b = true;
         }
@@ -182,7 +182,7 @@ void emergencyalarm_int::emergencyalarm_6()
             PZH_alpha_py_fi_ogrnch = false;
         }
 
-        if(S2_3364 == true)
+        if(exchange::s2_3364 == true)
         {
             PZH_alpha_py_fi_ogrnch_b = true;
         }
@@ -208,7 +208,7 @@ void emergencyalarm_int::emergencyalarm_6()
             PZH_kren_velik_1 = false;
         }
 
-        if(S2_3364 == true)
+        if(exchange::s2_3364 == true)
         {
             PZH_kren_velik_b_1 = true;
         }
@@ -234,7 +234,7 @@ void emergencyalarm_int::emergencyalarm_6()
             PZH_p_bakov_veliko = false;
         }
 
-        if(S2_3364 == true)
+        if(exchange::s2_3364 == true)
         {
             PZH_p_bakov_veliko_b = true;
         }
@@ -260,7 +260,7 @@ void emergencyalarm_int::emergencyalarm_6()
             PZH_razrezh_veliko = false;
         }
 
-        if(S2_3364 == true)
+        if(exchange::s2_3364 == true)
         {
             PZH_razrezh_veliko_b = true;
         }
@@ -327,7 +327,7 @@ void emergencyalarm_int::emergencyalarm_6()
         }
 
 
-        if(S2_3364 == true)
+        if(exchange::s2_3364 == true)
         {
             PK825_X5f_b = true;
         }
@@ -374,7 +374,7 @@ void emergencyalarm_int::emergencyalarm_6()
         }
 
 
-        if(S2_3364 == true)
+        if(exchange::s2_3364 == true)
         {
             PK825_X5h_b = true;
         }
@@ -421,7 +421,7 @@ void emergencyalarm_int::emergencyalarm_6()
         }
 
 
-        if(S2_3364 == true)
+        if(exchange::s2_3364 == true)
         {
             PK825_X5j_b = true;
         }
@@ -468,7 +468,7 @@ void emergencyalarm_int::emergencyalarm_6()
         }
 
 
-        if(S2_3364 == true)
+        if(exchange::s2_3364 == true)
         {
             PK825_X5n_b = true;
         }
@@ -495,7 +495,7 @@ void emergencyalarm_int::emergencyalarm_6()
         }
 
 
-        if(S2_3364 == true)
+        if(exchange::s2_3364 == true)
         {
             PK_V_velika_PL_b = true;
         }
@@ -522,7 +522,7 @@ void emergencyalarm_int::emergencyalarm_6()
         }
 
 
-        if(S2_3364 == true)
+        if(exchange::s2_3364 == true)
         {
             PK_V_mala_PL_b = true;
         }
@@ -549,7 +549,7 @@ void emergencyalarm_int::emergencyalarm_6()
         }
 
 
-        if(S2_3364 == true)
+        if(exchange::s2_3364 == true)
         {
             PK_alpha_py_predel_PL_b = true;
         }

@@ -1,9 +1,5 @@
 #include "hydro_int.h"
 
-//hydro_int::hydro_int(QWidget *parent)
-//    : interfacing(parent)
-//{
-//}
 void hydro_int::updateLogic()
 {
     hydro_1();

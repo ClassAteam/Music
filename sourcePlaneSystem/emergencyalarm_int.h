@@ -1,21 +1,18 @@
 #pragma once
-//#include "interfacing.h"
 #include "algorithms.h"
 #include "bss.h"
 #include "allElCons.h"
 #include "input_feed.h"
 #include "exchange.h"
-extern  double TICK;
-
 
 extern bss bss_inst;
 extern bss bss_inst;
+extern double TICK;
 
 
 
-class emergencyalarm_int// : public interfacing
+class emergencyalarm_int
 {
-    //Q_OBJECT
 public:
     bool
         PCSOKLL,//priznak centralnogo signalnogo ognya(CSO) krasnogo levogo letchika
@@ -26,25 +23,6 @@ public:
         PCSOZHPL,//priznak centralnogo signalnogo ognya(CSO) zheltogo pravogo letchika
         PCSOZHSHN,//priznak centralnogo signalnogo ognya(CSO) zheltogo shturmana navigatora
         PCSOZHSHO,//priznak centralnogo signalnogo ognya(CSO) zheltogo shturmana operatora
-        S1_3364,//knopka-tablo ZSO levogo letchika
-        S2_3364,//knopka-tablo ZSO pravogo letchika
-        S3_3364,//knopka-tablo ZSO shturmana-operatora
-        S4_3364,//knopka-tablo ZSO shturmana-navigatora
-        S5_3364,//knopka KONTR SIGNAL lev letchika
-        S6_3364,//knopka KONTR SIGNAL prav letchika
-        S7_3364,//knopka KONTR SIGNAL shturmana-operatora
-        S8_3364;//knopka KONTR SIGNAL shturmana-navigatora
-
-    double
-        USASLL,
-        USASPL,
-        USASSHN,
-        USASSHO,
-        alpha_rra7ll,
-        alpha_rra7pl,
-        alpha_rra7shn,
-        alpha_rra7sho;
-    bool
         PBVkCSOKSHNy2,
         PBVkCSOZHSHNx2,
         PCSOKLL_1,
@@ -96,8 +74,6 @@ public:
 
 
 public:
-  //  emergencyalarm_int(QWidget *parent = nullptr);
-        emergencyalarm_int(){};
     virtual void updateLogic();
 
     void emergencyalarm_1();

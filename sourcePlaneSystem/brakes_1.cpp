@@ -9,10 +9,10 @@ void brakes_int::brakes_1()
 pgat = exchange::pgat;
     //start logic
     double
-        X_ped11_buf{X_ped11 / 100},
-        X_ped12_buf{X_ped12 / 100},
-        X_ped21_buf{X_ped21 / 100},
-        X_ped22_buf{X_ped22 / 100};
+        X_ped11_buf{exchange::X_ped11 / 100},
+        X_ped12_buf{exchange::X_ped12 / 100},
+        X_ped21_buf{exchange::X_ped21 / 100},
+        X_ped22_buf{exchange::X_ped22 / 100};
 
     if(X_ped11_buf >= X_ped21_buf)
         X_tp_lev = X_ped11_buf;
@@ -73,21 +73,21 @@ pgat = exchange::pgat;
         else
         {
             pbutzo = true;
-            if(S1_3240 == 1)
+            if(exchange::s1_3240 == 1)
             {
                 pavtt = true;
                 PAVT_N = true;
             }
             else
             {
-                if(S1_3240 == 2)
+                if(exchange::s1_3240 == 2)
                 {
                     pavtt = true;
                     PAVT_P = true;
                 }
                 else
                 {
-                    if(S1_3240 == 3)
+                    if(exchange::s1_3240 == 3)
                     {
                         pavtt = true;
                         PAVT_S = true;
@@ -106,7 +106,7 @@ pgat = exchange::pgat;
                 pavtt = false;
             }
 
-            if(S2_3240)
+            if(exchange::s2_3240)
             {
                 PstoyanT = true;
 
@@ -118,7 +118,7 @@ pgat = exchange::pgat;
 
             if(POSH2)
             {
-                if(S3_3240)
+                if(exchange::s3_3240)
                 {
                     PvkFT = true;
                     PFT = true;

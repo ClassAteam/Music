@@ -72,39 +72,39 @@ void emergencyalarm_int::emergencyalarm_9()
     {
         ///////////////Yellow lights
         //////////////1
-        yellow(&bss_inst.BSS838X5A, &bss_inst.BSS838X6A, &PZH838_X5A, &PZH838_X5A_b, &S3_3364);
+        yellow(&bss_inst.BSS838X5A, &bss_inst.BSS838X6A, &PZH838_X5A, &PZH838_X5A_b, &exchange::s3_3364);
         //////////////2
-        yellow(&bss_inst.BSS838X5J, &bss_inst.BSS838X6E, &PZH838_X5J, &PZH838_X5J_b, &S3_3364);
+        yellow(&bss_inst.BSS838X5J, &bss_inst.BSS838X6E, &PZH838_X5J, &PZH838_X5J_b, &exchange::s3_3364);
         //////////////3
-        yellow(&bss_inst.BSS838X5T, &bss_inst.BSS838X6J, &PZH838_X5T, &PZH838_X5T_b, &S3_3364);
+        yellow(&bss_inst.BSS838X5T, &bss_inst.BSS838X6J, &PZH838_X5T, &PZH838_X5T_b, &exchange::s3_3364);
         //////////////4
-        yellow(&bss_inst.BSS838X5V, &bss_inst.BSS838X6K, &PZH838_X5V, &PZH838_X5V_b, &S3_3364);
+        yellow(&bss_inst.BSS838X5V, &bss_inst.BSS838X6K, &PZH838_X5V, &PZH838_X5V_b, &exchange::s3_3364);
         //////////////5
-        yellow(&bss_inst.BSS838X5Z, &bss_inst.BSS838X6M, &PZH838_X5Z, &PZH838_X5Z_b, &S3_3364);
+        yellow(&bss_inst.BSS838X5Z, &bss_inst.BSS838X6M, &PZH838_X5Z, &PZH838_X5Z_b, &exchange::s3_3364);
         //////////////6
-        yellow(&bss_inst.BSS838X5d, &bss_inst.BSS838X6P, &PZH838_X5d, &PZH838_X5d_b, &S3_3364);
+        yellow(&bss_inst.BSS838X5d, &bss_inst.BSS838X6P, &PZH838_X5d, &PZH838_X5d_b, &exchange::s3_3364);
         //////////////7
-        yellow(&bss_inst.BSS838X5h, &bss_inst.BSS838X6S, &PZH838_X5h, &PZH838_X5h_b, &S3_3364);
+        yellow(&bss_inst.BSS838X5h, &bss_inst.BSS838X6S, &PZH838_X5h, &PZH838_X5h_b, &exchange::s3_3364);
         //////////////8
-        yellow(&bss_inst.BSS838X5n, &bss_inst.BSS838X6U, &PZH838_X5n, &PZH838_X5n_b, &S3_3364);
+        yellow(&bss_inst.BSS838X5n, &bss_inst.BSS838X6U, &PZH838_X5n, &PZH838_X5n_b, &exchange::s3_3364);
         //////////////9
-        yellow(&bss_inst.BSS838X5p, &bss_inst.BSS838X6V, &PZH838_X5p, &PZH838_X5p_b, &S3_3364);
+        yellow(&bss_inst.BSS838X5p, &bss_inst.BSS838X6V, &PZH838_X5p, &PZH838_X5p_b, &exchange::s3_3364);
         //////////////10
-        yellow(&bss_inst.BSS838X5v, &bss_inst.BSS838X6Y, &PZH838_X5v, &PZH838_X5v_b, &S3_3364);
+        yellow(&bss_inst.BSS838X5v, &bss_inst.BSS838X6Y, &PZH838_X5v, &PZH838_X5v_b, &exchange::s3_3364);
         //////////////11
-        yellow(&bss_inst.BSS838X5z, &bss_inst.BSS838X6a, &PZH838_X5z, &PZH838_X5z_b, &S3_3364);
+        yellow(&bss_inst.BSS838X5z, &bss_inst.BSS838X6a, &PZH838_X5z, &PZH838_X5z_b, &exchange::s3_3364);
         //////////////12
-        yellow(&bss_inst.BSS838X5DD, &bss_inst.BSS838X6c, &PZH838_X5DD, &PZH838_X5DD_b, &S3_3364);
+        yellow(&bss_inst.BSS838X5DD, &bss_inst.BSS838X6c, &PZH838_X5DD, &PZH838_X5DD_b, &exchange::s3_3364);
         //////////////13
-        yellow(&bss_inst.BSS838X5HH, &bss_inst.BSS838X6e, &PZH838_X5HH, &PZH838_X5HH_b, &S3_3364);
+        yellow(&bss_inst.BSS838X5HH, &bss_inst.BSS838X6e, &PZH838_X5HH, &PZH838_X5HH_b, &exchange::s3_3364);
         //////////////14
-        yellow(&bss_inst.BSS838X7E, &bss_inst.BSS838X6j, &PZH838_X7E, &PZH838_X7E_b, &S3_3364);
+        yellow(&bss_inst.BSS838X7E, &bss_inst.BSS838X6j, &PZH838_X7E, &PZH838_X7E_b, &exchange::s3_3364);
         //////////////15
-        yellow(&bss_inst.BSS838X7J, &bss_inst.BSS838X6m, &PZH838_X7J, &PZH838_X7J_b, &S3_3364);
+        yellow(&bss_inst.BSS838X7J, &bss_inst.BSS838X6m, &PZH838_X7J, &PZH838_X7J_b, &exchange::s3_3364);
         //////////////16
-        yellow(&bss_inst.BSS838X7R, &bss_inst.BSS838X6q, &PZH838_X7R, &PZH838_X7R_b, &S3_3364);
+        yellow(&bss_inst.BSS838X7R, &bss_inst.BSS838X6q, &PZH838_X7R, &PZH838_X7R_b, &exchange::s3_3364);
         //////////////17
-        yellow(&bss_inst.BSS838X7T, &bss_inst.BSS838X6r, &PZH838_X7T, &PZH838_X7T_b, &S3_3364);
+        yellow(&bss_inst.BSS838X7T, &bss_inst.BSS838X6r, &PZH838_X7T, &PZH838_X7T_b, &exchange::s3_3364);
 
         //PCSOZHSHO toggle
         if(  PZH838_X5A == true  ||
@@ -136,21 +136,21 @@ void emergencyalarm_int::emergencyalarm_9()
 
         ///////////////Red lights
         //////////////1
-        yellow(&bss_inst.BSS838X5E, &bss_inst.BSS838X6C, &PK838_X5E, &PK838_X5E_b, &S3_3364);
+        yellow(&bss_inst.BSS838X5E, &bss_inst.BSS838X6C, &PK838_X5E, &PK838_X5E_b, &exchange::s3_3364);
         //////////////2
-        yellow(&bss_inst.BSS838X5N, &bss_inst.BSS838X6G, &PK838_X5N, &PK838_X5N_b, &S3_3364);
+        yellow(&bss_inst.BSS838X5N, &bss_inst.BSS838X6G, &PK838_X5N, &PK838_X5N_b, &exchange::s3_3364);
         //////////////3
-        yellow(&bss_inst.BSS838X5MM, &bss_inst.BSS838X6g, &PK838_X5MM, &PK838_X5MM_b, &S3_3364);
+        yellow(&bss_inst.BSS838X5MM, &bss_inst.BSS838X6g, &PK838_X5MM, &PK838_X5MM_b, &exchange::s3_3364);
         //////////////4
-        yellow(&bss_inst.BSS838X7A, &bss_inst.BSS838X6h, &PK838_X7A, &PK838_X7A_b, &S3_3364);
+        yellow(&bss_inst.BSS838X7A, &bss_inst.BSS838X6h, &PK838_X7A, &PK838_X7A_b, &exchange::s3_3364);
         //////////////5
-        yellow(&bss_inst.BSS838X7C, &bss_inst.BSS838X6i, &PK838_X7C, &PK838_X7C_b, &S3_3364);
+        yellow(&bss_inst.BSS838X7C, &bss_inst.BSS838X6i, &PK838_X7C, &PK838_X7C_b, &exchange::s3_3364);
         //////////////6
-        yellow(&bss_inst.BSS838X7G, &bss_inst.BSS838X6k, &PK838_X7G, &PK838_X7G_b, &S3_3364);
+        yellow(&bss_inst.BSS838X7G, &bss_inst.BSS838X6k, &PK838_X7G, &PK838_X7G_b, &exchange::s3_3364);
         //////////////7
-        yellow(&bss_inst.BSS838X7L, &bss_inst.BSS838X6n, &PK838_X7L, &PK838_X7L_b, &S3_3364);
+        yellow(&bss_inst.BSS838X7L, &bss_inst.BSS838X6n, &PK838_X7L, &PK838_X7L_b, &exchange::s3_3364);
         //////////////8
-        yellow(&bss_inst.BSS838X7N, &bss_inst.BSS838X6p, &PK838_X7N, &PK838_X7N_b, &S3_3364);
+        yellow(&bss_inst.BSS838X7N, &bss_inst.BSS838X6p, &PK838_X7N, &PK838_X7N_b, &exchange::s3_3364);
 
         //PCSOZHSHO toggle
         if(
@@ -188,7 +188,7 @@ void emergencyalarm_int::emergencyalarm_9()
         /// 8
         white(&bss_inst.BSS838X5f, &bss_inst.BSS838X6R);
         /// 9
-        white(&bss_inst.BSS838X5i, &bss_inst.BSS838X6T);
+        white(&bss_inst.BSS838X5j, &bss_inst.BSS838X6T);
         /// 10
         white(&bss_inst.BSS838X5x, &bss_inst.BSS838X6Z);
         /// 11

@@ -146,7 +146,7 @@ void powerdc_int::powerdc_8()
 
     if(uak1 >= 18.0)
     {
-        if(s14_2430)
+        if(exchange::s14_2430)
         {
             if(purg27lk4)
             {
@@ -175,7 +175,7 @@ void powerdc_int::powerdc_8()
 
     if(uak2 >= 18.0)
     {
-        if(s15_2430)
+        if(exchange::s15_2430)
         {
             if(purg27pk4)
             {

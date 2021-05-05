@@ -1,5 +1,4 @@
 #pragma once
-//#include "interfacing.h"
 #include "bss.h"
 #include "uks.h"
 #include "allElCons.h"
@@ -9,9 +8,8 @@
 extern bss bss_inst;
 extern uks uks_inst;
 
-class wingsmech_int// : public interfacing
+class wingsmech_int
 {
-   // Q_OBJECT
 public:
     static bool S1_2750;//kolpachek vikluchately "REZERVNOE UPRAVLENIE ZAKRILKI"
 
@@ -116,9 +114,6 @@ public:
     enum s2_2790_pos{off, bolshe, menshe};
 
 public:
-    //wingsmech_int(QWidget *parent = nullptr);
-    wingsmech_int(){};
-
     virtual void updateLogic();
 
     void wingsmech_1();

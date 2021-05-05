@@ -24,7 +24,7 @@ void landinggear_int::landinggear_11_12() //actually 11th and 12th
         if(exchange::delta_z == 0)
             K7_3250 = true;
 
-        if(S1_3250)
+        if(exchange::s1_3250)
         {
             if(delta_sh_n == 1.0)
                 A1X166_3250 = true;
@@ -34,7 +34,7 @@ void landinggear_int::landinggear_11_12() //actually 11th and 12th
                 A1X119_3250 = true;
                 K3_3250 = true;
             }
-            if(S4_3250)
+            if(exchange::s4_3250)
                 K5_3250 = true;
             else
             {
@@ -86,7 +86,7 @@ void landinggear_int::landinggear_11_12() //actually 11th and 12th
         bss_inst.BSS812X5x = false;
     }
 
-    if(S1_3250)
+    if(exchange::s1_3250)
     {
         if(delta_sh_n == 1.0)
             A2X166_3250 = true;
@@ -97,7 +97,7 @@ void landinggear_int::landinggear_11_12() //actually 11th and 12th
             K4_3250 = true;
         }
 
-        if(S4_3250)
+        if(exchange::s4_3250)
             K6_3250 = true;
         else
         {

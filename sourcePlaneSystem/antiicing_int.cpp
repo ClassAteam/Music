@@ -1,10 +1,5 @@
 #include "antiicing_int.h"
 
-//antiicing_int::antiicing_int(QWidget *parent)
-//    : interfacing(parent)
-//{
-//}
-
 void antiicing_int::updateLogic()
 {
     antiicing_1();

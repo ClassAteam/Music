@@ -2,10 +2,10 @@
 
 void hydro_int::hydro_1()
 {
-//    nVDfirst2[0] = exchange::eng1_spd;
-//    nVDfirst2[1] = exchange::eng2_spd;
-//    nVDsecond2[0] = exchange::eng3_spd;
-//    nVDsecond2[1] = exchange::eng4_spd;
+    nVDfirst2[0] = exchange::eng1_spd;
+    nVDfirst2[1] = exchange::eng2_spd;
+    nVDsecond2[0] = exchange::eng3_spd;
+    nVDsecond2[1] = exchange::eng4_spd;
 
     //logic start
     K9_2910 = false;

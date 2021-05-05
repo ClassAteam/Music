@@ -207,7 +207,7 @@ void brakes_int::brakes_3()
             {
                 Pavart = 0;
 
-                if(PORST && S2_3240 && exchange::K35_3230 &&
+                if(PORST && exchange::s2_3240 && exchange::K35_3230 &&
                     exchange::K27_3230 && exchange::K26_3230)
                     PstoyanT = true;
             }

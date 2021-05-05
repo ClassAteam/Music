@@ -66,7 +66,7 @@ void antifire_int::antifire_1()
         K28_2610 = false;
 
     // motogandol's manual switching 1
-    if (F72_2610)
+    if(F72_2610)
     {
         if(!S3_2610 && !K15_2610)
             K15_2610 = false;
@@ -77,7 +77,7 @@ void antifire_int::antifire_1()
         K15_2610 = false;
 
     // motogandol's manual switching 2
-    if (F72_2610)
+    if(F72_2610)
     {
         if (!S4_2610 && !K19_2610)
             K19_2610 = false;
@@ -91,7 +91,7 @@ void antifire_int::antifire_1()
     // motogandol's manual switching 3
     if(F82_2610)
     {
-        if (!S7_2610 && K25_2610)
+        if (!S7_2610 && !K25_2610)
             K25_2610 = false;
         else
             K25_2610 = true;
@@ -101,7 +101,7 @@ void antifire_int::antifire_1()
         K25_2610 = false;
 
     // motogandol's manual switching 4
-    if (F82_2610)
+    if(F82_2610)
     {
         if (!S8_2610 && !K27_2610)
             K27_2610 = false;
@@ -125,13 +125,12 @@ void antifire_int::antifire_1()
     //F2-5 contact
     if(F132_2610)
     {
-        if (K16_2610 || K15_2610)
+        if(K16_2610 || K15_2610)
         {
             F25_2610 = true;
         }
         else
         {
-
             if(F142_2610)
             {
                 if(K15_2610)
@@ -158,7 +157,6 @@ void antifire_int::antifire_1()
                     F35_2610 = false;
             }
         }
-
     }
     else
     {

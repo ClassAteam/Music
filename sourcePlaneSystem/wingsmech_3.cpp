@@ -167,7 +167,7 @@ void wingsmech_int::wingsmech_3()
     ///////////////////////////////////////2nd list
     ///
 
-    if(prr1kpchk == true)
+    if(prr1kpchk)
     {
         switch(s2_2790)
         {

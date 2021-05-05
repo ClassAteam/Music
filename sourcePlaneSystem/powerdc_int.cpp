@@ -1,10 +1,5 @@
 #include "powerdc_int.h"
 
-
-//powerdc_int::powerdc_int(QWidget *parent)
-//    : interfacing(parent)
-//{
-//}
 void powerdc_int::updateLogic()
 {
     powerdc_1();
@@ -38,12 +33,10 @@ bool powerdc_int::prg3{};
 bool powerdc_int::prg4{};
 bool powerdc_int::prgvsu{};
 bool powerdc_int::ppgvsu27{};
-bool powerdc_int::s15_2430{};
 bool powerdc_int::plp27{};
 bool powerdc_int::ppp27{};
 bool powerdc_int::pss27{};
 bool powerdc_int::pvkgvsu27{};
-bool powerdc_int::s14_2430{};
 bool powerdc_int::purg27lk1{};
 bool powerdc_int::purg27pk1{};
 bool powerdc_int::purg27pk3{};

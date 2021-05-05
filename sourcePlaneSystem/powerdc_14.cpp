@@ -11,7 +11,7 @@ void powerdc_int::powerdc_14()
     else
         k17_2420 = true;
 
-    if(exchange::ush2dpl >= 18.0 && f46_2420 && s15_2420)
+    if(exchange::ush2dpl >= 18.0 && f46_2420 && exchange::s15_2420)
         k15_2420 = true;
     else
         k15_2420 = false;

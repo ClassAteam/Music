@@ -22,7 +22,7 @@ static int
 
     double* krg_pool[] = {&krg, &krg, &krg, &krg, &krgvsu};
     double* kg_pool[] = {&kg1, &kg1, &kg1, &kg1, &kgvsu};
-    bool* s4_pool[] = {&s4_2430, &s5_2430, &s8_2430, &s11_2430};
+    bool* s4_pool[] = {&exchange::s4_2430, &exchange::s5_2430, &exchange::s8_2430, &exchange::s11_2430};
     bool* pvkg_pool[] = {&pvkg1, &pvkg2, &pvkg3, &pvkg4, &pvkgvsu27};
     bool* pbg_pool[] = {&pbg1, &pbg2, &pbg3, &pbg4, &pbgvsu27};
     bool* prg_pool[] = {&prg1, &prg2, &prg3, &prg4, &prgvsu27};
@@ -76,7 +76,7 @@ static int
         }
     }
 
-    if(exchange::ushal >= 18.0 && s1_2430 == true && bss_inst.BSS812X5t == true)
+    if(exchange::ushal >= 18.0 && exchange::s1_2430 == true && bss_inst.BSS812X5t == true)
     {
         pvkgvsu27 = true;
     }

@@ -1,10 +1,5 @@
 #include "brakes_int.h"
 
-//brakes_int::brakes_int(QWidget *parent)
-//    : interfacing(parent)
-//{
-//}
-
 void brakes_int::updateLogic()
 {
     brakes_1();

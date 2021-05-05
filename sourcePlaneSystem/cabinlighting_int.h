@@ -1,19 +1,14 @@
 #pragma once
-//#include "interfacing.h"
 #include "bss.h"
 #include "allElCons.h"
 #include "input_feed.h"
 #include "exchange.h"
 #include "algorithms.h"
-extern double TICK;
-
 
 extern bss bss_inst;
 
-class cabinlighting_int// : public interfacing
+class cabinlighting_int
 {
-    //Q_OBJECT
-
 public:
     bool
         PK11PBLLZO,//priznak podklyucheniya kanala 1 svetil'nikov zalivayushego osvesheniya pulta bortovogo levogo letchika
@@ -133,8 +128,6 @@ public:
         UZOSPPS1;
 
 public:
-    //cabinlighting_int(QWidget *parent = nullptr);
-    cabinlighting_int(){};
     virtual void updateLogic();
 
     void cabinlighting_1();

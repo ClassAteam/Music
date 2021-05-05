@@ -106,7 +106,7 @@ void brakes_int::brakes_5()
     {
         if(otkaz_avt_per_na_rt)
         {
-            if(S1_3241)
+            if(exchange::s1_3241)
                 bss_inst.BSS812_vkl_rt = true;
             else
                 bss_inst.BSS812_vkl_rt = false;
@@ -115,7 +115,7 @@ void brakes_int::brakes_5()
         {
             if(PORST)
             {
-                if(S1_3241)
+                if(exchange::s1_3241)
                     bss_inst.BSS812_vkl_rt = true;
                 else
                     bss_inst.BSS812_vkl_rt = false;

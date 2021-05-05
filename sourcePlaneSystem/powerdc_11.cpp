@@ -62,7 +62,7 @@ allElConsAlt_inst.makeCorresCurr();
                              &exchange::ush1dpp, &exchange::ush1dpp};
     double* ushdpp_pool[] = {&exchange::ush1dpp, &exchange::ush1dpp,
                              &exchange::ush1dpl, &exchange::ush1dpl};
-    bool* s1_pool[] = {&s1_7710, &s2_7710, &s3_7710, &s4_7710};
+    bool* s1_pool[] = {&exchange::s1_7710, &exchange::s2_7710, &exchange::s3_7710, &exchange::s4_7710};
 
     for(int i = 0; i < 4; i++)
     {

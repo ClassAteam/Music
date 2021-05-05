@@ -6,9 +6,15 @@ void antifire_int::antifire_3()
     if (exchange::ushal >= 18.0)
     {
         if(K50_2610 || K51_2610 || lzh_srab_pereg_1_dv)
+        {
             bss_inst.BSS811X1p = true;
+            uks_inst.UKS3X314 = true;
+        }
         else
+        {
             bss_inst.BSS811X1p = false;
+            uks_inst.UKS3X314 = false;
+        }
     }
 
     if((exchange::ushal >= 18.0) && K50_2610 && K51_2610)

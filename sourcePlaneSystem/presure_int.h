@@ -1,12 +1,11 @@
 #pragma once
-//#include "interfacing.h"
 #include "bss.h"
 #include "uks.h"
 #include "exchange.h"
 #include "algorithms.h"
 #include "math.h"
-extern double TICK;
 
+extern double TICK;
 extern bss bss_inst;
 extern uks uks_inst;
 
@@ -16,10 +15,8 @@ extern double b1;
 extern double b2;
 
 
-class presure_int// : public interfacing
+class presure_int
 {
-   // Q_OBJECT
-
 public:
     double
         H{},//visota poleta
@@ -56,11 +53,7 @@ public:
         Pkab_zad{};
 
 public:
-   // presure_int(QWidget *parent = nullptr);
-        presure_int(){};
-
     virtual void updateLogic();
 
     void presure();
-
 };

@@ -9,7 +9,7 @@ void powerdc_int::powerdc_12()
     double* ug_pool[] = {&ug1, &ug2, &ug3, &ug4, &ugvsu};
     double* ushal_pool[] = {&exchange::ushal, &exchange::ushal,
                             &exchange::ushap, &exchange::ushap};
-    bool* s1_pool[] = { &s1_2420, &s5_2420, &s10_2420, &s13_2420};
+    bool* s1_pool[] = { &exchange::s1_2420, &exchange::s5_2420, &exchange::s10_2420, &exchange::s13_2420};
     bool* otk_pool[] = {&otkGenPerT1, &otkGenPerT2, &otkGenPerT3, &otkGenPerT4};
 
 
@@ -59,7 +59,7 @@ void powerdc_int::powerdc_12()
 
     if(exchange::ushal >= 18.0)
     {
-        if(s8_2420)
+        if(exchange::s8_2420)
         {
             pvkgen[4] = true;
         }
@@ -128,7 +128,7 @@ void powerdc_int::powerdc_12()
     purgpk4 = false;
     purgpk5 = false;
 
-    if(s4_2420)
+    if(exchange::s4_2420)
     {
         purgk1 = false;
         purgk21 = false;
@@ -150,7 +150,7 @@ void powerdc_int::powerdc_12()
         }
     }
 
-    if(s12_2420)
+    if(exchange::s12_2420)
     {
         purgk31 = false;
         purgk41 = false;

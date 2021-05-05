@@ -4,7 +4,6 @@
 
 void m_switch(bool* toggler, bool* toggling);
 
-extern  double TICK;
 
 
 

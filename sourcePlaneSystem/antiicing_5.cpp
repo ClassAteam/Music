@@ -6,9 +6,10 @@ void antiicing_int::antiicing_5()
     //K1_3040 toggle
     K1_3040 = false;
 
-    if(exchange::ush1l >= 18.0 && S2_3040)
+    if(exchange::ush1l >= 18.0 && exchange::s2_3040)
     {
-        if(exchange::PRD1dv && exchange::PRD4dv && exchange::F32_3250)
+        if(exchange::PRD1dv && exchange::PRD4dv &&
+            (landinggear_int::K5_3250 || landinggear_int::K6_3250))
             K1_3040 = true;
 
         if(!K26_3230)
@@ -26,9 +27,10 @@ void antiicing_int::antiicing_5()
     //K2_3040 toggle
     K2_3040 = false;
 
-    if(usho1p >= 18.0 && S4_3040)
+    if(usho1p >= 18.0 && exchange::s4_3040)
     {
-        if (exchange::PRD2dv == true &&  exchange::PRD3dv && F42_3250)
+        if (exchange::PRD2dv == true &&  exchange::PRD3dv &&
+            (landinggear_int::K5_3250 || landinggear_int::K6_3250))
             K2_3040 = true;
 
         if(!K24_3230)
@@ -46,9 +48,10 @@ void antiicing_int::antiicing_5()
     //K3_3040 toggle
     K3_3040 = false;
 
-    if(exchange::usho2p >= 18.0 && S6_3040)
+    if(exchange::usho2p >= 18.0 && exchange::s6_3040)
     {
-        if (exchange::PRD2dv &&  exchange::PRD3dv && F42_3250)
+        if (exchange::PRD2dv &&  exchange::PRD3dv &&
+            (landinggear_int::K5_3250 || landinggear_int::K6_3250))
             K3_3040 = true;
 
         if(!K24_3230)
@@ -68,72 +71,46 @@ void antiicing_int::antiicing_5()
     F12_3040 = false;
     F13_3040 = false;
 
-    if(usho1p >= 18.0 && S8_3040)
+    if(usho1p >= 18.0 && exchange::s8_3040)
     {
         if(!exchange::PRD1dv && !exchange::PRD2dv && !exchange::PRD3dv && !exchange::PRD4dv)
         {
-            switch(S7_3040)
+            switch(exchange::s7_3040)
             {
-            case(s7_3040_pos::lev):
+            case(static_cast<int>(exchange::s7_3040::lev)):
                 F11_3040 = true;
-                break;
-            case(s7_3040_pos::lob):
+            break;
+            case(static_cast<int>(exchange::s7_3040::lob)):
                 F12_3040 = true;
-                break;
-            case(s7_3040_pos::prav):
+            break;
+            case(static_cast<int>(exchange::s7_3040::prav)):
                 F13_3040 = true;
-                break;
-            }
-
-            obogrev_stekol_ispr = true;
-
-            // F11_3040, F12_3040, F13_3040 toggle with matching K'es
-            // and switch positions
-            //1
-            if(S7_3040 == s7_3040_pos::lev)
-            {
-                if(K1_3040) F11_3040 = true;
-                else obogrev_stekol_ispr = true;
-            }
-            //2
-            if(S7_3040 == s7_3040_pos::lob)
-            {
-                if(K2_3040) F12_3040 = true;
-                else obogrev_stekol_ispr = true;
-            }
-            //3
-            if(S7_3040 == s7_3040_pos::prav)
-            {
-                if(K3_3040) F13_3040 = true;
-                else obogrev_stekol_ispr = true;
+            break;
             }
         }
-        else
+
+        obogrev_stekol_ispr = false;
+        // F11_3040, F12_3040, F13_3040 toggle with matching K'es
+        // and switch positions
+        //1
+        if(exchange::s7_3040 == static_cast<int>(exchange::s7_3040::lev))
         {
-            obogrev_stekol_ispr = false;
-            // F11_3040, F12_3040, F13_3040 toggle with matching K'es
-            // and switch positions
-            //1
-            if(S7_3040 == s7_3040_pos::lev)
-            {
-                if(K1_3040) F11_3040 = true;
-                else obogrev_stekol_ispr = true;
-            }
-            //2
-            if (S7_3040 == s7_3040_pos::lob)
-            {
-                if(K2_3040) F12_3040 = true;
-                else obogrev_stekol_ispr = true;
-            }
-            //3
-            if(S7_3040 == s7_3040_pos::prav)
-            {
-                if(K3_3040) F13_3040 = true;
-                else obogrev_stekol_ispr = true;
-            }
+            if(K1_3040) F11_3040 = true;
+            obogrev_stekol_ispr = true;
+        }
+        //2
+        if(exchange::s7_3040 == static_cast<int>(exchange::s7_3040::lob))
+        {
+            if(K2_3040) F12_3040 = true;
+            obogrev_stekol_ispr = true;
+        }
+        //3
+        if(exchange::s7_3040 == static_cast<int>(exchange::s7_3040::prav))
+        {
+            if(K3_3040) F13_3040 = true;
+            obogrev_stekol_ispr = true;
         }
     }
     else
-        obogrev_stekol_ispr = true;
-
+        obogrev_stekol_ispr = false;
 }

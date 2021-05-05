@@ -41,7 +41,7 @@ void powerdc_int::powerdc_2_3() //2 //3
         urap1 = 0;
         urap2 = 0;
     }
-    if(exchange::ushal >= 18.0 && pprap1 == true && s2_2430 == true)
+    if(exchange::ushal >= 18.0 && pprap1 == true && exchange::s2_2430 == true)
     {
         purg27lk4 = true;
     }
@@ -50,7 +50,7 @@ void powerdc_int::powerdc_2_3() //2 //3
         purg27lk4 = false;
     }
 
-    if(exchange::ushap >= 18.0 && pprap2 == true && s9_2430 == true)
+    if(exchange::ushap >= 18.0 && pprap2 == true && exchange::s9_2430 == true)
     {
         purg27pk4 = true;
     }
@@ -59,7 +59,7 @@ void powerdc_int::powerdc_2_3() //2 //3
         purg27pk4 = false;
     }
 
-    if(s13_2430 == s13_2430_pos::air)
+    if(exchange::s13_2430 == static_cast<int>(exchange::s13_2430::air))
     {
         purg27lk4 = false;
         purg27pk4 = false;
@@ -80,7 +80,7 @@ void powerdc_int::powerdc_2_3() //2 //3
         }
     }
 
-    if(uak1 >= 18.0 && s14_2430 == true)
+    if(uak1 >= 18.0 && exchange::s14_2430)
     {
         purg27lk5 = true;
     }
@@ -89,7 +89,7 @@ void powerdc_int::powerdc_2_3() //2 //3
         purg27lk5 = false;
     }
 
-    if(uak2 >= 18.0 && s15_2430 == true)
+    if(uak2 >= 18.0 && exchange::s15_2430 == true)
     {
         purg27pk5 = true;
     }
@@ -129,13 +129,13 @@ void powerdc_int::powerdc_2_3() //2 //3
     {
         if(!plp27 && !ppp27)
         {
-            if(s7_2430)
+            if(exchange::s7_2430)
             {
                 purg27pk3 = true;
             }
             else
             {
-                if(s13_2430 == s13_2430_pos::air)
+                if(exchange::s13_2430 == static_cast<int>(exchange::s13_2430::air))
                     purg27pk3 = true;
             }
         }
@@ -172,7 +172,7 @@ void powerdc_int::powerdc_2_3() //2 //3
         }
         else
         {
-            if(exchange::ush1dpl >= 18.0 && s7_2430 == true)
+            if(exchange::ush1dpl >= 18.0 && exchange::s7_2430 == true)
             {
                 purg27pk1 = true;
                 purg27pk7 = true;
@@ -200,7 +200,7 @@ void powerdc_int::powerdc_2_3() //2 //3
             purg27pk9 = true;
 //            ppp27 = true;
 
-            if(exchange::ush1dpp >= 18.0 && s7_2430 == true)
+            if(exchange::ush1dpp >= 18.0 && exchange::s7_2430 == true)
             {
                 purg27lk1 = true;
                 purg27lk7 = true;
@@ -245,7 +245,7 @@ void powerdc_int::powerdc_2_3() //2 //3
         }
         else
         {
-            if(exchange::ush1dpl >= 18.0 && s7_2430)
+            if(exchange::ush1dpl >= 18.0 && exchange::s7_2430)
             {
                 purg27pk1 = true;
                 purg27pk7 = true;
@@ -268,7 +268,7 @@ void powerdc_int::powerdc_2_3() //2 //3
 //            purg27pk4 = false;
 //            ppp27 = true;
 
-            if(exchange::ush1dpp >= 18.0 && s7_2430)
+            if(exchange::ush1dpp >= 18.0 && exchange::s7_2430)
             {
                 purg27lk1 = true;
                 purg27lk7 = true;
@@ -368,7 +368,7 @@ void powerdc_int::powerdc_2_3() //2 //3
 
                     plp27 = true;
 
-                    if(s7_2430 == true)
+                    if(exchange::s7_2430 == true)
                     {
 //                        purg27pk5 = false;
                         purg27pk3 = true;
@@ -432,13 +432,13 @@ void powerdc_int::powerdc_2_3() //2 //3
     pvkchrl = false;
     pvkchrp = false;
 
-    if(prg1 && prg2 && s3_2430)
+    if(prg1 && prg2 && exchange::s3_2430)
     {
         purg27lk7 = false;
         pvkchrl = true;
     }
 
-    if(prg3 && prg4 && s10_2430)
+    if(prg3 && prg4 && exchange::s10_2430)
     {
         purg27pk7 = false;
         pvkchrp = true;

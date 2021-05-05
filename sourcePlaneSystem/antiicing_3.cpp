@@ -242,7 +242,7 @@ static int
     else
         PVOVNA2 = false;
 
-    if (exchange::ush1l >= 18.0 && S3_3080)
+    if (exchange::ush1l >= 18.0 && exchange::s3_3080)
         PVOVNA1 = true;
     else
         PVOVNA1 = false;

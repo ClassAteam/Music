@@ -99,60 +99,39 @@ static bool
     PB_neytral_kurs_b;
 
     if (exchange::ush1dpl >= 18.0 && exchange::ush1dpp >= 18.0)
-    {
         PRBSS_811 = true;
-    }
     else
-    {
         PRBSS_811 = false;
-    }
 
     if (exchange::ush2dpl >= 18.0 && exchange::ush2dpp >= 18.0)
-    {
         PRBSS_812 = true;
-    }
     else
-    {
         PRBSS_812 = false;
-    }
 
-    if ((exchange::ush2dpl >= 18.0) && (exchange::ush2dpp >= 18.0) && (S5_3364 == true))
-    {
+    if ((exchange::ush2dpl >= 18.0) && (exchange::ush2dpp >= 18.0) && (exchange::s5_3364))
         PKLLL = true;
-    }
     else
-    {
         PKLLL = false;
-    }
 
-    if ((exchange::ush1dpl >= 18.0) && (exchange::ush1dpp >= 18.0))
-    {
-        USASLL = two_points_to_Y(alpha_rra7ll, 0, 1, 0.75, 1);
-    }
+//    if ((exchange::ush1dpl >= 18.0) && (exchange::ush1dpp >= 18.0))
+//        USASLL = two_points_to_Y(alpha_rra7ll, 0, 1, 0.75, 1);
 
     if (exchange::ush2dpl >= 18.0 && exchange::ush2dpp >= 18.0)
-    {
         PRBSS_913 = true;
-    }
     else
-    {
         PRBSS_913 = false;
-    }
+
     if (PRBSS_811)
     {
         ///////////////Yellow lights
         //////////////1
-        if (bss_inst.BSS811X1B == true)
+        if(bss_inst.BSS811X1B)
         {
             bss_inst.BSS811X2A = true;
-            if(PZH811_X1B_b == true)
-            {
+            if(PZH811_X1B_b)
                 PZH811_X1B = false;
-            }
             else
-            {
                 PZH811_X1B = true;
-            }
         }
         else
         {
@@ -162,24 +141,18 @@ static bool
         }
 
 
-        if(S1_3364 == true)
-        {
+        if(exchange::s1_3364)
             PZH811_X1B_b = true;
-        }
 
         ///////////////Yellow lights
         //////////////2
-        if (bss_inst.BSS811X1D == true)
+        if (bss_inst.BSS811X1D)
         {
             bss_inst.BSS811X2B = true;
-            if(PZH811_X1D_b == true)
-            {
+            if(PZH811_X1D_b)
                 PZH811_X1D = false;
-            }
             else
-            {
                 PZH811_X1D = true;
-            }
         }
         else
         {
@@ -189,16 +162,16 @@ static bool
         }
 
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364)
         {
             PZH811_X1D_b = true;
         }
         ///////////////Yellow lights
         //////////////3
-        if (bss_inst.BSS811X1N == true)
+        if (bss_inst.BSS811X1N)
         {
             bss_inst.BSS811X2G = true;
-            if(PZH811_X1N_b == true)
+            if(PZH811_X1N_b)
             {
                 PZH811_X1N = false;
             }
@@ -215,17 +188,17 @@ static bool
         }
 
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364)
         {
             PZH811_X1N_b = true;
         }
 
         ///////////////Yellow lights
         //////////////4
-        if (bss_inst.BSS811X1R == true)
+        if (bss_inst.BSS811X1R)
         {
             bss_inst.BSS811X2H = true;
-            if(PZH811_X1R_b == true)
+            if(PZH811_X1R_b)
             {
                 PZH811_X1R = false;
             }
@@ -242,17 +215,17 @@ static bool
         }
 
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364)
         {
             PZH811_X1R_b = true;
         }
 
         ///////////////Yellow lights
         //////////////5
-        if (bss_inst.BSS811X1T == true)
+        if (bss_inst.BSS811X1T)
         {
             bss_inst.BSS811X2J = true;
-            if(PZH811_X1T_b == true)
+            if(PZH811_X1T_b)
             {
                 PZH811_X1T = false;
             }
@@ -269,17 +242,17 @@ static bool
         }
 
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364)
         {
             PZH811_X1T_b = true;
         }
 
         ///////////////Yellow lights
         //////////////6
-        if (bss_inst.BSS811X1V == true)
+        if (bss_inst.BSS811X1V)
         {
             bss_inst.BSS811X2K = true;
-            if(PZH811_X1V_b == true)
+            if(PZH811_X1V_b)
             {
                 PZH811_X1V = false;
             }
@@ -296,17 +269,17 @@ static bool
         }
 
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364)
         {
             PZH811_X1V_b = true;
         }
 
         ///////////////Yellow lights
         //////////////7
-        if (bss_inst.BSS811X1Z == true)
+        if (bss_inst.BSS811X1Z)
         {
             bss_inst.BSS811X2M = true;
-            if(PZH811_X1Z_b == true)
+            if(PZH811_X1Z_b)
             {
                 PZH811_X1Z = false;
             }
@@ -323,17 +296,17 @@ static bool
         }
 
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364)
         {
             PZH811_X1Z_b = true;
         }
 
         ///////////////Yellow lights
         //////////////8
-        if (bss_inst.BSS811X1b == true)
+        if (bss_inst.BSS811X1b)
         {
             bss_inst.BSS811X2N = true;
-            if(PZH811_X1b_b == true)
+            if(PZH811_X1b_b)
             {
                 PZH811_X1b = false;
             }
@@ -350,17 +323,17 @@ static bool
         }
 
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364)
         {
             PZH811_X1b_b = true;
         }
 
         ///////////////Yellow lights
         //////////////9
-        if (bss_inst.BSS811X1d == true)
+        if (bss_inst.BSS811X1d)
         {
             bss_inst.BSS811X2P = true;
-            if(PZH811_X1d_b == true)
+            if(PZH811_X1d_b)
             {
                 PZH811_X1d = false;
             }
@@ -377,17 +350,17 @@ static bool
         }
 
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364)
         {
             PZH811_X1d_b = true;
         }
 
         ///////////////Yellow lights
         //////////////10
-        if (bss_inst.BSS811X1f == true)
+        if (bss_inst.BSS811X1f)
         {
             bss_inst.BSS811X2R = true;
-            if(PZH811_X1f_b == true)
+            if(PZH811_X1f_b)
             {
                 PZH811_X1f = false;
             }
@@ -404,17 +377,17 @@ static bool
         }
 
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364)
         {
             PZH811_X1f_b = true;
         }
 
         ///////////////Yellow lights
         //////////////11
-        if (bss_inst.BSS811X1DD == true)
+        if (bss_inst.BSS811X1DD)
         {
             bss_inst.BSS811X2c = true;
-            if(PZH811_X1DD_b == true)
+            if(PZH811_X1DD_b)
             {
                 PZH811_X1DD = false;
             }
@@ -430,17 +403,17 @@ static bool
             PZH811_X1DD = false;
         }
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364)
         {
             PZH811_X1DD_b = true;
         }
 
         ///////////////Yellow lights
         //////////////12
-        if (upor_dz_tang_lev_l == true)
+        if (upor_dz_tang_lev_l)
         {
             bss_inst.BSS811X2n = true;
-            if(PZH_upor_dz_tang_lev_l_b == true)
+            if(PZH_upor_dz_tang_lev_l_b)
             {
                 PZH_upor_dz_tang_lev_l = false;
             }
@@ -457,17 +430,17 @@ static bool
         }
 
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364)
         {
             PZH_upor_dz_tang_lev_l_b = true;
         }
 
         ///////////////Yellow lights
         //////////////13
-        if (zakrilk_pariruy == true)
+        if (zakrilk_pariruy)
         {
             bss_inst.BSS811X2m = true;
-            if(PZH_zakrilk_pariruy_b == true)
+            if(PZH_zakrilk_pariruy_b)
             {
                 PZH_zakrilk_pariruy = false;
             }
@@ -484,17 +457,17 @@ static bool
         }
 
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364)
         {
             PZH_zakrilk_pariruy_b = true;
         }
 
         ///////////////Yellow lights
         //////////////14
-        if (bss_inst.BSS811X1Y == true)
+        if (bss_inst.BSS811X1Y)
         {
             bss_inst.BSS811X2L = true;
-            if(PZH811_X1Y_b == true)
+            if(PZH811_X1Y_b)
             {
                 PZH811_X1Y = false;
             }
@@ -510,17 +483,17 @@ static bool
             PZH811_X1Y = false;
         }
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364)
         {
             PZH811_X1Y_b = true;
         }
 
         ///////////////Yellow lights
         //////////////15
-        if (dz_otkl == true)
+        if (dz_otkl)
         {
             bss_inst.BSS811X2r = true;
-            if(PZH_dz_otkl_b == true)
+            if(PZH_dz_otkl_b)
             {
                 PZH_dz_otkl = false;
             }
@@ -536,17 +509,17 @@ static bool
             PZH_dz_otkl = false;
         }
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364)
         {
             PZH_dz_otkl_b = true;
         }
 
         ///////////////Yellow lights
         //////////////16
-        if (bss_inst.BSS811X1h == true)
+        if (bss_inst.BSS811X1h)
         {
             bss_inst.BSS811X2S = true;
-            if(PZH811_X1h_b == true)
+            if(PZH811_X1h_b)
             {
                 PZH811_X1h = false;
             }
@@ -562,17 +535,17 @@ static bool
             PZH811_X1h = false;
         }
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364)
         {
             PZH811_X1h_b = true;
         }
 
         ///////////////Yellow lights
         //////////////17
-        if (bss_inst.BSS811X1j == true)
+        if (bss_inst.BSS811X1j)
         {
             bss_inst.BSS811X2T = true;
-            if(PZH811_X1j_b == true)
+            if(PZH811_X1j_b)
             {
                 PZH811_X1j = false;
             }
@@ -588,17 +561,17 @@ static bool
             PZH811_X1j = false;
         }
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364)
         {
             PZH811_X1j_b = true;
         }
 
         ///////////////Yellow lights
         //////////////18
-        if (bss_inst.BSS811X1p == true)
+        if (bss_inst.BSS811X1p)
         {
             bss_inst.BSS811X2V = true;
-            if(PZH811_X1p_b == true)
+            if(PZH811_X1p_b)
             {
                 PZH811_X1p = false;
             }
@@ -614,17 +587,17 @@ static bool
             PZH811_X1p = false;
         }
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364)
         {
             PZH811_X1p_b = true;
         }
 
         ///////////////Yellow lights
         //////////////19
-        if (bss_inst.BSS811X1t == true)
+        if (bss_inst.BSS811X1t)
         {
             bss_inst.BSS811X2X = true;
-            if(PZH811_X1t_b == true)
+            if(PZH811_X1t_b)
             {
                 PZH811_X1t = false;
             }
@@ -640,17 +613,17 @@ static bool
             PZH811_X1t = false;
         }
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364)
         {
             PZH811_X1t_b = true;
         }
 
         ///////////////Yellow lights
         //////////////20
-        if (bss_inst.BSS811X1v == true)
+        if (bss_inst.BSS811X1v)
         {
             bss_inst.BSS811X2Y = true;
-            if(PZH811_X1v_b == true)
+            if(PZH811_X1v_b)
             {
                 PZH811_X1v = false;
             }
@@ -666,17 +639,17 @@ static bool
             PZH811_X1v = false;
         }
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364)
         {
             PZH811_X1v_b = true;
         }
 
         ///////////////Yellow lights
         //////////////21
-        if (bss_inst.BSS811X1x == true)
+        if (bss_inst.BSS811X1x)
         {
             bss_inst.BSS811X2Z = true;
-            if(PZH811_X1x_b == true)
+            if(PZH811_X1x_b)
             {
                 PZH811_X1x = false;
             }
@@ -692,17 +665,17 @@ static bool
             PZH811_X1x = false;
         }
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364)
         {
             PZH811_X1x_b = true;
         }
 
         ///////////////Yellow lights
         //////////////22
-        if (bss_inst.BSS811X1z == true)
+        if (bss_inst.BSS811X1z)
         {
             bss_inst.BSS811X2a = true;
-            if(PZH811_X1z_b == true)
+            if(PZH811_X1z_b)
             {
                 PZH811_X1z = false;
             }
@@ -718,17 +691,17 @@ static bool
             PZH811_X1z = false;
         }
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364)
         {
             PZH811_X1z_b = true;
         }
 
         ///////////////Yellow lights
         //////////////23
-        if (bss_inst.surGs1Otkl == true)
+        if (bss_inst.surGs1Otkl)
         {
             bss_inst.BSS811X2d = true;
-            if(PZH_sur_gs1_otkl_b == true)
+            if(PZH_sur_gs1_otkl_b)
             {
                 PZH_sur_gs1_otkl = false;
             }
@@ -744,17 +717,17 @@ static bool
             PZH_sur_gs1_otkl = false;
         }
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364)
         {
             PZH_sur_gs1_otkl_b = true;
         }
 
         ///////////////Yellow lights
         //////////////24
-        if (bss_inst.surGs2Otkl == true)
+        if (bss_inst.surGs2Otkl)
         {
             bss_inst.BSS811X2e = true;
-            if(PZH_sur_gs2_otkl_b == true)
+            if(PZH_sur_gs2_otkl_b)
             {
                 PZH_sur_gs2_otkl = false;
             }
@@ -770,17 +743,17 @@ static bool
             PZH_sur_gs2_otkl = false;
         }
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364)
         {
             PZH_sur_gs2_otkl_b = true;
         }
 
         ///////////////Yellow lights
         //////////////25
-        if (bss_inst.surGs3Otkl == true)
+        if (bss_inst.surGs3Otkl)
         {
             bss_inst.BSS811X2f = true;
-            if(PZH_sur_gs3_otkl_b == true)
+            if(PZH_sur_gs3_otkl_b)
             {
                 PZH_sur_gs3_otkl = false;
             }
@@ -796,17 +769,17 @@ static bool
             PZH_sur_gs3_otkl = false;
         }
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364)
         {
             PZH_sur_gs3_otkl_b = true;
         }
 
         ///////////////Yellow lights
         //////////////26
-        if (bss_inst.surGs4Otkl == true)
+        if (bss_inst.surGs4Otkl)
         {
             bss_inst.BSS811X2g = true;
-            if(PZH_sur_gs4_otkl_b == true)
+            if(PZH_sur_gs4_otkl_b)
             {
                 PZH_sur_gs4_otkl = false;
             }
@@ -822,37 +795,37 @@ static bool
             PZH_sur_gs4_otkl = false;
         }
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364)
         {
             PZH_sur_gs4_otkl_b = true;
         }
 
-        if(PZH811_X1B == true ||
-            PZH811_X1D == true ||
-            PZH811_X1N == true ||
-            PZH811_X1R == true ||
-            PZH811_X1T == true ||
-            PZH811_X1V == true ||
-            PZH811_X1Z == true ||
-            PZH811_X1b == true ||
-            PZH811_X1d == true ||
-            PZH811_X1f == true ||
-            PZH811_X1DD == true ||
-            PZH_upor_dz_tang_lev_l == true ||
-            PZH_zakrilk_pariruy == true ||
-            PZH811_X1Y == true ||
-            PZH_dz_otkl == true ||
-            PZH811_X1h == true ||
-            PZH811_X1j == true ||
-            PZH811_X1p == true ||
-            PZH811_X1t == true ||
-            PZH811_X1v == true ||
-            PZH811_X1x == true ||
-            PZH811_X1z == true ||
-            PZH_sur_gs1_otkl == true ||
-            PZH_sur_gs2_otkl == true ||
-            PZH_sur_gs3_otkl == true ||
-            PZH_sur_gs4_otkl == true)
+        if(PZH811_X1B ||
+            PZH811_X1D ||
+            PZH811_X1N ||
+            PZH811_X1R ||
+            PZH811_X1T ||
+            PZH811_X1V ||
+            PZH811_X1Z ||
+            PZH811_X1b ||
+            PZH811_X1d ||
+            PZH811_X1f ||
+            PZH811_X1DD ||
+            PZH_upor_dz_tang_lev_l ||
+            PZH_zakrilk_pariruy ||
+            PZH811_X1Y ||
+            PZH_dz_otkl ||
+            PZH811_X1h ||
+            PZH811_X1j ||
+            PZH811_X1p ||
+            PZH811_X1t ||
+            PZH811_X1v ||
+            PZH811_X1x ||
+            PZH811_X1z ||
+            PZH_sur_gs1_otkl ||
+            PZH_sur_gs2_otkl ||
+            PZH_sur_gs3_otkl ||
+            PZH_sur_gs4_otkl)
         {
 
             PCSOZHLL_1 = true;
@@ -865,10 +838,10 @@ static bool
 
         ///////////////Red lights_1
         //////////////1
-        if (bss_inst.BSS811X1E == true)
+        if (bss_inst.BSS811X1E)
         {
             bss_inst.BSS811X2C = true;
-            if(PK811_X1E_b == true)
+            if(PK811_X1E_b)
             {
                 PK811_X1E = false;
             }
@@ -885,17 +858,17 @@ static bool
         }
 
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364)
         {
             PK811_X1E_b = true;
         }
 
         ///////////////Red lights_1
         //////////////2
-        if (bss_inst.BSS811X1G == true)
+        if (bss_inst.BSS811X1G)
         {
             bss_inst.BSS811X2D = true;
-            if(PK811_X1G_b == true)
+            if(PK811_X1G_b)
             {
                 PK811_X1G = false;
             }
@@ -912,17 +885,17 @@ static bool
         }
 
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364)
         {
             PK811_X1G_b = true;
         }
 
         ///////////////Red lights_1
         //////////////3
-        if (bss_inst.BSS811X1J == true)
+        if (bss_inst.BSS811X1J)
         {
             bss_inst.BSS811X2E = true;
-            if(PK811_X1J_b == true)
+            if(PK811_X1J_b)
             {
                 PK811_X1J = false;
             }
@@ -939,17 +912,17 @@ static bool
         }
 
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364)
         {
             PK811_X1J_b = true;
         }
 
         ///////////////Red lights_1
         //////////////4
-        if (bss_inst.BSS811X1L == true)
+        if (bss_inst.BSS811X1L)
         {
             bss_inst.BSS811X2F = true;
-            if(PK811_X1L_b == true)
+            if(PK811_X1L_b)
             {
                 PK811_X1L = false;
             }
@@ -966,17 +939,17 @@ static bool
         }
 
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364)
         {
             PK811_X1L_b = true;
         }
 
         ///////////////Red lights_1
         //////////////5
-        if (bss_inst.BSS811X1n == true)
+        if (bss_inst.BSS811X1n)
         {
             bss_inst.BSS811X2U = true;
-            if(PK811_X1n_b == true)
+            if(PK811_X1n_b)
             {
                 PK811_X1n = false;
             }
@@ -993,17 +966,17 @@ static bool
         }
 
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364)
         {
             PK811_X1n_b = true;
         }
 
         ///////////////Red lights_1
         //////////////6
-        if (bss_inst.BSS811X1r == true)
+        if (bss_inst.BSS811X1r)
         {
             bss_inst.BSS811X2W = true;
-            if(PK811_X1r_b == true)
+            if(PK811_X1r_b)
             {
                 PK811_X1r = false;
             }
@@ -1020,17 +993,17 @@ static bool
         }
 
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364)
         {
             PK811_X1r_b = true;
         }
 
         ///////////////Red lights_1
         //////////////7
-        if (bss_inst.BSS811X1BB == true)
+        if (bss_inst.BSS811X1BB)
         {
             bss_inst.BSS811X2b = true;
-            if(PK811_X1BB_b == true)
+            if(PK811_X1BB_b)
             {
                 PK811_X1BB = false;
             }
@@ -1047,20 +1020,20 @@ static bool
         }
 
 
-        if(S1_3364 == true)
+        if(exchange::s1_3364)
         {
             PK811_X1BB_b = true;
         }
 
         // PCSOKLL toggle
 
-        if( PK811_X1E == true ||
-            PK811_X1G == true ||
-            PK811_X1J == true ||
-            PK811_X1L == true ||
-            PK811_X1n == true ||
-            PK811_X1r == true ||
-            PK811_X1BB == true)
+        if( PK811_X1E ||
+            PK811_X1G ||
+            PK811_X1J ||
+            PK811_X1L ||
+            PK811_X1n ||
+            PK811_X1r ||
+            PK811_X1BB)
         {
             PCSOKLL_1 = true;
         }
@@ -1071,7 +1044,7 @@ static bool
 
         ///////////////White lights_1
         //////////////1
-        if (bss_inst.BSS811X3A == true)
+        if (bss_inst.BSS811X3A)
         {
             bss_inst.BSS811X2h = true;
         }
@@ -1083,7 +1056,7 @@ static bool
 
         ///////////////White lights_1
         //////////////2
-        if (bss_inst.BSS811X3C == true)
+        if (bss_inst.BSS811X3C)
         {
             bss_inst.BSS811X2l = true;
         }
@@ -1094,7 +1067,7 @@ static bool
 
         ///////////////White lights_1
         //////////////3
-        if (bss_inst.BSS811X3D == true)
+        if (bss_inst.BSS811X3D)
         {
             bss_inst.BSS811X2j = true;
         }
@@ -1105,7 +1078,7 @@ static bool
 
         ///////////////White lights_1
         //////////////4
-        if (bss_inst.BSS811X3E == true)
+        if (bss_inst.BSS811X3E)
         {
             bss_inst.BSS811X2k = true;
         }
@@ -1116,7 +1089,7 @@ static bool
 
         ///////////////White lights_1
         //////////////5
-        if (bss_inst.neytral_kren == true)
+        if (bss_inst.neytral_kren)
         {
             bss_inst.BSS811X2p = true;
         }
@@ -1129,7 +1102,7 @@ static bool
 
         ///////////////White lights_1
         //////////////6
-        if (bss_inst.neytral_kurs == true)
+        if (bss_inst.neytral_kurs)
         {
             bss_inst.BSS811X2q = true;
         }
@@ -1138,7 +1111,7 @@ static bool
             bss_inst.BSS811X2q = false;
         }
 
-        if(PKLLL == true)
+        if(PKLLL)
         {
             PCSOKLL_1 = true;
             PCSOZHLL_1 = true;

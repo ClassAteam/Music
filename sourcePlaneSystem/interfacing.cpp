@@ -1,7 +1,6 @@
 #include "interfacing.h"
 
-//const double TICK{2.0};
-extern double TICK;
+QElapsedTimer timing;
 
 interfacing::interfacing(QWidget *parent)
     : QWidget(parent), btnID{0}, slID{0}, lblClueID{0},row{0}, column{0},
@@ -24,8 +23,8 @@ interfacing::interfacing(QWidget *parent)
     connect(this, SIGNAL(digitClicked(int)), this, SLOT(m_RedButton2(int)));
     //labels
     QTimer *timer = new QTimer(this);
-    // connect(timer, SIGNAL(timeout()), this, SLOT(setLbl()));
-    // connect(timer, SIGNAL(timeout()), this, SLOT(updateLogic()));
+    connect(timer, SIGNAL(timeout()), this, SLOT(setLbl()));
+    connect(timer, SIGNAL(timeout()), this, SLOT(updateLogic()));
     timer->start(TICK);
     //sliders
     signalMapperSldrs = new QSignalMapper(this);
@@ -187,7 +186,6 @@ void interfacing::setLbl()
             }
         }
 
-
         label->setText(str + " = " + QString::number(*lblValues[i]));
 
         if(*lblValues[i] != 0)
@@ -224,9 +222,7 @@ void interfacing::setRB(const QString str)
 void interfacing::posOcupied()
 {
     if(row < 45)
-    {
         row++;
-    }
     else
     {
         row = 0;

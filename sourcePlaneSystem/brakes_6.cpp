@@ -7,7 +7,7 @@ void brakes_int::brakes_6()
 
     if(exchange::ush1dpp >= 18.0)
     {
-        if(S1_9921 || S2_9921)
+        if(exchange::s1_9921 || exchange::s2_9921)
             K1_9921 = true;
 
         if(K2_9921)
@@ -15,7 +15,7 @@ void brakes_int::brakes_6()
 
         if(S4_9921)
         {
-            if(S3_9921)
+            if(exchange::s3_9921)
                 K2_9921 = true;
             else
             {

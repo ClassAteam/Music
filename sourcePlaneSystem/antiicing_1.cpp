@@ -1,6 +1,5 @@
 #include "antiicing_1.h"
 
-
 void antiicing_int::antiicing_1()
 {
 
@@ -11,7 +10,6 @@ void antiicing_int::antiicing_1()
     alpha_rud_3dv = exchange::alpha_rud_3dv;
     alpha_rud_4dv = exchange::alpha_rud_4dv;
 
-    static bool PZ1, PZ2, PZ3;
 
 static int
     PZ1_tick,
@@ -28,23 +26,17 @@ static int
 
     if(usho1p >= 18.0)
     {
-        if(M <= 1.25)
-            F12_3020 = true;
+        if(M <= 1.25) F12_3020 = true;
 
-        if (S6_3020)
-            K51_3020 = true;
+        if (exchange::s6_3020) K51_3020 = true;
     }
 
     K2_3020 = false;
 
     if(exchange::ushap >= 18.0)
     {
-
         if (!K51_3020)
-        {
-            if(K27_3230)
-                K2_3020 = true;
-        }
+            if(K27_3230) K2_3020 = true;
     }
 
     PZ1 = false;
@@ -57,15 +49,17 @@ static int
 
     if(!K2_3020 && F12_3020 && !otkaz_vozduhozabor)
     {
-        switch(S1_3020)
+        switch(exchange::s1_3020)
         {
-        case(s1_3020_pos::minus6minus15):
-            PZ1 = true;
+        case(static_cast<int>(exchange::s1_3020::neytr)):
             break;
-        case(s1_3020_pos::zerominus6):
+        case(static_cast<int>(exchange::s1_3020::minus6minus15)):
             PZ2 = true;
             break;
-        case(s1_3020_pos::minus15):
+        case(static_cast<int>(exchange::s1_3020::zerominus6)):
+            PZ1 = true;
+            break;
+        case(static_cast<int>(exchange::s1_3020::minus15)):
             PZ3 = true;
         }
     }

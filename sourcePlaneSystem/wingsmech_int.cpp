@@ -1,9 +1,5 @@
 #include "wingsmech_int.h"
 
-//wingsmech_int::wingsmech_int(QWidget *parent)
-//    : interfacing(parent)
-//{
-//}
 void wingsmech_int::updateLogic()
 {
     wingsmech_1();

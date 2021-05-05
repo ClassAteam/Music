@@ -1,9 +1,5 @@
 #include "landinggear_int.h"
 
-//landinggear_int::landinggear_int(QWidget *parent)
-//    : interfacing(parent)
-//{
-//}
 void landinggear_int::updateLogic()
 {
     landinggear_1();
@@ -48,6 +44,9 @@ void landinggear_int::balloon_presure( double* P_bal)
     }
 }
 
+bool landinggear_int::K5_3250{};
+bool landinggear_int::K6_3250{};
+bool landinggear_int::K9_3230{};
 bool landinggear_int::S18_2930{};
 bool landinggear_int::S38_3230{};
 

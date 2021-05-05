@@ -21,6 +21,8 @@ void antifire_int::antifire_2()
         else
             F101_2610 = false;
     }
+    else
+        F101_2610 = false;
 
     //F181 toggle
     if(exchange::ush1dpl >= 16.0)
@@ -30,6 +32,8 @@ void antifire_int::antifire_2()
         else
             F181_2610 = false;
     }
+    else
+        F181_2610 = false;
 
     //F111 toggle
     if(exchange::ush2dpl >= 16.0)
@@ -39,6 +43,8 @@ void antifire_int::antifire_2()
         else
             F111_2610 = false;
     }
+    else
+        F111_2610 = false;
 
     //F121 toggle
     if (exchange::ush2dpl >= 16.0)
@@ -48,6 +54,8 @@ void antifire_int::antifire_2()
         else
             F121_2610 = false;
     }
+    else
+        F121_2610 = false;
 
     //F92 toggle
     if(F91_2610)
@@ -68,73 +76,73 @@ void antifire_int::antifire_2()
         F92_2610 = false;
 
     //K1 toggle
-    if(F92_2610 && S1_2610)
+    if(F92_2610 && S1_2610 == s1_2610::mg1dv)
         K1_2610 = true;
     else
         K1_2610 = false;
 
     //K3 toggle
-    if(F92_2610 && S1_2610)
+    if(F92_2610 && S1_2610 == s1_2610::mg2dv)
         K3_2610 = true;
     else
         K3_2610 = false;
 
     //K6 toggle
-    if(F92_2610 && S1_2610)
+    if(F92_2610 && S1_2610 == s1_2610::mg3dv)
         K6_2610 = true;
     else
         K6_2610 = false;
 
     //K9 toggle
-    if(F92_2610 && S1_2610)
+    if(F92_2610 && S1_2610 == s1_2610::mg4dv)
         K9_2610 = true;
     else
         K9_2610 = false;
 
     //K12 toggle
-    if(F92_2610 && S1_2610)
+    if(F92_2610 && S1_2610 == s1_2610::vsu)
         K12_2610 = true;
     else
         K12_2610 = false;
 
     //F911 toggle
-    if (F92_2610 && S2_2610)
+    if (F92_2610 && S2_2610 == s2_2610::gr1)
         F911_2610 = true;
     else
         F911_2610 = false;
 
     //F912 toggle
-    if(F92_2610 && S2_2610)
+    if(F92_2610 && S2_2610 == s2_2610::gr2)
         F912_2610 = true;
     else
         F912_2610 = false;
 
     //F913 toggle
-    if (F92_2610 && S2_2610)
+    if (F92_2610 && S2_2610 == s2_2610::gr3)
         F913_2610 = true;
     else
         F913_2610 = false;
 
     //F914 toggle
-    if (F92_2610 && S2_2610)
+    if (F92_2610 && S2_2610 == s2_2610::gr4)
         F914_2610 = true;
     else
         F914_2610 = false;
 
     //F915 toggle
-    if (F92_2610 && S2_2610)
+    if (F92_2610 && S2_2610 == s2_2610::gr5)
         F915_2610 = true;
     else
         F915_2610 = false;
 
     //F916 toggle
-    if(F92_2610 && S2_2610)
+    if(F92_2610 && S2_2610 == s2_2610::gr6)
         F916_2610 = true;
     else
         F916_2610 = false;
 
     //F917 toggle
-    if(F92_2610 && S2_2610)
+    if(F92_2610 && S2_2610 == s2_2610::pozhar)
         F913_2610 = true;
     else
         F913_2610 = false;
@@ -174,6 +182,7 @@ void antifire_int::antifire_2()
     {
         K49_2610 = false;
         K42_2610 = false;
+        K67_2610 = false;
     }
     else
     {
@@ -188,53 +197,48 @@ void antifire_int::antifire_2()
                 else
                     K49_2610 = false;
             }
-
-            if(S11_2610)			//!!! non-defined switch, mb need enum type
-                K42_2610 = true;
-            else
-            {
-                if(S12_2610)
-                    K42_2610 = true;
-                else
-                    K42_2610 = false;
-            }
-
         }
         else
             K49_2610 = false;
+
+        if(F111_2610)
+        {
+            if(S11_2610) K42_2610 = true;
+            else
+            {
+                if(S12_2610) K42_2610 = true;
+                else K42_2610 = false;
+            }
+        }
+        else K42_2610 = false;
+
+        if(F101_2610)
+        {
+            if (S15_2610) K67_2610 = true;
+            else K67_2610 = false;
+        }
+        else K67_2610 = false;
     }
 
+
+
     //K67 toggle
-    if(F101_2610)
-    {
-        if (S15_2610)			//!!! the same here
-            K67_2610 = true;
-        else
-            K67_2610 = false;
-    }
-    else
-        K67_2610 = false;
 
     //K31toggle
     if(F25_2610)
     {
-        if (!K67_2610)
+        if(!K67_2610)
         {
             if(F135_2805)
             {
-                if(otkaz_avtomatiki_SPZ)
-                    K31_2610 = false;
-                else
-                    K31_2610 = true;
+                if(otkaz_avtomatiki_SPZ) K31_2610 = false;
+                else K31_2610 = true;
             }
-            else
-                K31_2610 = false;
+            else K31_2610 = false;
         }
-        else
-            K31_2610 = true;
+        else K31_2610 = true;
     }
-    else
-        K31_2610 = false;
+    else K31_2610 = false;
 
     //K32toggle
     if(F35_2610)
@@ -520,6 +524,13 @@ void antifire_int::antifire_2()
         PW_1_och_o = true;
         PW_2_och = true;
         PW_3_och = true;
+        uks_inst.UKS3X18 = false;
+        uks_inst.UKS4X37 = false;
+    }
+    else
+    {
+        uks_inst.UKS3X18 = false;
+        uks_inst.UKS4X37 = false;
     }
 
     if(K31_2610  || K32_2610 || K34_2610 || K35_2610 || K33_2610)
@@ -527,7 +538,14 @@ void antifire_int::antifire_2()
         if(F101_2610)
         {
             PW_1_och_l = false;
-            if(F181_2610 == true) PW_1_och_o = false;
+            uks_inst.UKS3X18 = true;
+
+        }
+
+        if(F181_2610)
+        {
+            PW_1_och_o = false;
+            uks_inst.UKS4X37 = true;
         }
     }
 

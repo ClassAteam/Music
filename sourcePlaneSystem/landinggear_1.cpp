@@ -1,5 +1,6 @@
 #include "landinggear_1.h"
 #include "algorithms.h"
+#include <QDeadlineTimer>
 
 static void releasing_loop(double* delta, double* Ddelta, int* tick);
 static void intake_loop(double* delta, double* Ddelta, int* tick);

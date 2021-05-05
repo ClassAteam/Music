@@ -87,9 +87,9 @@ void landinggear_int::landinggear_7_8() //actually 7th and 8th
 
         // clocks definition
 
-        switch(s2_3230)
+        switch(exchange::s2_3230)
         {
-        case s2_3230::release:
+        case static_cast<int>(exchange::s2_3230::release):
         {
             if ((!PSDVV && !S3_3230))
             {
@@ -113,7 +113,7 @@ void landinggear_int::landinggear_7_8() //actually 7th and 8th
             }
         }
         break;
-        case s2_3230::intake:
+        case static_cast<int>(exchange::s2_3230::intake):
         {
             if (PSDVU || S3_3230)
             {
@@ -148,7 +148,7 @@ void landinggear_int::landinggear_7_8() //actually 7th and 8th
         if (exchange::S1_3230 == false)
         {
             //release = true
-            if (s2_3230 == s2_3230::release)
+            if (exchange::s2_3230 == static_cast<int>(exchange::s2_3230::release))
             {
                 F113_3230 = false;
                 F13_3230 = true;
