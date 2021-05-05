@@ -34,3 +34,4 @@ struct SH_DEVICE_CONNECT
 #pragma pack(pop)
 
 #endif
+
