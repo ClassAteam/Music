@@ -88,8 +88,9 @@ void dispPlanSystem()
 //           SHARE_ADVANTECH.lock();
 //           memcpy(pDev ,SHARE_ADVANTECH.data(), sizeof(SH_DEVICE_CONNECT));
 //           SHARE_ADVANTECH.unlock();
-//      }   
+//      }
 
+      pDev = static_cast<SH_DEVICE_CONNECT*>(SHARE_ADVANTECH.data());
       IN_antifire_int       ();
       antifire.updateLogic();
       OUT_antifire_int       ();
@@ -245,7 +246,8 @@ void ThreadModel::run ()
 void IN_antifire_int       ()
 {
     antifire.pnu=antiicing.PBSO1;
-    antifire.PPBI= pDev->IN_A[0][1];
+    antifire.PPBI= pDev->IN_D[0][1];
+    qDebug() << "raw struct value IN_D_0_1 " << antifire.PPBI;
 
 }
 void IN_antiicing_int      ()

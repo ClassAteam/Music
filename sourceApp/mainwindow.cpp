@@ -90,7 +90,8 @@ MainWindow::MainWindow(QWidget *parent)
     connect(socket_in, SIGNAL(readyRead()), this, SLOT(receivingData()));
 
     SHARE_ADVANTECH.setKey(SHARED_MEMORY_DEVICE_CONNECT);
-    SHARE_ADVANTECH.create(sizeof(DEVICE_CONNECT));
+//    SHARE_ADVANTECH.create(sizeof(DEVICE_CONNECT));
+    SHARE_ADVANTECH.attach();
     //pDevShar=(DEVICE_CONNECT)&SHARE_ADVANTECH;
    // pQtAdvan=new QtAdvantechClass();
     // Для Миши на камеру и приборы (РАСКОМЕНТИРОВАТЬ ДЛЯ LINUX!!!)
