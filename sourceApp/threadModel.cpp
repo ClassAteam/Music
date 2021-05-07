@@ -267,7 +267,9 @@ void IN_landinggear_int    ()
 void IN_pneumatic_int      ()
 {}
 void IN_powerdc_int        ()
-{}
+{
+    exchange::s14_2430 = pDev->IN_MAT[538];
+}
 void IN_presure_int        ()
 {}
 void IN_wingsmech_int      ()
@@ -302,7 +304,9 @@ void OUT_pneumatic_int      ()
 {}
 
 void OUT_powerdc_int        ()
-{}
+{
+    pDev->OUT_D[1][32] = bss_inst.BSS837X2P;
+}
 
 void OUT_presure_int        ()
 {}

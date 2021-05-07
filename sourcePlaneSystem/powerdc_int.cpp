@@ -152,6 +152,7 @@ bool powerdc_int::purgpk6{};
 bool powerdc_int::purgpk7{};
 bool powerdc_int::purgpk8{};
 bool powerdc_int::purgpk9{};
+bool powerdc_int::s14_2420{};
 bool powerdc_int::prgen[5]{};
 bool powerdc_int::pp400[2]{};
 bool powerdc_int::purgk31{};

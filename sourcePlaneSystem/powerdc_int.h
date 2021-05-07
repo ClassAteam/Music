@@ -44,6 +44,7 @@ public:
         OtkazGenVsu{},//otkaz generatora VSU postoyannogo toka
         glviklvsu{false};//signal s pulta PP73(pult zapuska i upravl VSU)
     static bool
+        s14_2420,//
         prgen[5],//sign of working gener (1,2,3,4 and vsu)
         apdvsu_35,//priznaki signalov vklucheniya puskovogo soprotivleniya
         apdvsu_49;//priznaki signalov shuntirovaniya puskovogo soprotivleniya
@@ -273,7 +274,6 @@ public:
         s3_2420{},
         s6_2420{},
         s11_2420{},
-        s14_2420{},
         f9_2420{},
         f14_2420{},
         f24_2420{},
