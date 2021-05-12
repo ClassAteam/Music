@@ -247,7 +247,7 @@ void IN_antifire_int       ()
 {
     antifire.pnu=antiicing.PBSO1;
     antifire.PPBI= pDev->IN_D[0][1];
-    qDebug() << "raw struct value IN_D_0_1 " << antifire.PPBI;
+//    qDebug() << "raw struct value IN_D_0_1 " << antifire.PPBI;
 
 }
 void IN_antiicing_int      ()
@@ -269,6 +269,7 @@ void IN_pneumatic_int      ()
 void IN_powerdc_int        ()
 {
     exchange::s14_2430 = pDev->IN_MAT[538];
+    exchange::s7_2430 = pDev->IN_MAT[550];
 }
 void IN_presure_int        ()
 {}
@@ -305,7 +306,7 @@ void OUT_pneumatic_int      ()
 
 void OUT_powerdc_int        ()
 {
-    pDev->OUT_D[1][32] = bss_inst.BSS837X2P;
+    pDev->OUT_D[2][32] = bss_inst.BSS837X2P;
 }
 
 void OUT_presure_int        ()
