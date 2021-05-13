@@ -23,6 +23,7 @@ private slots:
     void slotTimerAlarm();
     void receivingData();
 
+
 private:
 
     QTimer *timer;

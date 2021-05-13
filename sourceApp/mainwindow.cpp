@@ -19,6 +19,7 @@
 #include "externStruct/Struct_FromRmiPilot.h"
 #include "sourceApp/utilTimeClassQt.h"
 
+#define SHARED_MEMORY_RMI_PIL "RMI_PIL"
 #define SHARED_MEMORY_DEVICE_CONNECT "Struct_DEVICE_CONNECT"
 
 //----------------------------------------------
@@ -50,7 +51,8 @@ SH_DEVICE_CONNECT  DEVICE_CONNECT, *pDev=&DEVICE_CONNECT ;//, *pDevShar;
 QUdpSocket *socket_out = nullptr;
 QUdpSocket *socket_in = nullptr;
 
-QSharedMemory SHARE_ADVANTECH;  // Создаём экземпляр разделяемой памяти выходной
+QSharedMemory SHARE_ADVANTECH;
+QSharedMemory SHARE_RMI_PILOT;
 
 extern bool exitThreadModel;
 bool s2 = false;
@@ -79,7 +81,7 @@ MainWindow::MainWindow(QWidget *parent)
     //QTextCodec::setCodecForLocale(QTextCodec::codecForName("CP1251"));
     //QTextCodec::setCodecForLocale(QTextCodec::codecForName("Utf8"));
 
-    socket_out = new QUdpSocket(this); // выходной сокет bind не нужен !!!!
+    socket_out = new QUdpSocket(this);
     socket_out->setProxy(QNetworkProxy::NoProxy);
 
     socket_in = new QUdpSocket(this);
@@ -90,28 +92,24 @@ MainWindow::MainWindow(QWidget *parent)
     connect(socket_in, SIGNAL(readyRead()), this, SLOT(receivingData()));
 
     SHARE_ADVANTECH.setKey(SHARED_MEMORY_DEVICE_CONNECT);
-//    SHARE_ADVANTECH.create(sizeof(DEVICE_CONNECT));
     SHARE_ADVANTECH.attach();
-    //pDevShar=(DEVICE_CONNECT)&SHARE_ADVANTECH;
-   // pQtAdvan=new QtAdvantechClass();
-    // Для Миши на камеру и приборы (РАСКОМЕНТИРОВАТЬ ДЛЯ LINUX!!!)
-   /* shm = shm_open(SHARED_MEMORY_OBJECT_NAME, O_CREAT | O_RDWR, 0777);  //создание общей области памяти
-      ftruncate(shm, sizeof(SUT));  //установка нужного размера памяти
-      addr = mmap(NULL, sizeof(SUT), PROT_WRITE, MAP_SHARED, shm, 0); */
+
+    SHARE_RMI_PILOT.setKey(SHARED_MEMORY_RMI_PIL);
+    SHARE_RMI_PILOT.attach();
+
      model = new ThreadModel();//
    // MyThread thread;
 
    // model->start(QThread::HighestPriority);
     model->start(QThread::TimeCriticalPriority);
-    /* Инициализируем Таймер и подключим его к слоту,
-       который будет обрабатывать timeout() таймера */
+
     timer = new QTimer();
     pFrameMain= new TimeClass("F_Graf",TICK_Graf,200,25);//for control
     pFramePlanSys= new TimeClass("D_PlanSys ",200);//for control
     pFrameModel = new TimeClass("F_Model ",TICK,200,10);//for control
     timer->setTimerType(Qt::PreciseTimer);
     connect(timer, SIGNAL(timeout()), this, SLOT(slotTimerAlarm()));
-    timer->start((int)TICK_Graf); // И запустим таймер
+    timer->start((int)TICK_Graf);
 
 
 }
@@ -128,9 +126,8 @@ MainWindow::~MainWindow()
  delete socket_out;
  delete  model;
  SHARE_ADVANTECH.detach();
+ SHARE_RMI_PILOT.detach();
 
- // Для Миши на камеру и приборы (РАСКОМЕНТИРОВАТЬ ДЛЯ LINUX!!!)
- //shm_unlink(SHARED_MEMORY_OBJECT_NAME);
 
  delete ui;
 }
@@ -249,6 +246,48 @@ void  MainWindow:: Print_pneumatic     ()
 }
 void  MainWindow:: Print_powerdc       ()
 {
+    ui->label_9->setText("Напряжение генератора постоянного тока №1, В = " + QString::number(powerdc.ushpzl));
+    ui->label_17->setText("Напряжение генератора постоянного тока №2, В = " + QString::number(powerdc.ushpzp));
+    ui->label_18->setText("Напряжение генератора постоянного тока №2, В = " + QString::number(powerdc.ushpzp));
+    ui->label_8->setText("Напряжение генератора постоянного тока №4, В = " + QString::number(powerdc.ushpzp));
+    ui->label_7->setText("Напряжение генератора постоянного тока ВСУ, В = " + QString::number(powerdc.ushpzp));
+    ui->label_6->setText("Напряжение аккумулятора №1, В = " + QString::number(powerdc.ushpzp));
+    ui->label_5->setText("Напряжение аккумулятора №2, В = " + QString::number(powerdc.ushpzp));
+    ui->label_4->setText("Напряжение на шине аккумуляторной левого борта, В = " + QString::number(powerdc.ushpzp));
+    ui->label_3->setText("Напряжение на шине аккумуляторной правого борта, В = " + QString::number(powerdc.ushpzp));
+    ui->label_2->setText("Напряжение на шине 1 двойного питания левого борта, В = " + QString::number(powerdc.ushpzp));
+    ui->label_10->setText("Напряжение на шине 1 двойного питания правого борта, В = " + QString::number(powerdc.ushpzp));
+    ui->label_11->setText("Напряжение на шине 2 двойного питания левого борта, В = " + QString::number(powerdc.ushpzp));
+    ui->label_12->setText("Напряжение на шине 2 двойного питания правого борта, В = " + QString::number(powerdc.ushpzp));
+    ui->label_14->setText("Напряжение на шине 1 отключаемой левого борта, В = " + QString::number(powerdc.ushpzp));
+    ui->label_13->setText("Напряжение на шине 1 отключаемой правого борта, В = " + QString::number(powerdc.ushpzp));
+    ui->label_15->setText("Напряжение на шине 2 отключаемой левого борта, В = " + QString::number(powerdc.ushpzp));
+    ui->label_16->setText("Напряжение на шине 2 отключаемой правого борта, В = " + QString::number(powerdc.ushpzp));
+    ui->label_19->setText("Напряжение на шине 1 левого борта, В = " + QString::number(powerdc.ushpzp));
+    ui->label_20->setText("Напряжение на шине 1 правого борта, В = " + QString::number(powerdc.ushpzp));
+    ui->label_21->setText("Напряжение на шине 2 левого борта, В = " + QString::number(powerdc.ushpzp));
+    ui->label_22->setText("Напряжение на шине 2 правого борта, В = " + QString::number(powerdc.ushpzp));
+    ui->label_23->setText("Напряжение генератора переменного тока №1 фазы А, В, С, В = " + QString::number(powerdc.ushpzp));
+    ui->label_24->setText("Напряжение генератора переменного тока №2 фазы А, В, С, В = " + QString::number(powerdc.ushpzp));
+    ui->label_25->setText("Напряжение генератора переменного тока №3 фазы А, В, С, В = " + QString::number(powerdc.ushpzp));
+    ui->label_26->setText("Напряжение генератора переменного тока №4 фазы А, В, С, В = " + QString::number(powerdc.ushpzp));
+    ui->label_27->setText("Напряжение генератора переменного тока ВСУ фазы А, В, С, В = " + QString::number(powerdc.ushpzp));
+    ui->label_28->setText("Напряжение ПТС фазы А, В, С, В = " + QString::number(powerdc.ushpzp));
+    ui->label_29->setText("Напряжение ПОС, В = " + QString::number(powerdc.ushpzp));
+    ui->label_30->setText("Напряжение на шине генератора переменного тока #1 фазы А, В, С, В = " + QString::number(powerdc.ushpzp));
+    ui->label_31->setText("Напряжение на шине генератора переменного тока #2 фазы А, В, С, В = " + QString::number(powerdc.ushpzp));
+    ui->label_32->setText("Напряжение на шине генератора переменного тока #3 фазы А, В, С, В = " + QString::number(powerdc.ushpzp));
+    ui->label_33->setText("Напряжение на шине генератора переменного тока #4 фазы А, В, С, В = " + QString::number(powerdc.ushpzp));
+    ui->label_34->setText("Напряжение на шине генератора переменного тока РАП фазы А, В, С, В = " + QString::number(powerdc.ushpzp));
+    ui->label_35->setText("Напряжение на шине переключаемой переменного тока левой фазы А, В, С, В = " + QString::number(powerdc.ushpzp));
+    ui->label_36->setText("Напряжение на шине переключаемой переменного тока правой фазы А, В, С, В = " + QString::number(powerdc.ushpzp));
+    ui->label_37->setText("Напряжение на шине 1 аварийной переменного тока = " + QString::number(powerdc.ushpzp));
+    ui->label_38->setText("Напряжение на шине 2 аварийной переменного тока = " + QString::number(powerdc.ushpzp));
+    ui->label_39->setText("Напряжение на шине аварийной переменного тока левой фазы А, В, С, В = " + QString::number(powerdc.ushpzp));
+    ui->label_40->setText("Напряжение на шине аварийной переменного тока правой фазы А, В, С, В = " + QString::number(powerdc.ushpzp));
+    ui->label_41->setText("Ток нагрузки генератора ВСУ фаза Ф (В,С), А = " + QString::number(powerdc.ushpzp));
+    ui->label_42->setText("Ток нагрузки РАП фаза Ф (В,С), А = " + QString::number(powerdc.ushpzp));
+    ui->label_43->setText("Приборное значение тока, А = " + QString::number(powerdc.ushpzp));
 
 }
 void  MainWindow:: Print_presure       ()

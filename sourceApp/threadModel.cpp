@@ -35,6 +35,9 @@
 extern  QSharedMemory SHARE_ADVANTECH;
 extern  SH_DEVICE_CONNECT *pDev;
 
+extern  QSharedMemory SHARE_RMI_PILOT;
+extern  SH_FROMRMI_PILOT *pFromP;
+
 bool exitThreadModel=0;
 extern TimeClass* pFramePlanSys;
 extern TimeClass* pFrameModel;
@@ -91,6 +94,7 @@ void dispPlanSystem()
 //      }
 
       pDev = static_cast<SH_DEVICE_CONNECT*>(SHARE_ADVANTECH.data());
+      pFromP = static_cast<SH_FROMRMI_PILOT*>(SHARE_RMI_PILOT.data());
       IN_antifire_int       ();
       antifire.updateLogic();
       OUT_antifire_int       ();
