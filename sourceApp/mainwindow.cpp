@@ -288,6 +288,35 @@ void  MainWindow:: Print_powerdc       ()
     ui->label_41->setText("Ток нагрузки генератора ВСУ фаза Ф (В,С), А = " + QString::number(powerdc.ushpzp));
     ui->label_42->setText("Ток нагрузки РАП фаза Ф (В,С), А = " + QString::number(powerdc.ushpzp));
     ui->label_43->setText("Приборное значение тока, А = " + QString::number(powerdc.ushpzp));
+    ui->uks1x36->setText("Генераторо 1 перегрузка (27В) = " + QString::number(uks_inst.UKS1X36));
+    ui->uks1x37->setText("Генераторо 2 перегрузка (27В) = " + QString::number(uks_inst.UKS1X37));
+    ui->uks3x325->setText("Генераторо 3 перегрузка (27В) = " + QString::number(uks_inst.UKS3X325));
+    ui->uks3x326->setText("Генераторо 4 перегрузка (27В) = " + QString::number(uks_inst.UKS3X326));
+    ui->uks1x38->setText("Генераторо 1 отключи (27В) = " + QString::number(uks_inst.UKS1X38));
+    ui->uks1x39->setText("Генераторо 2 отключи (27В) = " + QString::number(uks_inst.UKS1X39));
+    ui->uks3x327->setText("Генераторо 3 отключи (27В) = " + QString::number(uks_inst.UKS3X327));
+    ui->uks3x328->setText("Генераторо 4 отключи (27В) = " + QString::number(uks_inst.UKS3X328));
+    ui->uks1x311->setText("РАП1 включен = " + QString::number(uks_inst.UKS1X311));
+    ui->uks3x329->setText("РАП2 включен = " + QString::number(uks_inst.UKS3X329));
+    ui->uks1x310->setText("Сети соединены (27В) = " + QString::number(uks_inst.UKS1X310));
+    ui->uks2x353->setText("Генератор 1 включен (27В) = " + QString::number(uks_inst.UKS2X353));
+    ui->uks2x354->setText("Генератор 2 включен (27В) = " + QString::number(uks_inst.UKS2X354));
+    ui->uks1x343->setText("Подключение отключаемых шины 1 левых = " + QString::number(uks_inst.UKS1X343));
+    ui->uks1x344->setText("Подключение отключаемых шины 2 левых = " + QString::number(uks_inst.UKS1X344));
+    ui->uks2x314->setText("Левая сеть частичный режим = " + QString::number(uks_inst.UKS2X314));
+    ui->uks4x339->setText("Правая сеть частичный режим = " + QString::number(uks_inst.UKS4X339));
+    ui->uks2x355->setText("Аккумулятор1 включен = " + QString::number(uks_inst.UKS2X355));
+    ui->uks4x352->setText("Аккумулятор2 включен = " + QString::number(uks_inst.UKS4X352));
+    ui->uks2x312->setText("Аккумулятор1 перегрев = " + QString::number(uks_inst.UKS2X312));
+    ui->uks4x337->setText("Аккумулятор2 перегрев = " + QString::number(uks_inst.UKS4X337));
+    ui->uks4x340->setText("Обьединение аварийных шин = " + QString::number(uks_inst.UKS4X340));
+    ui->uks2x310->setText("Генератор 1 не работает = " + QString::number(uks_inst.UKS2X310));
+    ui->uks2x311->setText("Генератор 2 не работает = " + QString::number(uks_inst.UKS2X311));
+    ui->uks4x335->setText("Генератор 3 не работает = " + QString::number(uks_inst.UKS4X335));
+    ui->uks4x336->setText("Генератор 4 не работает = " + QString::number(uks_inst.UKS4X336));
+    ui->uks2x315->setText("Генератор ВСУ работает = " + QString::number(uks_inst.UKS2X315));
+    ui->uks2x356->setText("Генератор ВСУ включен = " + QString::number(uks_inst.UKS2X356));
+    ui->uks1x2105106->setText("Ток генератоа ВСУ (пост ток) = " + QString::number(uks_inst.UKS1X2));
 
 }
 void  MainWindow:: Print_presure       ()
