@@ -138,10 +138,25 @@ void powerdc_int::powerdc_21()
     else
         uks_inst.UKS2X38 = false;
 
+    if(k16_2420)
+        uks_inst.UKS2X39 = true;
+    else
+        uks_inst.UKS2X39 = false;
+
+    if(k13_2420)
+        uks_inst.UKS4X334 = true;
+    else
+        uks_inst.UKS4X334 = false;
+
     if(k30_2420)
         uks_inst.UKS4X331 = true;
     else
         uks_inst.UKS4X331 = false;
+
+    if(k34_2420)
+        uks_inst.UKS4X333 = true;
+    else
+        uks_inst.UKS4X333 = false;
 
 
 }

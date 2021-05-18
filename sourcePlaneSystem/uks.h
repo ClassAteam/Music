@@ -130,12 +130,18 @@ struct uks
     bool UKS2X338{};
     bool UKS2X339{};
     bool UKS2X340{};
+    bool UKS2X343{};
+    bool UKS2X344{};
+    bool UKS2X348{};
+    bool UKS2X349{};
     bool UKS2X353{};
     bool UKS2X354{};
     bool UKS2X355{};
     bool UKS2X356{};
     bool UKS2X359{};
     bool UKS2X360{};
+    bool UKS2X39{};
+    bool UKS4X334{};
     bool UKS3X310{};
     bool UKS3X311{};
     bool UKS3X314{};
@@ -176,7 +182,13 @@ struct uks
     bool UKS4X340{};
     bool UKS4X343{};
     bool UKS4X344{};
+    bool UKS4X347{};
+    bool UKS4X348{};
+    bool UKS4X351{};
     bool UKS4X352{};
+    bool UKS4X355{};
+    bool UKS4X356{};
+    bool UKS4X357{};
     bool UKS4X38{};
     bool UKS4X39{};
 
@@ -188,7 +200,7 @@ struct uks
     double UKS1X264_65{};
     double UKS1X267_68{};
     double UKS1X31{};
-    double UKS1X3105{};
+    double UKS1X2105_106{};
     double UKS1X3105_106{};
     double UKS1X3106{};
     double UKS1X3107_108{};
@@ -289,6 +301,7 @@ struct uks
     double UKS4X328{};
     double UKS4X329{};
     double UKS4X331{};
+    double UKS4X333{};
     double UKS4X385{};
     double UKS4X387{};
     double UKS4X394{};

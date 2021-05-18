@@ -272,8 +272,62 @@ void IN_pneumatic_int      ()
 {}
 void IN_powerdc_int        ()
 {
-    exchange::s14_2430 = pDev->IN_MAT[538];
-    exchange::s7_2430 = pDev->IN_MAT[550];
+    exchange::s1_2430 = pDev->IN_MAT[556];
+    exchange::s4_2430 = pDev->IN_MAT[531];
+    exchange::s5_2430 = pDev->IN_MAT[535];
+    exchange::s8_2430 = pDev->IN_MAT[543];
+    exchange::s11_2430 = pDev->IN_MAT[547];
+    exchange::s2_2430 = pDev->IN_MAT[529];
+    exchange::s9_2430 = pDev->IN_MAT[541];
+    exchange::s14_2430 = pDev->IN_MAT[537];
+    exchange::s15_2430 = pDev->IN_MAT[561];
+    exchange::s7_2430 = pDev->IN_MAT[549];
+    exchange::s13_2430 = pDev->IN_MAT[523];
+    exchange::s10_2430 = pDev->IN_MAT[546];
+    exchange::s16_2430 = pDev->IN_MAT[577];
+    exchange::s16_2430 = pDev->IN_MAT[525];
+    powerdc.glviklvsu = pDev->IN_MAT[748];
+    exchange::s1_7710 = pDev->IN_MAT[196];
+    exchange::s2_7710 = pDev->IN_MAT[197];
+    exchange::s3_7710 = pDev->IN_MAT[198];
+    exchange::s4_7710 = pDev->IN_MAT[199];
+    exchange::s1_2420 = pDev->IN_MAT[520];
+    exchange::s5_2420 = pDev->IN_MAT[565];
+    exchange::s10_2420 = pDev->IN_MAT[568];
+    exchange::s13_2420 = pDev->IN_MAT[575];
+    exchange::s4_2420 = pDev->IN_MAT[522];
+    exchange::s12_2420 = pDev->IN_MAT[567];
+    exchange::s8_2420 = pDev->IN_MAT[549];
+    exchange::s2_2420 = pDev->IN_MAT[557];
+    exchange::s9_2420 = pDev->IN_MAT[555];
+    exchange::s15_2420 = pDev->IN_MAT[592];
+    exchange::s21_2420 = pDev->IN_MAT[594];
+
+    powerdc.OtkazGen1PostT = pFromP->Otkaz[20];
+    powerdc.OtkazGen2PostT = pFromP->Otkaz[21];
+    powerdc.OtkazGen3PostT = pFromP->Otkaz[22];
+    powerdc.OtkazGen4PostT = pFromP->Otkaz[23];
+    powerdc.otk_pereg_gen1 = pFromP->Otkaz[24];
+    powerdc.otk_pereg_gen2 = pFromP->Otkaz[25];
+    powerdc.otk_pereg_gen3 = pFromP->Otkaz[26];
+    powerdc.otk_pereg_gen4 = pFromP->Otkaz[27];
+    powerdc.otkPadDavlMaslPpo1G = pFromP->Otkaz[10];
+    powerdc.otkPadDavlMaslPpo2G = pFromP->Otkaz[11];
+    powerdc.otkPadDavlMaslPpo3G = pFromP->Otkaz[12];
+    powerdc.otkPadDavlMaslPpo4G = pFromP->Otkaz[13];
+    powerdc.otkGenPerT1 = pFromP->Otkaz[5];
+    powerdc.otkGenPerT2 = pFromP->Otkaz[6];
+    powerdc.otkGenPerT3 = pFromP->Otkaz[7];
+    powerdc.otkGenPerT4 = pFromP->Otkaz[8];
+    powerdc.OtkazGenVsu = pFromP->Otkaz[9];
+    powerdc.otk_preobr_pts1 = pFromP->Otkaz[14];
+    powerdc.otk_pos1000 = pFromP->Otkaz[15];
+    powerdc.overload_gen1 = pFromP->Otkaz[16];
+    powerdc.overload_gen2 = pFromP->Otkaz[17];
+    powerdc.overload_gen3 = pFromP->Otkaz[18];
+    powerdc.overload_gen4 = pFromP->Otkaz[19];
+    powerdc.otk_pereg_akk1 = pFromP->Otkaz[28];
+    powerdc.otk_pereg_akk2 = pFromP->Otkaz[29];
 }
 void IN_presure_int        ()
 {}
@@ -311,6 +365,60 @@ void OUT_pneumatic_int      ()
 void OUT_powerdc_int        ()
 {
     pDev->OUT_D[2][32] = bss_inst.BSS837X2P;
+    pDev->OUT_D[2][32] = bss_inst.BSS837X2P;
+    pDev->OUT_D[2][33] = bss_inst.BSS837X2V;
+    pDev->OUT_D[2][27] = bss_inst.BSS926X2i;
+    pDev->OUT_D[2][11] = bss_inst.BSS926X2g;
+    pDev->OUT_D[2][46] = bss_inst.BSS926X2m;
+    pDev->OUT_D[2][14] = bss_inst.BSS926X2h;
+    pDev->OUT_D[2][24] = bss_inst.BSS926X2n;
+    pDev->OUT_D[2][12] = bss_inst.BSS926X2z;
+    pDev->OUT_D[2][15] = bss_inst.BSS926X2b;
+    pDev->OUT_D[2][22] = bss_inst.BSS837X2X;
+    pDev->OUT_D[2][25] = bss_inst.BSS837X2T;
+    pDev->OUT_D[2][13] = bss_inst.BSS926X2a;
+    pDev->OUT_D[2][22] = bss_inst.BSS926X2c;
+    pDev->OUT_D[2][23] = bss_inst.BSS837X2Y;
+    pDev->OUT_D[2][26] = bss_inst.BSS837X2U;
+    pDev->OUT_D[2][28] = bss_inst.BSS926X2j;
+    pDev->OUT_D[2][30] = bss_inst.BSS837X2N;
+    pDev->OUT_D[2][31] = bss_inst.BSS837X2R;
+    pDev->OUT_D[2][34] = bss_inst.BSS837X2W;
+    pDev->OUT_D[2][35] = bss_inst.BSS837X2S;
+    pDev->OUT_D[2][17] = bss_inst.BSS926X2d;
+    pDev->OUT_D[2][19] = bss_inst.BSS837X2Z;
+    pDev->OUT_D[2][18] = bss_inst.BSS926X2e;
+    pDev->OUT_D[2][20] = bss_inst.BSS837X2a;
+    pDev->OUT_D[2][39] = bss_inst.BSS838X6C;
+    pDev->OUT_D[2][41] = bss_inst.BSS838X6G;
+    pDev->OUT_D[2][32] = bss_inst.BSS837X2p;
+    pDev->OUT_D[2][50] = bss_inst.BSS837X2i;
+    pDev->OUT_D[2][54] = bss_inst.BSS926X2q;
+    pDev->OUT_D[2][55] = bss_inst.BSS926X2r;
+    pDev->OUT_D[2][56] = bss_inst.BSS837X2d;
+    pDev->OUT_D[2][40] = bss_inst.BSS838X6D;
+    pDev->OUT_D[2][42] = bss_inst.BSS838X6H;
+    pDev->OUT_D[2][22] = bss_inst.BSS837X2q;
+    pDev->OUT_D[2][51] = bss_inst.BSS837X2j;
+    pDev->OUT_D[2][38] = bss_inst.BSS838X6B;
+    pDev->OUT_D[2][44] = bss_inst.BSS838X6F;
+    pDev->OUT_D[2][22] = bss_inst.BSS837X2n;
+    pDev->OUT_D[2][53] = bss_inst.BSS837X2h;
+    pDev->OUT_D[2][37] = bss_inst.BSS838X6A;
+    pDev->OUT_D[2][43] = bss_inst.BSS838X6E;
+    pDev->OUT_D[2][22] = bss_inst.BSS837X2m;
+    pDev->OUT_D[2][52] = bss_inst.BSS837X2g;
+    pDev->OUT_D[2][57] = bss_inst.BSS837X2b;
+    pDev->OUT_D[2][58] = bss_inst.BSS837X2c;
+    pDev->OUT_D[2][59] = bss_inst.BSS837X2k;
+    pDev->OUT_D[2][60] = bss_inst.BSS837X2f;
+    pDev->OUT_D[2][36] = bss_inst.BSS926X2p;
+    pDev->OUT_D[2][45] = bss_inst.BSS837X2e;
+    pDev->OUT_D[2][5] = bss_inst.BSS837X2E;
+    pDev->OUT_D[2][6] = bss_inst.BSS837X2H;
+    pDev->OUT_D[2][9] = bss_inst.BSS837X2G;
+    pDev->OUT_D[2][10] = bss_inst.BSS837X2K;
+    pDev->OUT_D[2][7] = bss_inst.BSS837X2F;
 }
 
 void OUT_presure_int        ()

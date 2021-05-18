@@ -91,14 +91,14 @@ void powerdc_int::powerdc_9_10()
         uks_inst.UKS2X354 = false;
 
     if(prg3)
-        uks_inst.UKS4X343 = true;
+        uks_inst.UKS4X351 = true;
     else
-        uks_inst.UKS4X343 = false;
+        uks_inst.UKS4X351 = false;
 
     if(prg4)
-        uks_inst.UKS4X344 = true;
+        uks_inst.UKS4X357 = true;
     else
-        uks_inst.UKS4X344 = false;
+        uks_inst.UKS4X357 = false;
 
     if(bss_inst.BSS926X3A)
         uks_inst.UKS2X314 = true;
@@ -187,7 +187,7 @@ void powerdc_int::powerdc_9_10()
     else
         uks_inst.UKS2X356 = false;
 
-    uks_inst.UKS1X3105 = ingvsu_27;
+    uks_inst.UKS1X2105_106 = ingvsu_27;
     uks_inst.UKS1X3106 = ingvsu_27;
 
     uks_inst.UKS1X394 = exchange::ush1l;
@@ -240,10 +240,10 @@ void powerdc_int::powerdc_9_10()
     else uks_inst.UKS2X360 = false;
 
     if(OtkazGen3PostT) uks_inst.UKS2X355 = true;
-    else uks_inst.UKS2X355 = false;
+    else uks_inst.UKS4X355 = false;
 
     if(OtkazGen4PostT) uks_inst.UKS2X356 = true;
-    else uks_inst.UKS2X356 = false;
+    else uks_inst.UKS4X356 = false;
 
 
     uks_inst.UKS2X394 = uak1;
