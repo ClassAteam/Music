@@ -124,6 +124,7 @@ HEADERS += \
     externStruct/Struct_DeviceConnect.h \
     externStruct/Struct_FromRmiOper.h \
     externStruct/Struct_FromRmiPilot.h \
+    externStruct/Struct_ISU.h \
     externStruct/Struct_ToRmiNavig.h \
     sourceApp/mainwindow.h \
     sourceApp/utilTimeClassQt.h\

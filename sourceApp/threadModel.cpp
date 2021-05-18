@@ -30,6 +30,9 @@
 #include "externStruct/Struct_FromRmiPilot.h"
 #include "sourceApp/utilTimeClassQt.h"
 
+#pragma once
+#include "externStruct/Struct_ISU.h"
+
 #include "sourceApp/mainwindow.h"
 //class MainWindow w;
 extern  QSharedMemory SHARE_ADVANTECH;
@@ -37,6 +40,9 @@ extern  SH_DEVICE_CONNECT *pDev;
 
 extern  QSharedMemory SHARE_RMI_PILOT;
 extern  SH_FROMRMI_PILOT *pFromP;
+
+extern  QSharedMemory SHARE_ISU;
+extern  SH_ISU *pISU;
 
 bool exitThreadModel=0;
 extern TimeClass* pFramePlanSys;
@@ -95,6 +101,8 @@ void dispPlanSystem()
 
       pDev = static_cast<SH_DEVICE_CONNECT*>(SHARE_ADVANTECH.data());
       pFromP = static_cast<SH_FROMRMI_PILOT*>(SHARE_RMI_PILOT.data());
+      pISU = static_cast<SH_ISU*>(SHARE_ISU.data());
+
       IN_antifire_int       ();
       antifire.updateLogic();
       OUT_antifire_int       ();
@@ -328,6 +336,13 @@ void IN_powerdc_int        ()
     powerdc.overload_gen4 = pFromP->Otkaz[19];
     powerdc.otk_pereg_akk1 = pFromP->Otkaz[28];
     powerdc.otk_pereg_akk2 = pFromP->Otkaz[29];
+
+    exchange::eng1_spd = pISU->nvd1;
+    exchange::eng2_spd = pISU->nvd2;
+    exchange::eng3_spd = pISU->nvd3;
+    exchange::eng4_spd = pISU->nvd4;
+
+    qDebug() << "eng1 speed = " << pISU->nvd1;
 }
 void IN_presure_int        ()
 {}

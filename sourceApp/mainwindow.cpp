@@ -17,10 +17,13 @@
 #include "externStruct/Struct_DeviceConnect.h"
 #include "externStruct/Struct_FromRmiOper.h"
 #include "externStruct/Struct_FromRmiPilot.h"
+#include "externStruct/Struct_ISU.h"
+
 #include "sourceApp/utilTimeClassQt.h"
 
 #define SHARED_MEMORY_RMI_PIL "RMI_PIL"
 #define SHARED_MEMORY_DEVICE_CONNECT "Struct_DEVICE_CONNECT"
+#define SHARED_MEMORY_ISU "ISU_CONNECT"
 
 //----------------------------------------------
 extern antifire_int       antifire      ;
@@ -47,12 +50,14 @@ double TICK_Graf=50.0;//
 SH_FROMRMI_PILOT   FROMRMI_PILOT,  *pFromP=&FROMRMI_PILOT;  // for socket_in
 SH_FROMRMI_PILOT   FROMRMI_OPER,   *pFromO=&FROMRMI_OPER;  // for socket_in
 SH_DEVICE_CONNECT  DEVICE_CONNECT, *pDev=&DEVICE_CONNECT ;//, *pDevShar;
+SH_ISU  ISU, *pISU=&ISU ;//
 
 QUdpSocket *socket_out = nullptr;
 QUdpSocket *socket_in = nullptr;
 
 QSharedMemory SHARE_ADVANTECH;
 QSharedMemory SHARE_RMI_PILOT;
+QSharedMemory SHARE_ISU;
 
 extern bool exitThreadModel;
 bool s2 = false;
@@ -97,6 +102,9 @@ MainWindow::MainWindow(QWidget *parent)
     SHARE_RMI_PILOT.setKey(SHARED_MEMORY_RMI_PIL);
     SHARE_RMI_PILOT.attach();
 
+    SHARE_ISU.setKey(SHARED_MEMORY_ISU);
+    SHARE_ISU.attach();
+
      model = new ThreadModel();//
    // MyThread thread;
 
@@ -127,6 +135,7 @@ MainWindow::~MainWindow()
  delete  model;
  SHARE_ADVANTECH.detach();
  SHARE_RMI_PILOT.detach();
+ SHARE_ISU.detach();
 
 
  delete ui;
