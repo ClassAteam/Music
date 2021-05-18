@@ -33,13 +33,22 @@ static int
         PRBSS926 = false;
     }
 
-    if (exchange::ush1dpl >= 18.0 && exchange::ush1dpp >= 18.0)
+    if(exchange::ush1dpl >= 18.0 && exchange::ush1dpp >= 18.0)
     {
         PRBSS837 = true;
     }
     else
     {
         PRBSS837 = false;
+    }
+
+    if(exchange::ush1dpl >= 18.0 && exchange::ush1dpp >= 18.0)
+    {
+        PRBSS838 = true;
+    }
+    else
+    {
+        PRBSS838 = false;
     }
 
     if ((exchange::ush2dpl >= 18.0) && (exchange::ush2dpp >= 18.0) && exchange::s7_3364)

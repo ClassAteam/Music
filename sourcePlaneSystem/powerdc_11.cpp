@@ -200,10 +200,16 @@ allElConsAlt_inst.makeCorresCurr();
         {
             if(!(*otk_gen[y]))
             {
-                if((abs(*ugr_pool[y] - *ugz_pool[y])) >= 0.05)
+                if((abs(*ugr_pool[y] - *ugz_pool[y])) >= 0.1)
+                {
                     *divg_pool[y] = m_3_L_intervals(*ugr_pool[y] - *ugz_pool[y],
-                                                    -200, -30, 30, 200,
-                                                    0.05, 0.05, -0.05, -0.05);
+                                                    -200, -50, 50, 200,
+                                                    0.1, 0.1, -0.1, -0.1);
+                }
+                else
+                {
+                    *divg_pool[y] = 0.0;
+                }
                 *ng_pool[y] = *ng_pool[y] + ((*nvd_pool[y] - *ng_pool[y]) / kn1);
                 *ivg_pool[y] = *ivg_pool[y] + *divg_pool[ y];
 

@@ -259,7 +259,6 @@ void IN_antifire_int       ()
 {
     antifire.pnu=antiicing.PBSO1;
     antifire.PPBI= pDev->IN_D[0][1];
-//    qDebug() << "raw struct value IN_D_0_1 " << antifire.PPBI;
 
 }
 void IN_antiicing_int      ()
@@ -291,9 +290,19 @@ void IN_powerdc_int        ()
     exchange::s15_2430 = pDev->IN_MAT[561];
     exchange::s7_2430 = pDev->IN_MAT[549];
     exchange::s13_2430 = pDev->IN_MAT[523];
-    exchange::s10_2430 = pDev->IN_MAT[546];
-    exchange::s16_2430 = pDev->IN_MAT[577];
-    exchange::s16_2430 = pDev->IN_MAT[525];
+    exchange::s10_2430 = pDev->IN_MAT[545];
+    exchange::s3_2430 = pDev->IN_MAT[533];
+    if(pDev->IN_MAT[576]) exchange::s16_2430 = static_cast<int>(exchange::s16_2430::akk1);
+    if(pDev->IN_MAT[577]) exchange::s16_2430 = static_cast<int>(exchange::s16_2430::akk2);
+    if(pDev->IN_MAT[578]) exchange::s16_2430 = static_cast<int>(exchange::s16_2430::avar1);
+    if(pDev->IN_MAT[579]) exchange::s16_2430 = static_cast<int>(exchange::s16_2430::avar2);
+    if(pDev->IN_MAT[580]) exchange::s16_2430 = static_cast<int>(exchange::s16_2430::sh1lev);
+    if(pDev->IN_MAT[581]) exchange::s16_2430 = static_cast<int>(exchange::s16_2430::sh2lev);
+    if(pDev->IN_MAT[582]) exchange::s16_2430 = static_cast<int>(exchange::s16_2430::sh1prav);
+    if(pDev->IN_MAT[583]) exchange::s16_2430 = static_cast<int>(exchange::s16_2430::sh2prav);
+    if(pDev->IN_MAT[525]) exchange::s17_2430 = static_cast<int>(exchange::s17_2430::akk1_rap1);
+    if(pDev->IN_MAT[526]) exchange::s17_2430 = static_cast<int>(exchange::s17_2430::akk2_rap2);
+    if(pDev->IN_MAT[527]) exchange::s17_2430 = static_cast<int>(exchange::s17_2430::vsu);
     powerdc.glviklvsu = pDev->IN_MAT[748];
     exchange::s1_7710 = pDev->IN_MAT[196];
     exchange::s2_7710 = pDev->IN_MAT[197];
@@ -342,7 +351,6 @@ void IN_powerdc_int        ()
     exchange::eng3_spd = pISU->nvd3;
     exchange::eng4_spd = pISU->nvd4;
 
-    qDebug() << "eng1 speed = " << pISU->nvd1;
 }
 void IN_presure_int        ()
 {}
@@ -380,7 +388,6 @@ void OUT_pneumatic_int      ()
 void OUT_powerdc_int        ()
 {
     pDev->OUT_D[2][32] = bss_inst.BSS837X2P;
-    pDev->OUT_D[2][32] = bss_inst.BSS837X2P;
     pDev->OUT_D[2][33] = bss_inst.BSS837X2V;
     pDev->OUT_D[2][27] = bss_inst.BSS926X2i;
     pDev->OUT_D[2][11] = bss_inst.BSS926X2g;
@@ -392,7 +399,7 @@ void OUT_powerdc_int        ()
     pDev->OUT_D[2][22] = bss_inst.BSS837X2X;
     pDev->OUT_D[2][25] = bss_inst.BSS837X2T;
     pDev->OUT_D[2][13] = bss_inst.BSS926X2a;
-    pDev->OUT_D[2][22] = bss_inst.BSS926X2c;
+    pDev->OUT_D[2][16] = bss_inst.BSS926X2c;
     pDev->OUT_D[2][23] = bss_inst.BSS837X2Y;
     pDev->OUT_D[2][26] = bss_inst.BSS837X2U;
     pDev->OUT_D[2][28] = bss_inst.BSS926X2j;
@@ -406,7 +413,7 @@ void OUT_powerdc_int        ()
     pDev->OUT_D[2][20] = bss_inst.BSS837X2a;
     pDev->OUT_D[2][39] = bss_inst.BSS838X6C;
     pDev->OUT_D[2][41] = bss_inst.BSS838X6G;
-    pDev->OUT_D[2][32] = bss_inst.BSS837X2p;
+    pDev->OUT_D[2][48] = bss_inst.BSS837X2p;
     pDev->OUT_D[2][50] = bss_inst.BSS837X2i;
     pDev->OUT_D[2][54] = bss_inst.BSS926X2q;
     pDev->OUT_D[2][55] = bss_inst.BSS926X2r;
@@ -417,7 +424,7 @@ void OUT_powerdc_int        ()
     pDev->OUT_D[2][51] = bss_inst.BSS837X2j;
     pDev->OUT_D[2][38] = bss_inst.BSS838X6B;
     pDev->OUT_D[2][44] = bss_inst.BSS838X6F;
-    pDev->OUT_D[2][22] = bss_inst.BSS837X2n;
+    pDev->OUT_D[2][47] = bss_inst.BSS837X2n;
     pDev->OUT_D[2][53] = bss_inst.BSS837X2h;
     pDev->OUT_D[2][37] = bss_inst.BSS838X6A;
     pDev->OUT_D[2][43] = bss_inst.BSS838X6E;
@@ -427,7 +434,7 @@ void OUT_powerdc_int        ()
     pDev->OUT_D[2][58] = bss_inst.BSS837X2c;
     pDev->OUT_D[2][59] = bss_inst.BSS837X2k;
     pDev->OUT_D[2][60] = bss_inst.BSS837X2f;
-    pDev->OUT_D[2][36] = bss_inst.BSS926X2p;
+    pDev->OUT_D[2][36] = bss_inst.BSS926X2P;
     pDev->OUT_D[2][45] = bss_inst.BSS837X2e;
     pDev->OUT_D[2][5] = bss_inst.BSS837X2E;
     pDev->OUT_D[2][6] = bss_inst.BSS837X2H;
