@@ -65,6 +65,10 @@ void Z_f(bool &prg1, bool &prg2, bool &pchrl, bool &BSS926XN, bool &k31_2420,
                 BSS926XN = false;
             }
         }
+        else
+        {
+            BSS926XN = false;
+        }
     }
 
     if(k31_2420)

@@ -211,6 +211,16 @@ void  MainWindow:: Print_manager       ()
 }
 void  MainWindow:: Print_antifire      ()
 {
+    ui->peregrevDv1->setText("Признак входного сигнала ПЕРЕГРЕВ ДВИГАТЕЛЯ 1 = " + QString::number(uks_inst.UKS3X314));
+    ui->peregrevDv2->setText("Признак входного сигнала ПЕРЕГРЕВ ДВИГАТЕЛЯ 2 = " + QString::number(uks_inst.UKS3X315));
+    ui->peregrevDv3->setText("Признак входного сигнала ПЕРЕГРЕВ ДВИГАТЕЛЯ 3 = " + QString::number(uks_inst.UKS3X316));
+    ui->peregrevDv4->setText("Признак входного сигнала ПЕРЕГРЕВ ДВИГАТЕЛЯ 4 = " + QString::number(uks_inst.UKS3X317));
+    ui->ochered_1_razr->setText("Признак входного сигнала ОЧЕРЕДЬ 1 РАЗРЯДИЛАСЬ = " + QString::number(uks_inst.UKS3X318));
+    ui->pozharDv1->setText("Признак входного сигнала ПОЖАР ДВИГАТЕЛЯ 1 = " + QString::number(uks_inst.UKS4X33));
+    ui->pozharDv2->setText("Признак входного сигнала ПОЖАР ДВИГАТЕЛЯ 2 = " + QString::number(uks_inst.UKS4X34));
+    ui->pozharDv3->setText("Признак входного сигнала ПОЖАР ДВИГАТЕЛЯ 3 = " + QString::number(uks_inst.UKS4X35));
+    ui->pozharDv4->setText("Признак входного сигнала ПОЖАР ДВИГАТЕЛЯ 4 = " + QString::number(uks_inst.UKS4X36));
+    ui->ocheredVsu->setText("Признак входного сигнала ОЧЕРЕДЬ ВСУ = " + QString::number(uks_inst.UKS4X37));
 
 }
 void  MainWindow:: Print_antiicing     ()

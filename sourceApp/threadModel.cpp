@@ -259,6 +259,35 @@ void IN_antifire_int       ()
 {
     antifire.pnu=antiicing.PBSO1;
     antifire.PPBI= pDev->IN_D[0][1];
+    antifire.S3_2610 = pDev->IN_MAT[289];
+    antifire.S4_2610 = pDev->IN_MAT[291];
+    //s5_2610l
+    antifire.S5_2610 = pDev->IN_MAT[377];
+    antifire.S6_2610 = pDev->IN_MAT[660];
+    antifire.S7_2610 = pDev->IN_MAT[293];
+    antifire.S8_2610 = pDev->IN_MAT[295];
+    antifire.S9_2610 = pDev->IN_MAT[383];
+    if(pDev->IN_MAT[864])antifire.S1_2610 = antifire.s1_2610::otkl;
+    if(pDev->IN_MAT[865])antifire.S1_2610 = antifire.s1_2610::mg1dv;
+    if(pDev->IN_MAT[866])antifire.S1_2610 = antifire.s1_2610::mg2dv;
+    if(pDev->IN_MAT[867])antifire.S1_2610 = antifire.s1_2610::mg3dv;
+    if(pDev->IN_MAT[868])antifire.S1_2610 = antifire.s1_2610::mg4dv;
+    if(pDev->IN_MAT[869])antifire.S1_2610 = antifire.s1_2610::vsu;
+    if(pDev->IN_MAT[870])antifire.S2_2610 = antifire.s2_2610::gr1;
+    if(pDev->IN_MAT[871])antifire.S2_2610 = antifire.s2_2610::otk;
+    if(pDev->IN_MAT[872])antifire.S2_2610 = antifire.s2_2610::gr2;
+    if(pDev->IN_MAT[873])antifire.S2_2610 = antifire.s2_2610::gr3;
+    if(pDev->IN_MAT[874])antifire.S2_2610 = antifire.s2_2610::gr4;
+    if(pDev->IN_MAT[875])antifire.S2_2610 = antifire.s2_2610::gr5;
+    if(pDev->IN_MAT[876])antifire.S2_2610 = antifire.s2_2610::gr6;
+    if(pDev->IN_MAT[877])antifire.S2_2610 = antifire.s2_2610::pozhar;
+    antifire.S10_2610 = pDev->IN_MAT[878];
+    antifire.S11_2610 = pDev->IN_MAT[299];
+    //s13_2610l
+    antifire.S13_2610 = pDev->IN_MAT[297];
+    antifire.S14_2610 = pDev->IN_MAT[664];
+    //s15_2610l
+    antifire.S15_2610 = pDev->IN_MAT[301];
 
 }
 void IN_antiicing_int      ()
@@ -287,7 +316,7 @@ void IN_powerdc_int        ()
     exchange::s2_2430 = pDev->IN_MAT[529];
     exchange::s9_2430 = pDev->IN_MAT[541];
     exchange::s14_2430 = pDev->IN_MAT[537];
-    exchange::s15_2430 = pDev->IN_MAT[561];
+    exchange::s15_2430 = pDev->IN_MAT[539];
     exchange::s7_2430 = pDev->IN_MAT[549];
     exchange::s13_2430 = pDev->IN_MAT[523];
     exchange::s10_2430 = pDev->IN_MAT[545];
@@ -319,6 +348,10 @@ void IN_powerdc_int        ()
     exchange::s9_2420 = pDev->IN_MAT[555];
     exchange::s15_2420 = pDev->IN_MAT[592];
     exchange::s21_2420 = pDev->IN_MAT[594];
+    powerdc.s3_2420 = pDev->IN_MAT[561];
+    powerdc.s6_2420 = pDev->IN_MAT[563];
+    powerdc.s11_2420 = pDev->IN_MAT[571];
+    powerdc.s14_2420 = pDev->IN_MAT[573];
 
     powerdc.OtkazGen1PostT = pFromP->Otkaz[20];
     powerdc.OtkazGen2PostT = pFromP->Otkaz[21];
@@ -362,6 +395,30 @@ void IN_wingsmech_int      ()
 void OUT_antifire_int       ()
 {
     pDev->OUT_D[0][1]=antiicing.PONdv4;
+
+    pDev->OUT_D[0][98] = bss_inst.BSS811X2U;
+    pDev->OUT_D[0][99] = bss_inst.BSS811X2W;
+    pDev->OUT_D[0][100] = bss_inst.BSS812X6S;
+    pDev->OUT_D[0][101] = bss_inst.BSS812X6U;
+    pDev->OUT_D[0][106] = bss_inst.BSS811X2Z;
+    pDev->OUT_D[0][107] = bss_inst.BSS811X2a;
+    pDev->OUT_D[0][108] = bss_inst.BSS913X2j;
+    pDev->OUT_D[0][109] = bss_inst.BSS913X2k;
+    pDev->OUT_D[0][112] = bss_inst.BSS913X2m;
+    pDev->OUT_D[0][111] = bss_inst.BSS913X2n;
+    pDev->OUT_D[0][110] = bss_inst.BSS913X2p;
+    pDev->OUT_D[0][97] = bss_inst.BSS811X2Y;
+    pDev->OUT_D[0][102] = bss_inst.BSS811X2V;
+    pDev->OUT_D[0][103] = bss_inst.BSS811X2X;
+    pDev->OUT_D[0][104] = bss_inst.BSS812X6T;
+    pDev->OUT_D[0][105] = bss_inst.BSS812X6V;
+    pDev->OUT_D[0][96] = bss_inst.BSS811X2b;
+    pDev->OUT_D[0][19] = bss_inst.BSS811X2D;
+    pDev->OUT_D[2][69] = bss_inst.BSS838X6p;
+    pDev->OUT_D[2][79] = bss_inst.BSS838X6i;
+    pDev->OUT_D[2][80] = bss_inst.BSS926X2R;
+    pDev->OUT_D[2][81] = bss_inst.BSS926X2S;
+    pDev->OUT_D[2][82] = bss_inst.BSS926X2T;
 }
 
 void OUT_antiicing_int      ()

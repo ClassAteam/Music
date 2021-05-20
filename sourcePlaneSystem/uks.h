@@ -145,6 +145,9 @@ struct uks
     bool UKS3X310{};
     bool UKS3X311{};
     bool UKS3X314{};
+    bool UKS3X315{};
+    bool UKS3X316{};
+    bool UKS3X317{};
     bool UKS3X318{};
     bool UKS3X324{};
     bool UKS3X325{};
@@ -174,6 +177,10 @@ struct uks
     bool UKS4X324{};
     bool UKS4X325{};
     bool UKS4X326{};
+    bool UKS4X33{};
+    bool UKS4X34{};
+    bool UKS4X35{};
+    bool UKS4X36{};
     bool UKS4X335{};
     bool UKS4X336{};
     bool UKS4X337{};

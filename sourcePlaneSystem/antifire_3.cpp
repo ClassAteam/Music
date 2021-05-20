@@ -18,9 +18,15 @@ void antifire_int::antifire_3()
     }
 
     if((exchange::ushal >= 18.0) && K50_2610 && K51_2610)
+    {
         bss_inst.BSS811X1n = true;
+        uks_inst.UKS4X33 = true;
+    }
     else
+    {
         bss_inst.BSS811X1n = false;
+        uks_inst.UKS4X33 = false;
+    }
 
     if(exchange::ushap >= 18)
     {
@@ -41,15 +47,28 @@ void antifire_int::antifire_3()
     if(exchange::ushal >= 18.0)
     {
         if(K53_2610 || K54_2610 || lzh_srab_pereg_2_dv)
+        {
             bss_inst.BSS811X1t = true;
+            uks_inst.UKS3X315 = true;
+
+        }
         else
+        {
             bss_inst.BSS811X1t = false;
+            uks_inst.UKS3X315 = false;
+        }
     }
 
     if(exchange::ushal >= 18.0 && K53_2610 && K54_2610)
+    {
         bss_inst.BSS811X1r = true;
+        uks_inst.UKS4X34 = true;
+    }
     else
+    {
         bss_inst.BSS811X1r = false;
+        uks_inst.UKS4X34 = false;
+    }
 
     if (exchange::ushap >= 18)
     {
@@ -70,15 +89,27 @@ void antifire_int::antifire_3()
     if (exchange::ushap >= 18.0)
     {
         if(K57_2610 || K58_2610 || lzh_srab_pereg_3_dv)
+        {
             bss_inst.BSS812X5j = true;
+            uks_inst.UKS3X316 = true;
+        }
         else
+        {
             bss_inst.BSS812X5j = false;
+            uks_inst.UKS3X316 = false;
+        }
     }
 
     if(exchange::ushap >= 18.0 && K57_2610 && K58_2610)
+    {
         bss_inst.BSS812X5h = true;
+        uks_inst.UKS4X35 = true;
+    }
     else
+    {
         bss_inst.BSS812X5h = false;
+        uks_inst.UKS4X35 = false;
+    }
 
     if(exchange::ushal >= 18)
     {
@@ -100,15 +131,27 @@ void antifire_int::antifire_3()
     if (exchange::ushap >= 18.0)
     {
         if(K60_2610 || K61_2610 || lzh_srab_pereg_4_dv)
+        {
             bss_inst.BSS812X5p = true;
+            uks_inst.UKS3X317 = true;
+        }
         else
+        {
             bss_inst.BSS812X5p = false;
+            uks_inst.UKS3X317 = false;
+        }
     }
 
     if(exchange::ushap >= 18.0 && K60_2610 && K61_2610)
+    {
         bss_inst.BSS812X5n = true;
+        uks_inst.UKS4X36 = true;
+    }
     else
+    {
         bss_inst.BSS812X5n = false;
+        uks_inst.UKS4X36 = false;
+    }
 
     if(exchange::ushal >= 18)
     {

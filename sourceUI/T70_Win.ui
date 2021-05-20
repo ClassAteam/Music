@@ -23,6 +23,9 @@
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
      <widget class="QTabWidget" name="tabWidget">
+      <property name="whatsThis">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
       <property name="currentIndex">
        <number>1</number>
       </property>
@@ -701,7 +704,7 @@
          </widget>
         </item>
         <item row="20" column="2">
-         <widget class="QLabel" name="uksx3x320">
+         <widget class="QLabel" name="uks3x320">
           <property name="text">
            <string>TextLabel</string>
           </property>
@@ -1051,7 +1054,7 @@
          </widget>
         </item>
         <item row="37" column="1">
-         <widget class="QLabel" name="uksx394">
+         <widget class="QLabel" name="uks3x394">
           <property name="text">
            <string>TextLabel</string>
           </property>
@@ -1241,6 +1244,83 @@
         </item>
         <item row="8" column="3">
          <widget class="QLabel" name="uks4x357">
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_15">
+       <attribute name="title">
+        <string>ППЗ</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <widget class="QLabel" name="peregrevDv1">
+          <property name="text">
+           <string>Перегрев двигателя 1</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="peregrevDv2">
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="peregrevDv3">
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="peregrevDv4">
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="ochered_1_razr">
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="pozharDv1">
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="pozharDv2">
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="pozharDv3">
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="pozharDv4">
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="ocheredVsu">
           <property name="text">
            <string>TextLabel</string>
           </property>
