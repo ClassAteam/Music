@@ -142,6 +142,18 @@ void antifire_int::antifire_1()
                 F25_2610 = false;
         }
     }
+    else
+    {
+        if(F142_2610)
+        {
+            if(K15_2610)
+                F25_2610 = true;
+            else
+                F25_2610 = false;
+        }
+        else
+            F25_2610 = false;
+    }
     //F3-5 contact
     if(F132_2610)
     {
@@ -176,6 +188,12 @@ void antifire_int::antifire_1()
     {
         if(K24_2610 || K23_2610)
             F45_2610 = true;
+        else
+        {
+            if(F142_2610 && K15_2610) F45_2610 = true;
+            else F45_2610 = false;
+
+        }
 
     }
     else

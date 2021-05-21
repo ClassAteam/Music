@@ -311,6 +311,13 @@
           </property>
          </widget>
         </item>
+        <item row="1" column="3">
+         <widget class="QLabel" name="uks2x359">
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+         </widget>
+        </item>
         <item row="2" column="0">
          <widget class="QLabel" name="label_17">
           <property name="text">
@@ -327,6 +334,13 @@
         </item>
         <item row="2" column="2">
          <widget class="QLabel" name="uks1x248">
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="3">
+         <widget class="QLabel" name="uks2x360">
           <property name="text">
            <string>TextLabel</string>
           </property>
@@ -353,6 +367,13 @@
           </property>
          </widget>
         </item>
+        <item row="3" column="3">
+         <widget class="QLabel" name="uks4x355">
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+         </widget>
+        </item>
         <item row="4" column="0">
          <widget class="QLabel" name="label_39">
           <property name="text">
@@ -369,6 +390,13 @@
         </item>
         <item row="4" column="2">
          <widget class="QLabel" name="uks1x3105106">
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="3">
+         <widget class="QLabel" name="uks4x356">
           <property name="text">
            <string>TextLabel</string>
           </property>
@@ -395,6 +423,13 @@
           </property>
          </widget>
         </item>
+        <item row="5" column="3">
+         <widget class="QLabel" name="uks3x343">
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+         </widget>
+        </item>
         <item row="6" column="0">
          <widget class="QLabel" name="label_30">
           <property name="text">
@@ -411,6 +446,13 @@
         </item>
         <item row="6" column="2">
          <widget class="QLabel" name="uks3x3105106">
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="3">
+         <widget class="QLabel" name="uks3x344">
           <property name="text">
            <string>TextLabel</string>
           </property>
@@ -437,6 +479,13 @@
           </property>
          </widget>
         </item>
+        <item row="7" column="3">
+         <widget class="QLabel" name="uks4x351">
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+         </widget>
+        </item>
         <item row="8" column="0">
          <widget class="QLabel" name="label_41">
           <property name="text">
@@ -453,6 +502,13 @@
         </item>
         <item row="8" column="2">
          <widget class="QLabel" name="uks2x385">
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+         </widget>
+        </item>
+        <item row="8" column="3">
+         <widget class="QLabel" name="uks4x357">
           <property name="text">
            <string>TextLabel</string>
           </property>
@@ -627,7 +683,7 @@
          </widget>
         </item>
         <item row="17" column="0">
-         <widget class="QLabel" name="label_45">
+         <widget class="QLabel" name="label_10">
           <property name="text">
            <string>TextLabel</string>
           </property>
@@ -647,8 +703,8 @@
           </property>
          </widget>
         </item>
-        <item row="18" column="0">
-         <widget class="QLabel" name="label_10">
+        <item row="18" column="0" rowspan="2">
+         <widget class="QLabel" name="label_5">
           <property name="text">
            <string>TextLabel</string>
           </property>
@@ -663,13 +719,6 @@
         </item>
         <item row="18" column="2">
          <widget class="QLabel" name="uks2x33">
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-         </widget>
-        </item>
-        <item row="19" column="0">
-         <widget class="QLabel" name="label_5">
           <property name="text">
            <string>TextLabel</string>
           </property>
@@ -899,8 +948,8 @@
           </property>
          </widget>
         </item>
-        <item row="30" column="0">
-         <widget class="QLabel" name="label_44">
+        <item row="30" column="0" rowspan="2">
+         <widget class="QLabel" name="label_32">
           <property name="text">
            <string>TextLabel</string>
           </property>
@@ -915,13 +964,6 @@
         </item>
         <item row="30" column="2">
          <widget class="QLabel" name="uks4x333">
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-         </widget>
-        </item>
-        <item row="31" column="0">
-         <widget class="QLabel" name="label_32">
           <property name="text">
            <string>TextLabel</string>
           </property>
@@ -1188,62 +1230,6 @@
         </item>
         <item row="43" column="2">
          <widget class="QLabel" name="uks4x338">
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="3">
-         <widget class="QLabel" name="uks2x359">
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="3">
-         <widget class="QLabel" name="uks2x360">
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-         </widget>
-        </item>
-        <item row="3" column="3">
-         <widget class="QLabel" name="uks4x355">
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-         </widget>
-        </item>
-        <item row="4" column="3">
-         <widget class="QLabel" name="uks4x356">
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-         </widget>
-        </item>
-        <item row="5" column="3">
-         <widget class="QLabel" name="uks3x343">
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-         </widget>
-        </item>
-        <item row="6" column="3">
-         <widget class="QLabel" name="uks3x344">
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-         </widget>
-        </item>
-        <item row="7" column="3">
-         <widget class="QLabel" name="uks4x351">
-          <property name="text">
-           <string>TextLabel</string>
-          </property>
-         </widget>
-        </item>
-        <item row="8" column="3">
-         <widget class="QLabel" name="uks4x357">
           <property name="text">
            <string>TextLabel</string>
           </property>

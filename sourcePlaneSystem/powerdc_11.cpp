@@ -129,10 +129,14 @@ allElConsAlt_inst.makeCorresCurr();
             if(*nvd_pool[i] >= 40.0 && *popp01_pool[i] == true)
             {
                 *bss838_pool[i] = true;
-                *f92_pool[i] = true;
+//                *f92_pool[i] = true;
             }
-            else
-                *f92_pool[i] = false;
+//            else
+//                *f92_pool[i] = false;
+        }
+        else
+        {
+            *bss838_pool[i] = false;
         }
 
         if(*f92_pool[i])
@@ -156,13 +160,13 @@ allElConsAlt_inst.makeCorresCurr();
         {
             if(*f92_pool[i])
             {
-                if(!(*k25_pool[i]))
+                if(*k25_pool[i])
                 {
                     *k1_pool[i] = true;
                 }
                 else
                 {
-                    if(*k25_pool[i] && *k1_pool[i])
+                    if(!(*k25_pool[i]) && *k1_pool[i])
                         *k1_pool[i] = true;
                     else
                         *k1_pool[i] = false;
@@ -172,6 +176,7 @@ allElConsAlt_inst.makeCorresCurr();
             else
             {
                 *k1_pool[i] = false;
+                *k25_pool[i] = false;
             }
         }
         else
@@ -185,7 +190,10 @@ allElConsAlt_inst.makeCorresCurr();
         else
         {
             if(*k1_pool[i] && exchange::ushal >= 18.0)
+            {
                 *popg1_pool[i] = true;
+                *bss838_pool[i] = false;
+            }
         }
     }
 
@@ -193,7 +201,6 @@ allElConsAlt_inst.makeCorresCurr();
     {
         if(*popg1_pool[y])
         {
-            *bss838_pool[y] = true;
             *ng_pool[y] = *ng_pool[y] + (0 - *ng_pool[y]) / kn1;
         }
         else

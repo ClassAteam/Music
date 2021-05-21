@@ -78,8 +78,9 @@ public:
         F427_2845{true},
         F429_2845{true},
         F124_2845{true};
+
     double
-        qpgs3, p0_gs3{115.0}, pgs3_z{0},
+        qpgs3, pgs3_z{0},
         Pv_vsu{0.0},//davlenie vozduha, otbiraemoe ot vspomogatelnoy ustanovki
         delta_wpgs3{}, kgs{0.05},
         qngat{}, qngs1{}, qngs2{}, qngs3{}, qngs4{}, qntnugs1{}, qntnugs2{},
@@ -156,24 +157,27 @@ public:
     QVector<bool> KKGS{false, false, false, false};
 
     QVector<bool> Ffirst4_2920{true, true, true, true};
-    //s1_2920 perekluchatel GIDROPITANIE SUR GS1,
-    //s2_2920 perekluchatel GIDROPITANIE SUR GS2,
-    //s3_2920 perekluchatel GIDROPITANIE SUR GS3,
-    //s4_2920 perekluchatel GIDROPITANIE SUR GS4,
+    //f1_2920 perekluchatel GIDROPITANIE SUR GS1,
+    //f2_2920 perekluchatel GIDROPITANIE SUR GS2,
+    //f3_2920 perekluchatel GIDROPITANIE SUR GS3,
+    //f4_2920 perekluchatel GIDROPITANIE SUR GS4,
 
-        QVector<bool> Fsecond4_2920{false, false, false, false};
-        //s5_2920 perekluchatel KRANI KOLCEVANIYA GS1
-        //s6_2920 perekluchatel KRANI KOLCEVANIYA GS2
-        //s7_2920 perekluchatel KRANI KOLCEVANIYA GS3
-        //s8_2920 perekluchatel KRANI KOLCEVANIYA GS4
+    QVector<bool> Sfirst4_2920{false, false, false, false};
+    //S1_2920 perekluchatel TNU GS1
+    //S2_2920 perekluchatel TNU GS2
+    //S3_2920 perekluchatel TNU GS3
+    //S4_2920 perekluchatel TNU GS4
 
-        QVector<bool> Sfirst4_2920{false, false, false, false};
-        QVector<bool> Ssecond4_2920{false, false, false, false};
-        QVector<int> Sthird4_2920{0, 0, 0, 0};
-        //S9_2920 perekluchatel TNU GS1
-        //S10_2920 perekluchatel TNU GS2
-        //S11_2920 perekluchatel TNU GS3
-        //S12_2920 perekluchatel TNU GS4
+    QVector<bool> Ssecond4_2920{false, false, false, false};
+    //S5_2920 perekluchatel TNU GS1
+    //S6_2920 perekluchatel TNU GS2
+    //S7_2920 perekluchatel TNU GS3
+    //S8_2920 perekluchatel TNU GS4
+    QVector<bool> Sthird4_2920{false, false, false, false};
+    //S9_2920 perekluchatel TNU GS1
+    //S10_2920 perekluchatel TNU GS2
+    //S11_2920 perekluchatel TNU GS3
+    //S12_2920 perekluchatel TNU GS4
 
         bool
             K5_2910,

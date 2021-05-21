@@ -147,7 +147,6 @@ struct exchange
     static bool s8_7322;//Vikl. GLAVNIY VIKLYUCHATEL' DVIGATEL'2
     static bool s9_2420;//perekl SET' 115/200 RAP
     static bool s9_2430;//perekl knopochn vkluch rap2
-    static bool s9_2920;//pereklyuchatel' TNU GS1
     static bool s9_7322;//Vikl. GLAVNIY VIKLYUCHATEL' DVIGATEL'3
 
     static double X_ped11;//otklonenie levoy pedali levogo letchika

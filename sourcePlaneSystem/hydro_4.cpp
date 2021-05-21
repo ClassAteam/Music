@@ -79,6 +79,6 @@ void hydro_int::hydro_4()
         //        wpgs3 = wpgs3 + ((-100 - wpgs3) * 0.01);
     }
 
-    pgs3_z = p0_gs3 * (w0gs3 / (w0gs3 - wpgs3));
+    pgs3_z = p0gs3 * (w0gs3 / (w0gs3 - wpgs3));
     pgs3 = pgs3 + ((pgs3_z - pgs3) * kgs);
 }

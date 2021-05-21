@@ -206,6 +206,10 @@ public:
         purgk1,
         purgk21;
     bool
+        psgp1{},
+        psgp2{},
+        psgp3{},
+        psgp4{},
         s1_11028{},
         s1_4940{},
         k1_11038{},
@@ -233,7 +237,7 @@ public:
         k10_7322{},
         k11_7322{},
         k18_7322{},
-        pvrap1{},
+        pvrap1{},//
         pvrap2{},
         pnu{},
         otk_pos1000{},

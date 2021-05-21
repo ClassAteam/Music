@@ -85,37 +85,34 @@ void powerdc_int::powerdc_14()
     k13_2420 = false;
     purglk9 = false;
 
-    if(exchange::ush2dpl >= 18.0 && !k19_2420)
+    if(exchange::ush2dpl >= 18.0)
     {
-        k13_2420 = true;
-        purglk9 = true;
-    }
-
-    if(k19_2420)
-    {
-        if(exchange::ushavP[0][0] >= 65.0 && exchange::ushavP[0][1] >= 65.0 &&
-            exchange::ushavP[0][2] >= 65.0)
+        if(k19_2420)
         {
-            if(pbapsh1)
+            if(exchange::ushavP[0][0] >= 65.0 && exchange::ushavP[0][1] >= 65.0 &&
+                exchange::ushavP[0][2] >= 65.0)
             {
-                k13_2420 = true;
-                purglk9 = true;
+                if(pbapsh1)
+                {
+                    k13_2420 = true;
+                    purglk9 = true;
+                }
+            }
+            else
+            {
+                if(tick1 * TICK >= 300)
+                {
+                    pbapsh1 = true;
+                    k13_2420 = true;
+                    purglk9 = true;
+                }
+                else
+                    tick1++;
             }
         }
         else
-        {
-            if(tick1 * TICK >= 300)
-            {
-                pbapsh1 = true;
-                k13_2420 = true;
-                purglk9 = true;
-            }
-            else
-                tick1++;
-        }
+            pbapsh1 = false;
     }
-    else
-        pbapsh1 = false;
 
     if(!pp400[1] && !purgpk3)
         k20_2420 = false;
@@ -125,36 +122,34 @@ void powerdc_int::powerdc_14()
     k16_2420 = false;
     purgpk9 = false;
 
-    if(exchange::ush2dpp >= 18.0 && !k20_2420)
+    if(exchange::ush2dpp >= 18.0)
     {
-        k16_2420 = true;
-        purgpk9 = true;
-    }
-    if(k20_2420)
-    {
-        if(exchange::ushavP[1][0] >= 65.0 && exchange::ushavP[1][1] >= 65.0
-            && exchange::ushavP[1][2] >= 65.0)
+        if(k20_2420)
         {
-            if(pbapsh2)
+            if(exchange::ushavP[1][0] >= 65.0 && exchange::ushavP[1][1] >= 65.0
+                && exchange::ushavP[1][2] >= 65.0)
             {
-                k16_2420 = true;
-                purgpk9 = true;
+                if(pbapsh2)
+                {
+                    k16_2420 = true;
+                    purgpk9 = true;
+                }
+            }
+            else
+            {
+                if(tick2 * TICK >= 300)
+                {
+                    pbapsh2 = true;
+                    k16_2420 = true;
+                    purgpk9 = true;
+                }
+                else
+                    tick2++;
             }
         }
         else
-        {
-            if(tick2 * TICK >= 300)
-            {
-                pbapsh2 = true;
-                k16_2420 = true;
-                purgpk9 = true;
-            }
-            else
-                tick2++;
-        }
+            pbapsh2 = false;
     }
-    else
-        pbapsh2 = false;
 
     exchange::uptsP[0] = exchange::upts;
     exchange::uptsP[1] = exchange::upts - 1;

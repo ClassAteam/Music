@@ -84,7 +84,6 @@ bool exchange::s7_7322{};//Vikl. GLAVNIY VIKLYUCHATEL' DVIGATEL'1
 bool exchange::s7_pp73{};//pereklyuchatel' ZASLONKA OTBORA PP-73
 bool exchange::s8_3364{};
 bool exchange::s8_7322{};//Vikl. GLAVNIY VIKLYUCHATEL' DVIGATEL'2
-bool exchange::s9_2920{};//pereklyuchatel' TNU GS1
 bool exchange::s9_7322{};//Vikl. GLAVNIY VIKLYUCHATEL' DVIGATEL'3
 double exchange::X_ped11{};//engine1 speed
 double exchange::X_ped12{};//engine1 speed

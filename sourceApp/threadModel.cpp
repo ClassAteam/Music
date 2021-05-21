@@ -257,8 +257,6 @@ void ThreadModel::run ()
 //===============  INPUT Data
 void IN_antifire_int       ()
 {
-    antifire.pnu=antiicing.PBSO1;
-    antifire.PPBI= pDev->IN_D[0][1];
     antifire.S3_2610 = pDev->IN_MAT[289];
     antifire.S4_2610 = pDev->IN_MAT[291];
     //s5_2610l
@@ -288,6 +286,29 @@ void IN_antifire_int       ()
     antifire.S14_2610 = pDev->IN_MAT[664];
     //s15_2610l
     antifire.S15_2610 = pDev->IN_MAT[301];
+    antifire.F135_2805 = pDev->IN_MAT[337];
+    antifire.F145_2805 = pDev->IN_MAT[339];
+    antifire.F155_2805 = pDev->IN_MAT[341];
+    antifire.F165_2805 = pDev->IN_MAT[343];
+
+    antifire.pozhar_1_dv = pFromP->Otkaz[30];
+    antifire.pozhar_2_dv = pFromP->Otkaz[31];
+    antifire.pozhar_3_dv = pFromP->Otkaz[32];
+    antifire.pozhar_4_dv = pFromP->Otkaz[33];
+    antifire.pozhar_vsu = pFromP->Otkaz[34];
+    antifire.peregrev_1_dv = pFromP->Otkaz[35];
+    antifire.peregrev_2_dv = pFromP->Otkaz[36];
+    antifire.peregrev_3_dv = pFromP->Otkaz[37];
+    antifire.peregrev_4_dv = pFromP->Otkaz[38];
+    antifire.otkaz_avtomatiki_SPZ = pFromP->Otkaz[39];
+    antifire.lzh_srab_pereg_1_dv = pFromP->Otkaz[40];
+    antifire.lzh_srab_pereg_2_dv = pFromP->Otkaz[41];
+    antifire.lzh_srab_pereg_3_dv = pFromP->Otkaz[42];
+    antifire.lzh_srab_pereg_4_dv = pFromP->Otkaz[43];
+
+    if(pFromP->balAntifireToFull) antifire.pnu = true;
+    else antifire.pnu = false;
+
 
 }
 void IN_antiicing_int      ()
@@ -379,6 +400,19 @@ void IN_powerdc_int        ()
     powerdc.otk_pereg_akk1 = pFromP->Otkaz[28];
     powerdc.otk_pereg_akk2 = pFromP->Otkaz[29];
 
+    if(pFromP->accChargeToFull)
+    {
+        powerdc.qa1 = 40.0;
+        powerdc.qa2 = 40.0;
+        powerdc.ea1 = 25.5;
+        powerdc.ea2 = 25.5;
+        powerdc.uak1 = 25.5;
+        powerdc.uak2 = 25.5;
+    }
+    if(pFromP->rap1PlugIn) powerdc.pvrap1 = true;
+    if(pFromP->rap2PlugIn) powerdc.pvrap2 = true;
+    if(pFromP->rapPlugIn) powerdc.pvrap = true;
+
     exchange::eng1_spd = pISU->nvd1;
     exchange::eng2_spd = pISU->nvd2;
     exchange::eng3_spd = pISU->nvd3;
@@ -448,7 +482,7 @@ void OUT_powerdc_int        ()
     pDev->OUT_D[2][33] = bss_inst.BSS837X2V;
     pDev->OUT_D[2][27] = bss_inst.BSS926X2i;
     pDev->OUT_D[2][11] = bss_inst.BSS926X2g;
-    pDev->OUT_D[2][46] = bss_inst.BSS926X2m;
+    pDev->OUT_D[2][21] = bss_inst.BSS926X2m;
     pDev->OUT_D[2][14] = bss_inst.BSS926X2h;
     pDev->OUT_D[2][24] = bss_inst.BSS926X2n;
     pDev->OUT_D[2][12] = bss_inst.BSS926X2z;
@@ -485,7 +519,7 @@ void OUT_powerdc_int        ()
     pDev->OUT_D[2][53] = bss_inst.BSS837X2h;
     pDev->OUT_D[2][37] = bss_inst.BSS838X6A;
     pDev->OUT_D[2][43] = bss_inst.BSS838X6E;
-    pDev->OUT_D[2][22] = bss_inst.BSS837X2m;
+    pDev->OUT_D[2][46] = bss_inst.BSS837X2m;
     pDev->OUT_D[2][52] = bss_inst.BSS837X2g;
     pDev->OUT_D[2][57] = bss_inst.BSS837X2b;
     pDev->OUT_D[2][58] = bss_inst.BSS837X2c;
