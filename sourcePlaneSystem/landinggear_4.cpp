@@ -2,7 +2,7 @@
 #include "algorithms.h"
 #include <QDeadlineTimer>
 
-static void releasing_loop(double* delta, double* D_delta, int* tick);
+static void releasing_loop(double* delta, double* D_delta, int* tick, bool &otk);
 static void intake_loop(double* delta, double* Ddelta_racks, int* tick);
 
 void landinggear_int::landinggear_4() //actually 4th
@@ -37,19 +37,19 @@ void landinggear_int::landinggear_4() //actually 4th
                 {
                     left_tick++;
                     //releasing left
-                    releasing_loop(&delta_sh_l, &Ddelta_racks, &left_tick);
+                    releasing_loop(&delta_sh_l, &Ddelta_racks, &left_tick, otkaz_nevip_l_opor);
                 }
                 if(delta_sh_p != 1.0 && delta_stv_p == 90.0)
                 {
                     right_tick++;
                     //releasing right
-                    releasing_loop(&delta_sh_p, &Ddelta_racks, &right_tick);
+                    releasing_loop(&delta_sh_p, &Ddelta_racks, &right_tick, otkaz_nevip_p_opor);
                 }
                 if(delta_sh_n != 1.0 && delta_stv_n == 90.0)
                 {
                     nose_tick++;
                     //releasing nose
-                    releasing_loop(&delta_sh_n, &Ddelta_racks, &nose_tick);
+                    releasing_loop(&delta_sh_n, &Ddelta_racks, &nose_tick, otkaz_nevip_n_opor);
                 }
 
             }
@@ -106,19 +106,19 @@ void landinggear_int::landinggear_4() //actually 4th
                 {
                     left_tick++;
                     //releasing left
-                    releasing_loop(&delta_sh_l, &Ddelta_racks_rel_l, &left_tick);
+                    releasing_loop(&delta_sh_l, &Ddelta_racks_rel_l, &left_tick, otkaz_nevip_l_opor);
                 }
                 if(delta_sh_p != 1.0  && gk_avp)
                 {
                     right_tick++;
                     //releasing right
-                    releasing_loop(&delta_sh_p, &Ddelta_racks_rel_p, &right_tick);
+                    releasing_loop(&delta_sh_p, &Ddelta_racks_rel_p, &right_tick, otkaz_nevip_p_opor);
                 }
                 if(delta_sh_n != 1.0  && gk_avn)
                 {
                     nose_tick++;
                     //releasing nose
-                    releasing_loop(&delta_sh_n, &Ddelta_racks_rel_n, &nose_tick);
+                    releasing_loop(&delta_sh_n, &Ddelta_racks_rel_n, &nose_tick, otkaz_nevip_n_opor);
                 }
             }
         }
@@ -132,9 +132,9 @@ void landinggear_int::landinggear_4() //actually 4th
         //end logic
 }
 
-static void releasing_loop(double* delta, double* Ddelta, int* tick)
+static void releasing_loop(double* delta, double* Ddelta, int* tick, bool &otk)
 {
-    if (*delta < 1)
+    if (*delta < 1 && !otk)
     {
         *delta = (*delta + ((*Ddelta / (1000 / TICK))));
 

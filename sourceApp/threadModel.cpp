@@ -372,7 +372,36 @@ void IN_hydro_int          ()
 
 }
 void IN_landinggear_int    ()
-{}
+{
+    exchange::S1_3230 = pDev->IN_MAT[157];
+    exchange::s2_3230 = pDev->IN_MAT[156];
+    landinggea.S3_3230 = pDev->IN_MAT[762];
+    landinggea.S30_3230 = pDev->IN_MAT[469];
+    exchange::s1_3250 = pDev->IN_MAT[5];
+    exchange::s4_3250 = pDev->IN_MAT[7];
+    exchange::S31_3230 = pDev->IN_MAT[763];
+    exchange::S55_3230 = pDev->IN_MAT[857];
+    exchange::S56_3230 = pDev->IN_MAT[861];
+    exchange::S57_3230 = pDev->IN_MAT[859];
+    exchange::S58_3230 = pDev->IN_MAT[863];
+    landinggea.Xped_buf = pDev->IN_A[0][12];
+
+    if(pFromP->Otkaz[72])
+    {
+        landinggea.otkaz_nevip_l_opor = true;
+        landinggea.otkaz_nevip_p_opor = true;
+        landinggea.otkaz_nevip_n_opor = true;
+    }
+    landinggea.otkaz_nevip_l_opor = pFromP->Otkaz[76];
+    landinggea.otkaz_nevip_n_opor = pFromP->Otkaz[78];
+    landinggea.otkaz_nevip_p_opor = pFromP->Otkaz[77];
+    landinggea.otkaz_nepoln_ubor_n = pFromP->Otkaz[73];
+    landinggea.otkaz_nepoln_ubor_l = pFromP->Otkaz[74];
+    landinggea.otkaz_nepoln_ubor_p = pFromP->Otkaz[75];
+    landinggea.otkaz_ne_vikl_avt_pos_vip_shas = pFromP->Otkaz[79];
+    landinggea.otkaz_1_kanala = pFromP->Otkaz[80];
+    landinggea.otkaz_2_kanala = pFromP->Otkaz[81];
+}
 void IN_pneumatic_int      ()
 {}
 void IN_powerdc_int        ()
@@ -549,7 +578,18 @@ void OUT_hydro_int          ()
 }
 
 void OUT_landinggear_int    ()
-{}
+{
+    pDev->OUT_D[1][28] = bss_inst.BSS825X6Y;
+    pDev->OUT_D[1][30] = bss_inst.BSS825X6Z;
+    pDev->OUT_D[1][32] = bss_inst.BSS825X6a;
+    pDev->OUT_D[1][27] = bss_inst.BSS824X2X;
+    pDev->OUT_D[1][26] = bss_inst.BSS824X2Y;
+    pDev->OUT_D[1][29] = bss_inst.BSS824X2U;
+    pDev->OUT_D[1][31] = bss_inst.BSS824X2V;
+    pDev->OUT_D[1][33] = bss_inst.BSS824X2W;
+    pDev->OUT_D[1][64] = bss_inst.BSS812X6Y;
+
+}
 
 void OUT_pneumatic_int      ()
 {}

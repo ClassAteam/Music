@@ -28,7 +28,10 @@ public:
         otkaz_ne_vikl_avt_pos_vip_shas{},//neviklyuchenie avtomatiki posle vipuska shassi
         otkaz_nepoln_ubor_l{},//nepolnaya uborka levoy opori shassi
         otkaz_nepoln_ubor_n{},//nepolnaya uborka peredney opori shassi
-        otkaz_nepoln_ubor_p{};//nepolnaya uborka pravoy opori shassi
+        otkaz_nepoln_ubor_p{},//nepolnaya uborka pravoy opori shassi
+        otkaz_nevip_l_opor{},//nivipusk levoy opori shassi
+        otkaz_nevip_p_opor{},//nivipusk levoy opori shassi
+        otkaz_nevip_n_opor{};//nivipusk levoy opori shassi
 
     double
         fi_nk{},//tekushee znachenie ugla povorota nosovogo kolesa, grad
@@ -38,6 +41,10 @@ public:
         delta_stv_l{90},//left sashes position from 0 to 90
         delta_stv_p{90},//right sashes position from 0 to 90
         delta_stv_n{90},//nose sashes position from 0 to 90
+        delta_shift_l{1.0},//main racks shifting left one
+        delta_shift_p{1.0},//main racks shifting right one
+        delta_tel_l{1.0},//current position left cart
+        delta_tel_p{1.0},//current position right cart
         V_bal_l{44100},//
         V_bal_p{44100},
         V_bal_n{37000},
@@ -47,9 +54,7 @@ public:
         Plv{},//release line hydropresure
         Plu{},//intake line hydropresure
         Sl{},//left presure check against the ground
-        Sp{},//right presure check against the ground
-        delta_shift_l{1.0},//main racks shifting left one
-        delta_shift_p{1.0};//main racks shifting right one
+        Sp{};//right presure check against the ground
 
     static bool
         K9_3230,
@@ -209,9 +214,7 @@ public:
         fi_zad{},
         V_nk{},
         Xped{0.5},
-        Xped_buf{50},
-        delta_tel_l{1.0},//current position left cart
-        delta_tel_p{1.0};//current position right cart
+        Xped_buf{50};
     bool
         GK_dvl{},
         GK_dvp{};
