@@ -243,17 +243,63 @@ void  MainWindow:: Print_emergencyalarm()
 //#include "Print/PrintGidro.cpp"
 void  MainWindow:: Print_hydro         ()
 {
-       ui->text_3001->setText("пp. ПРИНУД ПОДКЛ Г/НАСОСОВ              "+ QString::number(hydro.s1_2910));
-       ui->text_3002->setText("кн. КОНТРОЛЬ РАЗГРУЗКИ                  "+ QString::number(hydro.s2_2910 ));
-       ui->text_3003->setText("пр. ВЫБОР НАСОСА ГС1, 2                 "+ QString::number(hydro.s3_2910 ));
-       ui->text_3004->setText("пр. ВЫБОР НАСОСА ГС3, 4                 "+ QString::number(hydro.s4_2910 ));
-       ui->text_3005->setText("пр. ЭКСТРЕННОЕ ОТКЛ Г/НАСОСОВ ДВ2 И 3   "+ QString::number(hydro.S5_2910 ));
-       ui->text_3006->setText("пр. ЭКСТРЕННОЕ ОТКЛ Г/НАСОСОВ ДВ1 И 4   "+ QString::number(hydro.S6_2910 ));
-       ui->text_3007->setText("пр. ОТКЛ Г/НАСОСОВ ДВ2                  "+ QString::number(hydro.S7_2910 ));
-       ui->text_3008->setText("пр. ГИДРОПИТАНИЕ СУР ГС1                "+ QString::number(hydro.Ffirst4_2920[0] ));
-       ui->text_3009->setText("пр. ГИДРОПИТАНИЕ СУР ГС2                "+ QString::number(hydro.Ffirst4_2920[1] ));
-       ui->text_3010->setText("пр. ГИДРОПИТАНИЕ СУР ГС3                "+ QString::number(hydro.Ffirst4_2920[2] ));
-  //     ui->text_3011->setText("пр. ГИДРОПИТАНИЕ СУР ГС4                "+ QString::number(hydro.Ffirst4_2920[3] ));
+    ui->uks1x329->setText("ТНУ1 включена на УКС1 = " + QString::number(uks_inst.UKS1X329));
+    ui->uks1x330->setText("ТНУ1 включена на УКС2 = " + QString::number(uks_inst.UKS1X330));
+    ui->uks1x331->setText("ТНУ1 включена на УКС3 = " + QString::number(uks_inst.UKS1X331));
+    ui->uks1x332->setText("ТНУ1 включена на УКС4 = " + QString::number(uks_inst.UKS1X332));
+    ui->uks1x333->setText("ТНУ1 работает на УКС1 = " + QString::number(uks_inst.UKS1X333));
+    ui->uks1x334->setText("ТНУ2 работает на УКС1 = " + QString::number(uks_inst.UKS1X334));
+    ui->uks1x335->setText("ТНУ3 работает на УКС1 = " + QString::number(uks_inst.UKS1X335));
+    ui->uks1x335->setText("ТНУ4 работает на УКС1 = " + QString::number(uks_inst.UKS1X336));
+    ui->uks2x324->setText("ГС2 насос H1 не работает для ИУС = " + QString::number(uks_inst.UKS2X324));
+    ui->uks2x325->setText("ГС1 насос H2 не работает для ИУС = " + QString::number(uks_inst.UKS2X325));
+    ui->uks2x326->setText("ГС2 насос H3 не работает для ИУС = " + QString::number(uks_inst.UKS2X326));
+    ui->uks2x327->setText("ГС1 насос H4 не работает для ИУС = " + QString::number(uks_inst.UKS2X327));
+    ui->uks2x328->setText("ГС4 насос H5 не работает для ИУС = " + QString::number(uks_inst.UKS2X328));
+    ui->uks2x329->setText("ГС3 насос H6 не работает для ИУС = " + QString::number(uks_inst.UKS2X329));
+    ui->uks2x330->setText("ГС4 насос H7 не работает для ИУС = " + QString::number(uks_inst.UKS2X330));
+    ui->uks2x331->setText("ГС3 насос H8 не работает для ИУС = " + QString::number(uks_inst.UKS2X331));
+    ui->uks2x332->setText("ГС2 насос H1 отключен ИУС = " + QString::number(uks_inst.UKS2X332));
+    ui->uks2x333->setText("ГС1 насос H2 отключен ИУС = " + QString::number(uks_inst.UKS2X333));
+    ui->uks2x334->setText("ГС2 насос H3 отключен ИУС = " + QString::number(uks_inst.UKS2X334));
+    ui->uks2x335->setText("ГС1 насос H4 отключен ИУС = " + QString::number(uks_inst.UKS2X335));
+    ui->uks2x336->setText("ГС4 насос H5 отключен ИУС = " + QString::number(uks_inst.UKS2X336));
+    ui->uks2x337->setText("ГС3 насос H6 отключен ИУС = " + QString::number(uks_inst.UKS2X337));
+    ui->uks2x338->setText("ГС4 насос H7 отключен ИУС = " + QString::number(uks_inst.UKS2X338));
+    ui->uks2x339->setText("ГС3 насос H8 отключен на УКС = " + QString::number(uks_inst.UKS2X339));
+    ui->uks2x316->setText("давление в ГС1 меньше 130 = " + QString::number(uks_inst.UKS2X316));
+    ui->uks2x317->setText("давление в ГС2 меньше 130 = " + QString::number(uks_inst.UKS2X317));
+    ui->uks2x318->setText("давление в ГС3 меньше 130 = " + QString::number(uks_inst.UKS2X318));
+    ui->uks2x319->setText("давление в ГС4 меньше 130 = " + QString::number(uks_inst.UKS2X319));
+    ui->uks2x340->setText("ГС1, ГС2, ГС3, ГС4 кран кольцевания включен = " + QString::number(uks_inst.UKS2X340));
+
+    ui->uks1x25960->setText("Давление в ГС1 = " + QString::number(uks_inst.UKS1X259_60));
+    ui->uks1x26263->setText("Давление в ГС2 = " + QString::number(uks_inst.UKS1X262_63));
+    ui->uks1x26465->setText("Давление в ГС3 = " + QString::number(uks_inst.UKS1X264_65));
+    ui->uks1x26768->setText("Давление в ГС4 = " + QString::number(uks_inst.UKS1X267_68));
+
+    ui->uks4x294->setText("Температура жидкости в ГС1 = " + QString::number(uks_inst.UKS4X294));
+    ui->uks4x296->setText("Температура жидкости в ГС2 = " + QString::number(uks_inst.UKS4X296));
+    ui->uks4x298->setText("Температура жидкости в ГС3 = " + QString::number(uks_inst.UKS4X298));
+    ui->uks4x2100->setText("Температура жидкости в ГС4 = " + QString::number(uks_inst.UKS4X2100));
+    ui->uks4x24849->setText("Давление азота в 1 баллоне наддува = " + QString::number(uks_inst.UKS4X248_49));
+    ui->uks4x25152->setText("Давление азота в 2 баллоне наддува = " + QString::number(uks_inst.UKS4X251_52));
+    ui->uks4x25354->setText("Давление наддува в гидробаке ГС1 = " + QString::number(uks_inst.UKS4X253_54));
+    ui->uks4x25657->setText("Давление наддува в гидробаке ГС2 = " + QString::number(uks_inst.UKS4X256_57));
+    ui->uks4x25960->setText("Давление наддува в гидробаке ГС3 = " + QString::number(uks_inst.UKS4X259_60));
+    ui->uks4x26263->setText("Давление наддува в гидробаке ГС4 = " + QString::number(uks_inst.UKS4X262_63));
+    ui->uks2x256->setText("Давление азота в газовой полости 1го гидроаккумулятора = " + QString::number(uks_inst.UKS2X25_6));
+    ui->uks2x21314->setText("Давление азота в газовой полости 2го гидроаккумулятора = " + QString::number(uks_inst.UKS2X213_14));
+    ui->uks2x2158->setText("Давление азота в газовой полости 3го гидроаккумулятора = " + QString::number(uks_inst.UKS2X215_8));
+    ui->uks2x2169->setText("Давление азота в газовой полости 4го гидроаккумулятора = " + QString::number(uks_inst.UKS2X216_9));
+    ui->uks2ubgs1->setText("Уровень рабочей жидкости в баке ГС1 = " + QString::number(uks_inst.UKS2UBGS1));
+    ui->uks2ubgs2->setText("Уровень рабочей жидкости в баке ГС2 = " + QString::number(uks_inst.UKS2UBGS2));
+    ui->uks2ubgs3->setText("Уровень рабочей жидкости в баке ГС3 = " + QString::number(uks_inst.UKS2UBGS3));
+    ui->uks2ubgs4->setText("Уровень рабочей жидкости в баке ГС4 = " + QString::number(uks_inst.UKS2UBGS4));
+    ui->uks2x320->setText("Минимальный остаток жидкости в баке 1" + QString::number(uks_inst.UKS2X320));
+    ui->uks2x321->setText("Минимальный остаток жидкости в баке 2" + QString::number(uks_inst.UKS2X321));
+    ui->uks2x322->setText("Минимальный остаток жидкости в баке 3" + QString::number(uks_inst.UKS2X322));
+    ui->uks2x323->setText("Минимальный остаток жидкости в баке 4" + QString::number(uks_inst.UKS2X323));
 }
 void  MainWindow:: Print_landinggea    ()
 {

@@ -173,7 +173,7 @@ public:
     //S6_2920 perekluchatel TNU GS2
     //S7_2920 perekluchatel TNU GS3
     //S8_2920 perekluchatel TNU GS4
-    QVector<bool> Sthird4_2920{false, false, false, false};
+    QVector<int> Sthird4_2920{0 , 0 , 0 , 0 };
     //S9_2920 perekluchatel TNU GS1
     //S10_2920 perekluchatel TNU GS2
     //S11_2920 perekluchatel TNU GS3

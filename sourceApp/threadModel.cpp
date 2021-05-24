@@ -322,7 +322,55 @@ void IN_cabinlighting_int  ()
 void IN_emergencyalarm_int ()
 {}
 void IN_hydro_int          ()
-{}
+{
+    hydro.EZR1_34 = pISU->ezr1_34;
+    hydro.EZR2_34 = pISU->ezr2_34;
+    hydro.EZR3_34 = pISU->ezr3_34;
+    hydro.EZR4_34 = pISU->ezr4_34;
+    hydro.Pv_vsu = pISU->Pvvsu;
+    exchange::PRD1dv = pISU->prd1dv;
+    exchange::PRD2dv = pISU->prd2dv;
+    exchange::PRD3dv = pISU->prd3dv;
+    exchange::PRD4dv = pISU->prd4dv;
+    hydro.s1_2910 = pDev->IN_MAT[35];
+    hydro.s2_2910 = pDev->IN_MAT[756];
+    hydro.s3_2910 = pDev->IN_MAT[753];
+    hydro.s4_2910 = pDev->IN_MAT[755];
+    hydro.S5_2910 = pDev->IN_MAT[353];
+    hydro.S6_2910 = pDev->IN_MAT[352];
+    hydro.S7_2910 = pDev->IN_MAT[358];
+    hydro.Sfirst4_2920[0] = pDev->IN_MAT[45];
+    hydro.Sfirst4_2920[1] = pDev->IN_MAT[46];
+    hydro.Sfirst4_2920[2] = pDev->IN_MAT[47];
+    hydro.Sfirst4_2920[3] = pDev->IN_MAT[48];
+    hydro.Ssecond4_2920[0] = pDev->IN_MAT[204];
+    hydro.Ssecond4_2920[1] = pDev->IN_MAT[205];
+    hydro.Ssecond4_2920[2] = pDev->IN_MAT[206];
+    hydro.Ssecond4_2920[3] = pDev->IN_MAT[207];
+    if(pDev->IN_MAT[37]) hydro.Sthird4_2920[0] = 1;
+    if(pDev->IN_MAT[38]) hydro.Sthird4_2920[0] = 2;
+    if(pDev->IN_MAT[39]) hydro.Sthird4_2920[1] = 1;
+    if(pDev->IN_MAT[40]) hydro.Sthird4_2920[1] = 2;
+    if(pDev->IN_MAT[41]) hydro.Sthird4_2920[2] = 1;
+    if(pDev->IN_MAT[42]) hydro.Sthird4_2920[2] = 2;
+    if(pDev->IN_MAT[43]) hydro.Sthird4_2920[3] = 1;
+    if(pDev->IN_MAT[44]) hydro.Sthird4_2920[3] = 2;
+    hydro.S13_2920 = pDev->IN_MAT[757];
+    hydro.S18_2920 = pDev->IN_MAT[761];
+    if(pFromP->balHydroToFull)
+    {
+        hydro.p0gat = 115.0;
+        hydro.p0gs1 = 115.0;
+        hydro.p0gs2 = 115.0;
+        hydro.p0gs3 = 115.0;
+        hydro.p0gs4 = 115.0;
+    }
+    hydro.otkaz_gs1 = pFromP->Otkaz[1];
+    hydro.otkaz_gs2 = pFromP->Otkaz[2];
+    hydro.otkaz_gs3 = pFromP->Otkaz[3];
+    hydro.otkaz_gs4 = pFromP->Otkaz[4];
+
+}
 void IN_landinggear_int    ()
 {}
 void IN_pneumatic_int      ()
@@ -468,7 +516,37 @@ void OUT_emergencyalarm_int ()
 {}
 
 void OUT_hydro_int          ()
-{}
+{
+    pDev->OUT_D[0][101] = hydro.H1_2910;
+    pDev->OUT_D[0][100] = hydro.H2_2910;
+    pDev->OUT_D[0][102] = hydro.H4_2910;
+    pDev->OUT_D[0][103] = hydro.H5_2910;
+    pDev->OUT_D[0][96] = hydro.H10_2930;
+    pDev->OUT_D[0][97] = hydro.H11_2930;
+    pDev->OUT_D[0][98] = hydro.H12_2930;
+    pDev->OUT_D[0][99] = hydro.H13_2930;
+    pDev->OUT_D[0][104] = hydro.H1_2935;
+    pDev->OUT_D[0][4] = bss_inst.BSS811X2M;
+    pDev->OUT_D[0][5] = bss_inst.BSS811X2N;
+    pDev->OUT_D[0][6] = bss_inst.BSS811X2P;
+    pDev->OUT_D[0][7] = bss_inst.BSS811X2R;
+    pDev->OUT_D[0][79] = bss_inst.BSS811X2d;
+    pDev->OUT_D[0][80] = bss_inst.BSS811X2e;
+    pDev->OUT_D[0][81] = bss_inst.BSS811X2f;
+    pDev->OUT_D[0][82] = bss_inst.BSS811X2g;
+    pDev->OUT_D[0][74] = bss_inst.BSS812X6C;
+    pDev->OUT_D[0][75] = bss_inst.BSS812X6D;
+    pDev->OUT_D[0][76] = bss_inst.BSS812X6E;
+    pDev->OUT_D[0][77] = bss_inst.BSS812X6F;
+    pDev->OUT_D[0][73] = bss_inst.BSS812X6G;
+    pDev->OUT_D[1][52] = bss_inst.BSS824X2e;
+    pDev->OUT_D[0][22] = bss_inst.BSS811X2G;
+    pDev->OUT_A[0][12] = hydro.pprgs1;
+    pDev->OUT_A[0][13] = hydro.pprgs2;
+    pDev->OUT_A[0][14] = hydro.pprgs3;
+    pDev->OUT_A[0][15] = hydro.pprgs4;
+
+}
 
 void OUT_landinggear_int    ()
 {}

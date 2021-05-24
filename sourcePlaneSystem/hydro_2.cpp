@@ -44,7 +44,7 @@ void hydro_int::hydro_2()
         {
             if(RVkTNUGS[i])
             {
-                if(Sthird4_2920[i] == 1)
+                if(Sthird4_2920[i] == 2)
                 {
                     RVkTNUGS[i] = false;
                     RVikTNUGS[i] = true;
@@ -53,7 +53,7 @@ void hydro_int::hydro_2()
             }
             else
             {
-                if(Sthird4_2920[i] == 0)
+                if(Sthird4_2920[i] == 1)
                 {
                     RVkTNUGS[i] = true;
                     RVikTNUGS[i] = false;
