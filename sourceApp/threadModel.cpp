@@ -356,7 +356,7 @@ void IN_hydro_int          ()
     if(pDev->IN_MAT[43]) hydro.Sthird4_2920[3] = 1;
     if(pDev->IN_MAT[44]) hydro.Sthird4_2920[3] = 2;
     hydro.S13_2920 = pDev->IN_MAT[757];
-    hydro.S18_2920 = pDev->IN_MAT[761];
+    exchange::S18_2930 = pDev->IN_MAT[761];
     if(pFromP->balHydroToFull)
     {
         hydro.p0gat = 115.0;
@@ -385,6 +385,17 @@ void IN_landinggear_int    ()
     exchange::S57_3230 = pDev->IN_MAT[859];
     exchange::S58_3230 = pDev->IN_MAT[863];
     landinggea.Xped_buf = pDev->IN_A[0][12];
+
+    if(pISU->wrapsign)
+    {
+        landinggea.Sl = 0.2;
+        landinggea.Sp = 0.2;
+    }
+    else
+    {
+        landinggea.Sl = 0.0;
+        landinggea.Sp = 0.0;
+    }
 
     if(pFromP->Otkaz[72])
     {
@@ -416,7 +427,7 @@ void IN_powerdc_int        ()
     exchange::s14_2430 = pDev->IN_MAT[537];
     exchange::s15_2430 = pDev->IN_MAT[539];
     exchange::s7_2430 = pDev->IN_MAT[549];
-    exchange::s13_2430 = pDev->IN_MAT[523];
+    exchange::s13_2430 = pDev->IN_MAT[524];
     exchange::s10_2430 = pDev->IN_MAT[545];
     exchange::s3_2430 = pDev->IN_MAT[533];
     if(pDev->IN_MAT[576]) exchange::s16_2430 = static_cast<int>(exchange::s16_2430::akk1);

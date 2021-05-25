@@ -16,5 +16,6 @@ struct SH_ISU
     bool prd2dv{};//eng2 work clue
     bool prd3dv{};//eng3 work clue
     bool prd4dv{};//eng4 work clue
+    bool wrapsign{};// sign of landing wheels wrapping
 
 };

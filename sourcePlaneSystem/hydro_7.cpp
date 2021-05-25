@@ -59,7 +59,7 @@ void hydro_int::hydro_7()
     if(exchange::usho1l >= 18.0 && F14_2930)
         PK = true;
 
-    if(landinggear_int::S18_2930 == true)
+    if(exchange::S18_2930 == true)
         PKL = true;
     else
         PKL = false;

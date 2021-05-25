@@ -1,5 +1,7 @@
 #include "emergencyalarm_6.h"
 
+void lamp_blink(bool &inpClue, bool &lamp);
+
 void emergencyalarm_int::emergencyalarm_6()
 {
     static bool
@@ -50,9 +52,7 @@ void emergencyalarm_int::emergencyalarm_6()
         X5N_blink,
         X5R_blink,
         X5T_blink,
-        X7A_blink,
-        X5BB_blink,
-        X5DD_blink;
+        X7A_blink;
 
     if(PRBSS825 == true)
     {
@@ -761,45 +761,13 @@ void emergencyalarm_int::emergencyalarm_6()
             bss_inst.BSS825X6a = false;
         }
 
-        ///////////////White lights_1
-        //////////////17
-        if (bss_inst.BSS825X5BB == true)
-        {
-            X5BB_blink++;
-            if((X5BB_blink * TICK) < 400)
-            {
-                bss_inst.BSS825X6Y = false;
-            }
-            if(((X5BB_blink * TICK)) >= 400)
-            {
-                bss_inst.BSS825X6Y = true;
-                X5BB_blink = 0;
-            }
-        }
-        else
-        {
-            X5BB_blink = 0;
-        }
+        ///////////////White lights_1 17
 
-        ///////////////White lights_1
-        //////////////18
-        if (bss_inst.BSS825X5DD == true)
-        {
-            X5DD_blink++;
-            if((X5DD_blink * TICK) < 400)
-            {
-                bss_inst.BSS825X6a = false;
-            }
-            if(((X5DD_blink * TICK)) >= 400)
-            {
-                bss_inst.BSS825X6a = true;
-                X5DD_blink = 0;
-            }
-        }
-        else
-        {
-            X5DD_blink = 0;
-        }
+        lamp_blink(bss_inst.BSS825X5BB, bss_inst.BSS825X6Y);
+
+        ///////////////White lights_1 18
+
+        lamp_blink(bss_inst.BSS825X5DD, bss_inst.BSS825X6a);
 
         ///////////////White lights_1
         //////////////18
@@ -972,5 +940,27 @@ void emergencyalarm_int::emergencyalarm_6()
         PK_V_velika_PL_b = false;
         PK_V_mala_PL_b = false;
         PK_alpha_py_predel_PL_b = false;
+    }
+}
+
+void lamp_blink(bool &inpClue, bool &lamp)
+{
+    static int blink;
+    if(inpClue)
+    {
+        blink++;
+        if((blink * TICK) < 100)
+        {
+            lamp = false;
+        }
+        if(((blink * TICK)) >= 100)
+        {
+            lamp = true;
+            if(blink * TICK >= 200) blink = 0;
+        }
+    }
+    else
+    {
+        blink = 0;
     }
 }

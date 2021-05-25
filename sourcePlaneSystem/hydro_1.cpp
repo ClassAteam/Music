@@ -411,7 +411,7 @@ void hydro_int::hydro_1()
     }
     if(exchange::ushap >= 18.0)
     {
-        if(K25_2910 || K19_2910)
+        if(K25_2910 || K21_2910)
         {
             prn2gs3 = true;
             K37_2910 = true;

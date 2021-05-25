@@ -52,8 +52,8 @@ void landinggear_int::landinggear_7_8() //actually 7th and 8th
     S46_3230 = false;
     PSDVU = false;
     S47_3230 = false;
-    S28_3230 = false;
-    S29_3230 = false;
+    K28_3230 = false;
+    K29_3230 = false;
 
     // Presure signal intake
     if(gk_vsh)
