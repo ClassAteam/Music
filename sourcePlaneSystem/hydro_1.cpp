@@ -158,22 +158,22 @@ void hydro_int::hydro_1()
     {
         if(pn2gs2 <= 80)
         {
-            K29_2910 = true;
+            K28_2910 = true;
             uks_inst.UKS2X324 = true;
         }
         if(pn1gs1 <= 80)
         {
-            K28_2910 = true;
+            K29_2910 = true;
             uks_inst.UKS2X325 = true;
         }
         if(pn1gs2 <= 80)
         {
-            K30_2910 = true;
+            K31_2910 = true;
             uks_inst.UKS2X326 = true;
         }
         if(pn2gs1 <= 80)
         {
-            K31_2910 = true;
+            K30_2910 = true;
             uks_inst.UKS2X327 = true;
         }
     }
@@ -191,22 +191,22 @@ void hydro_int::hydro_1()
     {
         if(pn1gs3 <= 80)
         {
-            K34_2910 = true;
+            K32_2910 = true;
             uks_inst.UKS2X329 = true;
         }
         if(pn2gs3 <= 80)
         {
-            K38_2910 = true;
+            K35_2910 = true;
             uks_inst.UKS2X331 = true;
         }
         if(pn1gs4 <= 80)
         {
-            K35_2910 = true;
+            K38_2910 = true;
             uks_inst.UKS2X330 = true;
         }
         if(pn2gs4 <= 80)
         {
-            K32_2910 = true;
+            K34_2910 = true;
             uks_inst.UKS2X328 = true;
         }
     }
@@ -347,9 +347,9 @@ void hydro_int::hydro_1()
     {
         if(K2_2910 || K1_2910)
         {
-            prn2gs2 = true;
+            prn1gs1 = true;
             K13_2910 = true;
-            uks_inst.UKS2X332 = true;
+            uks_inst.UKS2X333 = true;
         }
     }
 
@@ -357,9 +357,9 @@ void hydro_int::hydro_1()
     {
         if(K2_2910 || K3_2910)
         {
-            prn1gs1 = true;
+            prn2gs2 = true;
             K14_2910 = true;
-            uks_inst.UKS2X333 = true;
+            uks_inst.UKS2X332 = true;
         }
     }
 
@@ -367,9 +367,9 @@ void hydro_int::hydro_1()
     {
         if(K4_2910 || K3_2910)
         {
-            prn1gs2 = true;
+            prn2gs1 = true;
             K16_2910 = true;
-            uks_inst.UKS2X334 = true;
+            uks_inst.UKS2X335 = true;
         }
     }
 
@@ -377,45 +377,45 @@ void hydro_int::hydro_1()
     {
         if(K4_2910 || K1_2910)
         {
-            prn2gs1 = true;
+            prn1gs2 = true;
             K17_2910 = true;
-            uks_inst.UKS2X335 = true;
+            uks_inst.UKS2X334 = true;
         }
     }
     if(exchange::ushap >= 18.0)
     {
         if(K12_2910 || K21_2910)
         {
-            prn2gs4 = true;
+            prn1gs3 = true;
             K20_2910 = true;
-            uks_inst.UKS2X336 = true;
+            uks_inst.UKS2X337 = true;
         }
     }
     if(exchange::ushap >= 18.0)
     {
         if(K12_2910 || K19_2910)
         {
-            prn1gs3 = true;
+            prn2gs4 = true;
             K33_2910 = true;
-            uks_inst.UKS2X337 = true;
+            uks_inst.UKS2X336 = true;
         }
     }
     if(exchange::ushap >= 18.0)
     {
         if(K25_2910 || K19_2910)
         {
-            prn1gs4 = true;
+            prn2gs3 = true;
             K36_2910 = true;
-            uks_inst.UKS2X338 = true;
+            uks_inst.UKS2X339 = true;
         }
     }
     if(exchange::ushap >= 18.0)
     {
         if(K25_2910 || K21_2910)
         {
-            prn2gs3 = true;
+            prn1gs4 = true;
             K37_2910 = true;
-            uks_inst.UKS2X339 = true;
+            uks_inst.UKS2X338 = true;
         }
     }
 }

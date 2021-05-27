@@ -129,6 +129,9 @@ void hydro_int::hydro_7()
     bss_inst.surGs4Otkl = false;
 
     H10_2930 = false;
+    H11_2930 = false;
+    H12_2930 = false;
+    H13_2930 = false;
     uks_inst.UKS2X316 = 0;
     uks_inst.UKS2X317 = 0;
     uks_inst.UKS2X318 = 0;

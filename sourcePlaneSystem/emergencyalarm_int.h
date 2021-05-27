@@ -72,6 +72,7 @@ public:
         svs_net_rezerva,
         svs_otkaz;
 
+    void lamp_blink(bool &inpClue, bool &lamp, int &blink);
 
 public:
     virtual void updateLogic();

@@ -2,9 +2,15 @@
 
 void wingsmech_int::wingsmech_4()
 {
+    bss_inst.BSS824X1KK = false;
+    bss_inst.BSS824X1MM = false;
+
+    bss_inst.BSS824X3A = false;
+    bss_inst.BSS824X3C = false;
+
     exchange::delta_z = ((delta_z_l + delta_z_p) / 2);
 
-    if(exchange::ushap >= 18 && exchange::delta_z > 0)
+    if(exchange::ushap >= 18 && exchange::delta_z >= 0)
     {
         if(exchange::delta_z > 22)
         {
@@ -23,7 +29,7 @@ void wingsmech_int::wingsmech_4()
         }
         if(exchange::delta_z > 38)
         {
-            bss_inst.BSS824X1A = true;
+            bss_inst.BSS824X3A = true;
             bss_inst.BSS824X3C = false;
         }
         else
@@ -47,11 +53,11 @@ void wingsmech_int::wingsmech_4()
     {
         delta_pr = ((delta_pr_l + delta_pr_p) / 2);
 
-        if(delta_pr > 0)
+        if(delta_pr >= 0)
         {
             bss_inst.BSS825X7A = true;
         }
-        if(delta_pr >= 21)
+        if(delta_pr >= 20.5)
         {
             bss_inst.BSS825X5J = true;
             bss_inst.BSS825X7A = false;

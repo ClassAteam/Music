@@ -92,10 +92,6 @@ void emergencyalarm_int::emergencyalarm_5()
 //        PB824_X3R_b,
 //        PB824_X3E_b;
 
-    static int
-        X1d_blink,
-        X1MM_blink,
-        X3C_blink;
 
     if (exchange::ush1dpl >= 18.0 && exchange::ush1dpp >= 18.0)
     {
@@ -865,35 +861,9 @@ void emergencyalarm_int::emergencyalarm_5()
             PK824_X1Z_b = true;
         }
 
-        ///////////////Red lights_1
-        //////////////4
-        if (bss_inst.BSS824X1d == true)
-        {
-            X1d_blink++;
-            if((X1d_blink * TICK) < 400)
-            {
-                bss_inst.BSS824X2P = false;
-            }
-            if(((X1d_blink * TICK)) >= 400)
-            {
-                bss_inst.BSS824X2P = true;
-                X1d_blink = 0;
-            }
-            if(PK824_X1d_b == true)
-            {
-                PK824_X1d = false;
-            }
-            else
-            {
-                PK824_X1d = true;
-            }
-        }
-        else
-        {
-            bss_inst.BSS824X2P = false;
-            PK824_X1d_b = false;
-            PK824_X1d = false;
-        }
+        //Red lights_1_4
+        static int bss824X2P{};
+        lamp_blink(bss_inst.BSS824X1d, bss_inst.BSS824X2P, bss824X2P);
 
         if(exchange::s2_3364 == true)
         {
@@ -993,61 +963,18 @@ void emergencyalarm_int::emergencyalarm_5()
 
         ///////////////White lights_1
         //////////////3
-        if (bss_inst.BSS824X1KK == true)
-        {
-            bss_inst.BSS824X2f = true;
-        }
-        else
-        {
-            bss_inst.BSS824X2f = false;
-        }
+        if (bss_inst.BSS824X1KK == true) bss_inst.BSS824X2f = true;
+        else bss_inst.BSS824X2f = false;
 
-        if (bss_inst.BSS824X1MM == true)
-        {
-            X1MM_blink++;
-            if((X1MM_blink * TICK) < 400)
-            {
-                bss_inst.BSS824X2f = false;
-            }
-            if(((X1MM_blink * TICK)) >= 400)
-            {
-                bss_inst.BSS824X2f = true;
-                X1MM_blink = 0;
-            }
-        }
-        else
-        {
-            X1MM_blink = 0;
-        }
+        static int BSS824X2f{};
+        lamp_blink(bss_inst.BSS824X1MM, bss_inst.BSS824X2f, BSS824X2f);
 
         ///////////////White lights_1
         //////////////4
-        if (bss_inst.BSS824X3A == true)
-        {
-            bss_inst.BSS824X2h = true;
-        }
-        else
-        {
-            bss_inst.BSS824X2h = false;
-        }
+        bss_inst.BSS824X2h = (bss_inst.BSS824X3A) ? true : false;
 
-        if (bss_inst.BSS824X3C == true)
-        {
-            X3C_blink++;
-            if((X3C_blink * TICK) < 400)
-            {
-                bss_inst.BSS824X2h = false;
-            }
-            if(((X3C_blink * TICK)) >= 400)
-            {
-                bss_inst.BSS824X2h = true;
-                X3C_blink = 0;
-            }
-        }
-        else
-        {
-            X3C_blink = 0;
-        }
+        static int BSS824X2h{};
+        lamp_blink(bss_inst.BSS824X3C, bss_inst.BSS824X2h, BSS824X2h);
 
         ///////////////White lights_1
         //////////////5

@@ -1,6 +1,6 @@
 #include "emergencyalarm_6.h"
 
-void lamp_blink(bool &inpClue, bool &lamp);
+static void lamp_blink(bool &inpClue, bool &lamp);
 
 void emergencyalarm_int::emergencyalarm_6()
 {
@@ -587,25 +587,9 @@ void emergencyalarm_int::emergencyalarm_6()
             bss_inst.BSS825X6E = false;
         }
 
-        ///////////////White lights_1
-        //////////////2
-        if (bss_inst.BSS825X7A == true)
-        {
-            X7A_blink++;
-            if((X7A_blink * TICK) < 400)
-            {
-                bss_inst.BSS825X6E = false;
-            }
-            if(((X7A_blink * TICK)) >= 400)
-            {
-                bss_inst.BSS825X6E = true;
-                X7A_blink = 0;
-            }
-        }
-        else
-        {
-            X7A_blink = 0;
-        }
+        //White lights_1 2
+        static int BSS825X6E{};
+        lamp_blink(bss_inst.BSS825X7A, bss_inst.BSS825X6E, BSS825X6E);
 
         ///////////////White lights_1
         //////////////3
@@ -763,11 +747,13 @@ void emergencyalarm_int::emergencyalarm_6()
 
         ///////////////White lights_1 17
 
-        lamp_blink(bss_inst.BSS825X5BB, bss_inst.BSS825X6Y);
+        static int BSS825X6Y{};
+        lamp_blink(bss_inst.BSS825X5BB, bss_inst.BSS825X6Y, BSS825X6Y);
 
         ///////////////White lights_1 18
 
-        lamp_blink(bss_inst.BSS825X5DD, bss_inst.BSS825X6a);
+        static int BSS825X6a{};
+        lamp_blink(bss_inst.BSS825X5DD, bss_inst.BSS825X6a, BSS825X6a);
 
         ///////////////White lights_1
         //////////////18

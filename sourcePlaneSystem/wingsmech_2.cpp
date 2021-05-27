@@ -84,7 +84,7 @@ void wingsmech_int::wingsmech_2()
         }
         else
         {
-            if(delta_z_l > 0)
+            if(delta_z_l > 0.1)
             {
                 Ddelta_pr_l = 0;
             }
@@ -107,7 +107,7 @@ void wingsmech_int::wingsmech_2()
         }
         else
         {
-            if(delta_z_p > 0)
+            if(delta_z_p > 0.1)
             {
                 Ddelta_pr_p = 0;
             }
@@ -168,6 +168,7 @@ void wingsmech_int::wingsmech_2()
             else
             {
                 Ddelta_pr_l = 0;
+                s2_2780 = 0;
             }
         }
     }
@@ -201,6 +202,7 @@ void wingsmech_int::wingsmech_2()
             else
             {
                 Ddelta_pr_p = 0;
+                s2_2780 = 0;
             }
         }
         prrkpr = true;
@@ -238,19 +240,19 @@ void wingsmech_int::wingsmech_2()
             }
         }
     }
-    if(delta_pr_l <= 0)
+    if(delta_pr_l <= 0.0)
     {
         delta_pr_l = 0;
     }
-    if(delta_pr_l > 21)
+    if(delta_pr_l > 21.0)
     {
         delta_pr_l = 21;
     }
-    if(delta_pr_p <= 0)
+    if(delta_pr_p <= 0.0)
     {
         delta_pr_p = 0;
     }
-    if(delta_pr_p > 21)
+    if(delta_pr_p > 21.0)
     {
         delta_pr_p = 21;
     }

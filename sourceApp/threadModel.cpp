@@ -347,14 +347,14 @@ void IN_hydro_int          ()
     hydro.Ssecond4_2920[1] = pDev->IN_MAT[205];
     hydro.Ssecond4_2920[2] = pDev->IN_MAT[206];
     hydro.Ssecond4_2920[3] = pDev->IN_MAT[207];
-    if(pDev->IN_MAT[37]) hydro.Sthird4_2920[0] = 1;
-    if(pDev->IN_MAT[38]) hydro.Sthird4_2920[0] = 2;
-    if(pDev->IN_MAT[39]) hydro.Sthird4_2920[1] = 1;
-    if(pDev->IN_MAT[40]) hydro.Sthird4_2920[1] = 2;
-    if(pDev->IN_MAT[41]) hydro.Sthird4_2920[2] = 1;
-    if(pDev->IN_MAT[42]) hydro.Sthird4_2920[2] = 2;
-    if(pDev->IN_MAT[43]) hydro.Sthird4_2920[3] = 1;
-    if(pDev->IN_MAT[44]) hydro.Sthird4_2920[3] = 2;
+    if(pDev->IN_MAT[37]) hydro.Sthird4_2920[0] = 2;
+    if(pDev->IN_MAT[38]) hydro.Sthird4_2920[0] = 1;
+    if(pDev->IN_MAT[39]) hydro.Sthird4_2920[1] = 2;
+    if(pDev->IN_MAT[40]) hydro.Sthird4_2920[1] = 1;
+    if(pDev->IN_MAT[41]) hydro.Sthird4_2920[2] = 2;
+    if(pDev->IN_MAT[42]) hydro.Sthird4_2920[2] = 1;
+    if(pDev->IN_MAT[43]) hydro.Sthird4_2920[3] = 2;
+    if(pDev->IN_MAT[44]) hydro.Sthird4_2920[3] = 1;
     hydro.S13_2920 = pDev->IN_MAT[757];
     exchange::S18_2930 = pDev->IN_MAT[761];
     if(pFromP->balHydroToFull)
@@ -510,7 +510,32 @@ void IN_powerdc_int        ()
 void IN_presure_int        ()
 {}
 void IN_wingsmech_int      ()
-{}
+{
+    wingsmech.S1_2750 = pDev->IN_MAT[367];
+    wingsmech.S2_2750 = pDev->IN_MAT[382];
+    wingsmech.S13_2750 = pDev->IN_MAT[303];
+    wingsmech.s1_2780 = pDev->IN_MAT[366];
+    if(pDev->IN_MAT[380]) wingsmech.s2_2780 = 2;
+    if(pDev->IN_MAT[379]) wingsmech.s2_2780 = 1;
+    wingsmech.s1_2790 = pDev->IN_MAT[365];
+    if(pDev->IN_MAT[375]) wingsmech.s2_2790 = 2;
+    if(pDev->IN_MAT[376]) wingsmech.s2_2790 = 1;
+    wingsmech.delta_zr_vh = pDev->IN_A[1][26];
+    wingsmech.delta_ruk_vh = pDev->IN_A[1][27];
+
+    wingsmech.otkaz_1k_zakr = pFromP->Otkaz[61];
+    wingsmech.otkaz_2k_zakr = pFromP->Otkaz[62];
+    wingsmech.otkaz_osn_1k_zakr = pFromP->Otkaz[63];
+    wingsmech.otkaz_osn_2k_zakr = pFromP->Otkaz[64];
+    wingsmech.otkaz_rassgl_zakr = pFromP->Otkaz[65];
+    wingsmech.otkaz_osn_1k_prekr = pFromP->Otkaz[66];
+    wingsmech.otkaz_osn_2k_prekr = pFromP->Otkaz[67];
+    wingsmech.otkaz_rassgl_prekr = pFromP->Otkaz[68];
+    wingsmech.otkaz_osn_1k_PCHK = pFromP->Otkaz[69];
+    wingsmech.otkaz_osn_2k_PCHK = pFromP->Otkaz[70];
+    wingsmech.otkaz_RASSINHR_PCHK = pFromP->Otkaz[71];
+
+}
 
 
 //================== OUT Data
@@ -667,5 +692,11 @@ void OUT_presure_int        ()
 {}
 
 void OUT_wingsmech_int      ()
-{}
+{
+    pDev->OUT_D[1][66] = bss_inst.BSS824X2f;
+    pDev->OUT_D[1][67] = bss_inst.BSS824X2h;
+    pDev->OUT_D[1][65] = bss_inst.BSS825X6E;
+    pDev->OUT_D[0][114] = bss_inst.BSS913X2h;
+    pDev->OUT_D[0][115] = bss_inst.BSS913X2i;
+}
 
