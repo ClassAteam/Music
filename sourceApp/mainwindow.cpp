@@ -46,6 +46,7 @@ TimeClass* pFrameModel;
 bool bAvtonon=false;
 double TICK=5.0;//ms
 double TICK_Graf=50.0;//
+double ts = TICK * (1 /1000);//cyrcle time in seconds
 
 SH_FROMRMI_PILOT   FROMRMI_PILOT,  *pFromP=&FROMRMI_PILOT;  // for socket_in
 SH_FROMRMI_PILOT   FROMRMI_OPER,   *pFromO=&FROMRMI_OPER;  // for socket_in

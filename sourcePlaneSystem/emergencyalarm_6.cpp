@@ -1,7 +1,5 @@
 #include "emergencyalarm_6.h"
 
-static void lamp_blink(bool &inpClue, bool &lamp);
-
 void emergencyalarm_int::emergencyalarm_6()
 {
     static bool
@@ -51,17 +49,16 @@ void emergencyalarm_int::emergencyalarm_6()
         X5L_blink,
         X5N_blink,
         X5R_blink,
-        X5T_blink,
-        X7A_blink;
+        X5T_blink;
 
-    if(PRBSS825 == true)
+    if(PRBSS825)
     {
         ///////////////Yellow lights
         //////////////1
-        if (bss_inst.BSS825X5A == true)
+        if(bss_inst.BSS825X5A)
         {
             bss_inst.BSS825X6A = true;
-            if(PZH825_X5A_b == true)
+            if(PZH825_X5A_b)
             {
                 PZH825_X5A = false;
             }
@@ -77,18 +74,14 @@ void emergencyalarm_int::emergencyalarm_6()
             PZH825_X5A = false;
         }
 
-
-        if(exchange::s2_3364 == true)
-        {
-            PZH825_X5A_b = true;
-        }
+        if(exchange::s2_3364) PZH825_X5A_b = true;
 
         ///////////////Yellow lights
         //////////////2
-        if (bss_inst.BSS825X5C == true)
+        if (bss_inst.BSS825X5C)
         {
             bss_inst.BSS825X6B = true;
-            if(PZH825_X5C_b == true)
+            if(PZH825_X5C_b)
             {
                 PZH825_X5C = false;
             }
@@ -104,17 +97,14 @@ void emergencyalarm_int::emergencyalarm_6()
             PZH825_X5C = false;
         }
 
-        if(exchange::s2_3364 == true)
-        {
-            PZH825_X5C_b = true;
-        }
+        if(exchange::s2_3364) PZH825_X5C_b = true;
 
         ///////////////Yellow lights
         //////////////3
-        if (bss_inst.BSS825X5E == true)
+        if(bss_inst.BSS825X5E)
         {
             bss_inst.BSS825X6C = true;
-            if(PZH825_X5E_b == true)
+            if(PZH825_X5E_b)
             {
                 PZH825_X5E = false;
             }
@@ -130,17 +120,14 @@ void emergencyalarm_int::emergencyalarm_6()
             PZH825_X5E = false;
         }
 
-        if(exchange::s2_3364 == true)
-        {
-            PZH825_X5E_b = true;
-        }
+        if(exchange::s2_3364) PZH825_X5E_b = true;
 
         ///////////////Yellow lights
         //////////////4
-        if (bss_inst.BSS825X5G == true)
+        if(bss_inst.BSS825X5G)
         {
             bss_inst.BSS825X6D = true;
-            if(PZH825_X5G_b == true)
+            if(PZH825_X5G_b)
             {
                 PZH825_X5G = false;
             }
@@ -156,17 +143,14 @@ void emergencyalarm_int::emergencyalarm_6()
             PZH825_X5G = false;
         }
 
-        if(exchange::s2_3364 == true)
-        {
-            PZH825_X5G_b = true;
-        }
+        if(exchange::s2_3364) PZH825_X5G_b = true;
 
         ///////////////Yellow lights
         //////////////5
-        if (bss_inst.alpha_py_fi_ogrnch == true)
+        if(bss_inst.alpha_py_fi_ogrnch)
         {
             bss_inst.BSS825X6r = true;
-            if(PZH_alpha_py_fi_ogrnch_b == true)
+            if(PZH_alpha_py_fi_ogrnch_b)
             {
                 PZH_alpha_py_fi_ogrnch = false;
             }
@@ -182,17 +166,14 @@ void emergencyalarm_int::emergencyalarm_6()
             PZH_alpha_py_fi_ogrnch = false;
         }
 
-        if(exchange::s2_3364 == true)
-        {
-            PZH_alpha_py_fi_ogrnch_b = true;
-        }
+        if(exchange::s2_3364) PZH_alpha_py_fi_ogrnch_b = true;
 
         ///////////////Yellow lights
         //////////////6
-        if (bss_inst.kren_velik == true)
+        if(bss_inst.kren_velik)
         {
             bss_inst.BSS825X6m = true;
-            if(PZH_kren_velik_b_1 == true)
+            if(PZH_kren_velik_b_1)
             {
                 PZH_kren_velik_1 = false;
             }
@@ -208,17 +189,14 @@ void emergencyalarm_int::emergencyalarm_6()
             PZH_kren_velik_1 = false;
         }
 
-        if(exchange::s2_3364 == true)
-        {
-            PZH_kren_velik_b_1 = true;
-        }
+        if(exchange::s2_3364) PZH_kren_velik_b_1 = true;
 
         ///////////////Yellow lights
         //////////////7
-        if (bss_inst.p_bakov_veliko == true)
+        if(bss_inst.p_bakov_veliko)
         {
             bss_inst.BSS825X6n = true;
-            if(PZH_p_bakov_veliko_b == true)
+            if(PZH_p_bakov_veliko_b)
             {
                 PZH_p_bakov_veliko = false;
             }
@@ -234,17 +212,14 @@ void emergencyalarm_int::emergencyalarm_6()
             PZH_p_bakov_veliko = false;
         }
 
-        if(exchange::s2_3364 == true)
-        {
-            PZH_p_bakov_veliko_b = true;
-        }
+        if(exchange::s2_3364) PZH_p_bakov_veliko_b = true;
 
         ///////////////Yellow lights
         //////////////8
-        if (bss_inst.razrezh_veliko == true)
+        if(bss_inst.razrezh_veliko)
         {
             bss_inst.BSS825X6p = true;
-            if(PZH_razrezh_veliko_b == true)
+            if(PZH_razrezh_veliko_b)
             {
                 PZH_razrezh_veliko = false;
             }
@@ -260,21 +235,17 @@ void emergencyalarm_int::emergencyalarm_6()
             PZH_razrezh_veliko = false;
         }
 
-        if(exchange::s2_3364 == true)
-        {
-            PZH_razrezh_veliko_b = true;
-        }
+        if(exchange::s2_3364) PZH_razrezh_veliko_b = true;
 
         //PCSOZHLL toggle
-        if(
-            PZH825_X5A == true ||
-            PZH825_X5C == true ||
-            PZH825_X5E == true ||
-            PZH825_X5G == true ||
-            PZH_alpha_py_fi_ogrnch == true ||
-            PZH_kren_velik_1 == true ||
-            PZH_p_bakov_veliko == true ||
-            PZH_razrezh_veliko == true)
+        if( PZH825_X5A  ||
+            PZH825_X5C  ||
+            PZH825_X5E  ||
+            PZH825_X5G  ||
+            PZH_alpha_py_fi_ogrnch  ||
+            PZH_kren_velik_1  ||
+            PZH_p_bakov_veliko  ||
+            PZH_razrezh_veliko)
         {
 
             PCSOZHPL_2 = true;
@@ -287,7 +258,7 @@ void emergencyalarm_int::emergencyalarm_6()
 
         ///////////////Red lights_1
         //////////////1
-        if (bss_inst.BSS825X5L == true)
+        if(bss_inst.BSS825X5L)
         {
             X5L_blink++;
             if((X5L_blink * TICK) < 400)
@@ -307,10 +278,10 @@ void emergencyalarm_int::emergencyalarm_6()
 
         ///////////////Red lights_1
         //////////////2
-        if (bss_inst.BSS825X5f == true)
+        if(bss_inst.BSS825X5f)
         {
             bss_inst.BSS825X6R = true;
-            if(PK825_X5f_b == true)
+            if(PK825_X5f_b)
             {
                 PK825_X5f = false;
             }
@@ -327,14 +298,11 @@ void emergencyalarm_int::emergencyalarm_6()
         }
 
 
-        if(exchange::s2_3364 == true)
-        {
-            PK825_X5f_b = true;
-        }
+        if(exchange::s2_3364) PK825_X5f_b = true;
 
         ///////////////Red lights_1
         //////////////3
-        if (bss_inst.BSS825X5N == true)
+        if(bss_inst.BSS825X5N)
         {
             X5N_blink++;
             if((X5N_blink * TICK) < 400)
@@ -354,10 +322,10 @@ void emergencyalarm_int::emergencyalarm_6()
 
         ///////////////Red lights_1
         //////////////4
-        if (bss_inst.BSS825X5h == true)
+        if(bss_inst.BSS825X5h)
         {
             bss_inst.BSS825X6S = true;
-            if(PK825_X5h_b == true)
+            if(PK825_X5h_b)
             {
                 PK825_X5h = false;
             }
@@ -374,14 +342,11 @@ void emergencyalarm_int::emergencyalarm_6()
         }
 
 
-        if(exchange::s2_3364 == true)
-        {
-            PK825_X5h_b = true;
-        }
+        if(exchange::s2_3364) PK825_X5h_b = true;
 
         ///////////////Red lights_1
         //////////////5
-        if (bss_inst.BSS825X5R == true)
+        if(bss_inst.BSS825X5R)
         {
             X5R_blink++;
             if((X5R_blink * TICK) < 400)
@@ -401,10 +366,10 @@ void emergencyalarm_int::emergencyalarm_6()
 
         ///////////////Red lights_1
         //////////////6
-        if (bss_inst.BSS825X5j == true)
+        if(bss_inst.BSS825X5j)
         {
             bss_inst.BSS825X6T = true;
-            if(PK825_X5j_b == true)
+            if(PK825_X5j_b)
             {
                 PK825_X5j = false;
             }
@@ -421,14 +386,11 @@ void emergencyalarm_int::emergencyalarm_6()
         }
 
 
-        if(exchange::s2_3364 == true)
-        {
-            PK825_X5j_b = true;
-        }
+        if(exchange::s2_3364) PK825_X5j_b = true;
 
         ///////////////Red lights_1
         //////////////7
-        if (bss_inst.BSS825X5T == true)
+        if(bss_inst.BSS825X5T)
         {
             X5T_blink++;
             if((X5T_blink * TICK) < 400)
@@ -448,10 +410,10 @@ void emergencyalarm_int::emergencyalarm_6()
 
         ///////////////Red lights_1
         //////////////8
-        if (bss_inst.BSS825X5n == true)
+        if(bss_inst.BSS825X5n)
         {
             bss_inst.BSS825X6U = true;
-            if(PK825_X5n_b == true)
+            if(PK825_X5n_b)
             {
                 PK825_X5n = false;
             }
@@ -468,17 +430,14 @@ void emergencyalarm_int::emergencyalarm_6()
         }
 
 
-        if(exchange::s2_3364 == true)
-        {
-            PK825_X5n_b = true;
-        }
+        if(exchange::s2_3364) PK825_X5n_b = true;
 
         ///////////////Red lights_1
         //////////////9
-        if (bss_inst.V_velika == true)
+        if(bss_inst.V_velika)
         {
             bss_inst.BSS825X6i = true;
-            if(PK_V_velika_PL_b == true)
+            if(PK_V_velika_PL_b)
             {
                 PK_V_velika_PL = false;
             }
@@ -495,17 +454,14 @@ void emergencyalarm_int::emergencyalarm_6()
         }
 
 
-        if(exchange::s2_3364 == true)
-        {
-            PK_V_velika_PL_b = true;
-        }
+        if(exchange::s2_3364) PK_V_velika_PL_b = true;
 
         ///////////////Red lights_1
         //////////////10
-        if (bss_inst.V_mala == true)
+        if(bss_inst.V_mala)
         {
             bss_inst.BSS825X6j = true;
-            if(PK_V_mala_PL_b == true)
+            if(PK_V_mala_PL_b)
             {
                 PK_V_mala_PL = false;
             }
@@ -522,17 +478,14 @@ void emergencyalarm_int::emergencyalarm_6()
         }
 
 
-        if(exchange::s2_3364 == true)
-        {
-            PK_V_mala_PL_b = true;
-        }
+        if(exchange::s2_3364) PK_V_mala_PL_b = true;
 
         ///////////////Red lights_1
         //////////////11
-        if (bss_inst.alpha_py_predel == true)
+        if (bss_inst.alpha_py_predel)
         {
             bss_inst.BSS825X6k = true;
-            if(PK_alpha_py_predel_PL_b == true)
+            if(PK_alpha_py_predel_PL_b)
             {
                 PK_alpha_py_predel_PL = false;
             }
@@ -549,24 +502,20 @@ void emergencyalarm_int::emergencyalarm_6()
         }
 
 
-        if(exchange::s2_3364 == true)
-        {
-            PK_alpha_py_predel_PL_b = true;
-        }
+        if(exchange::s2_3364) PK_alpha_py_predel_PL_b = true;
 
 
         // PCSOKLL toggle
-        if(
-            PK825_X5L == true ||
-            PK825_X5f == true ||
-            PK825_X5N == true ||
-            PK825_X5h == true ||
-            PK825_X5R == true ||
-            PK825_X5j == true ||
-            PK825_X5T == true ||
-            PK825_X5n == true ||
-            PK_V_velika_PL == true ||
-            PK_V_mala_PL == true ||
+        if(PK825_X5L  ||
+            PK825_X5f  ||
+            PK825_X5N  ||
+            PK825_X5h  ||
+            PK825_X5R  ||
+            PK825_X5j  ||
+            PK825_X5T  ||
+            PK825_X5n  ||
+            PK_V_velika_PL  ||
+            PK_V_mala_PL  ||
             PK_alpha_py_predel_PL)
         {
             PCSOKPL_2 = true;
@@ -578,14 +527,10 @@ void emergencyalarm_int::emergencyalarm_6()
 
         ///////////////White lights_1
         //////////////1
-        if (bss_inst.BSS825X5J == true)
-        {
+        if (bss_inst.BSS825X5J)
             bss_inst.BSS825X6E = true;
-        }
         else
-        {
             bss_inst.BSS825X6E = false;
-        }
 
         //White lights_1 2
         static int BSS825X6E{};
@@ -593,157 +538,101 @@ void emergencyalarm_int::emergencyalarm_6()
 
         ///////////////White lights_1
         //////////////3
-        if (bss_inst.BSS825X5V == true)
-        {
+        if(bss_inst.BSS825X5V)
             bss_inst.BSS825X6K = true;
-        }
         else
-        {
             bss_inst.BSS825X6K = false;
-        }
 
         ///////////////White lights_1
         //////////////4
-        if (bss_inst.BSS825X5FF == true)
-        {
+        if(bss_inst.BSS825X5FF)
             bss_inst.BSS825X6d = true;
-        }
         else
-        {
             bss_inst.BSS825X6d = false;
-        }
 
         ///////////////White lights_1
         //////////////5
-        if (bss_inst.BSS825X5FF == true)
-        {
+        if(bss_inst.BSS825X5FF)
             bss_inst.BSS825X6d = true;
-        }
         else
-        {
             bss_inst.BSS825X6d = false;
-        }
 
         ///////////////White lights_1
         //////////////6
-        if (bss_inst.BSS825X5HH == true)
-        {
+        if(bss_inst.BSS825X5HH)
             bss_inst.BSS825X6e = true;
-        }
         else
-        {
             bss_inst.BSS825X6e = false;
-        }
 
         ///////////////White lights_1
         //////////////7
-        if (bss_inst.BSS825X5X == true)
-        {
+        if(bss_inst.BSS825X5X)
             bss_inst.BSS825X6L = true;
-        }
         else
-        {
             bss_inst.BSS825X6L = false;
-        }
 
         ///////////////White lights_1
         //////////////8
-        if (bss_inst.BSS825X5Z == true)
-        {
+        if(bss_inst.BSS825X5Z)
             bss_inst.BSS825X6M = true;
-        }
         else
-        {
             bss_inst.BSS825X6M = false;
-        }
 
         ///////////////White lights_1
         //////////////9
-        if (bss_inst.BSS825X5b == true)
-        {
+        if (bss_inst.BSS825X5b)
             bss_inst.BSS825X6N = true;
-        }
         else
-        {
             bss_inst.BSS825X6N = false;
-        }
 
         ///////////////White lights_1
         //////////////10
-        if (bss_inst.BSS825X5d == true)
-        {
+        if(bss_inst.BSS825X5d)
             bss_inst.BSS825X6P = true;
-        }
         else
-        {
             bss_inst.BSS825X6P = false;
-        }
 
         ///////////////White lights_1
         //////////////11
-        if (bss_inst.BSS825X5r == true)
-        {
+        if(bss_inst.BSS825X5r)
             bss_inst.BSS825X6W = true;
-        }
         else
-        {
             bss_inst.BSS825X6W = false;
-        }
 
         ///////////////White lights_1
         //////////////12
-        if (bss_inst.BSS825X5t == true)
-        {
+        if(bss_inst.BSS825X5t)
             bss_inst.BSS825X6X = true;
-        }
         else
-        {
             bss_inst.BSS825X6X = false;
-        }
 
         ///////////////White lights_1
         //////////////13
-        if (bss_inst.BSS825X7R == true)
-        {
+        if(bss_inst.BSS825X7R)
             bss_inst.BSS825X6q = true;
-        }
         else
-        {
             bss_inst.BSS825X6q = false;
-        }
 
         ///////////////White lights_1
         //////////////14
-        if (bss_inst.BSS825X5v == true)
-        {
+        if(bss_inst.BSS825X5v)
             bss_inst.BSS825X6Y = true;
-        }
         else
-        {
             bss_inst.BSS825X6Y = false;
-        }
 
         ///////////////White lights_1
         //////////////15
-        if (bss_inst.BSS825X5x == true)
-        {
+        if(bss_inst.BSS825X5x)
             bss_inst.BSS825X6Z = true;
-        }
         else
-        {
             bss_inst.BSS825X6Z = false;
-        }
 
         ///////////////White lights_1
         //////////////16
-        if (bss_inst.BSS825X5z == true)
-        {
+        if(bss_inst.BSS825X5z)
             bss_inst.BSS825X6a = true;
-        }
         else
-        {
             bss_inst.BSS825X6a = false;
-        }
 
         ///////////////White lights_1 17
 
@@ -757,38 +646,26 @@ void emergencyalarm_int::emergencyalarm_6()
 
         ///////////////White lights_1
         //////////////18
-        if (bss_inst.BSS825X5KK == true)
-        {
+        if(bss_inst.BSS825X5KK)
             bss_inst.BSS825X6f = true;
-        }
         else
-        {
             bss_inst.BSS825X6f = false;
-        }
 
         ///////////////White lights_1
         //////////////19
-        if (bss_inst.BSS825X5MM == true)
-        {
+        if(bss_inst.BSS825X5MM)
             bss_inst.BSS825X6g = true;
-        }
         else
-        {
             bss_inst.BSS825X6g = false;
-        }
 
         ///////////////White lights_1
         //////////////19
-        if (bss_inst.programma == true)
-        {
+        if(bss_inst.programma)
             bss_inst.BSS825_prog = true;
-        }
         else
-        {
             bss_inst.BSS825_prog = false;
-        }
 
-        if(PKLPL == true)
+        if(PKLPL)
         {
             PCSOZHPL_2 = true;
             PCSOKPL_2 = true;
@@ -830,28 +707,15 @@ void emergencyalarm_int::emergencyalarm_6()
             bss_inst.BSS825_prog = true;
         }
 
-
-        if(
-            PCSOZHPL_1 == true ||
-            PCSOZHPL_2 == true)
-        {
+        if(PCSOZHPL_1 || PCSOZHPL_2)
             PCSOZHPL = true;
-        }
         else
-        {
             PCSOZHPL = false;
-        }
 
-        if(
-            PCSOKPL_1 == true ||
-            PCSOKPL_2 == true)
-        {
+        if(PCSOKPL_1 || PCSOKPL_2)
             PCSOKPL = true;
-        }
         else
-        {
             PCSOKPL = false;
-        }
     }
     else
     {
@@ -929,24 +793,3 @@ void emergencyalarm_int::emergencyalarm_6()
     }
 }
 
-void lamp_blink(bool &inpClue, bool &lamp)
-{
-    static int blink;
-    if(inpClue)
-    {
-        blink++;
-        if((blink * TICK) < 100)
-        {
-            lamp = false;
-        }
-        if(((blink * TICK)) >= 100)
-        {
-            lamp = true;
-            if(blink * TICK >= 200) blink = 0;
-        }
-    }
-    else
-    {
-        blink = 0;
-    }
-}

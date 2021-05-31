@@ -78,11 +78,11 @@ void wingsmech_int::wingsmech_3()
             }
         }
     }
-    if(por1kpchk == true)
+    if(por1kpchk)
     {
         if((X_zad - X_L) >= 0)
         {
-            if(delta_z_l > 0)
+            if(delta_z_l > 0.1)
             {
                 D_X_l = 0;
             }
@@ -125,7 +125,7 @@ void wingsmech_int::wingsmech_3()
     {
         if((X_zad - X_P) >= 0)
         {
-            if(delta_z_p > 0)
+            if(delta_z_p > 0.1)
             {
                 D_X_p = 0;
             }
@@ -290,21 +290,21 @@ void wingsmech_int::wingsmech_3()
             }
         }
     }
-    if(X_L <= 20)
+    if(X_L <= 20.0)
     {
-        X_L = 20;
+        X_L = 20.0;
     }
-    if(X_L >= 65)
+    if(X_L >= 65.0)
     {
-        X_L = 65;
+        X_L = 65.0;
     }
-    if(X_P <= 0)
+    if(X_P <= 20.0)
     {
-        X_P = 0;
+        X_P = 20.0;
     }
-    if(X_P >= 65)
+    if(X_P >= 65.0)
     {
-        X_P = 65;
+        X_P = 65.0;
     }
     if(exchange::ushap >= 18)
     {

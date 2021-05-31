@@ -168,7 +168,6 @@ void wingsmech_int::wingsmech_2()
             else
             {
                 Ddelta_pr_l = 0;
-                s2_2780 = 0;
             }
         }
     }
@@ -202,7 +201,6 @@ void wingsmech_int::wingsmech_2()
             else
             {
                 Ddelta_pr_p = 0;
-                s2_2780 = 0;
             }
         }
         prrkpr = true;

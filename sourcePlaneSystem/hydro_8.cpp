@@ -22,9 +22,9 @@ void hydro_int::hydro_8() //actually 9th sheet
     for(int i = 0; i < 4; i++)
     {
         if( *pgs_pool[i] >= 130.0 &&
-            (*pnn1gs_by_gs_pool[i] == true ||
-             *pnn2gs_by_gs_pool[i] == true ||
-             *pntnugs_pool[i] == true))
+            (*pnn1gs_by_gs_pool[i] ||
+             *pnn2gs_by_gs_pool[i]||
+             *pntnugs_pool[i]))
         {
             if(KKGS[i] == true)
             {
@@ -104,22 +104,10 @@ void hydro_int::hydro_8() //actually 9th sheet
 
     if(exchange::ushgP[3][0])
     {
-        if(qgs1 <= 10.0)
-        {
-            uks_inst.UKS2X320 = true;
-        }
-        if(qgs2 <= 10.0)
-        {
-            uks_inst.UKS2X321 = true;
-        }
-        if(qgs3 <= 10.0)
-        {
-            uks_inst.UKS2X322 = true;
-        }
-        if(qgs4 <= 10.0)
-        {
-            uks_inst.UKS2X323 = true;
-        }
+        if(qgs1 <= 10.0) uks_inst.UKS2X320 = true;
+        if(qgs2 <= 10.0) uks_inst.UKS2X321 = true;
+        if(qgs3 <= 10.0) uks_inst.UKS2X322 = true;
+        if(qgs4 <= 10.0) uks_inst.UKS2X323 = true;
     }
 
     if(exchange::ush2l >= 18.0)

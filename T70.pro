@@ -69,6 +69,7 @@ SOURCES += \
     sourcePlaneSystem/emergencyalarm_int.cpp \
     sourcePlaneSystem/exchange.cpp \
     sourcePlaneSystem/hydro_1.cpp \
+    sourcePlaneSystem/hydro_10.cpp \
     sourcePlaneSystem/hydro_2.cpp \
     sourcePlaneSystem/hydro_3.cpp \
     sourcePlaneSystem/hydro_4.cpp \
@@ -168,6 +169,7 @@ HEADERS += \
     sourcePlaneSystem/emergencyalarm_int.h \
     sourcePlaneSystem/exchange.h \
     sourcePlaneSystem/hydro_1.h \
+    sourcePlaneSystem/hydro_10.h \
     sourcePlaneSystem/hydro_2.h \
     sourcePlaneSystem/hydro_3.h \
     sourcePlaneSystem/hydro_4.h \

@@ -513,11 +513,25 @@ void IN_wingsmech_int      ()
 {
     wingsmech.S1_2750 = pDev->IN_MAT[367];
     wingsmech.S2_2750 = pDev->IN_MAT[382];
+
+
     wingsmech.S13_2750 = pDev->IN_MAT[303];
     wingsmech.s1_2780 = pDev->IN_MAT[366];
+
     if(pDev->IN_MAT[380]) wingsmech.s2_2780 = 2;
-    if(pDev->IN_MAT[379]) wingsmech.s2_2780 = 1;
+    else  if(pDev->IN_MAT[379]) wingsmech.s2_2780 = 1;
+    else wingsmech.s2_2780 = 0;
+
+    if(pDev->IN_MAT[382]) wingsmech.S2_2750 = 2;
+    else  if(pDev->IN_MAT[381]) wingsmech.S2_2750 = 1;
+    else wingsmech.S2_2750 = 0;
+
     wingsmech.s1_2790 = pDev->IN_MAT[365];
+
+    if(pDev->IN_MAT[376]) wingsmech.s2_2790 = 2;
+    else  if(pDev->IN_MAT[375]) wingsmech.s2_2790 = 1;
+    else wingsmech.s2_2790 = 0;
+
     if(pDev->IN_MAT[375]) wingsmech.s2_2790 = 2;
     if(pDev->IN_MAT[376]) wingsmech.s2_2790 = 1;
     wingsmech.delta_zr_vh = pDev->IN_A[1][26];

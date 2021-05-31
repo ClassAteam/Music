@@ -19,9 +19,13 @@ void wingsmech_int::wingsmech_4()
         }
         else
         {
-            bss_inst.BSS824X1KK = false;
-            bss_inst.BSS824X1MM = true;
+            if(exchange::delta_z > 1.0)
+            {
+                bss_inst.BSS824X1KK = false;
+                bss_inst.BSS824X1MM = true;
+            }
         }
+
         if(exchange::delta_z > 28)
         {
             bss_inst.BSS824X3C = true;
@@ -53,7 +57,7 @@ void wingsmech_int::wingsmech_4()
     {
         delta_pr = ((delta_pr_l + delta_pr_p) / 2);
 
-        if(delta_pr >= 0)
+        if(delta_pr >= 1.0)
         {
             bss_inst.BSS825X7A = true;
         }

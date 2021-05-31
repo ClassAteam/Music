@@ -169,6 +169,7 @@ void wingsmech_int::wingsmech_1()
             else
             {
                 Ddelta_z_l = 0;
+                S2_2750 = 0;
             }
         }
     }

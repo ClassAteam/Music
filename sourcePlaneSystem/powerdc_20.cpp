@@ -36,10 +36,7 @@ void powerdc_int::powerdc_20()
  X_f(prgen[2], uks_inst.UKS4X343, popg3, uks_inst.UKS4X347);
  X_f(prgen[3], uks_inst.UKS4X344, popg4, uks_inst.UKS4X348);
 
- if(k14_2420)
-     bss_inst.BSS837X1L = true;
- else
-     bss_inst.BSS837X1L = false;
+ bss_inst.BSS837X1L = (k14_2420) ? true : false;
 }
 
 void Z_f(bool &prg1, bool &prg2, bool &pchrl, bool &BSS926XN, bool &k31_2420,

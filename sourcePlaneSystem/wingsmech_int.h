@@ -16,6 +16,7 @@ public:
     double
         X_L{20},//polozhenie podvizhnoy chasti krila levoy
         X_P{20},//polozhenie podvizhnoy chasti krila pravoy
+        X_PCHK{},//polozhenie podvizhnoy chasti krila dlya signalizatsii
         delta_zr_vh{},//vhodnoe polozhenie ruchki upravleniya zakrilkami
         delta_z_l{},//tekushee polozhenie zakrilkov levih, grad
         delta_z_p{},//tekushee polozhenie zakrilkov pravih, grad
@@ -24,7 +25,9 @@ public:
         X_1_pk{},//znachenie signala s datchika polozheniya PCHK1 podkanala levogo(dlya ABSU)
         X_3_pk{},//znachenie signala s datchika polozheniya PCHK1 podkanala pravogo(dlya ABSU)
         delta_z_1_pk{},//znachenie signala s datchika polozheniya zakrilkov 1 podkanala levogo(dlya ABSU)
-        delta_z_3_pk{};//znachenie signala s datchika polozheniya zakrilkov 3 podkanala levogo(dlya ABSU)
+        delta_z_3_pk{},//znachenie signala s datchika polozheniya zakrilkov 3 podkanala levogo(dlya ABSU)
+        D_X_l{},//skorost' peremesheniya podvizhnoy chasti krila levoy
+        D_X_p{};//skorost' peremesheniya podvizhnoy chasti krila pravoy
     int
         S2_2750{},//vikluchatel "REZERVNOE UPRAVLENIE ZAKRILKI
         s2_2780{},//vikluchatel "REZERVNOE UPRAVLENIE PREDKRILKI"
@@ -82,10 +85,7 @@ public:
         delta_pr_vh,
         Ddelta_pr_l,
         Ddelta_pr_p,
-        X_PCHK,
         X_zad,
-        D_X_l,
-        D_X_p,
         Kgs{},
         Kgs1{},
         Kgs2{},
