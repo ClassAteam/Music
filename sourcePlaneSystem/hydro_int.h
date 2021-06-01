@@ -5,11 +5,13 @@
 #include "bss.h"
 #include "uks.h"
 
+constexpr auto amountOfHydroSys = 4;
+
 extern bss bss_inst;
 extern uks uks_inst;
 
 extern double TICK;
-extern double ts;
+extern const double ts;
 
 class hydro_int
 {
@@ -113,56 +115,66 @@ public:
     double p0gs3{115};//davlenie zaryadki gidro/akkum gazom v GS3
     double p0gs4{115};//davlenie zaryadki gidro/akkum gazom v GS4
 
+    //kolichestvo potreblyaemoy gidrozhidkosti pri povorote //krila
+    double qppchk[amountOfHydroSys]{};
+    //kolichestvo potreblyaemoy zhidkosti pri rabote klina vozduha //zabornika
+    double qpvkldv[amountOfHydroSys]{};
+    //kolichestvo potreblyaemoy gidrozhidkosti pri rabote stvorki perepuska dvigatelya
+    double qpfistv[amountOfHydroSys]{};
     //kolichestvo potreblyaemoy zhidkosti pri rabote kilya
-    double qpk[4]{};
+    double qpk[amountOfHydroSys]{};
     //kolichestvo potreblyaemoy zhidkosti pri rabote interseptora levogo
-    double qpintl[4]{};
+    double qpintl[amountOfHydroSys]{};
     //kolichestvo potreblyaemoy zhidkosti pri rabote interseptora pravogo
-    double qpintp[4]{};
+    double qpintp[amountOfHydroSys]{};
     //kolichestvo potreblyaemoy zhidkosti pri rabote flaperona levogo
-    double qpfll[4]{};
+    double qpfll[amountOfHydroSys]{};
     //kolichestvo potreblyaemoy zhidkosti pri rabote flaperona pravogo
-    double qpflp[4]{};
+    double qpflp[amountOfHydroSys]{};
     //kolichestvo potreblyaemoy zhidkosti pri rabote stabilizatora
-    double qpfist[4]{};
+    double qpfist[amountOfHydroSys]{};
+    //kolichestvo potreblyaemoy zhidkosti pri rabote prekrilkov levih
+    double qpprl[amountOfHydroSys]{};
+    //kolichestvo potreblyaemoy zhidkosti pri rabote prekrilkov pravih
+    double qpprp[amountOfHydroSys]{};
+    //kolichestvo potreblyaemoy zhidkosti pri rabote zakrilkov levih
+    double qpzl[amountOfHydroSys]{};
+    //kolichestvo potreblyaemoy zhidkosti pri rabote zakrilkov levih
+    double qpzp[amountOfHydroSys]{};
+    //kolichestvo potreblyaemoy gidrozhidkosti pri smeshenii levoy stvorki
+    double qpstvl[amountOfHydroSys]{};
+    //kolichestvo potreblyaemoy gidrozhidkosti pri smeshenii pravoy stvorki
+    double qpstvp[amountOfHydroSys]{};
+    //kolichestvo potreblyaemoy gidrozhidkosti pri smeshenii nosovoy stvorki
+    double qpstvn[amountOfHydroSys]{};
+    //kolichestvo potreblyaemoy gidrozhidkosti pri smeshenii osnovn stoyki levoy
+    double qpshiftl[amountOfHydroSys]{};
+    //kolichestvo potreblyaemoy gidrozhidkosti pri smeshenii //osnovn stoyki pravoy
+    double qpshiftp[amountOfHydroSys]{};
+    //kolichestvo potreblyaemoy gidrozhidkosti pri vipuske levoy stoyki
+    double qpshl[amountOfHydroSys]{};
+    //kolichestvo potreblyaemoy gidrozhidkosti pri vipuske pravoy stoyki
+    double qpshp[amountOfHydroSys]{};
+    //kolichestvo potreblyaemoy gidrozhidkosti pri vipuske nosovoy stoyki
+    double qpshn[amountOfHydroSys]{};
+    //kolichestvo potreblyaemoy gidrozhidkosti pri povorote nosovogo kolesa
+    double qpnk[amountOfHydroSys]{};
 
-    double ssh{};
-    double snk{};
-    double sk{};
-    double sint{};
-    double sfl{};
-    double sfp{};
-    double sst{};
-    double spchk{};
-    double skl{};
-    double sstv{};
+    double koef_sm{0.07};//smeshenie
+    double koef_sz{50};//zakrilki
+    double koef_spr{125};//prekrilki
+    double koef_ssh{10.0};//shassi
+    double koef_snk{10.0};//nosovoe koleso
+    double koef_sk{2.0};//kil'
+    double koef_sint{12.0};//interseptor
+    double koef_sfl{3.8};//flapperoni
+    double koef_sfp{1.0};
+    double koef_sst{4.0};//stabilizator
+    double koef_spchk{50};//strelovidnost'
+    double koef_skl{10};//klin
+    double koef_sstv{0.1};//stvorki perepuska vozduha
+    double koef_sstvsh{0.1};//stvorki perepuska vozduha
 
-    double qp2stvl{};//kolichestvo potreblyaemoy gidrozhidkosti pri smeshenii
-    //levoy stvorki
-    double qp2stvp{};//kolichestvo potreblyaemoy gidrozhidkosti pri smeshenii
-    //pravoy stvorki
-    double qp2stvn{};//kolichestvo potreblyaemoy gidrozhidkosti pri smeshenii
-    //nosovoy stvorki
-    double qp2shiftl{};//kolichestvo potreblyaemoy gidrozhidkosti pri smeshenii
-    //osnovn stoyki levoy
-    double qp2shiftp{};//kolichestvo potreblyaemoy gidrozhidkosti pri smeshenii
-    //osnovn stoyki pravoy
-    double qp2shl{};//kolichestvo potreblyaemoy gidrozhidkosti pri vipuske
-    //levoy stoyki
-    double qp2shp{};//kolichestvo potreblyaemoy gidrozhidkosti pri vipuske
-    //pravoy stoyki
-    double qp2shn{};//kolichestvo potreblyaemoy gidrozhidkosti pri vipuske
-    //nosovoy stoyki
-    double qpnk1{};//kolichestvo potreblyaemoy gidrozhidkosti pri povorote
-    //nosovogo kolesa
-    double qpnk3{};//kolichestvo potreblyaemoy gidrozhidkosti pri povorote
-    //nosovogo kolesa
-    double qppchk[4]{};//kolichestvo potreblyaemoy gidrozhidkosti pri povorote
-    //krila
-    double qpvkldv[4]{};//kolichestvo potreblyaemoy zhidkosti pri rabote klina vozduha
-    //zabornika
-    double qpfistv[4]{};//kolichestvo potreblyaemoy gidrozhidkosti pri rabote
-    //stvorki perepuska dvigatelya
 
     double ddelta_k{};//keel speed
     double ddelta_int_l{};//skorost' peremesheniya interzeptora levih
@@ -373,6 +385,8 @@ public:
             pgs4;//davlenie gidrozhidkosti v GS4
 
 
+    private:
+        double qpsumF(int hydroID);
     public:
         virtual void updateLogic();
 

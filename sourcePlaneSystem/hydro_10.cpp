@@ -55,8 +55,37 @@ static void X(bool &ksurgs1,
         qpfist = 0.0;
     }
     qppchk = abs(wingsmech.D_X_l * ts) * spchk;
+    qppchk = abs(wingsmech.D_X_p * ts) * spchk;
     qpvkldv = abs(qpvkldv * ts) * skl;
-    qpvkldv = abs(qpfistv * ts) * sstv;
+    qpfistv = abs(qpfistv * ts) * sstv;
+}
+
+double hydro_int::qpsumF(int hydroID)
+{
+    double sum;
+    sum = qppchk[hydroID] +
+        qpvkldv[hydroID] +
+        qpfistv[hydroID] +
+        qpk[hydroID]+
+        qpintl[hydroID]+
+        qpintp[hydroID]+
+        qpfll[hydroID]+
+        qpflp[hydroID]+
+        qpfist[hydroID]+
+        qpprl[hydroID]+
+        qpprp[hydroID]+
+        qpzl[hydroID]+
+        qpzp[hydroID]+
+        qpstvl[hydroID]+
+        qpstvp[hydroID]+
+        qpstvn[hydroID]+
+        qpshiftl[hydroID]+
+        qpshiftp[hydroID]+
+        qpshl[hydroID]+
+        qpshp[hydroID]+
+        qpshn[hydroID]+
+        qpnk[hydroID];
+    return sum;
 }
 
 void hydro_int::hydro_10()
@@ -74,14 +103,14 @@ void hydro_int::hydro_10()
       ddelta_fl_l,
       ddelta_fl_p,
       ddelta_fi_st,
-      sk,
-      sint,
-      sfl,
-      sfp,
-      sst,
-      spchk,
-      skl,
-      sstv,
+      koef_sk,
+      koef_sint,
+      koef_sfl,
+      koef_sfp,
+      koef_sst,
+      koef_spchk,
+      koef_skl,
+      koef_sstv,
       qppchk[0],
       qpvkldv[0],
       qpfistv[0]
@@ -100,14 +129,14 @@ void hydro_int::hydro_10()
       ddelta_fl_l,
       ddelta_fl_p,
       ddelta_fi_st,
-      sk,
-      sint,
-      sfl,
-      sfp,
-      sst,
-      spchk,
-      skl,
-      sstv,
+      koef_sk,
+      koef_sint,
+      koef_sfl,
+      koef_sfp,
+      koef_sst,
+      koef_spchk,
+      koef_skl,
+      koef_sstv,
       qppchk[1],
       qpvkldv[1],
       qpfistv[1]
@@ -126,14 +155,14 @@ void hydro_int::hydro_10()
       ddelta_fl_l,
       ddelta_fl_p,
       ddelta_fi_st,
-      sk,
-      sint,
-      sfl,
-      sfp,
-      sst,
-      spchk,
-      skl,
-      sstv,
+      koef_sk,
+      koef_sint,
+      koef_sfl,
+      koef_sfp,
+      koef_sst,
+      koef_spchk,
+      koef_skl,
+      koef_sstv,
       qppchk[2],
       qpvkldv[2],
       qpfistv[2]
@@ -152,23 +181,23 @@ void hydro_int::hydro_10()
       ddelta_fl_l,
       ddelta_fl_p,
       ddelta_fi_st,
-      sk,
-      sint,
-      sfl,
-      sfp,
-      sst,
-      spchk,
-      skl,
-      sstv,
+      koef_sk,
+      koef_sint,
+      koef_sfl,
+      koef_sfp,
+      koef_sst,
+      koef_spchk,
+      koef_skl,
+      koef_sstv,
       qppchk[3],
       qpvkldv[3],
       qpfistv[3]
       );
 
-    qpnk1 = (landinggea.GK_nk1) ? exchange::speed * ts * snk : 0.0;
-    qpnk3 = (landinggea.GK_nk2) ? exchange::speed * ts * snk : 0.0;
+    qpnk[0] = (landinggea.GK_nk1) ? landinggea.V_nk * ts * koef_snk : 0.0;
+    qpnk[2] = (landinggea.GK_nk2) ? landinggea.V_nk * ts * koef_snk : 0.0;
 
-    if(landinggea.gk_oovsh)
+    if(!landinggea.gk_oovsh)
     {
         static double deltashlp{landinggea.delta_sh_l};
         static double deltashpp{landinggea.delta_sh_p};
@@ -179,35 +208,45 @@ void hydro_int::hydro_10()
         static double deltastvp{landinggea.delta_stv_p};
         static double deltastvn{landinggea.delta_stv_n};
 
-        qp2shl = abs(landinggea.delta_sh_l - deltashlp) * ts * ssh;
-        qp2shp = abs(landinggea.delta_sh_p - deltashpp) * ts * ssh;
-        qp2shn = abs(landinggea.delta_sh_n - deltashnp) * ts * ssh;
-        qp2shiftl = abs(landinggea.delta_shift_l - deltashiftlp) * ts * ssh;
-        qp2shiftp = abs(landinggea.delta_shift_p - deltashiftpp) * ts * ssh;
-        qp2stvl = abs(landinggea.delta_stv_l - deltastvl) * ts * ssh;
-        qp2stvp = abs(landinggea.delta_stv_p - deltastvp) * ts * ssh;
-        qp2stvn = abs(landinggea.delta_stv_n - deltastvn) * ts * ssh;
+        qpshl[1] = abs(landinggea.delta_sh_l - deltashlp) * koef_ssh;
+        qpshp[1] = abs(landinggea.delta_sh_p - deltashpp) * koef_ssh;
+        qpshn[1] = abs(landinggea.delta_sh_n - deltashnp) * koef_ssh;
+        qpshiftl[1] = abs(landinggea.delta_shift_l - deltashiftlp) * koef_sm;
+        qpshiftp[1] = abs(landinggea.delta_shift_p - deltashiftpp) * koef_sm;
+        qpstvl[1] = abs(landinggea.delta_stv_l - deltastvl) * koef_sstvsh;
+        qpstvp[1] = abs(landinggea.delta_stv_p - deltastvp) * koef_sstvsh;
+        qpstvn[1] = abs(landinggea.delta_stv_n - deltastvn) * koef_sstvsh;
 
-        deltashlp = qp2shl;
-        deltashpp = qp2shp;
-        deltashnp = qp2shn;
-        deltashiftlp = qp2shiftl;
-        deltashiftpp = qp2shiftp;
-        deltastvl = qp2stvl;
-        deltastvp = qp2stvp;
-        deltastvn = qp2stvn;
+        deltashlp = landinggea.delta_sh_l;
+        deltashpp = landinggea.delta_sh_p;
+        deltashnp = landinggea.delta_sh_n;
+        deltashiftlp = landinggea.delta_shift_l;
+        deltashiftpp = landinggea.delta_shift_p;
+        deltastvl = landinggea.delta_stv_l;
+        deltastvp = landinggea.delta_stv_p;
+        deltastvn = landinggea.delta_stv_n;
     }
     else
     {
-        qp2shl = 0.0;
-        qp2shp = 0.0;
-        qp2shn = 0.0;
-        qp2shiftl = 0.0;
-        qp2shiftp = 0.0;
-        qp2stvl = 0.0;
-        qp2stvp = 0.0;
-        qp2stvn = 0.0;
+        qpshl[1] = 0.0;
+        qpshp[1] = 0.0;
+        qpshn[1] = 0.0;
+        qpshiftl[1] = 0.0;
+        qpshiftp[1] = 0.0;
+        qpstvl[1] = 0.0;
+        qpstvp[1] = 0.0;
+        qpstvn[1] = 0.0;
     }
+
+    qpprl[1] = (abs(wingsmech.Ddelta_pr_l) * ts * koef_spr);
+    qpprp[2] = (abs(wingsmech.Ddelta_pr_p) * ts * koef_spr);
+    qpzl[0] = (abs(wingsmech.Ddelta_z_l) * ts * koef_sz);
+    qpzp[3] = (abs(wingsmech.Ddelta_z_p) * ts * koef_sz);
+
+    qp1sum = qpsumF(0);
+    qp2sum = qpsumF(1);
+    qp3sum = qpsumF(2);
+    qp4sum = qpsumF(3);
 
 }
 

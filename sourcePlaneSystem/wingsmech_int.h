@@ -14,43 +14,83 @@ public:
     static bool S1_2750;//kolpachek vikluchately "REZERVNOE UPRAVLENIE ZAKRILKI"
 
     double
-        X_L{20},//polozhenie podvizhnoy chasti krila levoy
-        X_P{20},//polozhenie podvizhnoy chasti krila pravoy
-        X_PCHK{},//polozhenie podvizhnoy chasti krila dlya signalizatsii
-        delta_zr_vh{},//vhodnoe polozhenie ruchki upravleniya zakrilkami
-        delta_z_l{},//tekushee polozhenie zakrilkov levih, grad
-        delta_z_p{},//tekushee polozhenie zakrilkov pravih, grad
-        delta_pr_l{},//polozhenie predkrilkov levih
-        delta_pr_p{},//polozhenie predkrilkov pravih
-        X_1_pk{},//znachenie signala s datchika polozheniya PCHK1 podkanala levogo(dlya ABSU)
-        X_3_pk{},//znachenie signala s datchika polozheniya PCHK1 podkanala pravogo(dlya ABSU)
-        delta_z_1_pk{},//znachenie signala s datchika polozheniya zakrilkov 1 podkanala levogo(dlya ABSU)
-        delta_z_3_pk{},//znachenie signala s datchika polozheniya zakrilkov 3 podkanala levogo(dlya ABSU)
-        D_X_l{},//skorost' peremesheniya podvizhnoy chasti krila levoy
-        D_X_p{};//skorost' peremesheniya podvizhnoy chasti krila pravoy
+        //polozhenie podvizhnoy chasti krila levoy
+        X_L{20},
+        //polozhenie podvizhnoy chasti krila pravoy
+        X_P{20},
+        //polozhenie podvizhnoy chasti krila dlya signalizatsii
+        X_PCHK{},
+        //vhodnoe polozhenie ruchki upravleniya zakrilkami
+        delta_zr_vh{},
+        //tekushee polozhenie zakrilkov levih, grad
+        delta_z_l{},
+        //tekushee polozhenie zakrilkov pravih, grad
+        delta_z_p{},
+        //polozhenie predkrilkov levih
+        delta_pr_l{},
+        //polozhenie predkrilkov pravih
+        delta_pr_p{},
+        //znachenie signala s datchika polozheniya PCHK1 podkanala levogo
+        //(dlya ABSU)
+        X_1_pk{},
+        //znachenie signala s datchika polozheniya PCHK1 podkanala pravogo
+        //(dlya ABSU)
+        X_3_pk{},
+        //znachenie signala s datchika polozheniya zakrilkov 1 podkanala levogo
+        //(dlya ABSU)
+        delta_z_1_pk{},
+        //znachenie signala s datchika polozheniya zakrilkov 3 podkanala levogo
+        //(dlya ABSU)
+        delta_z_3_pk{},
+        //skorost' peremesheniya podvizhnoy chasti krila levoy
+        D_X_l{},
+        //skorost' peremesheniya podvizhnoy chasti krila pravoy
+        D_X_p{};
     int
-        S2_2750{},//vikluchatel "REZERVNOE UPRAVLENIE ZAKRILKI
-        s2_2780{},//vikluchatel "REZERVNOE UPRAVLENIE PREDKRILKI"
-        s2_2790{};//perekluchatel "REZERVN UPRAVL STRELOV KRILA"
+        //vikluchatel "REZERVNOE UPRAVLENIE ZAKRILKI
+        S2_2750{},
+        //vikluchatel "REZERVNOE UPRAVLENIE PREDKRILKI"
+        s2_2780{},
+        //perekluchatel "REZERVN UPRAVL STRELOV KRILA"
+        s2_2790{};
+
     bool
-        s1_2790{},//kolpachek perekluchatelya REZERVN UPRAVL STRELOV KRILA"
-        s1_2780{},//kolpachek vikluchatelya "REZERVNOE UPRAVLENIE PREDKRILKOV"
-        S13_2750{},//vikluchatel "ZAKRILKI PREDKRILKI SLEDYASHIY"
-        PGS1{},//priznak raboti gidrosistemi 1
-        PGS2{},//priznak raboti gidrosistemi 2
-        PGS3{},//priznak raboti gidrosistemi 3
-        PGS4{},//priznak raboti gidrosistemi 4
-        otkaz_osn_1k_zakr{},//otkaz osnovnogo 1 kanala zakrilkov
-        otkaz_osn_2k_zakr{},//otkaz osnovnogo 2 kanala zakrilkov
-        otkaz_1k_zakr{},//otkaz 1 kanala zakrilkov
-        otkaz_2k_zakr{},//otkaz 2 kanala zakrilkov
-        otkaz_rassgl_zakr{},//otkaz RASSOGLASOVANIE ZAKRILKI
-        otkaz_osn_1k_prekr{},//otkaz osnovnogo 1 kanala predkrilkov
-        otkaz_osn_2k_prekr{},//otkaz osnovnogo 2 kanala predkrilkov
-        otkaz_rassgl_prekr{},//otkaz RASSOGLASOVANIE PREDKRILKI
-        otkaz_osn_1k_PCHK{},//otkaz osnovnogo 1 kanala PCHK
-        otkaz_osn_2k_PCHK{},//otkaz osnovnogo 2 kanala PCHK
-        otkaz_RASSINHR_PCHK{};//otkaz rassinhronizatsiya PCHK
+        //kolpachek perekluchatelya REZERVN UPRAVL STRELOV KRILA"
+        s1_2790{},
+        //kolpachek vikluchatelya "REZERVNOE UPRAVLENIE PREDKRILKOV"
+        s1_2780{},
+        //vikluchatel "ZAKRILKI PREDKRILKI SLEDYASHIY"
+        S13_2750{},
+        //priznak raboti gidrosistemi 1
+        PGS1{},
+        //priznak raboti gidrosistemi 2
+        PGS2{},
+        //priznak raboti gidrosistemi 3
+        PGS3{},
+        //priznak raboti gidrosistemi 4
+        PGS4{},
+        //otkaz osnovnogo 1 kanala zakrilkov
+        otkaz_osn_1k_zakr{},
+        //otkaz osnovnogo 2 kanala zakrilkov
+        otkaz_osn_2k_zakr{},
+        //otkaz 1 kanala zakrilkov
+        otkaz_1k_zakr{},
+        //otkaz 2 kanala zakrilkov
+        otkaz_2k_zakr{},
+        //otkaz RASSOGLASOVANIE ZAKRILKI
+        otkaz_rassgl_zakr{},
+        //otkaz osnovnogo 1 kanala predkrilkov
+        otkaz_osn_1k_prekr{},
+        //otkaz osnovnogo 2 kanala predkrilkov
+        otkaz_osn_2k_prekr{},
+        //otkaz RASSOGLASOVANIE PREDKRILKI
+        otkaz_rassgl_prekr{},
+        //otkaz osnovnogo 1 kanala PCHK
+        otkaz_osn_1k_PCHK{},
+        //otkaz osnovnogo 2 kanala PCHK
+        otkaz_osn_2k_PCHK{},
+        //otkaz rassinhronizatsiya PCHK
+        otkaz_RASSINHR_PCHK{};
 
     bool
         prrkz{},

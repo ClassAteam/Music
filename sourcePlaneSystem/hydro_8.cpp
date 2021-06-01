@@ -62,7 +62,6 @@ void hydro_int::hydro_8() //actually 9th sheet
     }
 
     qg1_z = q0g1 + dqg1t - dqg1p;
-    qg1_z = q0g1;
     qgs1 = qgs1 + ((qg1_z - qgs1) * 0.2);
 
     if(qgs1 <= 0.1)
@@ -71,7 +70,6 @@ void hydro_int::hydro_8() //actually 9th sheet
     }
 
     qg2_z = q0g2 + dqg2t - dqg2p;
-    qg2_z = q0g2;
     qgs2 = qgs2 + ((qg2_z - qgs2) * 0.2);
 
     if(qgs2 <= 0)
@@ -80,7 +78,6 @@ void hydro_int::hydro_8() //actually 9th sheet
     }
     dqgzat = 2 - (0.007 * (pgs3 * (TICK / 1000)));
     qg3_z = q0g3 + dqg3t - dqg3p - dqgzat;
-    qg3_z = q0g3;
     qgs3 = qgs3 + ((qg3_z - qgs3) * 0.2);
 
     if(qgs3 <= 0)
@@ -89,7 +86,6 @@ void hydro_int::hydro_8() //actually 9th sheet
     }
 
     qg4_z = q0g4 + dqg4t - dqg4p;
-    qg4_z = q0g4;
     qgs4 = qgs4 + (qg4_z - qgs4) * 0.2;
 
     if(qgs4 <= 0)
@@ -118,14 +114,14 @@ void hydro_int::hydro_8() //actually 9th sheet
         uks_inst.UKS4X256_57 = 3.5;
         uks_inst.UKS4X259_60 = 3.5;
         uks_inst.UKS4X262_63 = 3.5;
-        uks_inst.UKS4X294 = tb1;
     }
 
+    uks_inst.UKS4X294 = tb1;
     uks_inst.UKS4X296 = tb2;
     uks_inst.UKS4X298 = tb3;
     uks_inst.UKS4X2100 = tb4;
 
-    if(landinggear_int::S38_3230 == true && exchange::ushgP[3][0] >= 100.0)
+    if(landinggear_int::S38_3230 && exchange::ushgP[3][0] >= 100.0)
     {
         uks_inst.UKS2UBGS1 = qgs1;
         uks_inst.UKS2UBGS2 = qgs2;

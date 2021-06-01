@@ -45,9 +45,9 @@ public:
         delta_shift_p{1.0},//main racks shifting right one
         delta_tel_l{1.0},//current position left cart
         delta_tel_p{1.0},//current position right cart
-        V_bal_l{44100},//
-        V_bal_p{44100},
-        V_bal_n{37000},
+        V_bal_l{44100},//pneumo balloon volume left
+        V_bal_p{44100},//pneumo balloon volume right
+        V_bal_n{37000},//pneumo balloon volume nose
         P_bal_l{150},//davlenie v levih ballonah avariynogo vipuska, kgs/sm^2
         P_bal_p{150},//davlenie v pravih ballonah avariynogo vipuska, kgs/sm^2
         P_bal_per{150},//davlenie v perednih ballonah avariynogo vipuska, kgs/sm^2
