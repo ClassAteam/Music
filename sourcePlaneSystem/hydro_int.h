@@ -115,8 +115,10 @@ public:
     double p0gs3{115};//davlenie zaryadki gidro/akkum gazom v GS3
     double p0gs4{115};//davlenie zaryadki gidro/akkum gazom v GS4
 
-    //kolichestvo potreblyaemoy gidrozhidkosti pri povorote //krila
-    double qppchk[amountOfHydroSys]{};
+    //kolichestvo potreblyaemoy gidrozhidkosti pri povorote krila levogo
+    double qppchkl[amountOfHydroSys]{};
+    //kolichestvo potreblyaemoy gidrozhidkosti pri povorote krila pravogo
+    double qppchkp[amountOfHydroSys]{};
     //kolichestvo potreblyaemoy zhidkosti pri rabote klina vozduha //zabornika
     double qpvkldv[amountOfHydroSys]{};
     //kolichestvo potreblyaemoy gidrozhidkosti pri rabote stvorki perepuska dvigatelya
@@ -160,20 +162,19 @@ public:
     //kolichestvo potreblyaemoy gidrozhidkosti pri povorote nosovogo kolesa
     double qpnk[amountOfHydroSys]{};
 
-    double koef_sm{0.07};//smeshenie
-    double koef_sz{50};//zakrilki
-    double koef_spr{125};//prekrilki
-    double koef_ssh{10.0};//shassi
+    double koef_sm{1.0};//smeshenie
+    double koef_sz{50.0};//zakrilki
+    double koef_spr{125.0};//prekrilki
+    double koef_ssh{150.0};//shassi
     double koef_snk{10.0};//nosovoe koleso
-    double koef_sk{2.0};//kil'
+    double koef_sk{1.0};//kil'
     double koef_sint{12.0};//interseptor
     double koef_sfl{3.8};//flapperoni
-    double koef_sfp{1.0};
     double koef_sst{4.0};//stabilizator
-    double koef_spchk{50};//strelovidnost'
-    double koef_skl{10};//klin
-    double koef_sstv{0.1};//stvorki perepuska vozduha
-    double koef_sstvsh{0.1};//stvorki perepuska vozduha
+    double koef_spchk{50.0};//strelovidnost'
+    double koef_skl{5.0};//klin
+    double koef_sstv{1.0};//stvorki perepuska vozduha
+    double koef_sstvsh{1.0};//stvorki shassi
 
 
     double ddelta_k{};//keel speed

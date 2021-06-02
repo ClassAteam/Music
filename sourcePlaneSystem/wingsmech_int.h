@@ -11,7 +11,8 @@ extern uks uks_inst;
 class wingsmech_int
 {
 public:
-    static bool S1_2750;//kolpachek vikluchately "REZERVNOE UPRAVLENIE ZAKRILKI"
+    //kolpachek vikluchately "REZERVNOE UPRAVLENIE ZAKRILKI"
+    static bool S1_2750;
 
     double
         //polozhenie podvizhnoy chasti krila levoy

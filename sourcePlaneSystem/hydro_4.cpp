@@ -36,13 +36,13 @@ void hydro_int::hydro_4()
     qngs3 = Qngngs3[0] + Qngngs3[1] + qntnugs3;
     qngs4 = Qngngs4[0] + Qngngs4[1] + qntnugs4;
 
-    if(pnngs3[0] == true || pnngs3[1] == true || pntnugs3 == true)
+    if(pnngs3[0] || pnngs3[1] || pntnugs3)
     {
-        qpgs3 = (qp3sum + qutgs3) * 0.1;
+        qpgs3 = (qp3sum + 0.01) * 0.01;
         delta_wpgs3 = qngs3 - qpgs3;
         wpgs3 = wpgs3 + delta_wpgs3;
 
-        if(KKGS[2] == true)
+        if(KKGS[2])
         {
             if(wpgs3 >= 1.338)
             {
@@ -73,7 +73,10 @@ void hydro_int::hydro_4()
     }
     else
     {
-        qpgs3 = ((qp3sum + qutgs3) + 0.1) * 0.1;
+        //instead 0.01 should be utechki first
+        static double qugs3;
+        qugs3 = m_2_L_intervals(pgs3, 0, 115, 290, 0.05, 0.01, 0);
+        qpgs3 = (qp3sum + qugs3) * 0.01;
         delta_wpgs3 = qngs3 - qpgs3;
         wpgs3 = wpgs3 + delta_wpgs3;
         //        wpgs3 = wpgs3 + ((-100 - wpgs3) * 0.01);

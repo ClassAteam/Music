@@ -21,7 +21,7 @@ void landinggear_int::landinggear_11_12() //actually 11th and 12th
 
     if(exchange::ush1dpl >= 19.0)
     {
-        if(exchange::delta_z == 0)
+        if(exchange::delta_z > 0.0)
             K7_3250 = true;
 
         if(exchange::s1_3250)
@@ -76,7 +76,7 @@ void landinggear_int::landinggear_11_12() //actually 11th and 12th
 
     if(exchange::ush1dpp >= 19.0)
     {
-        if(exchange::delta_z == 0.0)
+        if(exchange::delta_z > 0.0)
             K8_3250 = true;
     }
     else
@@ -281,6 +281,8 @@ void landinggear_int::landinggear_11_12() //actually 11th and 12th
             fi_zad = fi_zad1;
         else
             fi_zad = fi_zad2;
+
+        V_nk = 0.0;
 
         if(abs(fi_nk - fi_zad) >= 0.1) //Recheck !!!
         {

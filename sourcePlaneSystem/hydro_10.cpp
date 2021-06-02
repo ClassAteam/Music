@@ -23,13 +23,9 @@ static void X(bool &ksurgs1,
               double &sk,
               double &sint,
               double &sfl,
-              double &sfp,
               double &sst,
-              double &spchk,
               double &skl,
               double &sstv,
-              double &qppchk,//kolichestvo potreblyaemoy gidrozhidkosti pri
-              //povorote krila
               double &qpvkldv,//kolichestvo potreblyaemoy zhidkosti pri rabote
               //klina vozduha zabornika
               double &qpfistv//kolichestvo potreblyaemoy gidrozhidkosti pri
@@ -42,7 +38,7 @@ static void X(bool &ksurgs1,
         qpintl = abs(ddeltaintl * ts) * sint;
         qpintp = abs(ddeltaintp * ts) * sint;
         qpfll = abs(ddeltafll * ts) * sfl;
-        qpflp = abs(ddeltaflp * ts) * sfp;
+        qpflp = abs(ddeltaflp * ts) * sfl;
         qpfist = abs(dfist * ts) * sst;
     }
     else
@@ -54,8 +50,6 @@ static void X(bool &ksurgs1,
         qpflp = 0.0;
         qpfist = 0.0;
     }
-    qppchk = abs(wingsmech.D_X_l * ts) * spchk;
-    qppchk = abs(wingsmech.D_X_p * ts) * spchk;
     qpvkldv = abs(qpvkldv * ts) * skl;
     qpfistv = abs(qpfistv * ts) * sstv;
 }
@@ -63,28 +57,29 @@ static void X(bool &ksurgs1,
 double hydro_int::qpsumF(int hydroID)
 {
     double sum;
-    sum = qppchk[hydroID] +
-        qpvkldv[hydroID] +
-        qpfistv[hydroID] +
-        qpk[hydroID]+
-        qpintl[hydroID]+
-        qpintp[hydroID]+
-        qpfll[hydroID]+
-        qpflp[hydroID]+
-        qpfist[hydroID]+
-        qpprl[hydroID]+
-        qpprp[hydroID]+
-        qpzl[hydroID]+
-        qpzp[hydroID]+
-        qpstvl[hydroID]+
-        qpstvp[hydroID]+
-        qpstvn[hydroID]+
-        qpshiftl[hydroID]+
-        qpshiftp[hydroID]+
-        qpshl[hydroID]+
-        qpshp[hydroID]+
-        qpshn[hydroID]+
-        qpnk[hydroID];
+    sum = qppchkl[hydroID] +
+          qppchkp[hydroID] +
+          qpvkldv[hydroID] +
+          qpfistv[hydroID] +
+          qpk[hydroID]+
+          qpintl[hydroID]+
+          qpintp[hydroID]+
+          qpfll[hydroID]+
+          qpflp[hydroID]+
+          qpfist[hydroID]+
+          qpprl[hydroID]+
+          qpprp[hydroID]+
+          qpzl[hydroID]+
+          qpzp[hydroID]+
+          qpstvl[hydroID]+
+          qpstvp[hydroID]+
+          qpstvn[hydroID]+
+          qpshiftl[hydroID]+
+          qpshiftp[hydroID]+
+          qpshl[hydroID]+
+          qpshp[hydroID]+
+          qpshn[hydroID]+
+          qpnk[hydroID];
     return sum;
 }
 
@@ -106,12 +101,9 @@ void hydro_int::hydro_10()
       koef_sk,
       koef_sint,
       koef_sfl,
-      koef_sfp,
       koef_sst,
-      koef_spchk,
       koef_skl,
       koef_sstv,
-      qppchk[0],
       qpvkldv[0],
       qpfistv[0]
       );
@@ -132,12 +124,9 @@ void hydro_int::hydro_10()
       koef_sk,
       koef_sint,
       koef_sfl,
-      koef_sfp,
       koef_sst,
-      koef_spchk,
       koef_skl,
       koef_sstv,
-      qppchk[1],
       qpvkldv[1],
       qpfistv[1]
       );
@@ -158,12 +147,9 @@ void hydro_int::hydro_10()
       koef_sk,
       koef_sint,
       koef_sfl,
-      koef_sfp,
       koef_sst,
-      koef_spchk,
       koef_skl,
       koef_sstv,
-      qppchk[2],
       qpvkldv[2],
       qpfistv[2]
       );
@@ -184,12 +170,9 @@ void hydro_int::hydro_10()
       koef_sk,
       koef_sint,
       koef_sfl,
-      koef_sfp,
       koef_sst,
-      koef_spchk,
       koef_skl,
       koef_sstv,
-      qppchk[3],
       qpvkldv[3],
       qpfistv[3]
       );
@@ -238,10 +221,33 @@ void hydro_int::hydro_10()
         qpstvn[1] = 0.0;
     }
 
-    qpprl[1] = (abs(wingsmech.Ddelta_pr_l) * ts * koef_spr);
-    qpprp[2] = (abs(wingsmech.Ddelta_pr_p) * ts * koef_spr);
-    qpzl[0] = (abs(wingsmech.Ddelta_z_l) * ts * koef_sz);
-    qpzp[3] = (abs(wingsmech.Ddelta_z_p) * ts * koef_sz);
+    static double deltazlp{wingsmech.delta_z_l};
+    static double deltazpp{wingsmech.delta_z_p};
+    static double deltaprlp{wingsmech.delta_pr_l};
+    static double deltaprpp{wingsmech.delta_pr_p};
+    qpzl[0] = abs(wingsmech.delta_z_l - deltazlp) * koef_sz;
+    qpzp[3] = abs(wingsmech.delta_z_p - deltazpp) * koef_sz;
+    qpprl[1] = abs(wingsmech.delta_pr_l - deltaprlp) * koef_spr;
+    qpprp[2] = abs(wingsmech.delta_pr_p - deltaprpp) * koef_spr;
+
+    deltazlp = wingsmech.delta_z_l;
+    deltazpp = wingsmech.delta_z_p;
+    deltaprlp = wingsmech.delta_pr_l;
+    deltaprpp = wingsmech.delta_pr_l;
+
+    static double X_L_prev{wingsmech.X_L};
+    static double X_P_prev{wingsmech.X_P};
+    qppchkl[0] = abs(wingsmech.X_L - X_L_prev) * koef_spchk;
+    qppchkp[0] = abs(wingsmech.X_P - X_P_prev) * koef_spchk;
+    qppchkl[1] = abs(wingsmech.X_L - X_L_prev) * koef_spchk;
+    qppchkp[1] = abs(wingsmech.X_P - X_P_prev) * koef_spchk;
+    qppchkl[2] = abs(wingsmech.X_L - X_L_prev) * koef_spchk;
+    qppchkp[2] = abs(wingsmech.X_P - X_P_prev) * koef_spchk;
+    qppchkl[3] = abs(wingsmech.X_L - X_L_prev) * koef_spchk;
+    qppchkp[3] = abs(wingsmech.X_P - X_P_prev) * koef_spchk;
+    X_L_prev = wingsmech.X_L;
+    X_P_prev = wingsmech.X_P;
+
 
     qp1sum = qpsumF(0);
     qp2sum = qpsumF(1);
