@@ -104,7 +104,7 @@ void hydro_int::hydro_5()
         {
             if(pnn1gs_pool[i] || pnn2gs_pool[i] || *pntnugs_pool[i])
             {
-                *qpgs_pool[i] = ((*qpsum_pool[i] + 0.1) * 0.01);
+                *qpgs_pool[i] = ((*qpsum_pool[i]) * 0.01);
                 *d_wpgs_pool[i] = *qngs_pool[i] - *qpgs_pool[i];
                 *wpgs_pool[i] = *wpgs_pool[i] + *d_wpgs_pool[i];
 
@@ -139,7 +139,7 @@ void hydro_int::hydro_5()
             }
             else
             {
-                //instead 0.01 should be utechki first
+                //time of falling down gs
                 qugs[i] = m_2_L_intervals(*pgs_pool[i], 0, 115, 290,
                                           0.05, 0.01, 0);
                 *qpgs_pool[i] = ((*qpsum_pool[i] + qugs[i]) * 0.01);

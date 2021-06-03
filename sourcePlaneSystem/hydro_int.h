@@ -241,7 +241,7 @@ public:
     double puksgs2{};
     double puksgs3{};
     double puksgs4{};
-    double tb1{}, tb2{}, tb3{}, tb4{}; //tempreture in the tank
+    double tb1{}, tb2{}, tb3{}, tb4{}; //temperature in the tank
     double tb1_z{}, tb2_z{}, tb3_z{}, tb4_z{};
     double air_temr_C{};//air tempreature in C
     double air_tempr_K{288};//tempretaure of air int the sky in K
