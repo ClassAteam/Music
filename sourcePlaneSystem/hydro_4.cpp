@@ -17,10 +17,10 @@ void hydro_int::hydro_4()
         if(*otkaz_pool[i] == false && PTNUGS[i] == true && Pv_vsu >= 1.5)
         {
             *pntnugs_pool[i] = true;
-            *qtnugs_pool[i] = m_2_L_intervals(*Pgs_pool[i], 0, 200, 285,
-                                              1, 0.7, 0);
+//            *qtnugs_pool[i] = m_2_L_intervals(*Pgs_pool[i], 0, 200, 282,
+//                                              1, 0.7, 0);
             *qntnugs_pool[i] =
-                m_2_L_intervals(*Pgs_pool[i], 0, 200, 285, 1, 0.7, 0)
+                m_2_L_intervals(*Pgs_pool[i], 0, 200, 286, 1, 0.7, 0)
                 *
                 m_3_L_intervals(Pv_vsu, 0, 1, 2, 3, 0, 0, 0.7, 1);
         }

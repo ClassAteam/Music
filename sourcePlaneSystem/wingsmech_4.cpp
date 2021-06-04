@@ -2,6 +2,13 @@
 
 void wingsmech_int::wingsmech_4()
 {
+    static double X_LprPos{X_L};
+    static double X_PprPos{X_P};
+    static double delta_z_l_prev{delta_z_l};
+    static double delta_z_p_prev{delta_z_p};
+    static double delta_pr_l_prev{delta_pr_l};
+    static double delta_pr_p_prev{delta_pr_p};
+
     bss_inst.BSS824X1KK = false;
     bss_inst.BSS824X1MM = false;
 
@@ -83,33 +90,10 @@ void wingsmech_int::wingsmech_4()
         uks_inst.P_140_12 = hydro_int::pgs2;
         uks_inst.P_140_13 = false;
         uks_inst.P_140_14 = false;
-        if(D_X_l != 0)
-        {
-            if(D_X_l > 0)
-            {
-                uks_inst.P_140_13 = true;
-            }
-            else
-            {
-                uks_inst.P_140_14 = true;
-            }
-        }
-        if(prr1kpchk)
-        {
-            uks_inst.P_140_15 = prr1kpchk;
 
-            if(D_X_l != 0)
-            {
-                if(D_X_l > 0)
-                {
-                    uks_inst.P_140_16 = true;
-                }
-                else
-                {
-                    uks_inst.P_140_17 = true;
-                }
-            }
-        }
+        posChnged(X_LprPos, X_L, uks_inst.P_140_14, uks_inst.P_140_13);
+        posChnged(X_LprPos, X_L, uks_inst.P_140_16, uks_inst.P_140_17);
+
         uks_inst.P_141_11 = false;
         uks_inst.P_141_12 = false;
         uks_inst.P_141_13 = false;
@@ -144,17 +128,7 @@ void wingsmech_int::wingsmech_4()
 
         uks_inst.P_142_14 = false;
 
-        if(D_X_p != 0)
-        {
-            if(D_X_p > 0)
-            {
-                uks_inst.P_142_13 = true;
-            }
-            else
-            {
-                uks_inst.P_142_14 = true;
-            }
-        }
+        posChnged(X_PprPos, X_P, uks_inst.P_142_14, uks_inst.P_142_13);
 
         uks_inst.P_142_16 = false;
 
@@ -163,17 +137,7 @@ void wingsmech_int::wingsmech_4()
         if(prr2kpchk == true)
         {
             uks_inst.P_142_15 = prr2kpchk;
-            if(D_X_p != 0)
-            {
-                if(D_X_p > 0)
-                {
-                    uks_inst.P_142_16 = true;
-                }
-                else
-                {
-                    uks_inst.P_142_17 = true;
-                }
-            }
+            posChnged(X_PprPos, X_P, uks_inst.P_142_16, uks_inst.P_142_17);
         }
     }
 
@@ -253,9 +217,15 @@ void wingsmech_int::wingsmech_4()
 
     uks_inst.P_130_19 = false;
 
+    uks_inst.P_130_20 = false;
+
     uks_inst.P_130_21 = false;
 
+    uks_inst.P_130_22 = false;
+
     uks_inst.P_130_23 = false;
+
+    uks_inst.P_130_24 = false;
 
     uks_inst.P_130_25 = false;
 
@@ -269,67 +239,24 @@ void wingsmech_int::wingsmech_4()
             uks_inst.P_130_13 = true;
         }
 
-        if(delta_pr > 0)
+        if(delta_pr > 0.1)
         {
             uks_inst.P_130_14 = true;
         }
 
-        if(Ddelta_z_l != 0)
-        {
-            if(Ddelta_z_l > 0)
-            {
-                uks_inst.P_130_15 = true;
-            }
-            else
-            {
-                uks_inst.P_130_16 = true;
-            }
-        }
-
-        if(Ddelta_pr_l != 0)
-        {
-            if(Ddelta_pr_l > 0)
-            {
-                uks_inst.P_130_17 = true;
-            }
-            else
-            {
-                uks_inst.P_130_18 = true;
-            }
-        }
 
         uks_inst.P_130_19 = prr1kz;
 
-        if(prr1kz == true)
+        if(prr1kz)
         {
-            if(Ddelta_z_l != 0)
-            {
-                if(Ddelta_z_l > 0)
-                {
-                    uks_inst.P_130_20 = true;
-                }
-                else
-                {
-                    uks_inst.P_130_21 = true;
-                }
-
-            }
-
+            posChnged(delta_z_l_prev, delta_z_l,
+                      uks_inst.P_130_20, uks_inst.P_130_21);
         }
 
-        if(prr1kpr == true)
+        if(prr1kpr)
         {
-            if(Ddelta_pr_l != 0)
-            {
-                if(Ddelta_pr_l > 0)
-                {
-                    uks_inst.P_130_22 = true;
-                }
-                else
-                {
-                    uks_inst.P_130_23 = true;
-                }
-            }
+            posChnged(delta_pr_l_prev, delta_pr_l,
+                      uks_inst.P_130_22, uks_inst.P_130_23);
 
         }
     }
@@ -394,64 +321,39 @@ void wingsmech_int::wingsmech_4()
         {
             uks_inst.P_132_13 = true;
         }
-        if(delta_pr > 0)
+        if(delta_pr > 0.1)
         {
             uks_inst.P_132_14 = true;
         }
 
-        if(Ddelta_z_l != 0)
+        if(!prr1kpr && !prr2kpr)
         {
-            if(Ddelta_z_l > 0)
-            {
-                uks_inst.P_132_15 = true;
-            }
-            else
-            {
-                uks_inst.P_132_16 = true;
-            }
-        }
-        if(Ddelta_pr_l != 0)
-        {
-            if(Ddelta_pr_l > 0)
-            {
-                uks_inst.P_132_17 = true;
-            }
-            else
-            {
-                uks_inst.P_132_18 = true;
-            }
+            posChnged(delta_z_p_prev, delta_z_p,
+                      uks_inst.P_132_15, uks_inst.P_132_16);
+
+
+            posChnged(delta_pr_p_prev, delta_pr_p,
+                      uks_inst.P_132_17, uks_inst.P_132_18);
+
+            posChnged(delta_z_l_prev, delta_z_l,
+                      uks_inst.P_130_15, uks_inst.P_130_16);
+
+            posChnged(delta_pr_l_prev, delta_pr_l,
+                      uks_inst.P_130_17, uks_inst.P_130_18);
         }
 
         uks_inst.P_132_19 = prr2kz;
 
-        if(prr2kz == true)
+        if(prr2kz)
         {
-            if(Ddelta_z_l != 0)
-            {
-                if(Ddelta_z_l > 0)
-                {
-                    uks_inst.P_132_20 = true;
-                }
-                else
-                {
-                    uks_inst.P_132_21 = true;
-                }
-            }
+            posChnged(delta_z_p_prev, delta_z_p,
+                      uks_inst.P_132_20, uks_inst.P_132_21);
         }
 
-        if(prr2kpr == true)
+        if(prr2kpr)
         {
-            if(Ddelta_pr_l != 0)
-            {
-                if(Ddelta_pr_l > 0)
-                {
-                    uks_inst.P_132_22 = true;
-                }
-                else
-                {
-                    uks_inst.P_132_23 = true;
-                }
-            }
+            posChnged(delta_pr_p_prev, delta_pr_p,
+                      uks_inst.P_132_22, uks_inst.P_132_23);
         }
 
         if((abs(delta_z_l - delta_z_p)) >= 2.5)

@@ -14,146 +14,158 @@ public:
     //kolpachek vikluchately "REZERVNOE UPRAVLENIE ZAKRILKI"
     static bool S1_2750;
 
-    double
-        //polozhenie podvizhnoy chasti krila levoy
-        X_L{20},
-        //polozhenie podvizhnoy chasti krila pravoy
-        X_P{20},
-        //polozhenie podvizhnoy chasti krila dlya signalizatsii
-        X_PCHK{},
-        //vhodnoe polozhenie ruchki upravleniya zakrilkami
-        delta_zr_vh{},
-        //tekushee polozhenie zakrilkov levih, grad
-        delta_z_l{},
-        //tekushee polozhenie zakrilkov pravih, grad
-        delta_z_p{},
-        //polozhenie predkrilkov levih
-        delta_pr_l{},
-        //polozhenie predkrilkov pravih
-        delta_pr_p{},
-        //znachenie signala s datchika polozheniya PCHK1 podkanala levogo
-        //(dlya ABSU)
-        X_1_pk{},
-        //znachenie signala s datchika polozheniya PCHK1 podkanala pravogo
-        //(dlya ABSU)
-        X_3_pk{},
-        //znachenie signala s datchika polozheniya zakrilkov 1 podkanala levogo
-        //(dlya ABSU)
-        delta_z_1_pk{},
-        //znachenie signala s datchika polozheniya zakrilkov 3 podkanala levogo
-        //(dlya ABSU)
-        delta_z_3_pk{},
-        //skorost' peremesheniya podvizhnoy chasti krila levoy
-        D_X_l{},
-        //skorost' peremesheniya podvizhnoy chasti krila pravoy
-        D_X_p{};
-    int
-        //vikluchatel "REZERVNOE UPRAVLENIE ZAKRILKI
-        S2_2750{},
-        //vikluchatel "REZERVNOE UPRAVLENIE PREDKRILKI"
-        s2_2780{},
-        //perekluchatel "REZERVN UPRAVL STRELOV KRILA"
-        s2_2790{};
+    //polozhenie podvizhnoy chasti krila levoy
+    double X_L{20};
+    //polozhenie podvizhnoy chasti krila pravoy
+    double X_P{20};
+    //polozhenie podvizhnoy chasti krila dlya signalizatsii
+    double X_PCHK{};
+    //vhodnoe polozhenie ruchki upravleniya zakrilkami
+    double delta_zr_vh{};
+    //tekushee polozhenie zakrilkov levih; grad
+    double delta_z_l{};
+    //tekushee polozhenie zakrilkov pravih; grad
+    double delta_z_p{};
+    //polozhenie predkrilkov levih
+    double delta_pr_l{};
+    //polozhenie predkrilkov pravih
+    double delta_pr_p{};
+    //znachenie signala s datchika polozheniya PCHK1 podkanala levogo
+    //(dlya ABSU)
+    double X_1_pk{};
+    //znachenie signala s datchika polozheniya PCHK1 podkanala pravogo
+    //(dlya ABSU)
+    double X_3_pk{};
+    //znachenie signala s datchika polozheniya zakrilkov 1 podkanala levogo
+    //(dlya ABSU)
+    double delta_z_1_pk{};
+    //znachenie signala s datchika polozheniya zakrilkov 3 podkanala levogo
+    //(dlya ABSU)
+    double delta_z_3_pk{};
+    //skorost' peremesheniya podvizhnoy chasti krila levoy
+    double D_X_l{};
+    //skorost' peremesheniya podvizhnoy chasti krila pravoy
+    double D_X_p{};
+    //znachenie izmeneniya dlya uks levogo
+    double D_X_lUks{};
+    //znachenie izmeneniya dlya uks pravogo
+    double D_X_pUks{};
+    //koeficient izmeneniya skorosti pri otkaze RASSINHRONIZATSIYA PCHK
+    double koef_KrlPchk{1.0};
+    //koeficient izmeneniya skorosti pri otkaze RASSINHRONIZATSIYA prekrilkov
+    double koef_KrlPr{1.0};
+    //koeficient izmeneniya skorosti pri otkaze RASSINHRONIZATSIYA zakrilkov
+    double koef_KrlZk{1.0};
 
-    bool
-        //kolpachek perekluchatelya REZERVN UPRAVL STRELOV KRILA"
-        s1_2790{},
-        //kolpachek vikluchatelya "REZERVNOE UPRAVLENIE PREDKRILKOV"
-        s1_2780{},
-        //vikluchatel "ZAKRILKI PREDKRILKI SLEDYASHIY"
-        S13_2750{},
-        //priznak raboti gidrosistemi 1
-        PGS1{},
-        //priznak raboti gidrosistemi 2
-        PGS2{},
-        //priznak raboti gidrosistemi 3
-        PGS3{},
-        //priznak raboti gidrosistemi 4
-        PGS4{},
-        //otkaz osnovnogo 1 kanala zakrilkov
-        otkaz_osn_1k_zakr{},
-        //otkaz osnovnogo 2 kanala zakrilkov
-        otkaz_osn_2k_zakr{},
-        //otkaz 1 kanala zakrilkov
-        otkaz_1k_zakr{},
-        //otkaz 2 kanala zakrilkov
-        otkaz_2k_zakr{},
-        //otkaz RASSOGLASOVANIE ZAKRILKI
-        otkaz_rassgl_zakr{},
-        //otkaz osnovnogo 1 kanala predkrilkov
-        otkaz_osn_1k_prekr{},
-        //otkaz osnovnogo 2 kanala predkrilkov
-        otkaz_osn_2k_prekr{},
-        //otkaz RASSOGLASOVANIE PREDKRILKI
-        otkaz_rassgl_prekr{},
-        //otkaz osnovnogo 1 kanala PCHK
-        otkaz_osn_1k_PCHK{},
-        //otkaz osnovnogo 2 kanala PCHK
-        otkaz_osn_2k_PCHK{},
-        //otkaz rassinhronizatsiya PCHK
-        otkaz_RASSINHR_PCHK{};
+    //vikluchatel "REZERVNOE UPRAVLENIE ZAKRILKI
+    int S2_2750{};
+    //vikluchatel "REZERVNOE UPRAVLENIE PREDKRILKI"
+    int s2_2780{};
+    //perekluchatel "REZERVN UPRAVL STRELOV KRILA"
+    int s2_2790{};
 
-    bool
-        prrkz{},
-        prr1kz{},
-        prr2kz{},
-        psr1kz{},
-        por1kz{},
-        por2kz{},
-        psr2kz{},
-        por1kpr{},
-        por2kpr{},
-        prrkpchk{},
-        prr1kpchk{},
-        prr2kpchk{},
-        por1kpchk{},
-        por2kpchk{},
-        otkaz_1k_prekr{},
-        otkaz_2k_prekr{},
-        prrkpr{},
-        prr1kpr{},
-        prr2kpr{},
-        psr1kpr{},
-        psr2kpr{};
+    //kolpachek perekluchatelya REZERVN UPRAVL STRELOV KRILA"
+    bool s1_2790{};
+    //kolpachek vikluchatelya "REZERVNOE UPRAVLENIE PREDKRILKOV"
+    bool s1_2780{};
+    //vikluchatel "ZAKRILKI PREDKRILKI SLEDYASHIY"
+    bool S13_2750{};
+    //priznak raboti gidrosistemi 1
+    bool PGS1{};
+    //priznak raboti gidrosistemi 2
+    bool PGS2{};
+    //priznak raboti gidrosistemi 3
+    bool PGS3{};
+    //priznak raboti gidrosistemi 4
+    bool PGS4{};
+    //otkaz osnovnogo 1 kanala zakrilkov
+    bool otkaz_osn_1k_zakr{};
+    //otkaz osnovnogo 2 kanala zakrilkov
+    bool otkaz_osn_2k_zakr{};
+    //otkaz 1 kanala zakrilkov
+    bool otkaz_1k_zakr{};
+    //otkaz 2 kanala zakrilkov
+    bool otkaz_2k_zakr{};
+    //otkaz RASSOGLASOVANIE ZAKRILKI
+    bool otkaz_rassgl_zakr{};
+    //otkaz osnovnogo 1 kanala predkrilkov
+    bool otkaz_osn_1k_prekr{};
+    //otkaz osnovnogo 2 kanala predkrilkov
+    bool otkaz_osn_2k_prekr{};
+    //otkaz RASSOGLASOVANIE PREDKRILKI
+    bool otkaz_rassgl_prekr{};
+    //otkaz osnovnogo 1 kanala PCHK
+    bool otkaz_osn_1k_PCHK{};
+    //otkaz osnovnogo 2 kanala PCHK
+    bool otkaz_osn_2k_PCHK{};
+    //otkaz rassinhronizatsiya PCHK
+    bool otkaz_RASSINHR_PCHK{};
 
-    double
-        Kz{1.0},
-        delta_z_zad{},
-        Ddelta_z_l,
-        Ddelta_z_p,
-        Kpr{1.0},
-        delta_pr_zad,
-        delta_pr_vh,
-        Ddelta_pr_l,
-        Ddelta_pr_p,
-        X_zad,
-        Kgs{},
-        Kgs1{},
-        Kgs2{},
-        Kgs3{},
-        Kgs4{},
-        Kpchk{},
-        Kpchk1{},
-        Kpchk2{},
-        Kpchk3{},
-        Kpchk4{},
-        delta_ruk_vh,
-        XL_120,
-        XP_121,
-        XTR_122,
-        delta_pr,
-        delta_pr_116,
-        delta_pr_l_114,
-        delta_pr_p_115,
-        delta_ruk_123,
-        delta_ruz_113,
-        delta_z_112,
-        delta_z_l_110{},
-        delta_zr_vh_bf,
-        delta_z_p_111{};
+    bool psr1kz{};
+    bool prrkz{};
+    bool prr1kz{};
+    bool prr2kz{};
+    bool sr1kz{};
+    bool por1kz{};
+    bool por2kz{};
+    bool psr2kz{};
+    bool por1kpr{};
+    bool por2kpr{};
+    bool prrkpchk{};
+    bool prr1kpchk{};
+    bool prr2kpchk{};
+    bool por1kpchk{};//priznak osnovnogo kanala upravleniya
+    bool por2kpchk{};
+    bool otkaz_1k_prekr{};
+    bool otkaz_2k_prekr{};
+    bool prrkpr{};//priznak rezervnogo rezhima
+    bool prr1kpr{};
+    bool prr2kpr{};
+    bool psr1kpr{};
+    bool psr2kpr{};
+
+    double Kz{1.0};
+    double delta_z_zad{};
+    double Ddelta_z_l;
+    double Ddelta_z_p;
+    double Kpr{1.0};
+    double delta_pr_zad;
+    double delta_pr_vh;
+    double Ddelta_pr_l;
+    double Ddelta_pr_p;
+    double X_zad;
+    double Kgs{};
+    double Kgs1{};
+    double Kgs2{};
+    double Kgs3{};
+    double Kgs4{};
+    double Kpchk{};
+    double Kpchk1{};
+    double Kpchk2{};
+    double Kpchk3{};
+    double Kpchk4{};
+    double delta_ruk_vh;
+    double XL_120;
+    double XP_121;
+    double XTR_122;
+    double delta_pr;
+    double delta_pr_116;
+    double delta_pr_l_114;
+    double delta_pr_p_115;
+    double delta_ruk_123;
+    double delta_ruz_113;
+    double delta_z_112;
+    double delta_z_l_110{};
+    double delta_zr_vh_bf;
+    double delta_z_p_111{};
 
     enum s2_2790_pos{off, bolshe, menshe};
 
+private:
+//tracking a position of curPos and changign uksPlusParam and uksMinusParam
+//correspondly
+void posChnged(double &prePos, double &curPos,
+                 bool &uksPlusParam, bool &uksMinusParam);
 public:
     virtual void updateLogic();
 

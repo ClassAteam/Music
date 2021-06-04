@@ -10,6 +10,8 @@ void wingsmech_int::wingsmech_1()
     delta_zr_vh_bf = delta_zr_vh / 100;
     delta_z_zad = m_3_L_intervals(delta_zr_vh_bf, 0, 0.3, 0.6, 1.0, 0, 15, 25, 40);
 
+    koef_KrlZk = (otkaz_rassgl_zakr) ? 2.0 : 1.0;
+
     if(hydro_int::pgs1 >= 130)
     {
         if(exchange::ushal >= 18.0)
@@ -227,22 +229,20 @@ void wingsmech_int::wingsmech_1()
     {
         if(prrkz == true)
         {
-            delta_z_l = delta_z_l + (Ddelta_z_l * (TICK / 1000));
+            delta_z_l = delta_z_l + (Ddelta_z_l * (TICK / 1000)) * koef_KrlZk;
             delta_z_p = delta_z_p + (Ddelta_z_p * (TICK / 1000));
         }
+
+        //osnovnoy vipusk zakrilkov
         if(abs(delta_z_l - delta_z_zad) >= 0.1)
         {
-            delta_z_l = delta_z_l + (Ddelta_z_l * (TICK / 1000));
+            delta_z_l = delta_z_l + (Ddelta_z_l * (TICK / 1000)) * koef_KrlZk;
         }
         else
         {
             Ddelta_z_l = 0;
         }
 
-        if(otkaz_rassgl_zakr == true)
-        {
-            delta_z_zad = delta_z_zad - 2.7;
-        }
 
         if(abs(delta_z_p - delta_z_zad) >= 0.1)
         {

@@ -89,14 +89,14 @@ public:
     double qngs2{};
     double qngs3{};
     double qngs4{};
-    double qntnugs1{};
-    double qntnugs2{};
-    double qntnugs3{};
-    double qntnugs4{};
-    double qtnugs1{};
-    double qtnugs2{};
-    double qtnugs3{};
-    double qtnugs4{};
+    double qntnugs1{};//nagnetaemoe kolichestvo gidrozhidkosti za TNU
+    double qntnugs2{};//nagnetaemoe kolichestvo gidrozhidkosti za TNU
+    double qntnugs3{};//nagnetaemoe kolichestvo gidrozhidkosti za TNU
+    double qntnugs4{};//nagnetaemoe kolichestvo gidrozhidkosti za TNU
+    double qtnugs1{};//kolichestvo zhidkosti za TNU
+    double qtnugs2{};//kolichestvo zhidkosti za TNU
+    double qtnugs3{};//kolichestvo zhidkosti za TNU
+    double qtnugs4{};//kolichestvo zhidkosti za TNU
     double qutgs3{};
     double wpgs3{};
     double d_wpgat{};
@@ -165,13 +165,13 @@ public:
     double koef_sm{1.0};//smeshenie
     double koef_sz{50.0};//zakrilki
     double koef_spr{125.0};//prekrilki
-    double koef_ssh{150.0};//shassi
+    double koef_ssh{300.0};//shassi
     double koef_snk{10.0};//nosovoe koleso
     double koef_sk{1.0};//kil'
     double koef_sint{12.0};//interseptor
     double koef_sfl{3.8};//flapperoni
     double koef_sst{4.0};//stabilizator
-    double koef_spchk{50.0};//strelovidnost'
+    double koef_spchk{250.0};//strelovidnost'
     double koef_skl{5.0};//klin
     double koef_sstv{1.0};//stvorki perepuska vozduha
     double koef_sstvsh{1.0};//stvorki shassi
