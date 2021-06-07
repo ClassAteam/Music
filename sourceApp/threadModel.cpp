@@ -327,6 +327,7 @@ void IN_hydro_int          ()
     hydro.EZR2_34 = pISU->ezr2_34;
     hydro.EZR3_34 = pISU->ezr3_34;
     hydro.EZR4_34 = pISU->ezr4_34;
+    hydro.PBI4M_1 = pISU->PBI4M_1;
     hydro.Pv_vsu = pISU->Pvvsu;
     exchange::PRD1dv = pISU->prd1dv;
     exchange::PRD2dv = pISU->prd2dv;

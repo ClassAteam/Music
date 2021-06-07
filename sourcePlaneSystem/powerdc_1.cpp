@@ -151,7 +151,7 @@ static int
             *uzak_pool[i] = *ush_pool[i];
 //            *uzak_pool[i] = *uak_pool[i] + 2.5;
 
-            if(*iak_pool[i] > 0)
+            if(*iak_pool[i] >= 0)
             {
                 *qa_pool[i] = *qa_pool[i] - (*iak_pool[i] / 3600) * (TICK / 1000);
             }
@@ -183,8 +183,11 @@ static int
                 }
                 else
                 {
+                    *qa_pool[i] = m_5_L_intervals((*uak_pool[i]),
+                                               0, 23.9, 24.0, 24.4, 24.8, 25.54,
+                                               0.0, 5.0, 10.0, 20.0, 30.0, 40.0 );
                     *urak_pool[i] =
-                        *urak_pool[i] + 0.01 * (((-(*uzak_pool[i])) + *uoak_pool[i] - *urak_pool[i])
+                        *urak_pool[i] + 0.001 * (((-(*uzak_pool[i])) + *uoak_pool[i] - *urak_pool[i])
                                                 * (TICK / 1000));
                 }
             }
@@ -194,6 +197,7 @@ static int
             }
 
             *ea_pool[i] = *uoak_pool[i] + *urak_pool[i];
+            if(*ea_pool[i] >= 25.54) *ea_pool[i] = 25.54;
 
             if(*qa_pool[i] >= 40.0)
             {

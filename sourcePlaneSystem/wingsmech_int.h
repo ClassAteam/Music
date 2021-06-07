@@ -162,7 +162,7 @@ public:
     enum s2_2790_pos{off, bolshe, menshe};
 
 private:
-//tracking a position of curPos and changign uksPlusParam and uksMinusParam
+//tracking a position of curPos and changing uksPlusParam and uksMinusParam
 //correspondly
 void posChnged(double &prePos, double &curPos,
                  bool &uksPlusParam, bool &uksMinusParam);

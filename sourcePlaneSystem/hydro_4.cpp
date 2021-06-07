@@ -45,9 +45,9 @@ void hydro_int::hydro_4()
 
         if(KKGS[2])
         {
-            if(wpgs3 >= 1.338)
+            if(wpgs3 >= 1.325)
             {
-                wpgs3 = 1.338;
+                wpgs3 = 1.325;
             }
             else
             {
@@ -59,9 +59,9 @@ void hydro_int::hydro_4()
         }
         else
         {
-            if(wpgs3 >= 1.414)
+            if(wpgs3 >= 1.395)
             {
-                wpgs3 = 1.414;
+                wpgs3 = 1.395;
             }
             else
             {

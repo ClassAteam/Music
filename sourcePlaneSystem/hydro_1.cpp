@@ -52,7 +52,7 @@ void hydro_int::hydro_1()
 
         if(exchange::ushal >= 18.0)
         {
-            if(exchange::S35_3230)
+            if(landinggea.S35_3230)
             {
                 K23_2910 = true;
             }
@@ -65,7 +65,7 @@ void hydro_int::hydro_1()
     }
     if(exchange::ushap >= 18.0)
     {
-        if(exchange::S39_3230)
+        if(landinggea.S39_3230)
             K22_2910 = true;
         else
             K22_2910 = false;
@@ -104,6 +104,13 @@ void hydro_int::hydro_1()
             K19_2910 = true;
             K21_2910 = false;
         }
+    }
+    else
+    {
+        K3_2910 = false;
+        K1_2910 = false;
+        K19_2910 = false;
+        K21_2910 = false;
     }
 
     K2_2910 = false;

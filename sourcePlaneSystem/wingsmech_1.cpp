@@ -16,24 +16,18 @@ void wingsmech_int::wingsmech_1()
     {
         if(exchange::ushal >= 18.0)
         {
-            if(S1_2750)
-            {
-                prr1kz = true;
-            }
+            if(S1_2750) prr1kz = true;
             else
             {
-                if(otkaz_1k_zakr == false)
+                if(!otkaz_1k_zakr)
                 {
-                    if(S13_2750)
-                    {
-                        psr1kz = true;
-                    }
+                    if(S13_2750) psr1kz = true;
                     else
                     {
-                        if(otkaz_osn_1k_zakr == false)
+                        if(!otkaz_osn_1k_zakr)
                         {
                             por1kz = true;
-                            if(exchange::P2OBLOP == false)
+                            if(!exchange::P2OBLOP)
                             {
                                 delta_z_zad = delta_z_zad * Kz;
                             }
@@ -52,81 +46,60 @@ void wingsmech_int::wingsmech_1()
     {
         if(exchange::ushap >= 18.0)
         {
-            if(S1_2750)
-            {
-                prr2kz = true;
-            }
+            if(S1_2750) prr2kz = true;
             else
             {
-                if(otkaz_2k_zakr == false)
+                if(!otkaz_2k_zakr)
                 {
-                    if(S13_2750)
-                    {
-                        psr2kz = true;
-                    }
+                    if(S13_2750) psr2kz = true;
                     else
                     {
-                        if(otkaz_osn_2k_zakr == false)
+                        if(!otkaz_osn_2k_zakr)
                         {
                             por2kz = true;
-                            if(exchange::P2OBPOP == false)
-                            {
+                            if(!exchange::P2OBPOP)
                                 delta_z_zad = delta_z_zad * Kz;
-                            }
                         }
                     }
                 }
             }
         }
     }
-    if(por1kz == true || psr1kz == true)
+    if(por1kz || psr1kz)
     {
         if(delta_z_l < delta_z_zad)
         {
             if((delta_pr_l >= 20.5) && (X_L >= 20  && X_L <= 30))
-            {
                 Ddelta_z_l = 2.2;
-            }
             else
-            {
                 Ddelta_z_l = 0;
-            }
         }
         else
-        {
             Ddelta_z_l = -2.2;
-        }
     }
     else
-    {
         Ddelta_z_l = 0;
-    }
 
-    if(por2kz == true || psr2kz == true)
+    if(por2kz || psr2kz)
     {
         if(delta_z_p < delta_z_zad)
         {
             if((delta_pr_p >= 20.5) && (X_P >= 20  && X_P <= 30))
-            {
                 Ddelta_z_p = 2.2;
-            }
             else
-            {
                 Ddelta_z_p = 0;
-            }
         }
         else
-        {
             Ddelta_z_p = -2.2;
-        }
     }
     else
     {
         Ddelta_z_p = 0;
     }
-    if(por1kz == true)
+
+    if(por1kz)
     {
-        if(por2kz == false)
+        if(!por2kz)
         {
             Ddelta_z_p = 0.5 * Ddelta_z_p;
             Ddelta_z_l = 0.5 * Ddelta_z_l;
@@ -134,7 +107,7 @@ void wingsmech_int::wingsmech_1()
     }
     else
     {
-        if(por2kz == true)
+        if(por2kz)
         {
             Ddelta_z_p = 0.5 * Ddelta_z_p;
             Ddelta_z_l = 0.5 * Ddelta_z_l;

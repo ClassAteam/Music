@@ -127,11 +127,6 @@ bool exchange::PRD3dv{};//engine3 work sign
 bool exchange::PRD4dv{};//engine4 work sign
 bool exchange::S18_2930{};
 bool exchange::S1_3230{};
-bool exchange::S34_3230{};
-bool exchange::S35_3230{};
-bool exchange::S36_3230{};
-bool exchange::S38_3230{};
-bool exchange::S39_3230{};
 bool exchange::S55_3230{};
 bool exchange::S56_3230{};
 bool exchange::S57_3230{};

@@ -251,7 +251,7 @@ void  MainWindow:: Print_hydro         ()
     ui->uks1x333->setText("ТНУ1 работает на УКС1 = " + QString::number(uks_inst.UKS1X333));
     ui->uks1x334->setText("ТНУ2 работает на УКС1 = " + QString::number(uks_inst.UKS1X334));
     ui->uks1x335->setText("ТНУ3 работает на УКС1 = " + QString::number(uks_inst.UKS1X335));
-    ui->uks1x335->setText("ТНУ4 работает на УКС1 = " + QString::number(uks_inst.UKS1X336));
+    ui->uks1x336->setText("ТНУ4 работает на УКС1 = " + QString::number(uks_inst.UKS1X336));
     ui->uks2x324->setText("ГС2 насос H1 не работает для ИУС = " + QString::number(uks_inst.UKS2X324));
     ui->uks2x325->setText("ГС1 насос H2 не работает для ИУС = " + QString::number(uks_inst.UKS2X325));
     ui->uks2x326->setText("ГС2 насос H3 не работает для ИУС = " + QString::number(uks_inst.UKS2X326));
@@ -297,10 +297,10 @@ void  MainWindow:: Print_hydro         ()
     ui->uks2ubgs2->setText("Уровень рабочей жидкости в баке ГС2 = " + QString::number(uks_inst.UKS2UBGS2));
     ui->uks2ubgs3->setText("Уровень рабочей жидкости в баке ГС3 = " + QString::number(uks_inst.UKS2UBGS3));
     ui->uks2ubgs4->setText("Уровень рабочей жидкости в баке ГС4 = " + QString::number(uks_inst.UKS2UBGS4));
-    ui->uks2x320->setText("Минимальный остаток жидкости в баке 1" + QString::number(uks_inst.UKS2X320));
-    ui->uks2x321->setText("Минимальный остаток жидкости в баке 2" + QString::number(uks_inst.UKS2X321));
-    ui->uks2x322->setText("Минимальный остаток жидкости в баке 3" + QString::number(uks_inst.UKS2X322));
-    ui->uks2x323->setText("Минимальный остаток жидкости в баке 4" + QString::number(uks_inst.UKS2X323));
+    ui->uks2x320->setText("Минимальный остаток жидкости в баке 1 = " + QString::number(uks_inst.UKS2X320));
+    ui->uks2x321->setText("Минимальный остаток жидкости в баке 2 = " + QString::number(uks_inst.UKS2X321));
+    ui->uks2x322->setText("Минимальный остаток жидкости в баке 3 = " + QString::number(uks_inst.UKS2X322));
+    ui->uks2x323->setText("Минимальный остаток жидкости в баке 4 = " + QString::number(uks_inst.UKS2X323));
 }
 void  MainWindow:: Print_landinggea    ()
 {

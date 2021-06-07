@@ -17,11 +17,12 @@ struct SH_ISU
     bool prd2dv{};//eng2 work clue
     bool prd3dv{};//eng3 work clue
     bool prd4dv{};//eng4 work clue
-    bool wrapsign{};// sign of landing wheels wrapping
+    // sign of landing wheels wrapping (should be changed for Sl i Sp)
+    bool wrapsign{};
     double dqkldv1{};//skorost' peremesheniya klina vozduhozabornika dvigatelya #1
-    double dqkldv2{};//skorost' peremesheniya klina vozduhozabornika dvigatelya #1
-    double dqkldv3{};//skorost' peremesheniya klina vozduhozabornika dvigatelya #1
-    double dqkldv4{};//skorost' peremesheniya klina vozduhozabornika dvigatelya #1
+    double dqkldv2{};//skorost' peremesheniya klina vozduhozabornika dvigatelya #2
+    double dqkldv3{};//skorost' peremesheniya klina vozduhozabornika dvigatelya #3
+    double dqkldv4{};//skorost' peremesheniya klina vozduhozabornika dvigatelya #4
     double dfistv1{};//skorost' peremesheniya stvorok perepuska vozduha dvigatelya #1
     double dfistv2{};//skorost' peremesheniya stvorok perepuska vozduha dvigatelya #2
     double dfistv3{};//skorost' peremesheniya stvorok perepuska vozduha dvigatelya #3
@@ -33,6 +34,7 @@ struct SH_ISU
     double ddelta_fl_l{};//skorost' peremesheniya flaperonov levih
     double ddelta_fl_p{};//skorost' peremesheniya flaperonov pravih
     double ddelta_fi_st{};//skorost' peremesheniya stabilizatora
+    bool PBI4M_1{};//priznak signala polnogo zakritiya stvorok gruzovih otsekov
 
 
 };

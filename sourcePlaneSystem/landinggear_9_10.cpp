@@ -54,7 +54,7 @@ void landinggear_int::landinggear_9_10() //actually 9 - 10th
 
     if(exchange::ushal >= 19.0)
     {
-        if(exchange::S34_3230 && !exchange::S57_3230)
+        if(S34_3230 && !exchange::S57_3230)
         {
             exchange::K26_3230 = true;
             uks_inst.UKS4X322 = true;
@@ -97,7 +97,7 @@ void landinggear_int::landinggear_9_10() //actually 9 - 10th
         if(S39_3230)
             uks_inst.UKS4X311 = true;
 
-        if(exchange::S36_3230 && !exchange::S58_3230)
+        if(S36_3230 && !exchange::S58_3230)
             uks_inst.UKS4X321 = true;
         else
             uks_inst.UKS4X321 = false;

@@ -25,7 +25,7 @@ void brakes_int::brakes_6()
                 }
                 else
                 {
-                    if(exchange::S34_3230 && exchange::S36_3230)
+                    if(landinggea.S34_3230 && landinggea.S36_3230)
                     {
 
                     }

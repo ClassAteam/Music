@@ -213,7 +213,7 @@ void landinggear_int::landinggear_6() //actually 6th
     exchange::K25_3230 = false;
 
     exchange::P2OBLOP = false;
-    exchange::S34_3230 = false;
+    S34_3230 = false;
     exchange::K26_3230 = false;
 
     PUPLOP = false;
@@ -231,7 +231,7 @@ void landinggear_int::landinggear_6() //actually 6th
         if (Sl >= 0.15)
         {
             exchange::P2OBLOP = true;
-            exchange::S34_3230 = true;
+            S34_3230 = true;
             exchange::K26_3230 = true;
         }
 
@@ -246,14 +246,14 @@ void landinggear_int::landinggear_6() //actually 6th
         K9_3230 = 0.0;
         exchange::K25_3230 = false;
 
-        exchange::P2OBLOP = 0.0;
-        exchange::S34_3230 = 0.0;
-        exchange::K26_3230 = 0.0;
+        exchange::P2OBLOP = false;
+        S34_3230 = 0.0;
+        exchange::K26_3230 = false;
 
     }
 
     exchange::P2OBPOP = false;
-    exchange::S36_3230 = false;
+    S36_3230 = false;
     exchange::K27_3230 = false;
 
     exchange::P1OBPOP = false;
@@ -277,7 +277,7 @@ void landinggear_int::landinggear_6() //actually 6th
         if (Sp >= 0.15)
         {
             exchange::P2OBPOP = true;
-            exchange::S36_3230 = true;
+            S36_3230 = true;
             exchange::K27_3230 = true;
         }
 

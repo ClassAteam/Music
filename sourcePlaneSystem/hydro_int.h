@@ -27,7 +27,7 @@ public:
     bool EZR2_34{};//priznak zapuska 2 dvigatelya
     bool EZR3_34{};//priznak zapuska 3 dvigatelya
     bool EZR4_34{};//priznak zapuska 4 dvigatelya
-    bool PBI4M_1{};
+    bool PBI4M_1{};//priznak signala polnogo zakritiya stvorok gruzovih otsekov
     bool PAPD_26{};
     bool PAPD_27{};
     bool PAPD_30{};
@@ -162,10 +162,10 @@ public:
     //kolichestvo potreblyaemoy gidrozhidkosti pri povorote nosovogo kolesa
     double qpnk[amountOfHydroSys]{};
 
-    double koef_sm{1.0};//smeshenie
+    double koef_sm{0.1};//smeshenie
     double koef_sz{50.0};//zakrilki
     double koef_spr{125.0};//prekrilki
-    double koef_ssh{300.0};//shassi
+    double koef_ssh{10.0};//shassi
     double koef_snk{10.0};//nosovoe koleso
     double koef_sk{1.0};//kil'
     double koef_sint{12.0};//interseptor
@@ -174,7 +174,7 @@ public:
     double koef_spchk{250.0};//strelovidnost'
     double koef_skl{5.0};//klin
     double koef_sstv{1.0};//stvorki perepuska vozduha
-    double koef_sstvsh{1.0};//stvorki shassi
+    double koef_sstvsh{0.1};//stvorki shassi
 
 
     double ddelta_k{};//keel speed

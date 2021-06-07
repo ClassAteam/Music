@@ -110,9 +110,9 @@ void hydro_int::hydro_5()
 
                 if(KKGS[i])
                 {
-                    if(*wpgs_pool[i] >= 1.338)
+                    if(*wpgs_pool[i] >= 1.325)
                     {
-                        *wpgs_pool[i] = 1.338;
+                        *wpgs_pool[i] = 1.325;
                     }
                     else
                     {
@@ -124,9 +124,9 @@ void hydro_int::hydro_5()
                 }
                 else
                 {
-                    if(*wpgs_pool[i] >= 1.414)
+                    if(*wpgs_pool[i] >= 1.395)
                     {
-                        *wpgs_pool[i] = 1.414;
+                        *wpgs_pool[i] = 1.395;
                     }
                     else
                     {

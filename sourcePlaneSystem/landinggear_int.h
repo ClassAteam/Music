@@ -32,6 +32,11 @@ public:
         otkaz_nevip_l_opor{},//nivipusk levoy opori shassi
         otkaz_nevip_p_opor{},//nivipusk levoy opori shassi
         otkaz_nevip_n_opor{};//nivipusk levoy opori shassi
+    bool S34_3230;//priznak konzevogo viklyuchatelya obzhatgo polozheniya levoy opori shassi kanal2
+    bool S35_3230;//priznak koncevogo vilklyuchatelya ubrannogo polozheniya levoy opori shassi
+    bool S36_3230;//priznak konzevogo viklyuchatelya obzhatogo polozheniya pravoy opori shassi kanal2
+    bool S38_3230;//priznak koncevogo viklyuchatelya obzhatogo polozheniya pravoy opori shassi kanal 1
+    bool S39_3230;//priznak konzevogo viklyuchatelya ubrannogo polozheniya pravoy opori shassi
 
     double
         fi_nk{},//tekushee znachenie ugla povorota nosovogo kolesa, grad
@@ -60,8 +65,7 @@ public:
         K9_3230,
         K5_3250,
         K6_3250,
-        S18_2930,
-        S38_3230;
+        S18_2930;
     bool
         K3_3250{},
         K4_3250{},
@@ -197,9 +201,7 @@ public:
         S29_3230{},
         S32_3230{},
         S33_3230{},
-        S35_3230{},
         S37_3230{},
-        S39_3230{},
         S40_3230{},
         S41_3230{},
         S48_3230{},

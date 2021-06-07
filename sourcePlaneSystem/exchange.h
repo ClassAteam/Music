@@ -26,11 +26,6 @@ struct exchange
     static bool PRD4dv;//engine4 work sign
     static bool S18_2930;//knopka proverki lamp na shitke nazemnoy proverki
     static bool S1_3230;//viklyuchatel' "OTKLYUCHENIE OSNOVN UPRAVLENIYA SHASSI"
-    static bool S34_3230;//priznak konzevogo viklyuchatelya obzhatgo polozheniya levoy opori shassi kanal2
-    static bool S35_3230;//priznak koncevogo vilklyuchatelya ubrannogo polozheniya levoy opori shassi
-    static bool S36_3230;//priznak konzevogo viklyuchatelya obzhatogo polozheniya pravoy opori shassi kanal2
-    static bool S38_3230;//priznak koncevogo viklyuchatelya obzhatogo polozheniya pravoy opori shassi kanal 1
-    static bool S39_3230;//priznak konzevogo viklyuchatelya ubrannogo polozheniya pravoy opori shassi
     static bool ptstoyan;
     static bool pvvll;//priznak vklyucheniya ventilyatora levogo letchika,
     static bool pvvpl;//priznak vklyucheniya ventilyatora pravogo letchika,
