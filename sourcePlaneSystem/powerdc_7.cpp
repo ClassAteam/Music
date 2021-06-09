@@ -57,31 +57,31 @@ void powerdc_int::powerdc_7() //7
     switch(exchange::s16_2430)
     {
     case static_cast<int>(exchange::s16_2430::akk1):
-        powerdc_int::ipr = uak1;
+        powerdc_int::upr = uak1;
         break;
     case static_cast<int>(exchange::s16_2430::akk2):
-        powerdc_int::ipr = uak2;
+        powerdc_int::upr = uak2;
         break;
     case static_cast<int>(exchange::s16_2430::avar1):
-        powerdc_int::ipr = exchange::ushal;
+        powerdc_int::upr = exchange::ushal;
         break;
     case static_cast<int>(exchange::s16_2430::avar2):
-        powerdc_int::ipr = exchange::ushap;
+        powerdc_int::upr = exchange::ushap;
         break;
     case static_cast<int>(exchange::s16_2430::sh1lev):
-        powerdc_int::ipr = exchange::ush1l;
+        powerdc_int::upr = exchange::ush1l;
         break;
     case static_cast<int>(exchange::s16_2430::sh2lev):
-        powerdc_int::ipr = exchange::ush2l;
+        powerdc_int::upr = exchange::ush2l;
         break;
     case static_cast<int>(exchange::s16_2430::sh1prav):
-        powerdc_int::ipr = exchange::ush1p;
+        powerdc_int::upr = exchange::ush1p;
         break;
     case static_cast<int>(exchange::s16_2430::sh2prav):
-        powerdc_int::ipr = exchange::ush2p;
+        powerdc_int::upr = exchange::ush2p;
         break;
     default:
-        powerdc_int::ipr = 0.0;
+        powerdc_int::upr = 0.0;
     }
 }
 

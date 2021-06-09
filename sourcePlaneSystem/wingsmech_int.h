@@ -1,7 +1,6 @@
 #pragma once
 #include "bss.h"
 #include "uks.h"
-#include "allElCons.h"
 #include "exchange.h"
 #include "algorithms.h"
 

@@ -391,6 +391,7 @@ void  MainWindow:: Print_powerdc       ()
     ui->label_41->setText("Ток нагрузки генератора ВСУ фаза Ф (В,С), А = " + QString::number(powerdc.ingvsu));
     ui->label_42->setText("Ток нагрузки РАП фаза Ф (В,С), А = " + QString::number(powerdc.ingrap));
     ui->label_43->setText("Приборное значение тока, А = " + QString::number(powerdc.ipr));
+    ui->upr->setText("Приборное значение напряжения, В = " + QString::number(powerdc.upr));
     ui->uks1x36->setText("Генераторо 1 перегрузка (27В) = " + QString::number(uks_inst.UKS1X36));
     ui->uks1x37->setText("Генераторо 2 перегрузка (27В) = " + QString::number(uks_inst.UKS1X37));
     ui->uks3x325->setText("Генераторо 3 перегрузка (27В) = " + QString::number(uks_inst.UKS3X325));

@@ -3,7 +3,7 @@
 
 void powerdc_int::powerdc_5_6() //5 6
 {
-    allElConsDir_inst.makeCorresCurr();
+//    allElConsDir_inst.makeCorresCurr();
 
     // start logic
 //    inshal = k1_2420 * 15 + k2_2420 * 15

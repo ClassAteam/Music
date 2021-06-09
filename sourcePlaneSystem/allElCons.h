@@ -1,7 +1,14 @@
 #pragma once
 #include <QVector>
+#include "wingsmech_int.h"
+#include "hydro_int.h"
+#include "landinggear_int.h"
 //extern bss bss_inst;
 //extern exchange exchange_inst;
+extern wingsmech_int wingsmech;
+extern hydro_int hydro;
+extern landinggear_int landinggea;
+
 
 ////////////////////////////////////////////////////////////alternating current
 class sngElConsAlt
@@ -77,77 +84,4 @@ public:
     QVector<sngElConsDir*> consumers;
     QVector<double> busesLoad;
 
-    static bool
-    por1kz,
-    prr1kz,
-    psr1kz,
-    por1kpr,
-    prr1kpr,
-    psr1kpr,
-    por1kpchk,
-    prr1kpchk,
-    k4_4940,
-    s1_4940,
-    prn1gs1,
-    prn2gs1,
-    prn1gs2,
-    prn2gs2,
-    pbutzo,
-    poppd1,
-    gk_avn,
-    k1_17723,
-    s1_11028,
-    s1_11313,
-    k1_2250,
-    s1_11052,
-    k14_2420,
-    k15_2420,
-    k2_7322,
-    k9_7322,
-    k1_11038,
-    s1_11081,
-    k3_2250,
-    poppd3,
-    k3_3650,
-    k4_7322,
-    k11_7322,
-    r865gd,
-    k5_2250,
-    y1_3650,
-    y2_3650,
-    k7_2420,
-    k8_2420,
-    por2kz,
-    prr2kz,
-    psr2kz,
-    por2kpr,
-    prr2kpr,
-    psr2kpr,
-    por2kpchk,
-    prr2kpchk,
-    prn1gs3,
-    prn2gs3,
-    prn1gs4,
-    prn2gs4,
-    gk_avl,
-    gk_avp,
-    k18_7322,
-    k11_2250,
-    poppd2,
-    pbutzr,
-    s2_11052,
-    k30_2420,
-    k31_2420,
-    k3_7322,
-    k8_7322,
-    k2_11038,
-    k8_2250,
-    prsop,
-    k5_7322,
-    k10_7322,
-    k2_17723,
-    f32_3020,
-    f319_3020,
-    f356_3020,
-    f353_3020;
 };

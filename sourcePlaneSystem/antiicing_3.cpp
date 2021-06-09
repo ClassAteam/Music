@@ -265,5 +265,4 @@ static int
 
     POV3dv4 = (PONdv4 * 35) + (POB1dv4 * 40) + (POB2dv4 * 40) + (POB3dv4 * 30);
 
-    allElConsDir::f32_3020 = f32_3020;
 }

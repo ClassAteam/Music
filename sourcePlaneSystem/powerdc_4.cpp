@@ -251,4 +251,10 @@ void powerdc_int::powerdc_4()
             exchange::ushap = ups27;
         }
     }
+
+    if(purg27lk5 && exchange::ushal >= uak1)
+        uak1 = exchange::ushal;
+
+    if(purg27pk5 && exchange::ushap >= uak2)
+        uak2 = exchange::ushap;
 }

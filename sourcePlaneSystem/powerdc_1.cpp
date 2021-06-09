@@ -3,8 +3,8 @@
 void powerdc_int::powerdc_1() //1
 {
     allElConsDir_inst.makeCorresCurr();
-static int
-    tickg1, tickg2, tickg3, tickg4, tickvsu;
+    static int
+        tickg1, tickg2, tickg3, tickg4, tickvsu;
     //start logic
     bool* otkaz_pool[] = {&OtkazGen1PostT, &OtkazGen2PostT, &OtkazGen3PostT,
                           &OtkazGen4PostT, &OtkazGenVsu};
@@ -14,7 +14,7 @@ static int
     double* divg_pool[] = {&divg1_27, &divg2_27, &divg3_27, &divg4_27, &divgvsu27};
     double* ivg_pool[] = {&ivg1_27, &ivg2_27, &ivg3_27, &ivg4_27, &ivgvsu27};
     double* ing_pool[] = {&ing1_27, &ing2_27, &ing3_27, &ing4_27, &ingvsu_27};
-//    double* ugrr_pool[] = {&ugrr, &ugrr, &ugrr, &ugrr, &ugrrvsu};
+    //    double* ugrr_pool[] = {&ugrr, &ugrr, &ugrr, &ugrr, &ugrrvsu};
     double* ugr_pool[] = {&ug1r_27, &ug2r_27, &ug3r_27, &ug4r_27, &ugrvsu27};
 
     double* nvd_pool[] = {&hydro_int::nVDfirst2[0], &hydro_int::nVDfirst2[1],
@@ -63,14 +63,14 @@ static int
 
             *ng_pool[i] = (*ng_pool[i] + (*nvd_pool[i] - *ng_pool[i]) / kn1);
 
-//            *ugrr_pool[i] = m_2_L_intervals(*ng_pool[i], 0, 50, 110,
-//                                            0, 28.5, 28.5);
+            //            *ugrr_pool[i] = m_2_L_intervals(*ng_pool[i], 0, 50, 110,
+            //                                            0, 28.5, 28.5);
 
-//            *ugr_pool[i] = *ugrr_pool[i] * (*kg_pool[i] * (*ivg_pool[i])
-//                                         - (*ing_pool[i] * (*krg_pool[i])));
+            //            *ugr_pool[i] = *ugrr_pool[i] * (*kg_pool[i] * (*ivg_pool[i])
+            //                                         - (*ing_pool[i] * (*krg_pool[i])));
 
             *ugr_pool[i] = *ng_pool[i] * (*kg_pool[i] * (*ivg_pool[i])
-                                         - (*ing_pool[i] * (*krg_pool[i])));
+                                          - (*ing_pool[i] * (*krg_pool[i])));
 
             *ug_pool[i] = *ug_pool[i] + ((*ugr_pool[i] - (*ug_pool[i])) * kg10);
         }
@@ -149,7 +149,7 @@ static int
             *pa_pool[i] = true;
 
             *uzak_pool[i] = *ush_pool[i];
-//            *uzak_pool[i] = *uak_pool[i] + 2.5;
+            //            *uzak_pool[i] = *uak_pool[i] + 2.5;
 
             if(*iak_pool[i] >= 0)
             {
@@ -171,7 +171,7 @@ static int
                 {
                     if((*uzak_pool[i] - *uoak_pool[i]) >= 2.5)
                     {
-                        *urak_pool[i] = *urak_pool[i] + 0.001 *
+                        *urak_pool[i] = *urak_pool[i] + 0.0001 *
                                                             ((25 - *urak_pool[i]) * (TICK / 1000));
                     }
                     else
@@ -184,16 +184,14 @@ static int
                 else
                 {
                     *qa_pool[i] = m_5_L_intervals((*uak_pool[i]),
-                                               0, 23.9, 24.0, 24.4, 24.8, 25.54,
-                                               0.0, 5.0, 10.0, 20.0, 30.0, 40.0 );
-                    *urak_pool[i] =
-                        *urak_pool[i] + 0.001 * (((-(*uzak_pool[i])) + *uoak_pool[i] - *urak_pool[i])
-                                                * (TICK / 1000));
+                                                  0, 23.9, 24.0, 24.4, 24.8, 25.54,
+                                                  0.0, 5.0, 10.0, 20.0, 30.0, 40.0 );
+                    *urak_pool[i] = (0.0014 / 3600) * ts;
                 }
             }
             else
             {
-                *urak_pool[i] = *urak_pool[i] * (1 - ((TICK / 1000) / 30));
+                *urak_pool[i] = 0.01 * (1 - ((TICK / 1000) / 30));
             }
 
             *ea_pool[i] = *uoak_pool[i] + *urak_pool[i];
@@ -225,10 +223,10 @@ static int
         }
 
         *ra_pool[i] = m_4_L_intervals((*qa_pool[i]),
-                                        5, 10, 20, 30, 40,
-                                        0.5, 0.035, 0.0175, 0.0116, 0.009);
+                                      5, 10, 20, 30, 40,
+                                      0.5, 0.035, 0.0175, 0.0116, 0.009);
 
-        *uak_pool[i] = *ea_pool[i] - (*iak_pool[i] * (*ra_pool[i]));
-
+        *uak_pool[i] = *ea_pool[i];
     }
+
 }
