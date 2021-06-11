@@ -27,7 +27,7 @@
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -1325,6 +1325,323 @@
        <attribute name="title">
         <string>Тормозная</string>
        </attribute>
+       <layout class="QGridLayout" name="gridLayout_5">
+        <item row="4" column="2">
+         <widget class="QLabel" name="uks3x311">
+          <property name="text">
+           <string>uks3x311</string>
+          </property>
+         </widget>
+        </item>
+        <item row="19" column="0">
+         <widget class="QLabel" name="brakes_ca3">
+          <property name="text">
+           <string>brakes_ca3</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="0" colspan="2">
+         <widget class="QLabel" name="pt6">
+          <property name="text">
+           <string>pt6</string>
+          </property>
+         </widget>
+        </item>
+        <item row="34" column="0">
+         <widget class="QLabel" name="brakes_ss2">
+          <property name="text">
+           <string>brakes_ss2</string>
+          </property>
+         </widget>
+        </item>
+        <item row="15" column="0">
+         <widget class="QLabel" name="brakes_cp">
+          <property name="text">
+           <string>brake_cp</string>
+          </property>
+         </widget>
+        </item>
+        <item row="25" column="0">
+         <widget class="QLabel" name="brakes_aa11">
+          <property name="text">
+           <string>brakes_aa11</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="2">
+         <widget class="QLabel" name="uks3x39">
+          <property name="text">
+           <string>uks3x39</string>
+          </property>
+         </widget>
+        </item>
+        <item row="20" column="0">
+         <widget class="QLabel" name="brakes_ca2">
+          <property name="text">
+           <string>brakes_ca2</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="0" colspan="2">
+         <widget class="QLabel" name="pt5">
+          <property name="text">
+           <string>pt5</string>
+          </property>
+         </widget>
+        </item>
+        <item row="39" column="0">
+         <widget class="QLabel" name="brakes_sat">
+          <property name="text">
+           <string>brakes_sat</string>
+          </property>
+         </widget>
+        </item>
+        <item row="23" column="0">
+         <widget class="QLabel" name="brakes_suf">
+          <property name="text">
+           <string>brakes_suf</string>
+          </property>
+         </widget>
+        </item>
+        <item row="27" column="0">
+         <widget class="QLabel" name="brakes_aa13">
+          <property name="text">
+           <string>brakes_aa13</string>
+          </property>
+         </widget>
+        </item>
+        <item row="36" column="0">
+         <widget class="QLabel" name="brakes_sor">
+          <property name="text">
+           <string>brakes_sor</string>
+          </property>
+         </widget>
+        </item>
+        <item row="8" column="0" colspan="2">
+         <widget class="QLabel" name="bd13">
+          <property name="text">
+           <string>bd13</string>
+          </property>
+         </widget>
+        </item>
+        <item row="18" column="0">
+         <widget class="QLabel" name="brakes_ab1">
+          <property name="text">
+           <string>brakes_ab1</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="2">
+         <widget class="QLabel" name="uks3x310">
+          <property name="text">
+           <string>uks3x310</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QLabel" name="pt1">
+          <property name="text">
+           <string>pt1</string>
+          </property>
+         </widget>
+        </item>
+        <item row="29" column="0">
+         <widget class="QLabel" name="brakes_aa22">
+          <property name="text">
+           <string>brakes_aa22</string>
+          </property>
+         </widget>
+        </item>
+        <item row="10" column="0" colspan="2">
+         <widget class="QLabel" name="bd22">
+          <property name="text">
+           <string>bd22</string>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="0" colspan="2">
+         <widget class="QLabel" name="bd11">
+          <property name="text">
+           <string>bd11</string>
+          </property>
+         </widget>
+        </item>
+        <item row="11" column="0" colspan="2">
+         <widget class="QLabel" name="bd23">
+          <property name="text">
+           <string>bd23</string>
+          </property>
+         </widget>
+        </item>
+        <item row="22" column="0">
+         <widget class="QLabel" name="brakes_abo">
+          <property name="text">
+           <string>brakes_abo</string>
+          </property>
+         </widget>
+        </item>
+        <item row="35" column="0">
+         <widget class="QLabel" name="brakes_st">
+          <property name="text">
+           <string>brakes_st</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="2">
+         <widget class="QLabel" name="uks1x318">
+          <property name="text">
+           <string>uks1x318</string>
+          </property>
+         </widget>
+        </item>
+        <item row="32" column="0">
+         <widget class="QLabel" name="brakes_svr2">
+          <property name="text">
+           <string>brakes_svr2</string>
+          </property>
+         </widget>
+        </item>
+        <item row="31" column="0">
+         <widget class="QLabel" name="brakes_svr1">
+          <property name="text">
+           <string>brakes_svr1</string>
+          </property>
+         </widget>
+        </item>
+        <item row="30" column="0">
+         <widget class="QLabel" name="brakes_aa23">
+          <property name="text">
+           <string>brakes_aa23</string>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="0" colspan="2">
+         <widget class="QLabel" name="bd12">
+          <property name="text">
+           <string>bd12</string>
+          </property>
+         </widget>
+        </item>
+        <item row="38" column="0">
+         <widget class="QLabel" name="brakes_sur">
+          <property name="text">
+           <string>brakes_sur</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="2">
+         <widget class="QLabel" name="uks2x12">
+          <property name="text">
+           <string>uks2x12</string>
+          </property>
+         </widget>
+        </item>
+        <item row="9" column="0" colspan="2">
+         <widget class="QLabel" name="bd21">
+          <property name="text">
+           <string>bd21</string>
+          </property>
+         </widget>
+        </item>
+        <item row="33" column="0">
+         <widget class="QLabel" name="brakes_ss1">
+          <property name="text">
+           <string>brakes_ss1</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0" colspan="2">
+         <widget class="QLabel" name="pt4">
+          <property name="text">
+           <string>pt4</string>
+          </property>
+         </widget>
+        </item>
+        <item row="24" column="0">
+         <widget class="QLabel" name="brakes_sf">
+          <property name="text">
+           <string>brakes_sf</string>
+          </property>
+         </widget>
+        </item>
+        <item row="13" column="0" colspan="2">
+         <widget class="QLabel" name="p6f10">
+          <property name="text">
+           <string>p6f10</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="pt3">
+          <property name="text">
+           <string>pt3</string>
+          </property>
+         </widget>
+        </item>
+        <item row="16" column="0">
+         <widget class="QLabel" name="brakes_ab3">
+          <property name="text">
+           <string>brakes_ab3</string>
+          </property>
+         </widget>
+        </item>
+        <item row="21" column="0">
+         <widget class="QLabel" name="brakes_ca1">
+          <property name="text">
+           <string>brakes_ca1</string>
+          </property>
+         </widget>
+        </item>
+        <item row="37" column="0">
+         <widget class="QLabel" name="brakes_sda">
+          <property name="text">
+           <string>brakes_sda</string>
+          </property>
+         </widget>
+        </item>
+        <item row="12" column="0" colspan="2">
+         <widget class="QLabel" name="p6f01">
+          <property name="text">
+           <string>p6f01</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="pt2">
+          <property name="text">
+           <string>pt2</string>
+          </property>
+         </widget>
+        </item>
+        <item row="26" column="0">
+         <widget class="QLabel" name="brakes_aa12">
+          <property name="text">
+           <string>brakes_aa12</string>
+          </property>
+         </widget>
+        </item>
+        <item row="28" column="0">
+         <widget class="QLabel" name="brakes_aa21">
+          <property name="text">
+           <string>brakes_aa21</string>
+          </property>
+         </widget>
+        </item>
+        <item row="17" column="0">
+         <widget class="QLabel" name="brakes_ab2">
+          <property name="text">
+           <string>brakes_ab2</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="2">
+         <widget class="QLabel" name="uks2x234">
+          <property name="text">
+           <string>uks2x234</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </widget>
       <widget class="QWidget" name="tab_7">
        <attribute name="title">

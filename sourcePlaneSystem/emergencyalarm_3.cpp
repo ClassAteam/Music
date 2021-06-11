@@ -225,7 +225,7 @@ void emergencyalarm_int::emergencyalarm_3()
 
         ///////////////Yellow lights
         //////////////8
-        if (bss_inst.nazhmi_rzv_tormz == true)
+        if (bss_inst.BSS812_nazhm_rt)
         {
             bss_inst.BSS812X6n = true;
             if(PZH_nazhmi_rzv_tormz_b == true)
@@ -637,7 +637,7 @@ void emergencyalarm_int::emergencyalarm_3()
 
         ///////////////White lights_1
         //////////////21
-        if (bss_inst.vkl_rezerv_torm == true)
+        if (bss_inst.BSS812_vkl_rt == true)
         {
             bss_inst.BSS812X6p = true;
         }
@@ -648,7 +648,7 @@ void emergencyalarm_int::emergencyalarm_3()
 
         ///////////////White lights_1
         //////////////22
-        if (bss_inst.vkl_forsir_torm == true)
+        if (bss_inst.BSS812_vkl_ft)
         {
             bss_inst.BSS812X6r = true;
         }

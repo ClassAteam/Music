@@ -2,15 +2,15 @@
 #include "hydro_5.h"
 
 
-void hydro_int::hydro_5()
+void hydro_int::hydro_5() //hydro6th
 {
     if(pgs3 >= exchange::pgat)
         qngat = qngs3;
     else
         qngat = 0;
 
-    if(exchange::ptstoyan == true)
-        qpts = qpts + 0.0015;
+    if(brakes.PstoyanT)
+        qpts = qpts + 0.000015 * ts;
     else
         qpts = 0;
 
@@ -28,9 +28,9 @@ void hydro_int::hydro_5()
         }
         else
         {
-            if(wpgat >= 2.24)
+            if(wpgat >= 2.28)
             {
-                wpgat = 2.24;
+                wpgat = 2.28;
             }
             else
             {
@@ -44,9 +44,9 @@ void hydro_int::hydro_5()
     }
     else
     {
-        if(wpgat >= 2.35)
+        if(wpgat >= 2.4)
         {
-            wpgat = 2.35;
+            wpgat = 2.4;
         }
         else
         {
@@ -56,8 +56,8 @@ void hydro_int::hydro_5()
             }
         }
     }
-    pgat_z = (p0gat * w0gat) / (w0gat - wpgat);
-    exchange::pgat = exchange::pgat + ((pgat_z - exchange::pgat) * (kgat));
+    pgat_z = (p0gat * w0gat) / (w0gat - wpgat -(((brakes.P_t_lev + brakes.P_t_prav) / 240) * 0.05));
+    exchange::pgat = exchange::pgat + ((pgat_z - exchange::pgat) * (kgat)) * ts;
 
     QVector<bool> pnn1gs_pool = {pnngs1[0], pnngs2[0], pnngs3[0], pnngs4[0]};
     QVector<bool> pnn2gs_pool = {pnngs1[1], pnngs2[1], pnngs3[1], pnngs4[1]};
@@ -71,7 +71,7 @@ void hydro_int::hydro_5()
     double* qngs_pool[] = {&qngs1, &qngs2, &qngs3, &qngs4};
     double* qpgs_pool[] = {&qpgs1, &qpgs2, &qpgs3, &qpgs4};
     double* qpsum_pool[] = {&qp1sum, &qp2sum, &qp3sum, &qp4sum};
-    double* qutgs_pool[] = {&qutgs1, &qutgs2, &qutgs3, &qutgs4};
+//    double* qutgs_pool[] = {&qutgs1, &qutgs2, &qutgs3, &qutgs4};
     double* wpgs_pool[] = {&wpgs1, &wpgs2, &wpgs3, &wpgs4};
     double* w0gs_pool[] = {&w0gs1, &w0gs2, &w0gs3, &w0gs4};
 

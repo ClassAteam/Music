@@ -23,7 +23,7 @@ public:
         otkaz_ots_dav_v1k_pravt{};//otsutstvie davlenie v peroy pare koles pravoy telezhki
 
     double
-        vkh{};//skorost' dvizheniya po VPP(putevaya skorost'), m/s
+        vkx{};//skorost' dvizheniya po VPP(putevaya skorost'), m/s
 
     QVector<double> brakes_Pt{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
     //davlenie v pervoy - shestoy para koles
@@ -96,12 +96,11 @@ public:
         balarm_BD21{},
         balarm_BD22{},
         balarm_BD23{},
-        delta_Ptr{},
-        pgat{};
+        delta_Ptr{};
 
     bool
-        POSH1{},
-        POSH2{},
+        POSH1{},//priznak obzhatiya shassi
+        POSH2{},//priznak obzhatiya shassi
         K1_9921{},
         K2_9921{},
         K5_3650{},
@@ -124,6 +123,7 @@ public:
         PTavtS{},
         PTfors{},
         PTstart{},
+        PTstoyan{},
         PVTP{},
         PstartT{},
         PstoyanT{},
@@ -160,12 +160,10 @@ public:
         balarm_SUR{},
         balarm_SVR1{},
         balarm_SVR2{},
-        otkaz_gs3{},
         paft{},
         pavtt{},
         pbutzo{},
-        pbutzr{},
-        ptstoyan{};
+        pbutzr{};
 
 public:
     virtual void updateLogic();

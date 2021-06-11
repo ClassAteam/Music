@@ -6,7 +6,6 @@
 void brakes_int::brakes_1()
 {
 //    timing.start();
-pgat = exchange::pgat;
     //start logic
     double
         X_ped11_buf{exchange::X_ped11 / 100},
@@ -73,21 +72,21 @@ pgat = exchange::pgat;
         else
         {
             pbutzo = true;
-            if(exchange::s1_3240 == 1)
+            if(exchange::s1_3240 == static_cast<int>(exchange::s1_3240::norm))
             {
                 pavtt = true;
                 PAVT_N = true;
             }
             else
             {
-                if(exchange::s1_3240 == 2)
+                if(exchange::s1_3240 == static_cast<int>(exchange::s1_3240::ponizh))
                 {
                     pavtt = true;
                     PAVT_P = true;
                 }
                 else
                 {
-                    if(exchange::s1_3240 == 3)
+                    if(exchange::s1_3240 == static_cast<int>(exchange::s1_3240::slabo))
                     {
                         pavtt = true;
                         PAVT_S = true;
@@ -110,9 +109,10 @@ pgat = exchange::pgat;
             {
                 PstoyanT = true;
 
-                if(!X1_45_7620 && !X2_45_7620 && !X3_45_7620 && !X4_45_7620)
+                if(X1_45_7620 || X2_45_7620 || X3_45_7620 || X4_45_7620)
                 {
                     PstartT = true;
+                    PstoyanT = false;
                 }
             }
 

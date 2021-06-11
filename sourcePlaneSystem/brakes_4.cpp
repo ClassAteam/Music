@@ -3,7 +3,7 @@
 void brakes_int::brakes_4()
 {
     //    delta_Ptr = (two_points_to_Y(V_kh, 0, 89, 100, 30) * (TICK / 1000));
-    delta_Ptr = (two_points_to_Y(vkh, 0, 89, 100, 30));
+    delta_Ptr = (two_points_to_Y(vkx, 0, 89, 100, 30));
 
     for(int i = 0; i <= 5; i++)
     {
@@ -64,7 +64,7 @@ void brakes_int::brakes_4()
         if(brakes_Pt[i] >= 0)
         {
             if(POSH1)
-                brakes_Vkr[i] = vkh - (brakes_K1[i] * brakes_Pt[i]);
+                brakes_Vkr[i] = vkx - (brakes_K1[i] * brakes_Pt[i]);
             else
                 brakes_Vkr[i] = brakes_Vk_p[i] - brakes_K1[i] * brakes_Pt[i] - (50 * (TICK / 1000));
         }

@@ -1,10 +1,12 @@
 #include "brakes_2.h"
 
+//using namespace exchange;
+
 
 void brakes_int::brakes_2()
 {
-static int
-    tick_block_rt;
+    static int
+        tick_block_rt;
 
     //start logic
     if(exchange::ushap >= 18.0 && exchange::ushal >= 18.0 && exchange::ush1dpp >= 18.0)
@@ -42,7 +44,6 @@ static int
                 }
             }
 
-            PstoyanT = false;
             PAVART = false;
             PORST = false;
             PAVT_N = false;
@@ -63,21 +64,21 @@ static int
                     else
                     {
                         pbutzr = true;
-                        if(exchange::s1_3240 == 1)
+                        if(exchange::s1_3240 == static_cast<int>(exchange::s1_3240::norm))
                         {
                             pavtt = true;
                             PAVT_N = true;
                         }
                         else
                         {
-                            if(exchange::s1_3240 == 2)
+                            if(exchange::s1_3240 == static_cast<int>(exchange::s1_3240::ponizh))
                             {
                                 pavtt = true;
                                 PAVT_P = true;
                             }
                             else
                             {
-                                if(exchange::s1_3240 == 3)
+                                if(exchange::s1_3240 == static_cast<int>(exchange::s1_3240::slabo))
                                 {
                                     pavtt = true;
                                     PAVT_S = true;
@@ -125,55 +126,55 @@ static int
                 else
                 {
                     pbutzr = true;
-                }
-                if(exchange::s1_3240 == 1)
-                {
-                    pavtt = true;
-                    PAVT_N = true;
-                }
-                else
-                {
-                    if(exchange::s1_3240 == 2)
+                    if(exchange::s1_3240 == static_cast<int>(exchange::s1_3240::norm))
                     {
                         pavtt = true;
-                        PAVT_P = true;
+                        PAVT_N = true;
                     }
                     else
                     {
-                        if(exchange::s1_3240 == 3)
+                        if(exchange::s1_3240 == static_cast<int>(exchange::s1_3240::ponizh))
                         {
                             pavtt = true;
-                            PAVT_S = true;
+                            PAVT_P = true;
                         }
                         else
                         {
-                            pavtt = false;
-                            PBAVTT = false;
-                        }
-                    }
-                }
-
-                if(X_tp_lev >= 0.12 || X_tp_prav >= 0.12)
-                {
-                    PBAVTT = true;
-                    pavtt = false;
-                }
-
-                if(exchange::P2OBLOP)
-                {
-                    if(exchange::delta_z >= 23.0 && exchange::delta_z <= 28.0)
-                    {
-                        if(paft || PRR)
-                        {
-                            if(X_tp_lev >= 0.12 && X_tp_prav >= 0.12)
+                            if(exchange::s1_3240 == static_cast<int>(exchange::s1_3240::slabo))
                             {
-                                PFT = true;
-                                paft = true;
+                                pavtt = true;
+                                PAVT_S = true;
+                            }
+                            else
+                            {
+                                pavtt = false;
+                                PBAVTT = false;
                             }
                         }
                     }
-                    else
-                        paft = false;
+
+                    if(X_tp_lev >= 0.12 || X_tp_prav >= 0.12)
+                    {
+                        PBAVTT = true;
+                        pavtt = false;
+                    }
+
+                    if(exchange::P2OBLOP)
+                    {
+                        if(exchange::delta_z >= 23.0 && exchange::delta_z <= 28.0)
+                        {
+                            if(paft || PRR)
+                            {
+                                if(X_tp_lev >= 0.12 && X_tp_prav >= 0.12)
+                                {
+                                    PFT = true;
+                                    paft = true;
+                                }
+                            }
+                        }
+                        else
+                            paft = false;
+                    }
                 }
             }
         }
@@ -185,12 +186,15 @@ static int
         PBRRT = false;
     }
 
-    if(otkaz_gs3)
+    if(hydro.otkaz_gs3)
         PAVART = true;
     else
     {
-        if(exchange::s2_3240)
+        if(exchange::s2_3240 && pbutzr)
+        {
             PstoyanT = true;
+            PstartT = false;
+        }
     }
 
     if(!pavtt)

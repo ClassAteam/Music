@@ -230,6 +230,50 @@ void  MainWindow:: Print_antiicing     ()
 }
 void  MainWindow:: Print_brakes        ()
 {
+    ui->pt1->setText("Давление в тормозах 1-ой паре колес = " + QString::number(brakes.brakes_Pt[0]));
+    ui->pt2->setText("Давление в тормозах 2-ой паре колес = " + QString::number(brakes.brakes_Pt[1]));
+    ui->pt3->setText("Давление в тормозах 3-ой паре колес = " + QString::number(brakes.brakes_Pt[2]));
+    ui->pt4->setText("Давление в тормозах 4-ой паре колес = " + QString::number(brakes.brakes_Pt[3]));
+    ui->pt5->setText("Давление в тормозах 5-ой паре колес = " + QString::number(brakes.brakes_Pt[4]));
+    ui->pt6->setText("Давление в тормозах 6-ой паре колес = " + QString::number(brakes.brakes_Pt[5]));
+    ui->bd11->setText("Давление в тормозах передней пары левой тележки = " + QString::number(brakes.balarm_BD11));
+    ui->bd12->setText("Давление в тормозах средней пары левой тележки = " + QString::number(brakes.balarm_BD12));
+    ui->bd21->setText("Давление в тормозах передней пары правой тележки = " + QString::number(brakes.balarm_BD21));
+    ui->bd22->setText("Давление в тормозах средней пары правой тележки = " + QString::number(brakes.balarm_BD22));
+    ui->bd23->setText("Давление в тормозах задней пары правой тележки = " + QString::number(brakes.balarm_BD23));
+    ui->p6f01->setText("Отказ блока бупт№1 = " + QString::number(brakes.balarm_6F01));
+    ui->p6f10->setText("Отказ блока бупт№2 = " + QString::number(brakes.balarm_6F10));
+    ui->brakes_cp->setText("Одна пара отказ = " + QString::number(brakes.balarm_SR));
+    ui->brakes_ab3->setText("Переключатель ТОРМОЗА АТВ в положении НОРМ = " + QString::number(brakes.balarm_AV3));
+    ui->brakes_ab2->setText("Переключатель ТОРМОЗА АТВ в положении ПОНИЖ = " + QString::number(brakes.balarm_AV2));
+    ui->brakes_ab1->setText("Переключатель ТОРМОЗА АТВ в положении СЛАБО = " + QString::number(brakes.balarm_AV1));
+    ui->brakes_ca3->setText("Торможние автоматическое включено в режиме НОРМ = " + QString::number(brakes.balarm_SA3));
+    ui->brakes_ca2->setText("Торможние автоматическое включено в режиме ПОНИЖ = " + QString::number(brakes.balarm_SA2));
+    ui->brakes_ca1->setText("Торможние автоматическое включено в режиме СЛАБО = " + QString::number(brakes.balarm_SA1));
+    ui->brakes_abo->setText("Автоматическое торможение отключено = " + QString::number(brakes.balarm_AV0));
+    ui->brakes_suf->setText("Готовность к включению = " + QString::number(brakes.balarm_SUF));
+    ui->brakes_sf->setText("Включение форсированного торможения автоматичски или от кнопки ФОРСИР = " + QString::number(brakes.balarm_SF));
+    ui->brakes_aa11->setText("Срабатывание антиюза в передней паре левой тележки = " + QString::number(brakes.balarm_AA11));
+    ui->brakes_aa12->setText("Срабатывание антиюза в средней паре левой тележки = " + QString::number(brakes.balarm_AA12));
+    ui->brakes_aa13->setText("Срабатывание антиюза в задней паре левой тележки = " + QString::number(brakes.balarm_AA13));
+    ui->brakes_aa21->setText("Срабатывание антиюза в передней паре правой тележки = " + QString::number(brakes.balarm_AA21));
+    ui->brakes_aa22->setText("Срабатывание антиюза в средней паре правой тележки = " + QString::number(brakes.balarm_AA22));
+    ui->brakes_aa23->setText("Срабатывание антиюза в задней паре правой тележки = " + QString::number(brakes.balarm_AA23));
+    ui->brakes_svr1->setText("Тормоза основные отказ/тормоза резервные включи = " + QString::number(brakes.balarm_SVR1));
+    ui->brakes_svr2->setText("Тормоза основные отказ/тормоз резервный включен = " + QString::number(brakes.balarm_SVR2));
+    ui->brakes_ss1->setText("Тормоза основные включены = " + QString::number(brakes.balarm_SS1));
+    ui->brakes_ss2->setText("Тормоза резервные включены = " + QString::number(brakes.balarm_SS2));
+    ui->brakes_st->setText("Стартовый тормоз включен = " + QString::number(brakes.balarm_ST));
+    ui->brakes_sor->setText("Тормоз резервный отказ/тормози стояночным = " + QString::number(brakes.balarm_SOR));
+    ui->brakes_sda->setText("Давление в гидроаккумуляторе тормозов мало = " + QString::number(brakes.balarm_SDA));
+    ui->brakes_sur->setText("Кнопка резерв нажата = " + QString::number(brakes.balarm_SUR));
+    ui->brakes_sat->setText("Торможение аварийное = " + QString::number(brakes.balarm_SAT));
+    ui->uks1x318->setText("Стояночный тормоз включен = " + QString::number(uks_inst.UKS1X318));
+    ui->uks2x12->setText("Давление жидкости в гидроаккумуляторе тормозной системы = " + QString::number(uks_inst.UKS2X212));
+    ui->uks2x234->setText("Давление азота в гидроаккумуляторе тормозной системы = " + QString::number(uks_inst.UKS2X234));
+    ui->uks3x39->setText("Парашют сброшен = " + QString::number(uks_inst.UKS3X39));
+    ui->uks3x310->setText("Парашют выпущен = " + QString::number(uks_inst.UKS3X310));
+    ui->uks3x311->setText("Парашют отказ = " + QString::number(uks_inst.UKS3X311));
 
 }
 void  MainWindow:: Print_cabinlighting ()

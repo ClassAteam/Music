@@ -89,7 +89,7 @@ struct uks
     bool P_143_16{};
     bool P_143_17{};
     bool UKS1X112{};
-    bool UKS1X18{};
+    bool UKS1X318{};
     bool UKS1X212{};
     bool UKS1X310{};
     bool UKS1X311{};

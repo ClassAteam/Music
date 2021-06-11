@@ -14,10 +14,10 @@ void brakes_int::brakes_3()
     PTavtS = false;
     PTfors = false;
     PTstart = false;
-    ptstoyan = false;
+    PTstoyan = false;
     PPDGAKT = false;
 
-    if((exchange::pgs2 >= 200 || exchange::pgs3 >= 220 || pgat >= 130) && vkh <= 72.0)
+    if((exchange::pgs2 >= 200 || exchange::pgs3 >= 220 || exchange::pgat >= 130) && vkx <= 72.0)
     {
         if(exchange::K35_3230 && (exchange::K27_3230  || exchange::K26_3230))
         {
@@ -49,7 +49,7 @@ void brakes_int::brakes_3()
             if(PstartT)
             {
                 PTstart = true;
-                if(vkh <= 8.1)
+                if(vkx <= 8.1)
                 {
                     P_t_lev = 150;
                     P_t_prav = 150;
@@ -65,10 +65,10 @@ void brakes_int::brakes_3()
             {
                 P_t_lev = 120;
                 P_t_prav = 120;
-                ptstoyan = true;
+                PTstoyan = true;
             }
 
-            if(vkh <= 8.1)
+            if(vkx <= 8.1)
             {
                 if(PAVT_N)
                 {
@@ -165,7 +165,7 @@ void brakes_int::brakes_3()
                         tick_alg_2 = 0;
                     else
                     {
-                        if(pgat < 130 || vkh <= 13.5)
+                        if(exchange::pgat < 130 || vkx <= 13.5)
                         {
                             P_t_lev = 120;
                             P_t_prav = 120;
@@ -246,7 +246,7 @@ void brakes_int::brakes_3()
 
     if(PstoyanT)
     {
-        if(pgat >= 130.0)
+        if(exchange::pgat >= 130.0)
         {
 
         }

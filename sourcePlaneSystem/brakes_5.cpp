@@ -63,7 +63,7 @@ void brakes_int::brakes_5()
         bss_inst.BSS812_nazhm_rt = 0;
         bss_inst.BSS812_vkl_ft = 0;
         bss_inst.BSS812_vkl_rt = 0;
-        uks_inst.UKS1X18 = 0;
+        uks_inst.UKS1X318 = 0;
         balarm_6F01 = 0;
         balarm_6F10 = 0;
         balarm_AA11 = 0;
@@ -118,56 +118,58 @@ void brakes_int::brakes_5()
                 if(exchange::s1_3241)
                     bss_inst.BSS812_vkl_rt = true;
                 else
-                    bss_inst.BSS812_vkl_rt = false;
+                    bss_inst.BSS812_nazhm_rt = true;
             }
             else
+            {
                 bss_inst.BSS812_vkl_rt = true;
+            }
         }
     }
 
-    if(pgat >= 130)
-        pgat = pgat - (Pavart * (TICK / 1000));
+        if(exchange::pgat >= 130)
+            exchange::pgat = exchange::pgat - (Pavart * (TICK / 1000));
 
-    P_az_gat = 115 + (0.59 * pgat);
+        P_az_gat = 115 + (0.59 * exchange::pgat);
 
-    if(X1_45_7620 && X2_45_7620 && X3_45_7620 && X4_45_7620)
-        uks_inst.UKS2X234 = P_az_gat;
-    else
-        uks_inst.UKS2X234 = 0;
+        if(X1_45_7620 || X2_45_7620 || X3_45_7620 || X4_45_7620)
+            uks_inst.UKS2X234 = 0.0;
+        else
+            uks_inst.UKS2X234 = P_az_gat;
 
-    uks_inst.UKS2X212 = pgat;
+        uks_inst.UKS2X212 = exchange::pgat;
 
-    if(PstoyanT)
-    {
-        uks_inst.UKS1X18 = true;
-        bss_inst.BSS812X5r = true;
-    }
-    else
-    {
-        uks_inst.UKS1X18 = false;
-        bss_inst.BSS812X5r = false;
-    }
-
-    if(exchange::ushap >= 18.0)
-    {
-        if(PstoyanT && pgat >= 80.0)
+        if(PTstoyan)
         {
-            uks_inst.UKS1X18 = true;
+            uks_inst.UKS1X318 = true;
             bss_inst.BSS812X5r = true;
         }
         else
         {
-            uks_inst.UKS1X18 = false;
+            uks_inst.UKS1X318 = false;
             bss_inst.BSS812X5r = false;
         }
+
+        if(exchange::ushap >= 18.0)
+        {
+            if(PstoyanT && exchange::pgat >= 80.0)
+            {
+                uks_inst.UKS1X318 = true;
+                bss_inst.BSS812X5r = true;
+            }
+            else
+            {
+                uks_inst.UKS1X318 = false;
+                bss_inst.BSS812X5r = false;
+            }
+        }
+        else
+        {
+            uks_inst.UKS2X212 = false;
+            uks_inst.UKS2X234 = false;
+            uks_inst.UKS1X318 = false;
+        }
     }
-    else
-    {
-        uks_inst.UKS2X212 = false;
-        uks_inst.UKS2X234 = false;
-        uks_inst.UKS1X18 = false;
-    }
-}
 
 
 

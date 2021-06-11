@@ -316,7 +316,43 @@ void IN_antiicing_int      ()
     antiicing.POLST=pDev->IN_MAT [15];
 }
 void IN_brakes_int         ()
-{}
+{
+    brakes.X1_45_7620 = pISU->X1_45_7620;
+    brakes.X2_45_7620 = pISU->X2_45_7620;
+    brakes.X3_45_7620 = pISU->X3_45_7620;
+    brakes.X4_45_7620 = pISU->X4_45_7620;
+    exchange::s1_3240 = pDev->IN_MAT[12];
+    if(pDev->IN_MAT[12])
+        exchange::s1_3240 = static_cast<int>(exchange::s1_3240::slabo);
+    else if(pDev->IN_MAT[13])
+        exchange::s1_3240 = static_cast<int>(exchange::s1_3240::ponizh);
+    else if(pDev->IN_MAT[14])
+        exchange::s1_3240 = static_cast<int>(exchange::s1_3240::norm);
+
+    if(pDev->IN_MAT[15]) exchange::s2_3240 = true;
+    else exchange::s2_3240 = false;
+    if(pDev->IN_MAT[11]) exchange::s3_3240 = true;
+    else exchange::s3_3240 = false;
+    if(pDev->IN_MAT[9]) exchange::s1_3241 = true;
+    else exchange::s1_3241 = false;
+
+    exchange::alpha_rud_1dv = pDev->IN_A[0][5];
+    exchange::alpha_rud_2dv = pDev->IN_A[0][6];
+    exchange::alpha_rud_3dv = pDev->IN_A[0][7];
+    exchange::alpha_rud_4dv = pDev->IN_A[0][8];
+    exchange::X_ped11 = pDev->IN_A[0][10];
+    exchange::X_ped12 = pDev->IN_A[0][11];
+    exchange::X_ped21 = pDev->IN_A[0][13];
+    exchange::X_ped22 = pDev->IN_A[0][14];
+
+    brakes.otkaz_osn_sis_torm = pFromP->Otkaz[82];
+    brakes.otkaz_rt = pFromP->Otkaz[83];
+    brakes.otkaz_avt_per_na_rt = pFromP->Otkaz[84];
+    brakes.otkaz_ots_dav_v1k_levt = pFromP->Otkaz[85];
+    brakes.otkaz_ots_dav_v1k_pravt = pFromP->Otkaz[102];
+    brakes.vkx = pISU->vkx;
+
+}
 void IN_cabinlighting_int  ()
 {}
 void IN_emergencyalarm_int ()
@@ -365,6 +401,7 @@ void IN_hydro_int          ()
         hydro.p0gs2 = 115.0;
         hydro.p0gs3 = 115.0;
         hydro.p0gs4 = 115.0;
+        exchange::pgat = 280.0;
     }
     hydro.otkaz_gs1 = pFromP->Otkaz[1];
     hydro.otkaz_gs2 = pFromP->Otkaz[2];
@@ -587,7 +624,15 @@ void OUT_antiicing_int      ()
 {}
 
 void OUT_brakes_int         ()
-{}
+{
+    pDev->OUT_D[0][67] = bss_inst.BSS812X6r;
+    pDev->OUT_D[0][65] = bss_inst.BSS812X6n;
+    pDev->OUT_D[0][66] = bss_inst.BSS812X6p;
+    pDev->OUT_D[0][69] = bss_inst.BSS812X6W;
+    pDev->OUT_D[1][5] = bss_inst.BSS824X2R;
+    pDev->OUT_D[1][7] = bss_inst.BSS824X2H;
+    pDev->OUT_D[1][6] = bss_inst.BSS824X2G;
+}
 
 void OUT_cabinlighting_int  ()
 {}
