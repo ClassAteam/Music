@@ -273,6 +273,7 @@ struct bss
         bool BSS825X6e{};
         bool BSS825X6f{};
         bool BSS825X6g{};
+        bool BSS825PROG{};
         bool BSS825X6i{};
         bool BSS825X6j{};
         bool BSS825X6k{};
@@ -618,7 +619,6 @@ struct bss
         bool neytral_kren{};
         bool neytral_kurs{};
         bool p_bakov_veliko{};
-        bool programma{};
         bool razrezh_veliko{};
         bool surGs1Otkl{};
         bool surGs2Otkl{};

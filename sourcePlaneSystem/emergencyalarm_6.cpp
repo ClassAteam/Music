@@ -658,9 +658,14 @@ void emergencyalarm_int::emergencyalarm_6()
         else
             bss_inst.BSS825X6g = false;
 
+        if(bss_inst.BSS825PR)
+            bss_inst.BSS825PROG = true;
+        else
+            bss_inst.BSS825PROG = false;
+
         ///////////////White lights_1
         //////////////19
-        if(bss_inst.programma)
+        if(bss_inst.BSS825PR)
             bss_inst.BSS825_prog = true;
         else
             bss_inst.BSS825_prog = false;

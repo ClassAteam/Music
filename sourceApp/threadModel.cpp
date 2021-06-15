@@ -313,7 +313,50 @@ void IN_antifire_int       ()
 }
 void IN_antiicing_int      ()
 {
-    antiicing.POLST=pDev->IN_MAT [15];
+    if(pDev->IN_MAT[169])
+        exchange::s1_3020 = static_cast<int>(exchange::s1_3020::zerominus6);
+    else if(pDev->IN_MAT[170])
+        exchange::s1_3020 = static_cast<int>(exchange::s1_3020::minus6minus15);
+    else if(pDev->IN_MAT[171])
+        exchange::s1_3020 = static_cast<int>(exchange::s1_3020::minus15);
+    else  exchange::s1_3020 = static_cast<int>(exchange::s1_3020::neytr);
+
+    exchange::s4_3040 = pDev->IN_MAT[162];
+    exchange::s6_3040 = pDev->IN_MAT[163];
+    exchange::s2_3020 = pDev->IN_MAT[843];
+    exchange::s3_3020 = pDev->IN_MAT[844];
+    exchange::s4_3020 = pDev->IN_MAT[845];
+    exchange::s5_3020 = pDev->IN_MAT[846];
+    exchange::s6_3020 = pDev->IN_MAT[853];
+
+    if(pDev->IN_MAT[849])
+        exchange::s7_3040 = static_cast<int>(exchange::s7_3040::otkl);
+    else if(pDev->IN_MAT[850])
+        exchange::s7_3040 = static_cast<int>(exchange::s7_3040::lev);
+    else if(pDev->IN_MAT[851])
+        exchange::s7_3040 = static_cast<int>(exchange::s7_3040::lob);
+    else if(pDev->IN_MAT[852])
+        exchange::s7_3040 = static_cast<int>(exchange::s7_3040::prav);
+
+    exchange::s1_3030 = pDev->IN_MAT[760];
+    exchange::s2_3030 = pDev->IN_MAT[52];
+    exchange::s2_3040 = pDev->IN_MAT[50];
+    exchange::s8_3040 = pDev->IN_MAT[848];
+    exchange::s1_3080 = pDev->IN_MAT[189];
+    exchange::s2_3080 = pDev->IN_MAT[190];
+    exchange::s3_3080 = pDev->IN_MAT[191];
+
+    antiicing.otkaz_vozduhozabor = pFromP->Otkaz[44];
+    antiicing.OTKAZ_vtsepiob_pos1dv = pFromP->Otkaz[45];
+    antiicing.OTKAZ_vtsepiob_pos2dv = pFromP->Otkaz[46];
+    antiicing.OTKAZ_vtsepiob_pos3dv = pFromP->Otkaz[47];
+    antiicing.OTKAZ_vtsepiob_pos4dv = pFromP->Otkaz[48];
+    antiicing.otkaz_l_so121 = pFromP->Otkaz[49];
+    antiicing.otkaz_p_so121 = pFromP->Otkaz[50];
+    antiicing.otkaz_lozhn_srab_lev_so121 = pFromP->Otkaz[51];
+    antiicing.otkaz_lozhn_srab_prav_so121 = pFromP->Otkaz[52];
+
+    antiicing.M_buf = pISU->M;
 }
 void IN_brakes_int         ()
 {
@@ -621,7 +664,21 @@ void OUT_antifire_int       ()
 }
 
 void OUT_antiicing_int      ()
-{}
+{
+    pDev->OUT_D[1][45] = bss_inst.BSS824X2a;
+    pDev->OUT_D[1][46] = bss_inst.BSS824X2b;
+    pDev->OUT_D[1][47] = bss_inst.BSS824X2C;
+    pDev->OUT_D[1][48] = bss_inst.BSS824X2D;
+    pDev->OUT_D[1][44] = bss_inst.BSS825_prog;
+    pDev->OUT_D[0][78] = bss_inst.BSS811X2L;
+    pDev->OUT_D[1][4] = bss_inst.BSS824X2J;
+    pDev->OUT_D[1][53] = bss_inst.BSS825X6f;
+    pDev->OUT_D[1][54] = bss_inst.BSS825X6g;
+    pDev->OUT_D[3][68] = antiicing.H1_3040;
+    pDev->OUT_D[1][114] = antiicing.H1_3030;
+    pDev->OUT_D[1][115] = antiicing.H2_3030;
+    pDev->OUT_D[1][113] = antiicing.H3_3030;
+}
 
 void OUT_brakes_int         ()
 {

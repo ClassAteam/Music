@@ -89,28 +89,33 @@ void antiicing_int::antiicing_5()
             }
         }
 
-        obogrev_stekol_ispr = false;
+        H1_3040 = false;
         // F11_3040, F12_3040, F13_3040 toggle with matching K'es
         // and switch positions
         //1
         if(exchange::s7_3040 == static_cast<int>(exchange::s7_3040::lev))
         {
             if(K1_3040) F11_3040 = true;
-            obogrev_stekol_ispr = true;
+            H1_3040 = true;
         }
         //2
         if(exchange::s7_3040 == static_cast<int>(exchange::s7_3040::lob))
         {
             if(K2_3040) F12_3040 = true;
-            obogrev_stekol_ispr = true;
+            H1_3040 = true;
         }
         //3
         if(exchange::s7_3040 == static_cast<int>(exchange::s7_3040::prav))
         {
             if(K3_3040) F13_3040 = true;
-            obogrev_stekol_ispr = true;
+            H1_3040 = true;
         }
     }
     else
-        obogrev_stekol_ispr = false;
+        H1_3040 = false;
+
+    uks_inst.UKS1X315 = false;
+    uks_inst.UKS3X334 = false;
+    uks_inst.UKS3X335 = false;
+
 }

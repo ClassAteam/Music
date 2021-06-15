@@ -93,6 +93,7 @@ struct uks
     bool UKS1X212{};
     bool UKS1X310{};
     bool UKS1X311{};
+    bool UKS1X315{};
     bool UKS1X329{};
     bool UKS1X330{};
     bool UKS1X331{};
@@ -154,10 +155,12 @@ struct uks
     bool UKS3X326{};
     bool UKS3X327{};
     bool UKS3X328{};
-    bool UKS3X34{};
-    bool UKS3X35{};
+    bool UKS3X334{};
+    bool UKS3X335{};
     bool UKS3X343{};
     bool UKS3X344{};
+    bool UKS3X34{};
+    bool UKS3X35{};
     bool UKS3X39{};
     bool UKS4X37{};
     bool UKS4X310{};
@@ -207,6 +210,8 @@ struct uks
     double UKS1X264_65{};
     double UKS1X267_68{};
     double UKS1X31{};
+    double UKS1X316{};
+    double UKS1X317{};
     double UKS1X2105_106{};
     double UKS1X3105_106{};
     double UKS1X3106{};

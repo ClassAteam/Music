@@ -226,6 +226,12 @@ void  MainWindow:: Print_antifire      ()
 }
 void  MainWindow:: Print_antiicing     ()
 {
+    ui->uks1x316->setText("ОБЛЕДИНЕНИЕ ЛЕВЫЙ ДАТЧИК = " + QString::number(uks_inst.UKS1X316));
+    ui->uks1x317->setText("ОБЛЕДИНЕНИЕ ПРАВЫЙ ДАТЧИК = " + QString::number(uks_inst.UKS1X317));
+    ui->uks1x315->setText("ОТКАЗ ОБОГРЕВ СТЕКЛО ЛЕВОЕ = " + QString::number(uks_inst.UKS1X315));
+    ui->uks3x334->setText("ОТКАЗ ОБОГРЕВ СТЕКЛО ЛОБОВОЕ = " + QString::number(uks_inst.UKS3X334));
+    ui->uks3x335->setText("ОТКАЗ ОБОГРЕВ СТЕКЛО ПРАВОЕ = " + QString::number(uks_inst.UKS3X335));
+
 
 }
 void  MainWindow:: Print_brakes        ()

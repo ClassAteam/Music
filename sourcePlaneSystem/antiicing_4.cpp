@@ -179,15 +179,15 @@ void antiicing_int::antiicing_4()
     //lights toggle
     if(PKPPD)
     {
-        obogrev_ppd1_ispr = true;
-        obogrev_ppd2_ispr = true;
-        obogrev_ppd3_ispr = true;
+        H1_3030 = true;
+        H2_3030 = true;
+        H3_3030 = true;
     }
     else
     {
-        obogrev_ppd1_ispr = false;
-        obogrev_ppd2_ispr = false;
-        obogrev_ppd3_ispr = false;
+        H1_3030 = false;
+        H2_3030 = false;
+        H3_3030 = false;
     }
 
     if(exchange::ush1dpp >= 18)

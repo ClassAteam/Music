@@ -77,6 +77,8 @@ struct SH_ISU
 
     //IDP
     double vkx{};//skorost' dvizheniya po VPP(putevaya skorost'), m/s
+    double M{};//chislo Maha
+
 
 
 };

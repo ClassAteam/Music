@@ -2,7 +2,6 @@
 #include "exchange.h"
 #include "bss.h"
 #include "uks.h"
-#include "allElCons.h"
 
 extern bss bss_inst;
 extern uks uks_inst;
@@ -122,8 +121,8 @@ public:
         PRSOL{},
         PSOBLL{},
         PSOBLP{},
-        PSOLD{},
-        PSOPD{},
+        PSOLD{},//priznak signala obledeneniya ot levogo datchika
+        PSOPD{},//priznak signala obledeneniya ot pravogo datchika
         PVOVNA1{},
         PVOVNA2{},
         PVOVNA3{},
@@ -139,11 +138,11 @@ public:
         f34_3020{},
         f353_3020{},
         f356_3020{},
-        obled_svs{},
-        obogrev_ppd1_ispr{},
-        obogrev_ppd2_ispr{},
-        obogrev_ppd3_ispr{},
-        obogrev_stekol_ispr{},
+        obled_svs{},// priznak signala "obledenenie" v sistemu vozd signalov
+        H1_3030{},
+        H2_3030{},
+        H3_3030{},
+        H1_3040{},
         prsop{},
         signal_obled{};
 

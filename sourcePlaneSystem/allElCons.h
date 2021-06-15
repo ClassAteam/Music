@@ -3,11 +3,13 @@
 #include "wingsmech_int.h"
 #include "hydro_int.h"
 #include "landinggear_int.h"
+#include "antiicing_int.h"
 //extern bss bss_inst;
 //extern exchange exchange_inst;
 extern wingsmech_int wingsmech;
 extern hydro_int hydro;
 extern landinggear_int landinggea;
+extern antiicing_int antiicing;
 
 
 ////////////////////////////////////////////////////////////alternating current

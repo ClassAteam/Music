@@ -27,7 +27,7 @@
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="currentIndex">
-       <number>3</number>
+       <number>13</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -3258,6 +3258,43 @@
        <attribute name="title">
         <string>ПОС</string>
        </attribute>
+       <layout class="QGridLayout" name="gridLayout_6">
+        <item row="2" column="0">
+         <widget class="QLabel" name="uks1x315">
+          <property name="text">
+           <string>uks1x315</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="uks1x317">
+          <property name="text">
+           <string>uks1x317</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLabel" name="uks3x334">
+          <property name="text">
+           <string>uks3x334</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QLabel" name="uks1x316">
+          <property name="text">
+           <string>uks1x316</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="0">
+         <widget class="QLabel" name="uks3x335">
+          <property name="text">
+           <string>uks3x335</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </widget>
       <widget class="QWidget" name="tab_14">
        <attribute name="title">

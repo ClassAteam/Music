@@ -305,7 +305,7 @@ allElConsDir::allElConsDir()
     consumers.append(new sngElConsDir(3.0, sngElConsDir::shal, "prn1gs2", &hydro.prn1gs2));
     consumers.append(new sngElConsDir(3.0, sngElConsDir::shal, "prn2gs2", &hydro.prn2gs2));
 //    consumers.append(new sngElConsDir(8.0, sngElConsDir::shal, "pbutzo", &pbutzo));
-//    consumers.append(new sngElConsDir(10.0, sngElConsDir::sh1dpl, "poppd1", &poppd1));
+    consumers.append(new sngElConsDir(10.0, sngElConsDir::sh1dpl, "poppd1", &antiicing.poppd1));
     consumers.append(new sngElConsDir(8.0, sngElConsDir::sh1dpl, "gk_avn", &landinggea.gk_avn));
 //    consumers.append(new sngElConsDir(20.0, sngElConsDir::sh1dpl, "k1_17723", &k1_17723));
 //    consumers.append(new sngElConsDir(5.0, sngElConsDir::sh1dpl, "s1_11028", &s1_11028));
@@ -319,7 +319,7 @@ allElConsDir::allElConsDir()
 //    consumers.append(new sngElConsDir(5.0, sngElConsDir::sh1l, "k1_11038", &k1_11038));
 //    consumers.append(new sngElConsDir(7.0, sngElConsDir::sh1l, "s1_11081", &s1_11081));
 //    consumers.append(new sngElConsDir(10.0, sngElConsDir::sh2l, "k3_2250", &k3_2250));
-//    consumers.append(new sngElConsDir(10.0, sngElConsDir::sh2l, "poppd3", &poppd3));
+    consumers.append(new sngElConsDir(10.0, sngElConsDir::sh2l, "poppd3", &antiicing.poppd3));
 //    consumers.append(new sngElConsDir(7.0, sngElConsDir::sh2l, "k3_3650", &k3_3650));
 //    consumers.append(new sngElConsDir(15.0, sngElConsDir::sh2l, "k4_7322", &k4_7322));
 //    consumers.append(new sngElConsDir(15.0, sngElConsDir::sh2l, "k11_7322", &k11_7322));
@@ -346,7 +346,7 @@ allElConsDir::allElConsDir()
     consumers.append(new sngElConsDir(12.0, sngElConsDir::shap, "gk_avp", &landinggea.gk_avp));
 //    consumers.append(new sngElConsDir(10.0, sngElConsDir::shap, "k18_7322", &k18_7322));
 //    consumers.append(new sngElConsDir(10.0, sngElConsDir::sh1dpp, "k11_2250", &k11_2250));
-//    consumers.append(new sngElConsDir(9.0, sngElConsDir::sh1dpp, "poppd2", &poppd2));
+    consumers.append(new sngElConsDir(9.0, sngElConsDir::sh1dpp, "poppd2", &antiicing.poppd2));
 //    consumers.append(new sngElConsDir(8.0, sngElConsDir::sh1dpp, "pbutzr", &pbutzr));
 //    consumers.append(new sngElConsDir(5.0, sngElConsDir::sh2dpp, "s1_11028", &s1_11028));
 //    consumers.append(new sngElConsDir(7.0, sngElConsDir::sh2dpp, "s1_11081", &s1_11081));

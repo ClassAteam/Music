@@ -18,6 +18,7 @@ struct SH_FROMRMI_PILOT
     bool rap1PlugIn{};//Подключение РАП1(27В)
     bool rap2PlugIn{};//Подключение РАП2(27В)
     bool rapPlugIn{};//Подключение РАП(115/200В)
+    bool icing{};//Обледенение
 };
 
 
