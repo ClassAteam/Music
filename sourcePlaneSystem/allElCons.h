@@ -16,15 +16,15 @@ extern antiicing_int antiicing;
 class sngElConsAlt
 {
 public:
-    enum bus_indx{gen1, gen2, gen3, gen4, shavar1, shavar2, shavar3, shavar4, shp1, shp2};
+    enum bus_indx{gen1, gen2, gen3, gen4, shavar1, shavar2, shavar3, shavar4, shp1, shp2, lastElm = shp2};
 
-    sngElConsAlt(const double& in_currency, bus_indx in_bus, QString in_name)
-        : isActive{false}, currency{in_currency}, bus{in_bus}, name{in_name}
+    sngElConsAlt(const double& in_currency, bus_indx in_bus, QString in_name, bool* isActive)
+        : isActive{isActive}, currency{in_currency}, bus{in_bus}, name{in_name}
     {
     }
 
 public:
-    bool isActive;//need to be pointer i guess
+    bool* isActive;//need to be pointer i guess
     double currency;
     bus_indx bus;
     QString name;
@@ -33,7 +33,7 @@ public:
 class allElConsAlt
 {
 public:
-    enum bus_indx{gen1, gen2, gen3, gen4, shavar1, shavar2, shavar3, shavar4, shp1, shp2};
+    enum bus_indx{gen1, gen2, gen3, gen4, shavar1, shavar2, shavar3, shavar4, shp1, shp2, lastElem = shp2};
     enum major_bus{gvsu, rap};
 
     allElConsAlt();

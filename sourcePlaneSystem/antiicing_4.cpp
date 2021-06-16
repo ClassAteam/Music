@@ -112,7 +112,8 @@ void antiicing_int::antiicing_4()
     else
         K18_3030 = false;
 
-    if (exchange::ushap >= 18.0 && exchange::K24_3230 && exchange::usho1p >= 18.0 && exchange::s1_3030)
+    if (exchange::ushap >= 18.0 && exchange::K24_3230 &&
+        exchange::usho1p >= 18.0 && exchange::s1_3030)
         PKPPD = true;
     else
         PKPPD = false;
@@ -122,8 +123,7 @@ void antiicing_int::antiicing_4()
         K2_3030 = true;
     else
     {
-        if(exchange::ush2p < 18.0 || M < 1.25)
-            K2_3030 = false;
+        K2_3030 = (exchange::ush2p >= 18.0 && M > 1.25) ? true : false;
     }
 
     // K5_3030 toggle
@@ -131,8 +131,7 @@ void antiicing_int::antiicing_4()
         K5_3030 = true;
     else
     {
-        if(exchange::ush2p < 18.0 || M < 1.25)
-            K5_3030 = false;
+        K5_3030 = (exchange::ush2p >= 18.0 && M > 1.25) ? true : false;
     }
 
     // K8_3030 toggle
@@ -140,8 +139,7 @@ void antiicing_int::antiicing_4()
         K8_3030 = true;
     else
     {
-        if(exchange::ush2p < 18.0 || M < 1.25)
-            K8_3030 = false;
+        K8_3030 = (exchange::ush2p >= 18.0 && M > 1.25) ? true : false;
     }
 
     // K1_3030 toggle

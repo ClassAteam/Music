@@ -6,68 +6,72 @@
 allElConsAlt::allElConsAlt()
 {
     //init all consumers by currency, bus to consume from and name
-    consumers.append(new sngElConsAlt(8, sngElConsAlt::gen1, "PN1B6"));
-    consumers.append(new sngElConsAlt(8, sngElConsAlt::shavar3, "PN1B4"));
-    consumers.append(new sngElConsAlt(15, sngElConsAlt::shavar3, "PN1B3L"));
-    consumers.append(new sngElConsAlt(8, sngElConsAlt::shavar3, "PN1B1L"));
-    consumers.append(new sngElConsAlt(15, sngElConsAlt::shavar3, "PN1B2L"));
-    consumers.append(new sngElConsAlt(5, sngElConsAlt::gen1, "PND3BL"));
-    consumers.append(new sngElConsAlt(8, sngElConsAlt::gen1, "PN2B6"));
-    consumers.append(new sngElConsAlt(8, sngElConsAlt::gen2, "PN2B4"));
-    consumers.append(new sngElConsAlt(15, sngElConsAlt::gen1, "PN2B3L"));
-    consumers.append(new sngElConsAlt(8, sngElConsAlt::gen1, "PN3B3L"));
-    consumers.append(new sngElConsAlt(8, sngElConsAlt::gen1, "PN2B1L"));
-    consumers.append(new sngElConsAlt(15, sngElConsAlt::gen1, "PN2B2L"));
-    consumers.append(new sngElConsAlt(15, sngElConsAlt::shavar3, "PN1RB1"));
-    consumers.append(new sngElConsAlt(5, sngElConsAlt::shavar3, "PNTO1DV"));
-    consumers.append(new sngElConsAlt(15, sngElConsAlt::gen4, "PN2RB1"));
-    consumers.append(new sngElConsAlt(8, sngElConsAlt::gen1, "PN3RB1"));
-    consumers.append(new sngElConsAlt(15, sngElConsAlt::shavar3, "PN1RB2"));
-    consumers.append(new sngElConsAlt(5, sngElConsAlt::shavar3, "PNTO2DV"));
-    consumers.append(new sngElConsAlt(15, sngElConsAlt::gen4, "PN2RB2"));
-    consumers.append(new sngElConsAlt(8, sngElConsAlt::gen2, "PN3RB2"));
-    consumers.append(new sngElConsAlt(8, sngElConsAlt::gen4, "PN1B5"));
-    consumers.append(new sngElConsAlt(8, sngElConsAlt::shavar4, "PN3B4"));
-    consumers.append(new sngElConsAlt(15, sngElConsAlt::shavar4, "PN1B3P"));
-    consumers.append(new sngElConsAlt(8, sngElConsAlt::shavar4, "PN1B1P"));
-    consumers.append(new sngElConsAlt(15, sngElConsAlt::shavar4, "PN1B2P"));
-    consumers.append(new sngElConsAlt(5, sngElConsAlt::gen4, "PNDB5"));
-    consumers.append(new sngElConsAlt(5, sngElConsAlt::gen4, "PNDB3P"));
-    consumers.append(new sngElConsAlt(8, sngElConsAlt::gen1, "PN2B5"));
-    consumers.append(new sngElConsAlt(8, sngElConsAlt::gen4, "PN4B4"));
-    consumers.append(new sngElConsAlt(15, sngElConsAlt::gen4, "PN2B3P"));
-    consumers.append(new sngElConsAlt(8, sngElConsAlt::gen4, "PN3B3P"));
-    consumers.append(new sngElConsAlt(8, sngElConsAlt::gen4, "PN2B1P"));
-    consumers.append(new sngElConsAlt(15, sngElConsAlt::gen4, "PN2B2P"));
-    consumers.append(new sngElConsAlt(15, sngElConsAlt::shavar4, "PN1B3P"));
-    consumers.append(new sngElConsAlt(5, sngElConsAlt::shavar4, "PNTO3DV"));
-    consumers.append(new sngElConsAlt(8, sngElConsAlt::gen1, "PN3RB3"));
-    consumers.append(new sngElConsAlt(8, sngElConsAlt::gen3, "PN1RB4"));
-    consumers.append(new sngElConsAlt(15, sngElConsAlt::shavar4, "PNTO4DV"));
-    consumers.append(new sngElConsAlt(5, sngElConsAlt::shavar4, "PN2RB4"));
-    consumers.append(new sngElConsAlt(15, sngElConsAlt::gen1, "PN3RB4"));
-    consumers.append(new sngElConsAlt(8, sngElConsAlt::gen4, "PNP3B1L"));
-    consumers.append(new sngElConsAlt(8, sngElConsAlt::gen2, "PNP1B1L"));
-    consumers.append(new sngElConsAlt(5, sngElConsAlt::shavar3, "PNP1B6"));
-    consumers.append(new sngElConsAlt(5, sngElConsAlt::gen1, "PNP2B1L"));
-    consumers.append(new sngElConsAlt(8, sngElConsAlt::gen1, "PNP2B1P"));
-    consumers.append(new sngElConsAlt(8, sngElConsAlt::gen3, "PNP1B5"));
-    consumers.append(new sngElConsAlt(5, sngElConsAlt::gen4, "PNP1B1P"));
-    consumers.append(new sngElConsAlt(5, sngElConsAlt::shavar4, "PNP3B1P"));
-    consumers.append(new sngElConsAlt(8, sngElConsAlt::shavar4, "PDN1"));
-//    consumers.append(sngElCons(antiicing_inst.POV3dv1, sngElCons::shp1, "POV3dv1"));
-//    consumers.append(sngElCons(antiicing_inst.POV3dv2, sngElCons::shp1, "POV3dv2"));
-//    consumers.append(sngElCons(antiicing_inst.POV3dv3, sngElCons::shp2, "POV3dv3"));
-//    consumers.append(sngElCons(antiicing_inst.POV3dv4, sngElCons::shp2, "POV3dv4"));
+//    consumers.append(new sngElConsAlt(8, sngElConsAlt::gen1, "PN1B6"));
+//    consumers.append(new sngElConsAlt(8, sngElConsAlt::shavar3, "PN1B4"));
+//    consumers.append(new sngElConsAlt(15, sngElConsAlt::shavar3, "PN1B3L"));
+//    consumers.append(new sngElConsAlt(8, sngElConsAlt::shavar3, "PN1B1L"));
+//    consumers.append(new sngElConsAlt(15, sngElConsAlt::shavar3, "PN1B2L"));
+//    consumers.append(new sngElConsAlt(5, sngElConsAlt::gen1, "PND3BL"));
+//    consumers.append(new sngElConsAlt(8, sngElConsAlt::gen1, "PN2B6"));
+//    consumers.append(new sngElConsAlt(8, sngElConsAlt::gen2, "PN2B4"));
+//    consumers.append(new sngElConsAlt(15, sngElConsAlt::gen1, "PN2B3L"));
+//    consumers.append(new sngElConsAlt(8, sngElConsAlt::gen1, "PN3B3L"));
+//    consumers.append(new sngElConsAlt(8, sngElConsAlt::gen1, "PN2B1L"));
+//    consumers.append(new sngElConsAlt(15, sngElConsAlt::gen1, "PN2B2L"));
+//    consumers.append(new sngElConsAlt(15, sngElConsAlt::shavar3, "PN1RB1"));
+//    consumers.append(new sngElConsAlt(5, sngElConsAlt::shavar3, "PNTO1DV"));
+//    consumers.append(new sngElConsAlt(15, sngElConsAlt::gen4, "PN2RB1"));
+//    consumers.append(new sngElConsAlt(8, sngElConsAlt::gen1, "PN3RB1"));
+//    consumers.append(new sngElConsAlt(15, sngElConsAlt::shavar3, "PN1RB2"));
+//    consumers.append(new sngElConsAlt(5, sngElConsAlt::shavar3, "PNTO2DV"));
+//    consumers.append(new sngElConsAlt(15, sngElConsAlt::gen4, "PN2RB2"));
+//    consumers.append(new sngElConsAlt(8, sngElConsAlt::gen2, "PN3RB2"));
+//    consumers.append(new sngElConsAlt(8, sngElConsAlt::gen4, "PN1B5"));
+//    consumers.append(new sngElConsAlt(8, sngElConsAlt::shavar4, "PN3B4"));
+//    consumers.append(new sngElConsAlt(15, sngElConsAlt::shavar4, "PN1B3P"));
+//    consumers.append(new sngElConsAlt(8, sngElConsAlt::shavar4, "PN1B1P"));
+//    consumers.append(new sngElConsAlt(15, sngElConsAlt::shavar4, "PN1B2P"));
+//    consumers.append(new sngElConsAlt(5, sngElConsAlt::gen4, "PNDB5"));
+//    consumers.append(new sngElConsAlt(5, sngElConsAlt::gen4, "PNDB3P"));
+//    consumers.append(new sngElConsAlt(8, sngElConsAlt::gen1, "PN2B5"));
+//    consumers.append(new sngElConsAlt(8, sngElConsAlt::gen4, "PN4B4"));
+//    consumers.append(new sngElConsAlt(15, sngElConsAlt::gen4, "PN2B3P"));
+//    consumers.append(new sngElConsAlt(8, sngElConsAlt::gen4, "PN3B3P"));
+//    consumers.append(new sngElConsAlt(8, sngElConsAlt::gen4, "PN2B1P"));
+//    consumers.append(new sngElConsAlt(15, sngElConsAlt::gen4, "PN2B2P"));
+//    consumers.append(new sngElConsAlt(15, sngElConsAlt::shavar4, "PN1B3P"));
+//    consumers.append(new sngElConsAlt(5, sngElConsAlt::shavar4, "PNTO3DV"));
+//    consumers.append(new sngElConsAlt(8, sngElConsAlt::gen1, "PN3RB3"));
+//    consumers.append(new sngElConsAlt(8, sngElConsAlt::gen3, "PN1RB4"));
+//    consumers.append(new sngElConsAlt(15, sngElConsAlt::shavar4, "PNTO4DV"));
+//    consumers.append(new sngElConsAlt(5, sngElConsAlt::shavar4, "PN2RB4"));
+//    consumers.append(new sngElConsAlt(15, sngElConsAlt::gen1, "PN3RB4"));
+//    consumers.append(new sngElConsAlt(8, sngElConsAlt::gen4, "PNP3B1L"));
+//    consumers.append(new sngElConsAlt(8, sngElConsAlt::gen2, "PNP1B1L"));
+//    consumers.append(new sngElConsAlt(5, sngElConsAlt::shavar3, "PNP1B6"));
+//    consumers.append(new sngElConsAlt(5, sngElConsAlt::gen1, "PNP2B1L"));
+//    consumers.append(new sngElConsAlt(8, sngElConsAlt::gen1, "PNP2B1P"));
+//    consumers.append(new sngElConsAlt(8, sngElConsAlt::gen3, "PNP1B5"));
+//    consumers.append(new sngElConsAlt(5, sngElConsAlt::gen4, "PNP1B1P"));
+//    consumers.append(new sngElConsAlt(5, sngElConsAlt::shavar4, "PNP3B1P"));
+//    consumers.append(new sngElConsAlt(8, sngElConsAlt::shavar4, "PDN1"));
+    consumers.append(new sngElConsAlt(10.0, sngElConsAlt::shp1, "POV3dv1",
+                                      &antiicing.POV3dv1));
+    consumers.append(new sngElConsAlt(10.0, sngElConsAlt::shp1, "POV3dv2",
+                                      &antiicing.POV3dv2));
+    consumers.append(new sngElConsAlt(10.0, sngElConsAlt::shp2, "POV3dv3",
+                                      &antiicing.POV3dv3));
+    consumers.append(new sngElConsAlt(10.0, sngElConsAlt::shp2, "POV3dv4",
+                                      &antiicing.POV3dv4));
 }
 
 QVector<double> allElConsAlt::getIvg_pool()
 //take voltages on each bus corresponding to consumers
 {
-    QVector<double>ivg(consumers.count());
+    QVector<double>ivg(bus_indx::lastElem + 1);
     for(int i = 0; i < consumers.count(); ++i)
     {
-        if(consumers[i]->isActive == true)
+        if(*(consumers[i]->isActive) == true)
         {
             switch(consumers[i]->bus)
             {
@@ -290,23 +294,37 @@ void allElConsAlt::makeCorresCurr()
 allElConsDir::allElConsDir()
 {
     //init all consumers by currency, bus to consume from and name
-    consumers.append(new sngElConsDir(10.0, sngElConsDir::shal, "por1kz", &wingsmech.por1kz));
-    consumers.append(new sngElConsDir(10.0, sngElConsDir::shal, "prr1kz", &wingsmech.prr1kz));
-    consumers.append(new sngElConsDir(10.0, sngElConsDir::shal, "psr1kz", &wingsmech.psr1kz));
-    consumers.append(new sngElConsDir(10.0, sngElConsDir::shal, "por1kpr", &wingsmech.por1kpr));
-    consumers.append(new sngElConsDir(10.0, sngElConsDir::shal, "prr1kpr", &wingsmech.prr1kpr));
-    consumers.append(new sngElConsDir(10.0, sngElConsDir::shal, "psr1kpr", &wingsmech.psr1kpr));
-    consumers.append(new sngElConsDir(10.0, sngElConsDir::shal, "por1kpchk", &wingsmech.por1kpchk));
-    consumers.append(new sngElConsDir(10.0, sngElConsDir::shal, "prr1kpchk", &wingsmech.prr1kpchk));
+    consumers.append(new sngElConsDir(10.0, sngElConsDir::shal, "por1kz",
+                                      &wingsmech.por1kz));
+    consumers.append(new sngElConsDir(10.0, sngElConsDir::shal, "prr1kz",
+ &wingsmech.prr1kz));
+    consumers.append(new sngElConsDir(10.0, sngElConsDir::shal, "psr1kz",
+ &wingsmech.psr1kz));
+    consumers.append(new sngElConsDir(10.0, sngElConsDir::shal, "por1kpr",
+ &wingsmech.por1kpr));
+    consumers.append(new sngElConsDir(10.0, sngElConsDir::shal, "prr1kpr",
+ &wingsmech.prr1kpr));
+    consumers.append(new sngElConsDir(10.0, sngElConsDir::shal, "psr1kpr",
+ &wingsmech.psr1kpr));
+    consumers.append(new sngElConsDir(10.0, sngElConsDir::shal, "por1kpchk",
+ &wingsmech.por1kpchk));
+    consumers.append(new sngElConsDir(10.0, sngElConsDir::shal, "prr1kpchk",
+ &wingsmech.prr1kpchk));
 //    consumers.append(new sngElConsDir(30.0, sngElConsDir::shal, "k4_4940", &wingsmech.k4_4940));
 //    consumers.append(new sngElConsDir(30.0, sngElConsDir::shal, "s1_4940", &wingsmech.s1_4940));
-    consumers.append(new sngElConsDir(3.0, sngElConsDir::shal, "prn1gs1", &hydro.prn1gs1));
-    consumers.append(new sngElConsDir(3.0, sngElConsDir::shal, "prn2gs1", &hydro.prn2gs1));
-    consumers.append(new sngElConsDir(3.0, sngElConsDir::shal, "prn1gs2", &hydro.prn1gs2));
-    consumers.append(new sngElConsDir(3.0, sngElConsDir::shal, "prn2gs2", &hydro.prn2gs2));
+    consumers.append(new sngElConsDir(3.0, sngElConsDir::shal, "prn1gs1",
+ &hydro.prn1gs1));
+    consumers.append(new sngElConsDir(3.0, sngElConsDir::shal, "prn2gs1",
+ &hydro.prn2gs1));
+    consumers.append(new sngElConsDir(3.0, sngElConsDir::shal, "prn1gs2",
+ &hydro.prn1gs2));
+    consumers.append(new sngElConsDir(3.0, sngElConsDir::shal, "prn2gs2",
+ &hydro.prn2gs2));
 //    consumers.append(new sngElConsDir(8.0, sngElConsDir::shal, "pbutzo", &pbutzo));
-    consumers.append(new sngElConsDir(10.0, sngElConsDir::sh1dpl, "poppd1", &antiicing.poppd1));
-    consumers.append(new sngElConsDir(8.0, sngElConsDir::sh1dpl, "gk_avn", &landinggea.gk_avn));
+    consumers.append(new sngElConsDir(10.0, sngElConsDir::sh1dpl, "poppd1",
+ &antiicing.poppd1));
+    consumers.append(new sngElConsDir(8.0, sngElConsDir::sh1dpl, "gk_avn",
+ &landinggea.gk_avn));
 //    consumers.append(new sngElConsDir(20.0, sngElConsDir::sh1dpl, "k1_17723", &k1_17723));
 //    consumers.append(new sngElConsDir(5.0, sngElConsDir::sh1dpl, "s1_11028", &s1_11028));
 //    consumers.append(new sngElConsDir(5.0, sngElConsDir::sh1dpl, "s1_11313", &s1_11313));
@@ -319,7 +337,8 @@ allElConsDir::allElConsDir()
 //    consumers.append(new sngElConsDir(5.0, sngElConsDir::sh1l, "k1_11038", &k1_11038));
 //    consumers.append(new sngElConsDir(7.0, sngElConsDir::sh1l, "s1_11081", &s1_11081));
 //    consumers.append(new sngElConsDir(10.0, sngElConsDir::sh2l, "k3_2250", &k3_2250));
-    consumers.append(new sngElConsDir(10.0, sngElConsDir::sh2l, "poppd3", &antiicing.poppd3));
+    consumers.append(new sngElConsDir(10.0, sngElConsDir::sh2l, "poppd3",
+ &antiicing.poppd3));
 //    consumers.append(new sngElConsDir(7.0, sngElConsDir::sh2l, "k3_3650", &k3_3650));
 //    consumers.append(new sngElConsDir(15.0, sngElConsDir::sh2l, "k4_7322", &k4_7322));
 //    consumers.append(new sngElConsDir(15.0, sngElConsDir::sh2l, "k11_7322", &k11_7322));
@@ -330,23 +349,38 @@ allElConsDir::allElConsDir()
 //    consumers.append(new sngElConsDir(7.0, sngElConsDir::sho2l, "k1_17723", &k1_17723));
 //    consumers.append(new sngElConsDir(15.0, sngElConsDir::shap, "k7_2420", &k7_2420));
 //    consumers.append(new sngElConsDir(15.0, sngElConsDir::shap, "k8_2420", &k8_2420));
-    consumers.append(new sngElConsDir(10.0, sngElConsDir::shap, "por2kz", &wingsmech.por2kz));
-    consumers.append(new sngElConsDir(10.0, sngElConsDir::shap, "prr2kz", &wingsmech.prr2kz));
-    consumers.append(new sngElConsDir(10.0, sngElConsDir::shap, "psr2kz", &wingsmech.psr2kz));
-    consumers.append(new sngElConsDir(10.0, sngElConsDir::shap, "por2kpr", &wingsmech.por2kpr));
-    consumers.append(new sngElConsDir(10.0, sngElConsDir::shap, "prr2kpr", &wingsmech.prr2kpr));
-    consumers.append(new sngElConsDir(10.0, sngElConsDir::shap, "psr2kpr", &wingsmech.psr2kpr));
-    consumers.append(new sngElConsDir(10.0, sngElConsDir::shap, "por2kpchk", &wingsmech.por2kpchk));
-    consumers.append(new sngElConsDir(10.0, sngElConsDir::shap, "prr2kpchk", &wingsmech.prr2kpchk));
-    consumers.append(new sngElConsDir(3.0, sngElConsDir::shap, "prn1gs3", &hydro.prn1gs3));
-    consumers.append(new sngElConsDir(3.0, sngElConsDir::shap, "prn2gs3", &hydro.prn2gs3));
-    consumers.append(new sngElConsDir(3.0, sngElConsDir::shap, "prn1gs4", &hydro.prn1gs4));
-    consumers.append(new sngElConsDir(3.0, sngElConsDir::shap, "prn2gs4", &hydro.prn2gs4));
-    consumers.append(new sngElConsDir(12.0, sngElConsDir::shap, "gk_avl", &landinggea.gk_avl));
-    consumers.append(new sngElConsDir(12.0, sngElConsDir::shap, "gk_avp", &landinggea.gk_avp));
+    consumers.append(new sngElConsDir(10.0, sngElConsDir::shap, "por2kz",
+ &wingsmech.por2kz));
+    consumers.append(new sngElConsDir(10.0, sngElConsDir::shap, "prr2kz",
+ &wingsmech.prr2kz));
+    consumers.append(new sngElConsDir(10.0, sngElConsDir::shap, "psr2kz",
+ &wingsmech.psr2kz));
+    consumers.append(new sngElConsDir(10.0, sngElConsDir::shap, "por2kpr",
+ &wingsmech.por2kpr));
+    consumers.append(new sngElConsDir(10.0, sngElConsDir::shap, "prr2kpr",
+ &wingsmech.prr2kpr));
+    consumers.append(new sngElConsDir(10.0, sngElConsDir::shap, "psr2kpr",
+ &wingsmech.psr2kpr));
+    consumers.append(new sngElConsDir(10.0, sngElConsDir::shap, "por2kpchk",
+ &wingsmech.por2kpchk));
+    consumers.append(new sngElConsDir(10.0, sngElConsDir::shap, "prr2kpchk",
+ &wingsmech.prr2kpchk));
+    consumers.append(new sngElConsDir(3.0, sngElConsDir::shap, "prn1gs3",
+ &hydro.prn1gs3));
+    consumers.append(new sngElConsDir(3.0, sngElConsDir::shap, "prn2gs3",
+ &hydro.prn2gs3));
+    consumers.append(new sngElConsDir(3.0, sngElConsDir::shap, "prn1gs4",
+ &hydro.prn1gs4));
+    consumers.append(new sngElConsDir(3.0, sngElConsDir::shap, "prn2gs4",
+ &hydro.prn2gs4));
+    consumers.append(new sngElConsDir(12.0, sngElConsDir::shap, "gk_avl",
+ &landinggea.gk_avl));
+    consumers.append(new sngElConsDir(12.0, sngElConsDir::shap, "gk_avp",
+ &landinggea.gk_avp));
 //    consumers.append(new sngElConsDir(10.0, sngElConsDir::shap, "k18_7322", &k18_7322));
 //    consumers.append(new sngElConsDir(10.0, sngElConsDir::sh1dpp, "k11_2250", &k11_2250));
-    consumers.append(new sngElConsDir(9.0, sngElConsDir::sh1dpp, "poppd2", &antiicing.poppd2));
+    consumers.append(new sngElConsDir(9.0, sngElConsDir::sh1dpp, "poppd2",
+ &antiicing.poppd2));
 //    consumers.append(new sngElConsDir(8.0, sngElConsDir::sh1dpp, "pbutzr", &pbutzr));
 //    consumers.append(new sngElConsDir(5.0, sngElConsDir::sh2dpp, "s1_11028", &s1_11028));
 //    consumers.append(new sngElConsDir(7.0, sngElConsDir::sh2dpp, "s1_11081", &s1_11081));
