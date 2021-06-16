@@ -118,9 +118,9 @@ public:
         PONdv2{},
         PONdv3{},
         PONdv4{},
-        PRSOL{},
+        PRSOL{},//priznak raboti signala obledeneniya leviy
         PSOBLL{},
-        PSOBLP{},
+        PSOBLP{},//priznak raboti signala obledeneniya praviy
         PSOLD{},//priznak signala obledeneniya ot levogo datchika
         PSOPD{},//priznak signala obledeneniya ot pravogo datchika
         PVOVNA1{},

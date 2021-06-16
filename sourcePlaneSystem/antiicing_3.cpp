@@ -143,17 +143,10 @@ static int
     //PONdv1, POB1dv1, POB2dv1, POB3dv1 toggle
     if(exchange::ushpP[0][0] >= 106.0)
     {
-        if(K14_3020) PONdv1 = true;
-        else PONdv1 = false;
-
-        if(K16_3020) POB1dv1 = true;
-        else POB1dv1 = false;
-
-        if(K19_3020) POB2dv1 = true;
-        else POB2dv1 = false;
-
-        if(K20_3020) POB3dv1 = true;
-        else POB3dv1 = false;
+        PONdv1 = (K14_3020) ? true : false;
+        POB1dv1 = (K16_3020) ? true : false;
+        POB2dv1 = (K19_3020) ? true : false;
+        POB3dv1 = (K20_3020) ? true : false;
     }
     else
     {
@@ -166,17 +159,10 @@ static int
     //2 PONdv2, POB1dv2, POB2dv2, POB3dv2 toggle
     if (exchange::ushpP[0][0] >= 106.0)
     {
-        if(K21_3020) PONdv2 = true;
-        else PONdv2 = false;
-
-        if(K23_3020) POB1dv2 = true;
-        else POB1dv2 = false;
-
-        if(K25_3020) POB2dv2 = true;
-        else POB2dv2 = false;
-
-        if(K28_3020) POB3dv2 = true;
-        else POB3dv2 = false;
+        PONdv2 = (K21_3020) ? true : false;
+        POB1dv2 = (K23_3020) ? true : false;
+        POB2dv2 = (K25_3020) ? true : false;
+        POB3dv2 = (K28_3020) ? true : false;
     }
     else
     {
@@ -189,17 +175,10 @@ static int
     //3 PONdv3, POB1dv3, POB2dv3, POB3dv3 toggle
     if(exchange::ushpP[1][0] >= 106.0)
     {
-        if(K30_3020) PONdv3 = true;
-        else PONdv3 = false;
-
-        if(K32_3020) POB1dv3 = true;
-        else POB1dv3 = false;
-
-        if(K35_3020) POB2dv3 = true;
-        else POB2dv3 = false;
-
-        if(K36_3020) POB3dv3 = true;
-        else POB3dv3 = false;
+        PONdv3 = (K30_3020) ? true : false;
+        POB1dv3 = (K32_3020) ? true : false;
+        POB2dv3 = (K35_3020) ? true : false;
+        POB3dv3 = (K36_3020) ? true : false;
     }
     else
     {
@@ -212,17 +191,10 @@ static int
     //4 PONdv4, POB1dv4, POB2dv4, POB3dv4 toggle
     if(exchange::ushpP[1][0] >= 106.0)
     {
-        if(K37_3020) PONdv4 = true;
-        else PONdv4 = false;
-
-        if(K39_3020) POB1dv4 = true;
-        else POB1dv4 = false;
-
-        if(K41_3020) POB2dv4 = true;
-        else POB2dv4 = false;
-
-        if(K44_3020) POB3dv4 = true;
-        else POB3dv4 = false;
+        PONdv4 = (K37_3020) ? true : false;
+        POB1dv4 = (K39_3020) ? true : false;
+        POB2dv4 = (K41_3020) ? true : false;
+        POB3dv4 = (K44_3020) ? true : false;
     }
     else
     {
@@ -232,37 +204,19 @@ static int
         POB3dv4 = false;
     }
 
-    if (exchange::ush1p >= 18.0 && S5_3080)
-        PVOVNA3 = true;
-    else
-        PVOVNA3 = false;
+    PVOVNA3 = (exchange::ush1p >= 18.0 && S5_3080) ? true : false;
+    PVOVNA2 = (exchange::ush2l >= 18.0 && S4_3080) ? true : false;
+    PVOVNA1 = (exchange::ush1l >= 18.0 && exchange::s3_3080) ? true : false;
+    PVOVNA4 = (exchange::ush2p >= 18.0 && S6_3080) ? true : false;
 
-    if(exchange::ush2l >= 18.0 && S4_3080)
-        PVOVNA2 = true;
-    else
-        PVOVNA2 = false;
+    bss_inst.BSS825PR = (exchange::usho1p >= 18.0 && F110_3020) ? true : false;
 
-    if (exchange::ush1l >= 18.0 && exchange::s3_3080)
-        PVOVNA1 = true;
-    else
-        PVOVNA1 = false;
+//    POV3dv1 = (PONdv1 * 35) + (POB1dv1 * 40) + (POB2dv1 * 40) + (POB3dv1 * 30);
 
-    if(exchange::ush2p >= 18.0 && S6_3080)
-        PVOVNA4 = true;
-    else
-        PVOVNA4 = false;
+//    POV3dv2 = (PONdv2 * 35) + (POB1dv2 * 40) + (POB2dv2 * 40) + (POB3dv2 * 30);
 
-    if (exchange::usho1p >= 18.0 && F110_3020)
-        bss_inst.BSS825PR = true;
-    else
-        bss_inst.BSS825PR = false;
+//    POV3dv3 = (PONdv3 * 35) + (POB1dv3 * 40) + (POB2dv3 * 40) + (POB3dv3 * 30);
 
-    POV3dv1 = (PONdv1 * 35) + (POB1dv1 * 40) + (POB2dv1 * 40) + (POB3dv1 * 30);
-
-    POV3dv2 = (PONdv2 * 35) + (POB1dv2 * 40) + (POB2dv2 * 40) + (POB3dv2 * 30);
-
-    POV3dv3 = (PONdv3 * 35) + (POB1dv3 * 40) + (POB2dv3 * 40) + (POB3dv3 * 30);
-
-    POV3dv4 = (PONdv4 * 35) + (POB1dv4 * 40) + (POB2dv4 * 40) + (POB3dv4 * 30);
+//    POV3dv4 = (PONdv4 * 35) + (POB1dv4 * 40) + (POB2dv4 * 40) + (POB3dv4 * 30);
 
 }

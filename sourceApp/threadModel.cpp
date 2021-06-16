@@ -357,6 +357,7 @@ void IN_antiicing_int      ()
     antiicing.otkaz_lozhn_srab_prav_so121 = pFromP->Otkaz[52];
 
     antiicing.M_buf = pISU->M;
+    antiicing.signal_obled = pFromP->icing;
 }
 void IN_brakes_int         ()
 {
