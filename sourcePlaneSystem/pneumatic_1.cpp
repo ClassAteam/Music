@@ -155,7 +155,7 @@ void pneumatic_int::pneumatic_1()
     if(pzsnpb)
         Pnpb = Pnpb - ((0.1 /3600) * (TICK / 1000));
 
-    if(exchange::ush1l >= 18.0 && k26_3230 && Pnpb < 130.0)
+    if(exchange::ush1l >= 18.0 && exchange::K26_3230 && Pnpb < 130.0)
     {
         bss_inst.BSS837X1X = true;
         uks_inst.UKS3X17 = true;
@@ -172,8 +172,11 @@ void pneumatic_int::pneumatic_1()
     if(pzsnzb)
         Pnzb = Pnzb - ((0.1/3600) * (TICK / 1000));
 
-    if(exchange::ush1l >= 18.0 && k26_3230 && bss_inst.BSS837X1Z)
+    if(exchange::ush1l >= 18.0 && exchange::K26_3230 && Pnzb < 130.0)
+    {
+        bss_inst.BSS837X1Z = true;
         uks_inst.UKS3X18 = true;
+    }
 
     if(Pzm < 0.0) Pzm = 0.0;
     if(Pnpb < 0.0) Pnpb = 0.0;

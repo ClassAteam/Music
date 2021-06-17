@@ -496,7 +496,25 @@ void IN_landinggear_int    ()
     landinggea.otkaz_2_kanala = pFromP->Otkaz[81];
 }
 void IN_pneumatic_int      ()
-{}
+{
+    pneumatic.du_o = pDev->IN_MAT[1035];
+    exchange::s1_2830 = pDev->IN_MAT[278];
+    exchange::s2_2830 = pDev->IN_MAT[279];
+    exchange::s1_3650 = pDev->IN_MAT[598];
+    exchange::s2_3650 = pDev->IN_MAT[599];
+    if(pFromP->balPneuToFull)
+    {
+        pneumatic.Pzm = 150.0;
+        pneumatic.Pger = 150.0;
+        pneumatic.Pslt = 150.0;
+        pneumatic.Pnpb = 150.0;
+        pneumatic.Pnzb = 150.0;
+        pneumatic.Vzm = 3000.0;
+        pneumatic.Vslt = 3000.0;
+        pneumatic.Vnpb = 3000.0;
+        pneumatic.Vnzb = 3000.0;
+    }
+}
 void IN_powerdc_int        ()
 {
     exchange::s1_2430 = pDev->IN_MAT[556];
@@ -746,7 +764,17 @@ void OUT_landinggear_int    ()
 }
 
 void OUT_pneumatic_int      ()
-{}
+{
+    pDev->OUT_D[4][4] = pneumatic.psdzh_duo;
+    pDev->OUT_D[4][5] = pneumatic.psdz_duo;
+    pDev->OUT_D[0][12] = bss_inst.BSS811X2c;
+    pDev->OUT_D[1][12] = bss_inst.BSS824X2E;
+    pDev->OUT_D[2][62] = bss_inst.BSS837X2M;
+    pDev->OUT_D[2][61] = bss_inst.BSS837X2L;
+    pDev->OUT_D[1][18] = bss_inst.BSS824X2B;
+    pDev->OUT_D[0][116] = bss_inst.BSS811X2S;
+    pDev->OUT_D[0][117] = bss_inst.BSS811X2T;
+}
 
 void OUT_powerdc_int        ()
 {

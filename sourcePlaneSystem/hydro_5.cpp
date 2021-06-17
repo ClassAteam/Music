@@ -4,18 +4,40 @@
 
 void hydro_int::hydro_5() //hydro6th
 {
-    if(pgs3 >= exchange::pgat)
-        qngat = qngs3;
-    else
-        qngat = 0;
+    qngat = (pgs3 >= exchange::pgat) ? qngs3 : 0.1;
 
-    if(brakes.PstoyanT)
-        qpts = qpts + 0.000015 * ts;
-    else
-        qpts = 0;
+//    if(brakes.PstoyanT)
+//        qpts = qpts + 0.000015 * ts;
+//    else
+//        qpts = 0;
 
-    d_wpgat = qngat - qpts;
-    wpgat = (wpgat + d_wpgat);
+//    d_wpgat = qngat - qpts;
+//    wpgat = (wpgat + d_wpgat);
+
+//    if(qngat > 0.0 && ((brakes.P_t_lev/120 + brakes.P_t_prav/120) > 0.12))
+    if((brakes.P_t_lev/120 + brakes.P_t_prav/120) > 0.12)
+    {
+        wpgat = (((brakes.P_t_lev + brakes.P_t_prav)/240 + brakes.Pavart/15)
+                 * 0.025);
+
+        if(wpgat > wpgat_n) wpgat_n = wpgat;
+
+//        wpgat = wpgat_k + wpgat_n;
+        wpgat = 2.4 - (wpgat_k + wpgat_n);
+    }
+    else
+    {
+        if(((brakes.P_t_lev/120 + brakes.P_t_prav/120) > 0.12))
+            wpgat_k = wpgat_n;
+
+        qpts = 0.0;
+        if(brakes.PstoyanT)
+            qpts = qpts + 0.000015 * ts;
+
+        d_wpgat = qngat - qpts;
+        wpgat = wpgat + d_wpgat;
+    }
+
 
     if(KKGS[2]) //mb (*) ?
     {
@@ -56,7 +78,7 @@ void hydro_int::hydro_5() //hydro6th
             }
         }
     }
-    pgat_z = (p0gat * w0gat) / (w0gat - wpgat -(((brakes.P_t_lev + brakes.P_t_prav) / 240) * 0.05));
+    pgat_z = (p0gat * w0gat) / (w0gat - wpgat);
     exchange::pgat = exchange::pgat + ((pgat_z - exchange::pgat) * (kgat)) * ts;
 
     QVector<bool> pnn1gs_pool = {pnngs1[0], pnngs2[0], pnngs3[0], pnngs4[0]};

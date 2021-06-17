@@ -395,7 +395,18 @@ void  MainWindow:: Print_landinggea    ()
 }
 void  MainWindow:: Print_pneumatic     ()
 {
-
+    ui->y1_2830->setText("признак аварийного слива топлива из передних баков = " + QString::number(pneumatic.y1_2830));
+    ui->y4_2830->setText("признак аварийного слива топлива из задних баков = " + QString::number(pneumatic.y4_2830));
+    ui->y1_3650->setText("признак клапана системы наддува блоков РЭО передних = " + QString::number(pneumatic.y1_3650));
+    ui->y2_3650->setText("признак клапана системы наддува блоков РЭО задних = " + QString::number(pneumatic.y2_3650));
+    ui->uks3x34->setText("Люки гермет отказ = " + QString::number(uks_inst.UKS3X34));
+    ui->uks3x35->setText("Люки гермет отказ = " + QString::number(uks_inst.UKS3X35));
+    ui->uks3x17->setText("Наддув блоков давл. мало передн. = " + QString::number(uks_inst.UKS3X17));
+    ui->uks3x18->setText("Наддув блоков давл. мало задн. = " + QString::number(uks_inst.UKS3X18));
+    ui->pzm->setText("Давление в заправочной магистрали = " + QString::number(pneumatic.Pzm));
+    ui->pslt->setText("Давление в системе управление аварийным сливом топлива = " + QString::number(pneumatic.Pslt));
+    ui->pnpb->setText("Давление в системе наддува блоков РЕО передних = " + QString::number(pneumatic.Pnpb));
+    ui->pnzb->setText("Давление в системе наддува блоков РЕО задних = " + QString::number(pneumatic.Pnzb));
 }
 void  MainWindow:: Print_powerdc       ()
 {

@@ -225,6 +225,8 @@ public:
     double w0gs3{2.36};
     double w0gs4{2.36};
     double wpgat{};
+    double wpgat_k{};
+    double wpgat_n{};
     double wpgs1{};
     double wpgs2{};
     double wpgs4{};
