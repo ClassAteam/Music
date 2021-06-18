@@ -127,8 +127,8 @@ void brakes_int::brakes_5()
         }
     }
 
-        if(exchange::pgat >= 130)
-            exchange::pgat = exchange::pgat - (Pavart * (TICK / 1000));
+//        if(exchange::pgat >= 130)
+//            exchange::pgat = exchange::pgat - (Pavart * (TICK / 1000));
 
         P_az_gat = 115 + (0.59 * exchange::pgat);
 

@@ -4,40 +4,15 @@
 
 void hydro_int::hydro_5() //hydro6th
 {
-    qngat = (pgs3 >= exchange::pgat) ? qngs3 : 0.1;
+    static double w0gat{4.07};
 
-//    if(brakes.PstoyanT)
-//        qpts = qpts + 0.000015 * ts;
-//    else
-//        qpts = 0;
-
-//    d_wpgat = qngat - qpts;
-//    wpgat = (wpgat + d_wpgat);
-
-//    if(qngat > 0.0 && ((brakes.P_t_lev/120 + brakes.P_t_prav/120) > 0.12))
-    if((brakes.P_t_lev/120 + brakes.P_t_prav/120) > 0.12)
-    {
-        wpgat = (((brakes.P_t_lev + brakes.P_t_prav)/240 + brakes.Pavart/15)
-                 * 0.025);
-
-        if(wpgat > wpgat_n) wpgat_n = wpgat;
-
-//        wpgat = wpgat_k + wpgat_n;
-        wpgat = 2.4 - (wpgat_k + wpgat_n);
-    }
-    else
-    {
-        if(((brakes.P_t_lev/120 + brakes.P_t_prav/120) > 0.12))
-            wpgat_k = wpgat_n;
-
-        qpts = 0.0;
-        if(brakes.PstoyanT)
-            qpts = qpts + 0.000015 * ts;
-
-        d_wpgat = qngat - qpts;
-        wpgat = wpgat + d_wpgat;
-    }
-
+    wpgat = wpgatCalc(pgs3,
+                     exchange::pgat,
+                     qngs3,
+                     brakes.X_tp_lev,
+                     brakes.X_tp_prav,
+                     brakes.Pavart,
+                     brakes.PstoyanT);
 
     if(KKGS[2]) //mb (*) ?
     {
@@ -78,7 +53,9 @@ void hydro_int::hydro_5() //hydro6th
             }
         }
     }
-    pgat_z = (p0gat * w0gat) / (w0gat - wpgat);
+
+    if(w0gat - wpgat != 0.0) pgat_z = (p0gat * w0gat) / (w0gat - wpgat);
+
     exchange::pgat = exchange::pgat + ((pgat_z - exchange::pgat) * (kgat)) * ts;
 
     QVector<bool> pnn1gs_pool = {pnngs1[0], pnngs2[0], pnngs3[0], pnngs4[0]};
@@ -178,4 +155,59 @@ void hydro_int::hydro_5() //hydro6th
             *pgs_pool[i] = *pgs_pool[i] + ((*pgs_z_pool[i] - (*pgs_pool[i])) * kgs );
         }
     }
+}
+
+double hydro_int::wpgatCalc(const double& pgs3,
+                 const double& pgat,
+                 const double& qngs3,
+                 const double& leftPpresure,
+                 const double& rightPpresure,
+                 const double& alarmBreakPresure,
+                 const bool& parkingBreakClue)
+{
+    static double wpgat_k, wpgat_n, qngat, d_wpgat, qpts, result;
+    result = wpgat;
+    if(pgs3 >= pgat)
+    {
+        wpgat_k = 0.0;
+        wpgat_n = 0.0;
+        qngat = qngs3;
+        d_wpgat = qngat - qpts;
+        result = result + d_wpgat;
+        return result;
+    }
+    else
+    {
+        qngat = 0.0;
+    }
+
+//    if(parkingBreakClue && (leftPpresure/120 + rightPpresure/120) > 0.12)
+    if(!parkingBreakClue && ((leftPpresure > 0.12) || (rightPpresure > 0.12)))
+    {
+        result = (((leftPpresure + rightPpresure)/240 + alarmBreakPresure/15)
+                  * 0.25);
+
+        if(result > wpgat_n)
+            wpgat_n = result;
+
+        result = 2.4 - (wpgat_k + wpgat_n);
+    }
+    else
+    {
+        if(((leftPpresure/120 + rightPpresure/120) < 0.12))
+        {
+            wpgat_k = wpgat_k + wpgat_n;
+            wpgat_n = 0.0;
+        }
+
+
+        qpts = 0.0;
+        if(parkingBreakClue)
+        {
+            qpts = qpts + 0.000015 * ts;
+        }
+        d_wpgat = qngat - qpts - alarmBreakPresure * ts;
+        result = result + d_wpgat;
+    }
+    return result;
 }

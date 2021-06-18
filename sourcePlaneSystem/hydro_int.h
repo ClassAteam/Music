@@ -84,7 +84,6 @@ public:
     double Pv_vsu{0.0};//davlenie vozduha, otbiraemoe ot vspomogatelnoy ustanovki
     double delta_wpgs3{};
     double kgs{0.05};
-    double qngat{};
     double qngs1{};
     double qngs2{};
     double qngs3{};
@@ -99,6 +98,7 @@ public:
     double qtnugs4{};//kolichestvo zhidkosti za TNU
     double qutgs3{};
     double wpgs3{};
+    double wpgat{};
     double d_wpgat{};
     double d_wpgs1{};
     double d_wpgs2{};
@@ -219,14 +219,10 @@ public:
     double qutgs2{};
     double qutgs4{};
     double s_st{};
-    double w0gat{4.07};
     double w0gs1{2.36};
     double w0gs2{2.36};
     double w0gs3{2.36};
     double w0gs4{2.36};
-    double wpgat{};
-    double wpgat_k{};
-    double wpgat_n{};
     double wpgs1{};
     double wpgs2{};
     double wpgs4{};
@@ -390,6 +386,13 @@ public:
 
     private:
         double qpsumF(int hydroID);
+        double wpgatCalc(const double& pgs3,
+                         const double& pgat,
+                         const double& qngs3,
+                         const double& leftPpresure,
+                         const double& rightPpresure,
+                         const double& alarmBreakPresure,
+                         const bool& parkingBreakClue);
     public:
         virtual void updateLogic();
 

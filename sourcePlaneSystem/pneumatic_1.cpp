@@ -133,10 +133,10 @@ void pneumatic_int::pneumatic_1()
     if(exchange::ush2dpp >= 18.0 && (Pslt < 80.0))
         bss_inst.BSS824X1D = true;
 
-    if(y1_2830 && Pslt < 25.0)
+    if(y1_2830 && Pslt >= 25.0)
         bss_inst.BSS811X1h = true;
 
-    if(y4_2830 && Pslt < 25.0)
+    if(y4_2830 && Pslt >= 25.0)
         bss_inst.BSS811X1j = true;
 
     bss_inst.BSS837X1X = false;
