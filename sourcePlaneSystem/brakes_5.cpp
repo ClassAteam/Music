@@ -127,10 +127,9 @@ void brakes_int::brakes_5()
         }
     }
 
-//        if(exchange::pgat >= 130)
-//            exchange::pgat = exchange::pgat - (Pavart * (TICK / 1000));
+//        P_az_gat = 115 + (0.59 * exchange::pgat);
 
-        P_az_gat = 115 + (0.59 * exchange::pgat);
+        P_az_gat = m_2_L_intervals(exchange::pgat, 0, 115, 290, 115, 115, 290);
 
         if(X1_45_7620 || X2_45_7620 || X3_45_7620 || X4_45_7620)
             uks_inst.UKS2X234 = 0.0;

@@ -108,6 +108,7 @@ public:
     double kgat{1.0};
     double ksur{0.02};
     double ktnu{0.02};
+    double kutgs[4]{1.0};
 
     double p0gat{115};//davlenie zaryadki gazom gidroakkum tormozov
     double p0gs1{115};//davlenie zaryadki gidro/akkum gazom v GS1

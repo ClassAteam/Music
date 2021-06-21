@@ -14,6 +14,7 @@ void hydro_int::hydro_4()
 
     for(int i = 0; i < 4; i++)
     {
+        kutgs[i] = 1.0;
         if(*otkaz_pool[i] == false && PTNUGS[i] == true && Pv_vsu >= 1.5)
         {
             *pntnugs_pool[i] = true;
@@ -26,6 +27,7 @@ void hydro_int::hydro_4()
         }
         else
         {
+            if(*otkaz_pool[i]) kutgs[i] = 20.0;
             *pntnugs_pool[i] = false;
             *qtnugs_pool[i] = 0;
             *qntnugs_pool[i] = 0;
@@ -77,7 +79,7 @@ void hydro_int::hydro_4()
         //instead 0.01 should be utechki first
         static double qugs3;
         qugs3 = m_2_L_intervals(pgs3, 0, 115, 290, 0.05, 0.01, 0);
-        qpgs3 = (qp3sum + qugs3) * 0.01;
+        qpgs3 = (qp3sum + qugs3) * 0.01 * kutgs[2];
         delta_wpgs3 = qngs3 - qpgs3;
         wpgs3 = wpgs3 + delta_wpgs3;
         //        wpgs3 = wpgs3 + ((-100 - wpgs3) * 0.01);

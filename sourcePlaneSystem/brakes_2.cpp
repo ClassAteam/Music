@@ -186,7 +186,7 @@ void brakes_int::brakes_2()
         PBRRT = false;
     }
 
-    if(hydro.otkaz_gs3)
+    if(hydro.otkaz_gs3 && !pbutzo)
         PAVART = true;
     else
     {
