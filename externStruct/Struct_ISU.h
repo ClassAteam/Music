@@ -79,6 +79,9 @@ struct SH_ISU
     double vkx{};//skorost' dvizheniya po VPP(putevaya skorost'), m/s
     double M{};//chislo Maha
 
+    double H_{};//visota poleta, m
+    double Ph_{};//atmosfernoe davlenie na dannoy visote
+
 
 
 };

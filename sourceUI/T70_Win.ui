@@ -27,7 +27,7 @@
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="currentIndex">
-       <number>6</number>
+       <number>14</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -3373,6 +3373,36 @@
        <attribute name="title">
         <string>СРД</string>
        </attribute>
+       <layout class="QGridLayout" name="gridLayout_9">
+        <item row="2" column="0">
+         <widget class="QLabel" name="skv_300">
+          <property name="text">
+           <string>skv_300</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QLabel" name="dpkabind">
+          <property name="text">
+           <string>dpkabind</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLabel" name="skv_301">
+          <property name="text">
+           <string>skv_301</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="hkabind">
+          <property name="text">
+           <string>Hkabind</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </widget>
      </widget>
     </item>

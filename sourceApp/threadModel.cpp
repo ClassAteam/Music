@@ -30,7 +30,6 @@
 #include "externStruct/Struct_FromRmiPilot.h"
 #include "sourceApp/utilTimeClassQt.h"
 
-#pragma once
 #include "externStruct/Struct_ISU.h"
 
 #include "sourceApp/mainwindow.h"
@@ -608,7 +607,21 @@ void IN_powerdc_int        ()
 
 }
 void IN_presure_int        ()
-{}
+{
+    presure.PNU = pFromP->pnu_presure;
+    presure.H = pISU->H_;
+    presure.Ph = pISU->Ph_;
+    presure.PRTHU1 = pFromP->prthu1;//delete!!!
+    if(pDev->IN_MAT[656]) presure.S1_2131 = 1;
+    else if(pDev->IN_MAT[657]) presure.S1_2131 = 2;
+    else presure.S1_2131 = 0;
+
+    presure.S2_2131 = (pDev->IN_MAT[12]) ? true : false;
+
+    presure.otkaz_perenadduv = (pFromP->Otkaz[59]) ? true : false;
+    presure.otkaz_razgermetizatsiya = (pFromP->Otkaz[60]) ? true : false;
+    presure.lyukizagermetizirovany = (pFromP->LK) ? true : false;
+}
 void IN_wingsmech_int      ()
 {
     wingsmech.S1_2750 = pDev->IN_MAT[367];
@@ -835,7 +848,12 @@ void OUT_powerdc_int        ()
 }
 
 void OUT_presure_int        ()
-{}
+{
+    pDev->OUT_D[2][83] = bss_inst.BSS838X6g;
+    pDev->OUT_D[1][1] = bss_inst.BSS824X2D;
+    pDev->OUT_D[0][12] = bss_inst.BSS811X2C;
+    pDev->OUT_D[2][84] = bss_inst.BSS838X6h;
+}
 
 void OUT_wingsmech_int      ()
 {

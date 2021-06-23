@@ -775,27 +775,9 @@ void emergencyalarm_int::emergencyalarm_5()
             PCSOZHPL_1 = false;
         }
 
-        ///////////////Red lights_1
-        //////////////1
-        if (bss_inst.BSS824X1G)
-        {
-            bss_inst.BSS824X2D = true;
-            if(PK824_X1G_b)
-            {
-                PK824_X1G = false;
-            }
-            else
-            {
-                PK824_X1G = true;
-            }
-        }
-        else
-        {
-            bss_inst.BSS824X2D = false;
-            PK824_X1G_b = false;
-            PK824_X1G = false;
-        }
-
+        //Red lights_1
+        static int bss824X2D{};
+        lamp_blink(bss_inst.BSS824X1G, bss_inst.BSS824X2D, bss824X2D);
 
         if(exchange::s2_3364) PK824_X1G_b = true;
 

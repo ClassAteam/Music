@@ -550,11 +550,13 @@ void  MainWindow:: Print_powerdc       ()
     ui->uks3x344->setText("Подключение отключаемых шины 2 правых = " + QString::number(uks_inst.UKS3X344));
     ui->uks4x351->setText("Генератор 3 включен = " + QString::number(uks_inst.UKS4X351));
     ui->uks4x357->setText("Генератор 4 включен = " + QString::number(uks_inst.UKS4X357));
-
 }
 void  MainWindow:: Print_presure       ()
 {
-
+    ui->dpkabind->setText("Перепад давление в гермокабине, индикаторное значение, кгс/см^2 = " + QString::number(presure.Pkab_ind_delta));
+    ui->hkabind->setText("высота в гермокабине, индикаторное значение, кгс/см^2 = " + QString::number(presure.Hkab_ind));
+    ui->skv_300->setText("КАБИНА ДАВЛ ВЕЛИКО = " + QString::number(presure.SKD_D300));
+    ui->skv_301->setText("КАБИНА ДАВЛ МАЛО = " + QString::number(presure.SKD_D301));
 }
 void  MainWindow:: Print_wingsmech     ()
 {

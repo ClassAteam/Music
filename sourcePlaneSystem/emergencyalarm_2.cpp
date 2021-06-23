@@ -836,26 +836,9 @@ static bool
             PCSOZHLL_1 = false;
         }
 
-        ///////////////Red lights_1
-        //////////////1
-        if (bss_inst.BSS811X1E)
-        {
-            bss_inst.BSS811X2C = true;
-            if(PK811_X1E_b)
-            {
-                PK811_X1E = false;
-            }
-            else
-            {
-                PK811_X1E = true;
-            }
-        }
-        else
-        {
-            bss_inst.BSS811X2C = false;
-            PK811_X1E_b = false;
-            PK811_X1E = false;
-        }
+        //Red lights_1
+        static int bss811X2C{};
+        lamp_blink(bss_inst.BSS811X1E, bss_inst.BSS811X2C, bss811X2C);
 
 
         if(exchange::s1_3364)

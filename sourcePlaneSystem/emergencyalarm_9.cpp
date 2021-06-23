@@ -139,10 +139,6 @@ void emergencyalarm_int::emergencyalarm_9()
         yellow(&bss_inst.BSS838X5E, &bss_inst.BSS838X6C, &PK838_X5E, &PK838_X5E_b, &exchange::s3_3364);
         //////////////2
         yellow(&bss_inst.BSS838X5N, &bss_inst.BSS838X6G, &PK838_X5N, &PK838_X5N_b, &exchange::s3_3364);
-        //////////////3
-        yellow(&bss_inst.BSS838X5MM, &bss_inst.BSS838X6g, &PK838_X5MM, &PK838_X5MM_b, &exchange::s3_3364);
-        //////////////4
-        yellow(&bss_inst.BSS838X7A, &bss_inst.BSS838X6h, &PK838_X7A, &PK838_X7A_b, &exchange::s3_3364);
         //////////////5
         yellow(&bss_inst.BSS838X7C, &bss_inst.BSS838X6i, &PK838_X7C, &PK838_X7C_b, &exchange::s3_3364);
         //////////////6
@@ -151,6 +147,13 @@ void emergencyalarm_int::emergencyalarm_9()
         yellow(&bss_inst.BSS838X7L, &bss_inst.BSS838X6n, &PK838_X7L, &PK838_X7L_b, &exchange::s3_3364);
         //////////////8
         yellow(&bss_inst.BSS838X7N, &bss_inst.BSS838X6p, &PK838_X7N, &PK838_X7N_b, &exchange::s3_3364);
+
+        //3
+        static int bss838X6g{};
+        lamp_blink(bss_inst.BSS838X5MM, bss_inst.BSS838X6g, bss838X6g);
+        //4
+        static int bss838X6h{};
+        lamp_blink(bss_inst.BSS838X7A, bss_inst.BSS838X6h, bss838X6h);
 
         //PCSOZHSHO toggle
         if(

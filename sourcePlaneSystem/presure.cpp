@@ -2,10 +2,6 @@
 
 void presure_int::presure()
 {
-    static int
-    blink_tick1,
-    blink_tick2,
-
     PAVARR = false;
     PPP = false;
     PGK = false;
@@ -42,32 +38,38 @@ void presure_int::presure()
             K2_2131 = true;
     }
 
-    if (K1_2131 && (blink_tick1 * TICK) >= 600)
+    if (K1_2131)
     {
         SKD_D300 = true;
         bss_inst.BSS838X7A = true;
-        blink_tick1 = 0;
     }
     else
     {
         bss_inst.BSS838X7A = false;
         SKD_D300 = false;
-        if(K1_2131) blink_tick1++;
     }
 
-    if(K2_2131 && (blink_tick2 * TICK) >= 600)
+    if(K2_2131)
     {
         SKD_D301 = true;
         bss_inst.BSS838X5MM = true;
-        blink_tick2 = 0;
+        bss_inst.BSS824X1G = true;
+        bss_inst.BSS811X1E = true;
     }
     else
     {
+        SKD_D301 = false;
         bss_inst.BSS838X5MM = false;
-        SKD_D300 = false;
-        if(K2_2131) blink_tick2++;
+        bss_inst.BSS824X1G = false;
+        bss_inst.BSS811X1E = false;
     }
 
+    if(PNU)
+    {
+        Pkab = Ph_;
+        Hkab = 0.0;
+        Pkab_zad = Ph_;
+    }
     if (!otkaz_razgermetizatsiya && PRTHU1 && lyukizagermetizirovany  && !otkaz_perenadduv)
     {
 
@@ -141,7 +143,7 @@ void presure_int::presure()
         Vkab = 0.0068;
     }
 
-    if ((fabs(Pkab_zad - Pkab)) >= 0.005)
+    if ((fabs(Pkab_zad - Pkab)) >= 0.002)
     {
         if (Pkab < Pkab_zad)
             Pkab = (Pkab + (Vkab * (TICK / 1000)));
