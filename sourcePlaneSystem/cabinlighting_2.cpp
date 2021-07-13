@@ -1,73 +1,37 @@
 #include "cabinlighting_2.h"
 
-
 void cabinlighting_int::cabinlighting_2()
 {
-static int
-    S2_1_tick,
-    S2_2_tick,
-    S2_3341;
-    if (exchange::ush1p >= 18.0)
+
+    pbusto4[2][0] = (exchange::ush1l >= 18.0 && F5_3310 && !otk_pbusto4[2][0]);
+    pbusto4[2][1] = (exchange::ush2p >= 18.0 && F6_3310 && !otk_pbusto4[2][1]);
+    pbusto4[3][0] = (exchange::ush1dpl >= 18.0 && F7_3310 && !otk_pbusto4[3][0]);
+    pbusto4[3][1] = (exchange::ush2dpp >= 18.0 && F8_3310 && !otk_pbusto4[3][1]);
+
+    PK2PDSHOZO = (exchange::ush1l >= 18.0 && pbusto4[3][0]) ? true : false;
+    PK1PDSHOZO = (exchange::ush1dpl >= 18.0 && pbusto4[2][0]) ? true : false;
+    PK1LBSHOZO = (pbusto4[2][0]) ? true : false;
+    PK2LBSHOZO = (pbusto4[3][0]) ? true : false;
+    PK1PDSHNZO = (pbusto4[2][1] && exchange::ush1dpp >= 18.0) ? true : false;
+    PK2PDSHNZO = (pbusto4[3][1] && exchange::ush1dpp >= 18.0) ? true : false;
+    PK2PBSHNZO = (pbusto4[3][1]) ? true : false;
+    PK1PBSHNZO = (pbusto4[2][1]) ? true : false;
+
+    if(!powerdc_int::purg27lk4)
     {
-        // S2 100% mode
-        if (S2_3341 == 1)
+        if(exchange::ush2l >= 18.0 && F1_3312)
         {
-            S2_1_tick++;
-
-            if ((S2_1_tick * TICK) < 600)
-            {
-                PVMN100 = true;
-                PVMV100 = false;
-            }
-
-            if((S2_1_tick * TICK) >= 600 &&
-                (S2_1_tick * TICK) < 1200)
-            {
-                PVMN100 = false;
-                PVMV100 = true;
-            }
-
-            if((S2_1_tick * TICK) >= 1200) S2_1_tick = 0;
+            PSSD37RKL = true;
+            PSSD37RKSH = true;
         }
         else
         {
-            S2_1_tick = 0;
-            PVMN100 = false;
-            PVMV100 = false;
-        }
-
-        // S2 low mode
-        if (S2_3341 == 2)
-        {
-            if (exchange::P2OBLOP && (exchange::PRD1dv &&
-                 exchange::PRD4dv && exchange::F32_3250))
-            {
-                S2_2_tick++;
-
-                if ((S2_2_tick * TICK) < 600)
-                {
-                    PVMN10 = true;
-                    PVMV10 = false;
-                }
-
-                if((S2_2_tick * TICK) >= 600 &&
-                    (S2_2_tick * TICK) < 1200)
-                {
-                    PVMN10 = false;
-                    PVMV10 = true;
-                }
-
-                if((S2_2_tick * TICK) >= 1200)
-                {
-                    S2_2_tick = 0;
-                }
-            }
-        }
-        else
-        {
-            S2_2_tick = 0;
-            PVMN10 = false;
-            PVMV10 = false;
+            PSSD37RKL = false;
+            PSSD37RKSH = false;
         }
     }
+
+    PSSD42L = (exchange::ush1dpl >= 18.0 && F2_3312) ? true : false;
+    PSSD42P = (exchange::ush2dpp >= 18.0 && F3_3312) ? true : false;
+
 }

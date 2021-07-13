@@ -1,4 +1,2 @@
 #include "cabinlighting_int.h"
-
-extern double TICK;
-
+#include "powerdc_int.h"

@@ -7,125 +7,406 @@
 
 extern bss bss_inst;
 
+const int NUMBER_OF_MONITORS{11};
+
 class cabinlighting_int
 {
 public:
-    bool
-        PK11PBLLZO,//priznak podklyucheniya kanala 1 svetil'nikov zalivayushego osvesheniya pulta bortovogo levogo letchika
-        PK12PBLLZO,//priznak podklyucheniya kanala 2 svetil'nikov zalivayushego osvesheniya pulta bortovogo levogo letchika
-        PK12PBPLZO,//priznak podklyucheniya kanala 1 svetil'nikov zalivayushego osvesheniya pulta bortovogo pravogo letchika
-        PK1LBSHOZO,//priznak podklyucheniya kanala 1 svetilnikov zalivayushego osvesheniya levogo borta shturmana-operatora
-        PK1LSPDZO,//priznak podklyucheniya kanala 1 svetilnikov zalivayushego osvesheniya levoy i srendey pribornih dosok letchikov(SSD24)
-        PK1PBSHNZO,//priznak podlkyucheniya kanala 1 svetilnikov zalivayushego osvesheniya pravogo borta shturmana0navigatora
-        PK1PDSHNZO,//priznak podklyucheniya kanala 1 svetilnikov zalivayushego osvesheniya pribornoy doski shturmana-navigatora
-        PK1PDSHOZO,//priznak podklyucheniya kanala 1 svetilnikov zalivayushego osvesheniya pribornoy doski sjturmana - operatora
-        PK1PPDZO,//priznak podklyucheniya kanala 1 svetilnikov zalivayushego osvesheniya levoy i srendey pribornih dosok letchikov(SSD24)
-        PK1SPLSZO,//priznak podlkyucheniya levogo svetilnika zalivayushego osvesheniya srednego pulta
-        PK1SPPSZO,//priznak podlkyucheniya pravogo svetilnika zalivayushego osvesheniya srednego pulta
-        PK22PBPLZO,//priznak podklyucheniya kanala 2 svetil'nikov zalivayushego osvesheniya pulta bortovogo pravogo letchika
-        PK2LBSHOZO,//priznak podklyucheniya kanala 2 svetilnikov zalivayushego osvesheniya levogo borta shturmana-operatora
-        PK2LSPDZO,//priznak podklyucheniya kanala 1 svetilnikov zalivayushego osvesheniya pravoy i srendey pribornih dosok letchikov(SSD24)
-        PK2PBSHNZO,//priznak podlkyucheniya kanala 2 svetilnikov zalivayushego osvesheniya pravogo borta shturmana0navigatora
-        PK2PDSHNZO,//priznak podklyucheniya kanala 2 svetilnikov zalivayushego osvesheniya pribornoy doski shturmana-navigatora
-        PK2PDSHOZO,//priznak podklyucheniya kanala 2 svetilnikov zalivayushego osvesheniya pribornoy doski sjturmana - operatora
-        PK2PPDZO,//priznak podklyucheniya kanala 1 svetilnikov zalivayushego osvesheniya levoy i srendey pribornih dosok letchikov(SSD24)
-        PSSD37RKL,//priznak podklyucheniya svetilnika svetodiodnogo kabini letchikov
-        PSSD37RKSH,//priznak podklyucheniya svetilnika svetodiodnogo kabini shturmanov
-        PSSD42L,//priznak podklyucheniya svetilnikov svetodiodnih individualnogo osvesheniya levogo
-        PSSD42P,//priznak podklyucheniya svetilnikov svetodiodnih individualnogo osvesheniya pravogo
-        S1_3340,//viklyuchatel' upravleniya posadochno-rulezhnimi farami "UBORKA-VIPUSK"
-        S2_3340,//viklyuchatel SVET LEV
-        S5_3340,//viklyuchatel' SVET PRAV
-        S1_3860,//viklyuchatel' PITANIE upravleniya shtangoy zapravki
-        otkaz_zaliv_osvesh_ll_1,//otkaz kanala 1 zalivayushego osvesheniya levogo letchika
-        otkaz_zaliv_osvesh_ll_2,//otkaz kanala 2 zalivayushego osvesheniya levogo letchika
-        otkaz_zaliv_osvesh_pl_1,//otkaz kanala 1 zalivayushego osvesheniya pravogo letchika
-        otkaz_zaliv_osvesh_pl_2,//otkaz kanala 2 zalivayushego osvesheniya pravogo letchika
-        otkaz_zaliv_osvesh_shn_1,//otkaz kanala 2 zalivayushego osvesheniya shturmana navigatora
-        otkaz_zaliv_osvesh_shn_2,//otkaz kanala 2 zalivayushego osvesheniya shturmana navigatora
-        otkaz_zaliv_osvesh_sho_1,//otkaz kanala 1 zalivayushego osvesheniya shturmana operatora
-        otkaz_zaliv_osvesh_sho_2;//otkaz kanala 2 zalivayushego osvesheniya shturmana operatora
-    int
-        S1_3341,//pereklyuchatel' yarkosti aeronavigatsionnih ogney |ANO 10% - 30% - 1000% -Miganie"
-        S3_3340,//pereklyuchatel' FARI ZAPRAVKI VIPUSK-UBORKA LEV
-        S4_3340,//pereklyuchatel FARI ZAPRAVKI VIPUSK-UBORKA PRAV
-        S6_3340;//pereklyuchatel sveta posadochno-rulezhnih far |VZLET POSADKA RULENIE-OTKL"
 
-    double
-        alpha_fsv_ol,//polozhenie fari svetodiodnoy vidvizhnoy FSV-01 levoy
-        alpha_fsv_op,//polozhenie fari svetodiodnoy vidvizhnoy FSV-01 pravoy
-        Vpr,//skorost' pribornaya m/s
-        alpha_fazl,//polozheni fari FSV-02 osvesheniya agregatov zapravki levoy
-        alpha_fazp;//polozheni fari FSV-02 osvesheniya agregatov zapravki pravoy
+    /*выключатель графической станции */
+    bool bgs1{};
+    /*выключатель графической станции */
+    bool bgs2{};
 
-    bool
-        PBUSTO4_1_1k,
-        PBUSTO4_1_2k,
-        PBUSTO4_2_1k,
-        PBUSTO4_2_2k,
-        PBUSTO4_3_1k,
-        PBUSTO4_3_2k,
-        PBUSTO4_4_1k,
-        PBUSTO4_4_2k,
-        F1_3310,
-        F2_3310,
-        F3_3310,
-        F4_3310,
-        F5_3310,
-        F6_3310,
-        F7_3310,
-        F8_3310,
-        F1_3312,
-        F2_3312,
-        F3_3312,
-        PSSD37RKSH_D,
-        PSSD37RKL_D,
-        PBUSTO3_1_1k,
-        PBUSTO3_1_2k,
-        PBUSTO3_2_1k,
-        PBUSTO3_2_2k,
-        PBUSTO3_3_1k,
-        PBUSTO3_3_2k,
-        PBUSTO3_4_1k,
-        PBUSTO3_4_2k,
-        PFSV_02L,
-        PFSV_02P,
-        PFPRLR,
-        PFPRPR,
-        PFSV_01LR,
-        PFSV_01PR,
-        PV_OSN_HV_10,
-        PV_OSN_HV_30,
-        PV_OSN_HV_100,
-        PV_OSN_HV_MIG,
-        PV_DOP,
-        K32_3230,
-        PVMV10,
-        PVMN10,
-        PVMV100,
-        PVMN100;
+    /*признак огня выпуска шасси левого */
+    bool POVSH_L{};
 
-    double
-        UZOPBLL1,
-        UZOPBLL2,
-        UZOPBPL1,
-        UZOPBPL2,
-        UZOPDSHO1,
-        UZOPDSHO2,
-        UZOLBSHO1,
-        UZOLBSHO2,
-        UZOPDSHN1,
-        UZOPDSHN2,
-        UZOPBSHN1,
-        UZOPBSHN2,
-        USOOKL,
-        USOOKSH,
-        UZOLSPD1,
-        UZOLSPD2,
-        UZOPPD1,
-        UZOPPD2,
-        UZOSPLS1,
-        UZOSPPS1;
+    /*признак огня выпуска шасси правого */
+    bool POVSH_P{};
+
+    /*признак огня выпуска шасси переднего */
+    bool POVSH_PER{};
+
+    /*признак выпуска фары ФСВ-01 левой*/
+    bool PVFL{};
+
+    /*признак выпуска фары ФСВ-01 правой*/
+    bool PVFP{};
+
+    /*priznak podklyucheniya kanala 1 svetil'nikov zalivayushego osvesheniya
+pulta bortovogo levogo letchika */
+    bool PK11PBLLZO{};
+
+    /*priznak podklyucheniya kanala 2 svetil'nikov zalivayushego osvesheniya
+ pulta bortovogo levogo letchika*/
+    bool PK12PBLLZO{};
+
+    /*priznak podklyucheniya kanala 1 svetil'nikov zalivayushego osvesheniya
+ pulta bortovogo pravogo letchika */
+    bool PK12PBPLZO{};
+
+    /*priznak podklyucheniya kanala 1 svetilnikov zalivayushego osvesheniya
+levogo borta shturmana-operatora*/
+    bool PK1LBSHOZO{};
+
+    /*priznak podklyucheniya kanala 1 svetilnikov zalivayushego osvesheniya
+ levoy i srendey pribornih dosok letchikov(SSD24)*/
+    bool PK1LSPDZO{};
+
+    /*priznak podlkyucheniya kanala 1 svetilnikov zalivayushego osvesheniya
+ pravogo borta shturmana0navigatora*/
+    bool PK1PBSHNZO{};
+
+    /*признак подключения канала 1 светильников заливающего освещения пульта
+бортового левого летчика*/
+    bool PK1PBLLZO{};
+
+    /*признак подключения канала 2 светильников заливающего освещения пульта
+бортового левого летчика*/
+    bool PK2PBLLZO{};
+
+    /*признак подключения канала 2 светильников заливающего освещения пульта
+бортового левого летчика*/
+    bool PK1PBPLZO{};
+
+    /*признак подключения канала 2 светильников заливающего освещения пульта
+бортового левого летчика*/
+    bool PK2PBPLZO{};
+
+
+    /*priznak podklyucheniya kanala 1 svetilnikov zalivayushego osvesheniya
+ pribornoy doski shturmana-navigatora*/
+    bool PK1PDSHNZO{};
+
+    /*priznak podklyucheniya kanala 1 svetilnikov zalivayushego osvesheniya
+ pribornoy doski sjturmana - operatora*/
+    bool PK1PDSHOZO{};
+
+    /*priznak podklyucheniya kanala 1 svetilnikov zalivayushego osvesheniya
+ levoy i srendey pribornih dosok letchikov(SSD24)*/
+    bool PK1PPDZO{};
+
+    bool PK1PPDLZO{};
+    bool PK2PPDLZO{};
+
+    /*priznak podlkyucheniya levogo svetilnika zalivayushego osvesheniya
+ srednego pulta*/
+    bool PK1SPLZO{};
+
+    bool PK2SPLZO{};
+
+    /*priznak podlkyucheniya pravogo svetilnika zalivayushego osvesheniya
+ srednego pulta*/
+    bool PK1SPPSZO;
+
+    /*priznak podklyucheniya kanala 2 svetil'nikov zalivayushego osvesheniya
+ pulta bortovogo pravogo letchika*/
+    bool PK22PBPLZO;
+
+    /*priznak podklyucheniya kanala 2 svetilnikov zalivayushego osvesheniya
+ levogo borta shturmana-operatora*/
+    bool PK2LBSHOZO;
+
+    /*priznak podklyucheniya kanala 1 svetilnikov zalivayushego osvesheniya
+ pravoy i srendey pribornih dosok letchikov(SSD24)*/
+    bool PK2LSPDZO;
+
+    /*priznak podlkyucheniya kanala 2 svetilnikov zalivayushego osvesheniya
+ pravogo borta shturmana0navigatora*/
+    bool PK2PBSHNZO;
+
+    /*priznak podklyucheniya kanala 2 svetilnikov zalivayushego osvesheniya
+ pribornoy doski shturmana-navigatora*/
+    bool PK2PDSHNZO;
+
+    /*priznak podklyucheniya kanala 2 svetilnikov zalivayushego osvesheniya
+ pribornoy doski sjturmana - operatora*/
+    bool PK2PDSHOZO;
+
+    /*priznak podklyucheniya kanala 1 svetilnikov zalivayushego osvesheniya
+ levoy i srendey pribornih dosok letchikov(SSD24)*/
+    bool PK2PPDZO;
+
+    /*priznak podklyucheniya svetilnika svetodiodnogo kabini letchikov*/
+    bool PSSD37RKL;
+
+    /*priznak podklyucheniya svetilnika svetodiodnogo kabini shturmanov*/
+    bool PSSD37RKSH;
+
+    /*priznak podklyucheniya svetilnikov svetodiodnih individualnogo
+ osvesheniya levogo*/
+    bool PSSD42L;
+
+    /*priznak podklyucheniya svetilnikov svetodiodnih individualnogo
+ osvesheniya pravogo*/
+    bool PSSD42P;
+
+    /*priznak podklyucheniya svetilnikov svetodiodnih individualnogo
+ osvesheniya pravogo letchika i shturmana navigatora*/
+    bool PSSD42SH;
+
+    /*viklyuchatel' upravleniya posadochno-rulezhnimi farami "UBORKA-VIPUSK"*/
+    bool S1_3340;
+
+    /*viklyuchatel SVET LEV*/
+    bool S2_3340;
+
+    /*viklyuchatel' SVET PRAV*/
+    bool S5_3340;
+
+    /*viklyuchatel' PITANIE upravleniya shtangoy zapravki*/
+    bool s1_2860;
+
+
+    /*признак подключения канала 1 встроенного освещения левой и средней прибо
+орных досок летчиков в нормальном режиме */
+    bool pk11lspdvo{};
+
+    /*признак подключения канала 2 встроенного освещения левой и средней прибо
+орных досок летчиков в нормальном режиме */
+    bool pk12lspdvo{};
+
+    /*признак подключения канала 1 встроенного освещения левой и
+орных досок летчиков в нормальном режиме */
+    bool pk11spvo{};
+    bool pk12spvo{};
+    bool pk11lblvo{};
+    bool pk12lblvo{};
+    bool pk11ppdvo{};
+    bool pk12ppdvo{};
+    bool pk11pblvo{};
+    bool pk12pblvo{};
+    bool pk21lspdvo{};
+    bool pk22lspdvo{};
+    bool pk21spvo{};
+    bool pk22spvo{};
+    bool pk21lblvo{};
+    bool pk22lblvo{};
+    bool pk21ppdvo{};
+    bool pk22ppdvo{};
+    bool pk21pblvo{};
+    bool pk22pblvo{};
+    bool pk31pdshovo{};
+    bool pk32pdshovo{};
+    bool pk31lbshvo{};
+    bool pk32lbshvo{};
+    bool pk31pbshvo{};
+    bool pk32pbshvo{};
+    bool pk31pdshnvo{};
+    bool pk32pdshnvo{};
+    bool pk41pdshovo{};
+    bool pk42pdshovo{};
+    bool pk41lbshvo{};
+    bool pk42lbshvo{};
+    bool pk41pbshvo{};
+    bool pk42pbshvo{};
+    bool pk41pdshnvo{};
+    bool pk42pdshnvo{};
+
+    bool pvpmfi[NUMBER_OF_MONITORS]{};
+    bool pvpmfpu[NUMBER_OF_MONITORS]{};
+    bool pvppui[NUMBER_OF_MONITORS]{};
+    bool pvvopui[NUMBER_OF_MONITORS]{};
+    bool pvvomfi[NUMBER_OF_MONITORS]{};
+    bool pbbopui[NUMBER_OF_MONITORS]{};
+    bool pvvomfpu[NUMBER_OF_MONITORS]{};
+    bool pvvolspd{};
+    bool pvvoppd{};
+    bool pvvosp{};
+    bool pvvolbl{};
+    bool pvvopbl{};
+    bool pvvopbsh{};
+    bool pvvopbshav{};
+    bool pvvopblav{};
+    bool pvvolspdav{};
+    bool pvvoppdav{};
+    bool pvvospav{};
+    bool pvvolblav{};
+    bool pbbopblav{};
+
+    bool s_11710[20]{};
+
+    /*признакл включения питания бортовой графической станции №1 канал 1,
+полукомплект 2*/
+    bool pvpbgs112{};
+    /*признакл включения питания бортовой графической станции №1 канал 1,
+полукомплект 2*/
+    bool pvpbgs212{};
+    /*признакл включения питания бортовой графической станции №1 канал 1,
+полукомплект 2*/
+    bool pvpbgs122{};
+    /*признакл включения питания бортовой графической станции №1 канал 1,
+полукомплект 2*/
+    bool pvpbgs222{};
+    /*признакл включения питания бортовой графической станции №1 канал 1,
+полукомплект 2*/
+    bool pvpbgs221{};
+
+
+
+    /*pereklyuchatel' yarkosti aeronavigatsionnih ogney
+ |ANO 10% - 30% - 1000% -Miganie"*/
+    int S1_3341;
+    enum class S1_3341{ANO10, ANO30, ANO100, MIGANIE, neytral};
+
+    /*переключательв ключения режимов работы проблесковых маяков*/
+    int S2_3341;
+    enum class S2_3341{mayak100, ponizh};
+
+    /*pereklyuchatel' FARI ZAPRAVKI VIPUSK-UBORKA LEV*/
+    int S3_3340;
+    enum class S3_3340{uborka, vipusk};
+
+    /*pereklyuchatel FARI ZAPRAVKI VIPUSK-UBORKA PRAV*/
+    int S4_3340;
+    enum class S4_3340{uborka, vipusk};
+
+    /*pereklyuchatel sveta posadochno-rulezhnih far
+ |VZLET POSADKA RULENIE-OTKL"*/
+    int S6_3340;
+
+    /*polozhenie fari svetodiodnoy vidvizhnoy FSV-01 levoy*/
+    double alpha_fsv_ol;
+
+    /*polozhenie fari svetodiodnoy vidvizhnoy FSV-01 pravoy*/
+    double alpha_fsv_op;
+
+    /*skorost' pribornaya m/s*/
+    double Vpr;
+
+    /*polozheni fari FSV-02 osvesheniya agregatov zapravki levoy*/
+    double dalpha_fazl{};
+    double alpha_fazl{};
+
+    /*polozheni fari FSV-02 osvesheniya agregatov zapravki pravoy*/
+    double dalpha_fazp{};
+    double alpha_fazp{};
+
+    /*признак работы канала бусто*/
+    bool pbusto3[4][2]{};
+
+    /*признак работы канала бусто*/
+    bool pbusto4[4][2]{};
+
+    /*отказы*/
+    bool otk_pbusto3[4][2]{};
+    bool otk_pbusto4[4][2]{};
+
+    bool F1_3310{};
+    bool F2_3310{};
+    bool F3_3310{};
+    bool F4_3310{};
+    bool F5_3310{};
+    bool F6_3310{};
+    bool F7_3310{};
+    bool F8_3310{};
+
+    bool F1_3311{};
+    bool F2_3311{};
+    bool F3_3311{};
+    bool F4_3311{};
+    bool F5_3311{};
+    bool F6_3311{};
+    bool F7_3311{};
+    bool F8_3311{};
+
+    bool F1_3312{};
+    bool F2_3312{};
+    bool F3_3312{};
+
+    bool F1_3340{};
+    bool F2_3340{};
+    bool F4_3340{};
+    bool F12_3340{};
+    bool F13_3340{};
+    bool F14_3340{};
+
+    bool PSSD37RKSH_D{};
+    bool PSSD37RKL_D{};
+
+    /*признак включения света левой фары светодиодной выдвижной ФСВ-02 освещения
+ агрегатов заправки*/
+    bool PFSV_02L;
+
+    /*признак включения света правой фары светодиодной выдвижной ФСВ-02 освещения
+ агрегатов заправки*/
+    bool PFSV_02P;
+
+    /*признак включение рулежного света левой фары посадочно-рулежной ФПР-16А*/
+    bool PFPRLR;
+
+    /*признак включение рулежного света правой фары посадочно-рулежной ФПР-16А*/
+    bool PFPRPR;
+    bool PFPRPP;
+
+    /*признак включение рулежного света левой фары посадочно-рулежной ФПР-16А*/
+    bool PFPRPLP;
+
+    /*признак включение рулежного света левой фары посадочно-рулежной ФПР-16А*/
+    bool PFPRPPP;
+
+    /*признак включения рулежного света левой фары светодиодной выдвижной ФСВ01*/
+    bool PFSV_01LR;
+
+    /*признак включения рулежного света правой фары светодиодной выдвижной ФСВ01*/
+    bool PFSV_01PR;
+
+    bool PFSV_01LP;
+    bool PFSV_01PP;
+
+    /*признак включения встроенного освещения приборной доски штурмана-оператора
+в нормальном режиме*/
+    bool pvvopdsho;
+
+    /*признак включения встроенного освещения приборной доски штурмана-оператора
+в аварийном режиме*/
+    bool pvvopdshoav;
+
+    /*признак включения встроенного освещения приборной доски штурмана-оператора
+в нормальном режиме*/
+    bool pvvopdshn;
+    /*признак включения встроенного освещения приборной доски штурмана-оператора
+в аварийном режиме*/
+    bool pvvopdshnav;
+
+    /*признак включения встроенного освещения приборной доски штурманов в
+ нормальном режиме*/
+    bool pvvolbsh;
+    /*признак включения встроенного освещения приборной доски штурманов в
+ аварийном*/
+    bool pvvolbshav;
+
+    bool PV_OSN_HV_10;
+    bool PV_OSN_HV_30;
+    bool PV_OSN_HV_100;
+    bool PV_OSN_HV_MIG;
+    bool PV_DOP;
+    bool K32_3230;
+    bool PVMV10;
+    bool PVMN10;
+    bool PVMV100;
+    bool PVMN100;
+
+    double UZOPBLL1;
+    double UZOPBLL2;
+    double UZOPBPL1;
+    double UZOPBPL2;
+    double UZOPDSHO1;
+    double UZOPDSHO2;
+    double UZOLBSHO1;
+    double UZOLBSHO2;
+    double UZOPDSHN1;
+    double UZOPDSHN2;
+    double UZOPBSHN1;
+    double UZOPBSHN2;
+    double USOOKL;
+    double USOOKSH;
+    double UZOLSPD1;
+    double UZOLSPD2;
+    double UZOPPD1;
+    double UZOPPD2;
+    double UZOSPLS1;
+    double UZOSPPS1;
 
 public:
     virtual void updateLogic();
@@ -135,4 +416,9 @@ public:
     void cabinlighting_3();
     void cabinlighting_4();
     void cabinlighting_5();
+    void cabinlighting_6();
+    void cabinlighting_7();
+    void cabinlighting_8();
+    void cabinlighting_9();
+    void cabinlighting_10();
 };

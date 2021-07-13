@@ -52,15 +52,11 @@ SOURCES += \
     sourcePlaneSystem/brakes_int.cpp \
     sourcePlaneSystem/bss.cpp \
     sourcePlaneSystem/cabinlighting_1.cpp \
-    sourcePlaneSystem/cabinlighting_10.cpp \
-    sourcePlaneSystem/cabinlighting_2.cpp \
     sourcePlaneSystem/cabinlighting_3.cpp \
     sourcePlaneSystem/cabinlighting_4.cpp \
     sourcePlaneSystem/cabinlighting_5.cpp \
     sourcePlaneSystem/cabinlighting_6.cpp \
-    sourcePlaneSystem/cabinlighting_7.cpp \
     sourcePlaneSystem/cabinlighting_8.cpp \
-    sourcePlaneSystem/cabinlighting_9.cpp \
     sourcePlaneSystem/cabinlighting_int.cpp \
     sourcePlaneSystem/emergencyalarm_1.cpp \
     sourcePlaneSystem/emergencyalarm_2.cpp \
@@ -157,15 +153,11 @@ HEADERS += \
     sourcePlaneSystem/brakes_int.h \
     sourcePlaneSystem/bss.h \
     sourcePlaneSystem/cabinlighting_1.h \
-    sourcePlaneSystem/cabinlighting_10.h \
-    sourcePlaneSystem/cabinlighting_2.h \
     sourcePlaneSystem/cabinlighting_3.h \
     sourcePlaneSystem/cabinlighting_4.h \
     sourcePlaneSystem/cabinlighting_5.h \
     sourcePlaneSystem/cabinlighting_6.h \
-    sourcePlaneSystem/cabinlighting_7.h \
     sourcePlaneSystem/cabinlighting_8.h \
-    sourcePlaneSystem/cabinlighting_9.h \
     sourcePlaneSystem/cabinlighting_int.h \
     sourcePlaneSystem/emergencyalarm_1.h \
     sourcePlaneSystem/emergencyalarm_2.h \
