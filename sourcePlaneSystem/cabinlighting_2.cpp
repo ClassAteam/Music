@@ -8,12 +8,12 @@ void cabinlighting_int::cabinlighting_2()
     pbusto4[3][0] = (exchange::ush1dpl >= 18.0 && F7_3310 && !otk_pbusto4[3][0]);
     pbusto4[3][1] = (exchange::ush2dpp >= 18.0 && F8_3310 && !otk_pbusto4[3][1]);
 
-    PK2PDSHOZO = (exchange::ush1l >= 18.0 && pbusto4[3][0]) ? true : false;
-    PK1PDSHOZO = (exchange::ush1dpl >= 18.0 && pbusto4[2][0]) ? true : false;
+    PK2PDSHOZO = (pbusto4[3][0]) ? true : false;
+    PK1PDSHOZO = (pbusto4[2][0]) ? true : false;
     PK1LBSHOZO = (pbusto4[2][0]) ? true : false;
     PK2LBSHOZO = (pbusto4[3][0]) ? true : false;
-    PK1PDSHNZO = (pbusto4[2][1] && exchange::ush1dpp >= 18.0) ? true : false;
-    PK2PDSHNZO = (pbusto4[3][1] && exchange::ush1dpp >= 18.0) ? true : false;
+    PK1PDSHNZO = (pbusto4[2][1]) ? true : false;
+    PK2PDSHNZO = (pbusto4[3][1]) ? true : false;
     PK2PBSHNZO = (pbusto4[3][1]) ? true : false;
     PK1PBSHNZO = (pbusto4[2][1]) ? true : false;
 
@@ -29,6 +29,11 @@ void cabinlighting_int::cabinlighting_2()
             PSSD37RKL = false;
             PSSD37RKSH = false;
         }
+    }
+    else
+    {
+            PSSD37RKL = false;
+            PSSD37RKSH = false;
     }
 
     PSSD42L = (exchange::ush1dpl >= 18.0 && F2_3312) ? true : false;

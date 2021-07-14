@@ -1,6 +1,6 @@
 #include "cabinlighting_1.h"
 
-void cabinlighting_int::cabinlighting_1()
+void cabinlighting_int::cabinlighting_5()
 {
 
     PV_DOP = false;

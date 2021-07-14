@@ -33,17 +33,6 @@ public:
     /*признак выпуска фары ФСВ-01 правой*/
     bool PVFP{};
 
-    /*priznak podklyucheniya kanala 1 svetil'nikov zalivayushego osvesheniya
-pulta bortovogo levogo letchika */
-    bool PK11PBLLZO{};
-
-    /*priznak podklyucheniya kanala 2 svetil'nikov zalivayushego osvesheniya
- pulta bortovogo levogo letchika*/
-    bool PK12PBLLZO{};
-
-    /*priznak podklyucheniya kanala 1 svetil'nikov zalivayushego osvesheniya
- pulta bortovogo pravogo letchika */
-    bool PK12PBPLZO{};
 
     /*priznak podklyucheniya kanala 1 svetilnikov zalivayushego osvesheniya
 levogo borta shturmana-operatora*/
@@ -86,8 +75,7 @@ levogo borta shturmana-operatora*/
  levoy i srendey pribornih dosok letchikov(SSD24)*/
     bool PK1PPDZO{};
 
-    bool PK1PPDLZO{};
-    bool PK2PPDLZO{};
+    bool PK2PPDZO{};
 
     /*priznak podlkyucheniya levogo svetilnika zalivayushego osvesheniya
  srednego pulta*/
@@ -125,7 +113,6 @@ levogo borta shturmana-operatora*/
 
     /*priznak podklyucheniya kanala 1 svetilnikov zalivayushego osvesheniya
  levoy i srendey pribornih dosok letchikov(SSD24)*/
-    bool PK2PPDZO;
 
     /*priznak podklyucheniya svetilnika svetodiodnogo kabini letchikov*/
     bool PSSD37RKL;
@@ -141,9 +128,6 @@ levogo borta shturmana-operatora*/
  osvesheniya pravogo*/
     bool PSSD42P;
 
-    /*priznak podklyucheniya svetilnikov svetodiodnih individualnogo
- osvesheniya pravogo letchika i shturmana navigatora*/
-    bool PSSD42SH;
 
     /*viklyuchatel' upravleniya posadochno-rulezhnimi farami "UBORKA-VIPUSK"*/
     bool S1_3340;
@@ -242,20 +226,18 @@ levogo borta shturmana-operatora*/
 полукомплект 2*/
     bool pvpbgs221{};
 
-
-
     /*pereklyuchatel' yarkosti aeronavigatsionnih ogney
  |ANO 10% - 30% - 1000% -Miganie"*/
-    int S1_3341;
-    enum class S1_3341{ANO10, ANO30, ANO100, MIGANIE, neytral};
+    int S1_3341{};
+    enum S1_3341{ANO10, ANO30, ANO100, MIGANIE, neytral};
 
     /*переключательв ключения режимов работы проблесковых маяков*/
     int S2_3341;
-    enum class S2_3341{mayak100, ponizh};
+    enum S2_3341{mayak100, ponizh};
 
     /*pereklyuchatel' FARI ZAPRAVKI VIPUSK-UBORKA LEV*/
     int S3_3340;
-    enum class S3_3340{uborka, vipusk};
+    enum S3_3340{uborka, vipusk};
 
     /*pereklyuchatel FARI ZAPRAVKI VIPUSK-UBORKA PRAV*/
     int S4_3340;
@@ -292,34 +274,34 @@ levogo borta shturmana-operatora*/
     bool otk_pbusto3[4][2]{};
     bool otk_pbusto4[4][2]{};
 
-    bool F1_3310{};
-    bool F2_3310{};
-    bool F3_3310{};
-    bool F4_3310{};
-    bool F5_3310{};
-    bool F6_3310{};
-    bool F7_3310{};
-    bool F8_3310{};
+    bool F1_3310{true};
+    bool F2_3310{true};
+    bool F3_3310{true};
+    bool F4_3310{true};
+    bool F5_3310{true};
+    bool F6_3310{true};
+    bool F7_3310{true};
+    bool F8_3310{true};
 
-    bool F1_3311{};
-    bool F2_3311{};
-    bool F3_3311{};
-    bool F4_3311{};
-    bool F5_3311{};
-    bool F6_3311{};
-    bool F7_3311{};
-    bool F8_3311{};
+    bool F1_3311{true};
+    bool F2_3311{true};
+    bool F3_3311{true};
+    bool F4_3311{true};
+    bool F5_3311{true};
+    bool F6_3311{true};
+    bool F7_3311{true};
+    bool F8_3311{true};
 
-    bool F1_3312{};
-    bool F2_3312{};
-    bool F3_3312{};
+    bool F1_3312{true};
+    bool F2_3312{true};
+    bool F3_3312{true};
 
-    bool F1_3340{};
-    bool F2_3340{};
-    bool F4_3340{};
-    bool F12_3340{};
-    bool F13_3340{};
-    bool F14_3340{};
+    bool F1_3340{true};
+    bool F2_3340{true};
+    bool F4_3340{true};
+    bool F12_3340{true};
+    bool F13_3340{true};
+    bool F14_3340{true};
 
     bool PSSD37RKSH_D{};
     bool PSSD37RKL_D{};

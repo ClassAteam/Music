@@ -1,7 +1,7 @@
 #include "cabinlighting_2.h"
 
 
-void cabinlighting_int::cabinlighting_2()
+void cabinlighting_int::cabinlighting_6()
 {
 static int
     S2_1_tick,

@@ -19,13 +19,13 @@ void cabinlighting_int::cabinlighting_1()
     PK2LSPDZO = (pbusto4[1][0]) ? true : false;
 
     PK1PBPLZO = (pbusto4[0][1]) ? true : false;
-    PK1PPDLZO = (pbusto4[0][1]) ? true : false;
+    PK1PPDZO = (pbusto4[0][1]) ? true : false;
 
     PK2PBPLZO = (pbusto4[1][1]) ? true : false;
-    PK2PPDLZO = (pbusto4[1][1]) ? true : false;
+    PK2PPDZO = (pbusto4[1][1]) ? true : false;
 
     PK1SPLZO = (exchange::ush1dpl >= 18.0 && F3_3310) ? true : false;
-    PK2SPLZO = (exchange::ush1dpl >= 18.0 && F3_3310) ? true : false;
+    PK2SPLZO = (exchange::ush1dpp >= 18.0 && F4_3310) ? true : false;
 
 //    if (exchange::ush1l >= 18.0 && PBUSTO4_2_1k)
 //    {
