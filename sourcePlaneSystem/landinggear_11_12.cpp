@@ -4,6 +4,9 @@
 void landinggear_int::landinggear_11_12() //actually 11th and 12th
 {
 
+    PPBU_1 = false;
+    exchange::F32_3250 = false;
+
     Xped = Xped_buf /100;
 
     double m_pedals_to_fi(double Xped, double interval_Y1, double interval_Y2);
@@ -34,6 +37,9 @@ void landinggear_int::landinggear_11_12() //actually 11th and 12th
                 A1X119_3250 = true;
                 K3_3250 = true;
             }
+
+            exchange::F32_3250 = true;
+
             if(exchange::s4_3250)
                 K5_3250 = true;
             else

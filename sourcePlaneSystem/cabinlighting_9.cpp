@@ -46,6 +46,9 @@ void cabinlighting_int::cabinlighting_9()
     pvpmfi[2] = false;
     pvpmfpu[0] = false;
 
+    pvvomfi[2] = false;
+    pvvomfpu[0] = false;
+
     if(s_11710[4])
     {
         if(exchange::ush2dpl >= 18.0)
@@ -60,6 +63,7 @@ void cabinlighting_int::cabinlighting_9()
             if(pk21spvo || pk22spvo) pvvomfpu[0] = true;
         }
     }
+
 
     if(s_11710[5])
     {

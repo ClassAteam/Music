@@ -451,60 +451,6 @@ void IN_cabinlighting_int  ()
     cabinlighting.otk_pbusto3[2][1] = pFromP->Otkaz[99];
     cabinlighting.otk_pbusto3[3][0] = pFromP->Otkaz[100];
     cabinlighting.otk_pbusto3[3][1] = pFromP->Otkaz[101];
-
-    pDev->OUT_D[5][92] = cabinlighting.PK1PBLLZO;
-    pDev->OUT_D[5][93] = cabinlighting.PK2PBLLZO;
-    pDev->OUT_D[5][94] = cabinlighting.PK1PBPLZO;
-    pDev->OUT_D[5][95] = cabinlighting.PK2PBPLZO;
-    pDev->OUT_D[5][96] = cabinlighting.PK1LSPDZO;
-    pDev->OUT_D[5][97] = cabinlighting.PK2LSPDZO;
-    pDev->OUT_D[5][98] = cabinlighting.PK1PPDZO;
-    pDev->OUT_D[5][99] = cabinlighting.PK2PPDZO;
-    pDev->OUT_D[5][100] = cabinlighting.PK1SPLZO;
-    pDev->OUT_D[5][101] = cabinlighting.PK2SPLZO;
-    pDev->OUT_D[5][102] = cabinlighting.PK1PDSHOZO;
-    pDev->OUT_D[5][103] = cabinlighting.PK2PDSHOZO;
-    pDev->OUT_D[5][104] = cabinlighting.PK1LBSHOZO;
-    pDev->OUT_D[5][105] = cabinlighting.PK2LBSHOZO;
-    pDev->OUT_D[5][106] = cabinlighting.PK1PDSHNZO;
-    pDev->OUT_D[5][107] = cabinlighting.PK2PDSHNZO;
-    pDev->OUT_D[5][108] = cabinlighting.PK1PBSHNZO;
-    pDev->OUT_D[5][109] = cabinlighting.PK2PBSHNZO;
-    pDev->OUT_D[5][90] = cabinlighting.PSSD37RKL;
-    pDev->OUT_D[5][91] = cabinlighting.PSSD37RKSH;
-    pDev->OUT_D[5][110] = cabinlighting.PSSD42L;
-    pDev->OUT_D[5][111] = cabinlighting.PSSD42P;
-    pDev->OUT_D[4][34] = cabinlighting.pvpmfi[0];
-    pDev->OUT_D[4][35] = cabinlighting.pvpmfi[1];
-    pDev->OUT_D[4][41] = cabinlighting.pvpmfi[2];
-    pDev->OUT_D[4][37] = cabinlighting.pvpmfi[3];
-    pDev->OUT_D[4][38] = cabinlighting.pvpmfi[4];
-    pDev->OUT_D[4][54] = cabinlighting.pvpmfi[5];
-    pDev->OUT_D[4][56] = cabinlighting.pvpmfi[6];
-    pDev->OUT_D[4][55] = cabinlighting.pvpmfi[7];
-    pDev->OUT_D[4][46] = cabinlighting.pvpmfi[8];
-    pDev->OUT_D[4][48] = cabinlighting.pvpmfi[9];
-    pDev->OUT_D[4][47] = cabinlighting.pvpmfi[10];
-    pDev->OUT_D[4][42] = cabinlighting.pvpmfpu[0];
-    pDev->OUT_D[4][57] = cabinlighting.pvpmfpu[1];
-    pDev->OUT_D[4][45] = cabinlighting.pvpmfpu[2];
-    pDev->OUT_D[0][118] = cabinlighting.pvvomfi[0];
-    pDev->OUT_D[0][119] = cabinlighting.pvvomfi[1];
-    pDev->OUT_D[0][92] = cabinlighting.pvvomfi[2];
-    pDev->OUT_D[0][120] = cabinlighting.pvvomfi[3];
-    pDev->OUT_D[0][121] = cabinlighting.pvvomfi[4];
-    pDev->OUT_D[0][122] = cabinlighting.pvvomfi[5];
-    pDev->OUT_D[0][123] = cabinlighting.pvvomfi[6];
-    pDev->OUT_D[0][124] = cabinlighting.pvvomfi[7];
-    pDev->OUT_D[0][125] = cabinlighting.pvvomfi[8];
-    pDev->OUT_D[0][126] = cabinlighting.pvvomfi[9];
-    pDev->OUT_D[0][127] = cabinlighting.pvvomfi[10];
-    pDev->OUT_D[0][63] = cabinlighting.pvvopui[0];
-    pDev->OUT_D[3][39] = cabinlighting.pvvopui[1];
-    pDev->OUT_D[0][93] = cabinlighting.pvvomfpu[0];
-    pDev->OUT_D[0][94] = cabinlighting.pvvomfpu[1];
-    pDev->OUT_D[0][95] = cabinlighting.pvvomfpu[2];
-
 }
 void IN_emergencyalarm_int ()
 {}
@@ -833,7 +779,63 @@ void OUT_brakes_int         ()
 
 void OUT_cabinlighting_int  ()
 {
-
+    pDev->OUT_D[5][92] = cabinlighting.PK1PBLLZO;
+    pDev->OUT_D[5][93] = cabinlighting.PK2PBLLZO;
+    pDev->OUT_D[5][94] = cabinlighting.PK1PBPLZO;
+    pDev->OUT_D[5][95] = cabinlighting.PK2PBPLZO;
+    pDev->OUT_D[5][96] = cabinlighting.PK1LSPDZO;
+    pDev->OUT_D[5][97] = cabinlighting.PK2LSPDZO;
+    pDev->OUT_D[5][98] = cabinlighting.PK1PPDZO;
+    pDev->OUT_D[5][99] = cabinlighting.PK2PPDZO;
+    pDev->OUT_D[5][100] = cabinlighting.PK1SPLZO;
+    pDev->OUT_D[5][101] = cabinlighting.PK2SPLZO;
+    pDev->OUT_D[5][102] = cabinlighting.PK1PDSHOZO;
+    pDev->OUT_D[5][103] = cabinlighting.PK2PDSHOZO;
+    pDev->OUT_D[5][104] = cabinlighting.PK1LBSHOZO;
+    pDev->OUT_D[5][105] = cabinlighting.PK2LBSHOZO;
+    pDev->OUT_D[5][106] = cabinlighting.PK1PDSHNZO;
+    pDev->OUT_D[5][107] = cabinlighting.PK2PDSHNZO;
+    pDev->OUT_D[5][108] = cabinlighting.PK1PBSHNZO;
+    pDev->OUT_D[5][109] = cabinlighting.PK2PBSHNZO;
+    pDev->OUT_D[5][90] = cabinlighting.PSSD37RKL;
+    pDev->OUT_D[5][91] = cabinlighting.PSSD37RKSH;
+    pDev->OUT_D[5][110] = cabinlighting.PSSD42L;
+    pDev->OUT_D[5][111] = cabinlighting.PSSD42P;
+    pDev->OUT_D[4][34] = cabinlighting.pvpmfi[0];
+    pDev->OUT_D[4][35] = cabinlighting.pvpmfi[1];
+    pDev->OUT_D[4][41] = cabinlighting.pvpmfi[2];
+    pDev->OUT_D[4][37] = cabinlighting.pvpmfi[3];
+    pDev->OUT_D[4][38] = cabinlighting.pvpmfi[4];
+    pDev->OUT_D[4][54] = cabinlighting.pvpmfi[5];
+    pDev->OUT_D[4][56] = cabinlighting.pvpmfi[6];
+    pDev->OUT_D[4][55] = cabinlighting.pvpmfi[7];
+    pDev->OUT_D[4][46] = cabinlighting.pvpmfi[8];
+    pDev->OUT_D[4][48] = cabinlighting.pvpmfi[9];
+    pDev->OUT_D[4][47] = cabinlighting.pvpmfi[10];
+    pDev->OUT_D[4][42] = cabinlighting.pvpmfpu[0];
+    pDev->OUT_D[4][57] = cabinlighting.pvpmfpu[1];
+    pDev->OUT_D[4][45] = cabinlighting.pvpmfpu[2];
+    pDev->OUT_D[0][118] = cabinlighting.pvvomfi[0];
+    pDev->OUT_D[0][119] = cabinlighting.pvvomfi[1];
+    pDev->OUT_D[0][92] = cabinlighting.pvvomfi[2];
+    pDev->OUT_D[0][120] = cabinlighting.pvvomfi[3];
+    pDev->OUT_D[0][121] = cabinlighting.pvvomfi[4];
+    pDev->OUT_D[0][122] = cabinlighting.pvvomfi[5];
+    pDev->OUT_D[0][123] = cabinlighting.pvvomfi[6];
+    pDev->OUT_D[0][124] = cabinlighting.pvvomfi[7];
+    pDev->OUT_D[0][125] = cabinlighting.pvvomfi[8];
+    pDev->OUT_D[0][126] = cabinlighting.pvvomfi[9];
+    pDev->OUT_D[0][127] = cabinlighting.pvvomfi[10];
+    pDev->OUT_D[0][63] = cabinlighting.pvvopui[0];
+    pDev->OUT_D[3][39] = cabinlighting.pvvopui[1];
+    pDev->OUT_D[0][93] = cabinlighting.pvvomfpu[0];
+    pDev->OUT_D[0][94] = cabinlighting.pvvomfpu[1];
+    pDev->OUT_D[0][95] = cabinlighting.pvvomfpu[2];
+    pDev->OUT_D[1][61] = cabinlighting.pk31pdshovo;
+    pDev->OUT_D[1][62] = cabinlighting.pk31pdshovo;
+    pDev->OUT_D[1][63] = cabinlighting.pk31pdshovo;
+    pDev->OUT_D[1][94] = cabinlighting.pk31pdshnvo;
+    pDev->OUT_D[1][95] = cabinlighting.pk31pdshnvo;
 }
 
 void OUT_emergencyalarm_int ()

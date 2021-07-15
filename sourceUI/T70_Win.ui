@@ -27,7 +27,7 @@
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="currentIndex">
-       <number>14</number>
+       <number>10</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -3316,6 +3316,316 @@
        <attribute name="title">
         <string>Освещение</string>
        </attribute>
+       <layout class="QGridLayout" name="gridLayout_10">
+        <item row="28" column="0">
+         <widget class="QLabel" name="pfprpr">
+          <property name="text">
+           <string>pfprpr</string>
+          </property>
+         </widget>
+        </item>
+        <item row="21" column="0">
+         <widget class="QLabel" name="pvvopbshav">
+          <property name="text">
+           <string>pvvopbshav</string>
+          </property>
+         </widget>
+        </item>
+        <item row="38" column="0">
+         <widget class="QLabel" name="alphafazp">
+          <property name="text">
+           <string>alphafazp</string>
+          </property>
+         </widget>
+        </item>
+        <item row="26" column="0">
+         <widget class="QLabel" name="pvfp">
+          <property name="text">
+           <string>pvfp</string>
+          </property>
+         </widget>
+        </item>
+        <item row="12" column="0">
+         <widget class="QLabel" name="pvvolblav">
+          <property name="text">
+           <string>pvvolblav</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="pvmv10">
+          <property name="text">
+           <string>pvmv10</string>
+          </property>
+         </widget>
+        </item>
+        <item row="24" column="0">
+         <widget class="QLabel" name="povshper">
+          <property name="text">
+           <string>povshper</string>
+          </property>
+         </widget>
+        </item>
+        <item row="31" column="0">
+         <widget class="QLabel" name="pfsv01lr">
+          <property name="text">
+           <string>pfsv01lr</string>
+          </property>
+         </widget>
+        </item>
+        <item row="33" column="0">
+         <widget class="QLabel" name="pfsv01lp">
+          <property name="text">
+           <string>pfsv01lp</string>
+          </property>
+         </widget>
+        </item>
+        <item row="29" column="0">
+         <widget class="QLabel" name="pfprlp">
+          <property name="text">
+           <string>pfprlp</string>
+          </property>
+         </widget>
+        </item>
+        <item row="17" column="0">
+         <widget class="QLabel" name="pvvopbsh">
+          <property name="text">
+           <string>pvvopbsh</string>
+          </property>
+         </widget>
+        </item>
+        <item row="42" column="0">
+         <widget class="QLabel" name="bss824x1e">
+          <property name="text">
+           <string>bss824x1e</string>
+          </property>
+         </widget>
+        </item>
+        <item row="8" column="0">
+         <widget class="QLabel" name="pvvopbl">
+          <property name="text">
+           <string>pvvopbl</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="pvmn100">
+          <property name="text">
+           <string>pvmn100</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="0">
+         <widget class="QLabel" name="pvvoppd">
+          <property name="text">
+           <string>pvvoppd</string>
+          </property>
+         </widget>
+        </item>
+        <item row="25" column="0">
+         <widget class="QLabel" name="pvfl">
+          <property name="text">
+           <string>pvfl</string>
+          </property>
+         </widget>
+        </item>
+        <item row="30" column="0">
+         <widget class="QLabel" name="pfprpp">
+          <property name="text">
+           <string>pfprpp</string>
+          </property>
+         </widget>
+        </item>
+        <item row="14" column="0">
+         <widget class="QLabel" name="pvvopdsho">
+          <property name="text">
+           <string>pvvopdsho</string>
+          </property>
+         </widget>
+        </item>
+        <item row="37" column="0">
+         <widget class="QLabel" name="alphafazl">
+          <property name="text">
+           <string>alphafazl</string>
+          </property>
+         </widget>
+        </item>
+        <item row="19" column="0">
+         <widget class="QLabel" name="pvvolbshav">
+          <property name="text">
+           <string>pvvolbsha</string>
+          </property>
+         </widget>
+        </item>
+        <item row="40" column="0">
+         <widget class="QLabel" name="pfsv02p">
+          <property name="text">
+           <string>pfsv02p</string>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="0">
+         <widget class="QLabel" name="pvvosp">
+          <property name="text">
+           <string>pvvosp</string>
+          </property>
+         </widget>
+        </item>
+        <item row="32" column="0">
+         <widget class="QLabel" name="pfsv01pr">
+          <property name="text">
+           <string>pfsv01pr</string>
+          </property>
+         </widget>
+        </item>
+        <item row="41" column="0">
+         <widget class="QLabel" name="bss825x5v">
+          <property name="text">
+           <string>bss825x5v</string>
+          </property>
+         </widget>
+        </item>
+        <item row="39" column="0">
+         <widget class="QLabel" name="pfsv02l">
+          <property name="text">
+           <string>pfsv02l</string>
+          </property>
+         </widget>
+        </item>
+        <item row="36" column="0">
+         <widget class="QLabel" name="alphafsv01p">
+          <property name="text">
+           <string>alphafsv01p</string>
+          </property>
+         </widget>
+        </item>
+        <item row="16" column="0">
+         <widget class="QLabel" name="pvvopdshn">
+          <property name="text">
+           <string>pvvopdshn</string>
+          </property>
+         </widget>
+        </item>
+        <item row="18" column="0">
+         <widget class="QLabel" name="pvvopdshoav">
+          <property name="text">
+           <string>pvvopdshoav</string>
+          </property>
+         </widget>
+        </item>
+        <item row="15" column="0">
+         <widget class="QLabel" name="pvvolbsh">
+          <property name="text">
+           <string>pvvolbsh</string>
+          </property>
+         </widget>
+        </item>
+        <item row="35" column="0">
+         <widget class="QLabel" name="alphafsv01l">
+          <property name="text">
+           <string>alphafsv01l</string>
+          </property>
+         </widget>
+        </item>
+        <item row="20" column="0">
+         <widget class="QLabel" name="pvvopdshnav">
+          <property name="text">
+           <string>pvvopdshnav</string>
+          </property>
+         </widget>
+        </item>
+        <item row="27" column="0">
+         <widget class="QLabel" name="pfprlr">
+          <property name="text">
+           <string>pfprlr</string>
+          </property>
+         </widget>
+        </item>
+        <item row="9" column="0">
+         <widget class="QLabel" name="pvvolspdav">
+          <property name="text">
+           <string>pvvolspdav</string>
+          </property>
+         </widget>
+        </item>
+        <item row="22" column="0">
+         <widget class="QLabel" name="povshl">
+          <property name="text">
+           <string>povshl</string>
+          </property>
+         </widget>
+        </item>
+        <item row="13" column="0">
+         <widget class="QLabel" name="pvvopblav">
+          <property name="text">
+           <string>pvvopblav</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QLabel" name="pvmn10">
+          <property name="text">
+           <string>pvmn10</string>
+          </property>
+         </widget>
+        </item>
+        <item row="11" column="0">
+         <widget class="QLabel" name="pvvospav">
+          <property name="text">
+           <string>pvvospav</string>
+          </property>
+         </widget>
+        </item>
+        <item row="23" column="0">
+         <widget class="QLabel" name="povshp">
+          <property name="text">
+           <string>povshp</string>
+          </property>
+         </widget>
+        </item>
+        <item row="34" column="0">
+         <widget class="QLabel" name="pfsv01pp">
+          <property name="text">
+           <string>ofsv01pp</string>
+          </property>
+         </widget>
+        </item>
+        <item row="10" column="0">
+         <widget class="QLabel" name="pvvoppdav">
+          <property name="text">
+           <string>pvvoppdav</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLabel" name="pvmv100">
+          <property name="text">
+           <string>pvmv100</string>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="0">
+         <widget class="QLabel" name="pvvolbl">
+          <property name="text">
+           <string>pvvolbl</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="0">
+         <widget class="QLabel" name="pvvolspd">
+          <property name="text">
+           <string>pvvolspd</string>
+          </property>
+         </widget>
+        </item>
+        <item row="43" column="0">
+         <widget class="QLabel" name="bss824x1a">
+          <property name="text">
+           <string>bss824x1a</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </widget>
       <widget class="QWidget" name="tab_11">
        <attribute name="title">

@@ -7,7 +7,7 @@ void cabinlighting_int::cabinlighting_8()
                         ? true : false;
     pbusto3[0][1] = (exchange::ush2p >= 18.0 && F2_3311 && !otk_pbusto3[0][1])
                         ? true : false;
-    pbusto3[1][0] = (exchange::ush1dpp >= 18.0 && F3_3311 && !otk_pbusto3[1][0])
+    pbusto3[1][0] = (exchange::ush1dpl >= 18.0 && F3_3311 && !otk_pbusto3[1][0])
                         ? true : false;
 
     pk11lspdvo = false;
@@ -33,7 +33,7 @@ void cabinlighting_int::cabinlighting_8()
         pk11pblvo = true;
     }
 
-    if(!pbusto3[0][1])
+    if(pbusto3[0][1])
     {
         pk12lspdvo = true;
         pk12spvo = true;
@@ -53,7 +53,7 @@ void cabinlighting_int::cabinlighting_8()
     pk21ppdvo = false;
     pk22ppdvo = false;
 
-    if(!pbusto3[1][0])
+    if(pbusto3[1][0])
     {
         pk21lspdvo = true;
         pk21spvo = true;
@@ -62,7 +62,7 @@ void cabinlighting_int::cabinlighting_8()
         pk21pblvo = true;
     }
 
-    if(!pbusto3[1][1])
+    if(pbusto3[1][1])
     {
         pk22lspdvo = true;
         pk22spvo = true;

@@ -284,7 +284,50 @@ void  MainWindow:: Print_brakes        ()
 }
 void  MainWindow:: Print_cabinlighting ()
 {
-
+    ui->pvmn10->setText("Признак включения маяка нижнего 10 = " + QString::number(cabinlighting.PVMN10));
+    ui->pvmv10->setText("Признак включения маяка верхнего 10 = " + QString::number(cabinlighting.PVMV10));
+    ui->pvmn100->setText("Признак включения маяка нижнего 100 = " + QString::number(cabinlighting.PVMN100));
+    ui->pvmv100->setText("Признак включения маяка верхнего 100 = " + QString::number(cabinlighting.PVMV100));
+    ui->pvvolspd->setText("Признак включения встроенного освещения левой и средней приборных доск в нормальном режиме = " + QString::number(cabinlighting.pvvolspd));
+    ui->pvvoppd->setText("Признак включения встроенного освещения правой приборной доски нормальном режиме = " + QString::number(cabinlighting.pvvoppd));
+    ui->pvvosp->setText("Признак встроенного пульта нормальном режиме = " + QString::number(cabinlighting.pvvosp));
+    ui->pvvolbl->setText("Признак подключения встроенного освещения левого борта летчиков в нормальном режиме  = " + QString::number(cabinlighting.pvvolbl));
+    ui->pvvopbl->setText("Признак подключения встроенного освещения правого борта летчиков в нормальном режиме  = " + QString::number(cabinlighting.pvvopbl));
+    ui->pvvolspdav->setText("Признак подключения встроенного освещения левой и сердней приборных досок в аварийном режиме  = " + QString::number(cabinlighting.pvvolspdav));
+    ui->pvvoppdav->setText("Признак подключения встроенного освещения правой  приборной доски в аварийном режиме  = " + QString::number(cabinlighting.pvvoppdav));
+    ui->pvvospav->setText("Признак подключения встроенного освещения среднего пульта в аварийном режиме  = " + QString::number(cabinlighting.pvvospav));
+    ui->pvvolblav->setText("Признак подключения встроенного освещения левого борта летчиков в аварийном режиме  = " + QString::number(cabinlighting.pvvolblav));
+    ui->pvvopblav->setText("Признак подключения встроенного освещения правого борта летчиков в аварийном режиме  = " + QString::number(cabinlighting.pvvopblav));
+    ui->pvvopdsho->setText("Признак включения встроенного освещения приборной доски штурмана оператора в нормальном режиме  = " + QString::number(cabinlighting.pvvopdsho));
+    ui->pvvolbsh->setText("Признак включения встроенного освещения левого борта штурманов в нормальном режиме  = " + QString::number(cabinlighting.pvvolbsh));
+    ui->pvvopdshn->setText("Признак включения встроенного освещения приборной доски штурмана-навигатора в нормальном режиме  = " + QString::number(cabinlighting.pvvopdshn));
+    ui->pvvopbsh->setText("Признак включения встроенного освещения правого борта штурманов в нормальном режиме  = " + QString::number(cabinlighting.pvvopbsh));
+    ui->pvvopdshoav->setText("Признак включения встроенного освещения приборной доски штурмана оператора в аварийном режиме  = " + QString::number(cabinlighting.pvvopdshoav));
+    ui->pvvolbshav->setText("Признак включения встроенного освещения левого борта штурманов в аварийном режиме  = " + QString::number(cabinlighting.pvvolbshav));
+    ui->pvvopdshnav->setText("Признак включения встроенного освещения приборной доски штурмана-навигатоа в аварийном режиме  = " + QString::number(cabinlighting.pvvopdshnav));
+    ui->pvvopbshav->setText("Признак включения встроенного освещения правого борта штурманов в аварийном режиме  = " + QString::number(cabinlighting.pvvopdshnav));
+    ui->povshl->setText("Признак огня выпуска шасси левого  = " + QString::number(cabinlighting.POVSH_L));
+    ui->povshp->setText("Признак огня выпуска шасси правого  = " + QString::number(cabinlighting.POVSH_P));
+    ui->povshper->setText("Признак огня выпуска шасси носового  = " + QString::number(cabinlighting.POVSH_PER));
+    ui->pvfl->setText("Признак выпуск фары ФСВ-01 левой  = " + QString::number(cabinlighting.PVFL));
+    ui->pvfp->setText("Признак выпуск фары ФСВ-01 правой  = " + QString::number(cabinlighting.PVFP));
+    ui->pfprlr->setText("Признак включения рулежного света левой фары посадочно-рулежной ФПР-16А = " + QString::number(cabinlighting.PFPRLR));
+    ui->pfprpr->setText("Признак включения рулежного света правой фары посадочно-рулежной ФПР-16А = " + QString::number(cabinlighting.PFPRPR));
+    ui->pfprlp->setText("Признак включения посадочного света левой фары посадочно-рулежной ФПР-16А = " + QString::number(cabinlighting.PFPRPLP));
+    ui->pfprpp->setText("Признак включения посадочного света правой фары посадочно-рулежной ФПР-16А = " + QString::number(cabinlighting.PFPRPP));
+    ui->pfsv01lr->setText("Признак включения рулежного света левой фары светодиодной выдвижной ФСВ-01 = " + QString::number(cabinlighting.PFSV_01LR));
+    ui->pfsv01pr->setText("Признак включения рулежного света правой фары светодиодной выдвижной ФСВ-01 = " + QString::number(cabinlighting.PFSV_01PR));
+    ui->pfsv01lp->setText("Признак включения посадочного света левой фары светодиодной выдвижной ФСВ-01 = " + QString::number(cabinlighting.PFSV_01LP));
+    ui->pfsv01pp->setText("Признак включения посадочного света правой фары светодиодной выдвижной ФСВ-01 = " + QString::number(cabinlighting.PFSV_01PP));
+    ui->alphafsv01l->setText("Положение фары светодиодной выдвижной ФСВ-01 левой = " + QString::number(cabinlighting.alpha_fsv_ol));
+    ui->alphafsv01p->setText("Положение фары светодиодной выдвижной ФСВ-01 правой = " + QString::number(cabinlighting.alpha_fsv_op));
+    ui->alphafazl->setText("Положение фары освещения агрегатов заправки левой = " + QString::number(cabinlighting.alpha_fazl));
+    ui->alphafazp->setText("Положение фары освещения агрегатов заправки правой = " + QString::number(cabinlighting.alpha_fazp));
+    ui->pfsv02l->setText("Признак включения света левой фары светодиодной выдвижной ФСВ-02 = " + QString::number(cabinlighting.PFSV_02L));
+    ui->pfsv02p->setText("Признак включения света правой фары светодиодной выдвижной ФСВ-02 = " + QString::number(cabinlighting.PFSV_02P));
+    ui->bss825x5v->setText("Признак входного сигнала на блоке БСС для табло ФАРЫ ВЫПУЩ (фары заправки) = " + QString::number(bss_inst.BSS825X5V));
+    ui->bss824x1e->setText("Признак входного сигнала на блоке БСС для табло ФАРЫ ВЫПУЩ (взлет-посадка) = " + QString::number(bss_inst.BSS824X1E));
+    ui->bss824x1a->setText("Признак входного сигнала на блоке БСС для табло СВЕТ ПОСАДОЧ (фары) = " + QString::number(bss_inst.BSS824X1A));
 }
 void  MainWindow:: Print_emergencyalarm()
 {

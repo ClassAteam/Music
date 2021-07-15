@@ -41,7 +41,7 @@ void cabinlighting_int::cabinlighting_10()
         if(exchange::ush1l >= 18.0)
         {
             pvpmfi[6] = true;
-            pvpmfi[0] = true;
+            pvpmfi[9] = true;
             pvpmfi[10] = true;
             if(pk31pdshovo || pk32pdshovo)
             {
@@ -72,7 +72,7 @@ void cabinlighting_int::cabinlighting_10()
         if(exchange::ush1p >= 18.0)
         {
             pvpmfi[6] = true;
-            pvpmfi[0] = true;
+            pvpmfi[9] = true;
             pvpmfi[10] = true;
             if(pk31pdshovo || pk32pdshovo)
             {
@@ -112,6 +112,19 @@ void cabinlighting_int::cabinlighting_10()
         if(pk31pdshovo || pk32pdshovo) pvvomfpu[2] = true;
     }
 
+    if(bgs1)
+    {
+        if(exchange::ush1l >= 18.0)
+        {
+            pvpbgs111 = true;
+            pvpbgs211 = true;
+        }
+        if(exchange::ush1p >= 18.0)
+        {
+            pvpbgs121 = true;
+            pvpbgs221 = true;
+        }
+    }
     if(bgs2)
     {
         if(exchange::ush2l >= 18.0)
@@ -130,6 +143,7 @@ void cabinlighting_int::cabinlighting_10()
     if(pk41pdshovo || pk42pdshovo) pvvopdshoav = true;
     if(pk31pdshnvo || pk32pdshnvo) pvvopdshn = true;
     if(pk41pdshnvo || pk42pdshnvo) pvvopdshnav = true;
+    if(pk31lbshvo || pk32lbshvo) pvvolbsh = true;
     if(pk41lbshvo || pk42lbshvo) pvvolbshav = true;
     if(pk31pbshvo || pk32pbshvo) pvvopbsh = true;
     if(pk41pbshvo || pk42pbshvo) pvvopbshav = true;

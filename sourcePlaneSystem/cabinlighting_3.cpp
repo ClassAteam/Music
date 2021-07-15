@@ -10,10 +10,10 @@ void cabinlighting_int::cabinlighting_3()
     static bool K6_3340{};
     static bool K7_3340{};
     static bool K8_3340{};
-    static bool K9_3340{};
-    static bool K10_3340{};
-    static bool K11_3340{};
-    static bool K12_3340{};
+    static bool K9_3340{};//otkl
+    static bool K10_3340{};//otkl
+    static bool K11_3340{};//vzlt-posadka
+    static bool K12_3340{};//zlt-posadka
     static bool K13_3340{};
     static bool K14_3340{};
     // A left side toggling
