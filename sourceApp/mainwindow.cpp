@@ -313,7 +313,7 @@ void  MainWindow:: Print_cabinlighting ()
     ui->pvfp->setText("Признак выпуск фары ФСВ-01 правой  = " + QString::number(cabinlighting.PVFP));
     ui->pfprlr->setText("Признак включения рулежного света левой фары посадочно-рулежной ФПР-16А = " + QString::number(cabinlighting.PFPRLR));
     ui->pfprpr->setText("Признак включения рулежного света правой фары посадочно-рулежной ФПР-16А = " + QString::number(cabinlighting.PFPRPR));
-    ui->pfprlp->setText("Признак включения посадочного света левой фары посадочно-рулежной ФПР-16А = " + QString::number(cabinlighting.PFPRPLP));
+    ui->pfprlp->setText("Признак включения посадочного света левой фары посадочно-рулежной ФПР-16А = " + QString::number(cabinlighting.PFPRLP));
     ui->pfprpp->setText("Признак включения посадочного света правой фары посадочно-рулежной ФПР-16А = " + QString::number(cabinlighting.PFPRPP));
     ui->pfsv01lr->setText("Признак включения рулежного света левой фары светодиодной выдвижной ФСВ-01 = " + QString::number(cabinlighting.PFSV_01LR));
     ui->pfsv01pr->setText("Признак включения рулежного света правой фары светодиодной выдвижной ФСВ-01 = " + QString::number(cabinlighting.PFSV_01PR));

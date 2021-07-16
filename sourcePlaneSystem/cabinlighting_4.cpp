@@ -14,13 +14,13 @@ void cabinlighting_int::cabinlighting_4()
         {
         case static_cast<int>(S3_3340::uborka):
         {
-            alpha_fazl = alpha_fazl - dalpha_fazl * ts;
+            alpha_fazl = alpha_fazl - dalpha_faz * ts;
             if(alpha_fazl <= 0.0) alpha_fazl = 0.0;
             break;
         }
         case static_cast<int>(S3_3340::vipusk):
         {
-            alpha_fazl = alpha_fazl - dalpha_fazl * ts;
+            alpha_fazl = alpha_fazl + dalpha_faz * ts;
             if(alpha_fazl >= 125.0) alpha_fazl = 125.0;
             break;
         }
@@ -34,13 +34,13 @@ void cabinlighting_int::cabinlighting_4()
         {
         case static_cast<int>(S4_3340::uborka):
         {
-            alpha_fazp = alpha_fazp - dalpha_fazp * ts;
+            alpha_fazp = alpha_fazp - dalpha_faz * ts;
             if(alpha_fazp <= 0.0) alpha_fazp = 0.0;
             break;
         }
         case static_cast<int>(S4_3340::vipusk):
         {
-            alpha_fazp = alpha_fazp - dalpha_fazp * ts;
+            alpha_fazp = alpha_fazp + dalpha_faz * ts;
             if(alpha_fazp >= 125.0) alpha_fazp = 125.0;
             break;
         }
@@ -70,9 +70,9 @@ void cabinlighting_int::cabinlighting_4()
         bss_inst.BSS824X1E = false;
     }
 
-    if((exchange::ush1l >= 18.0 && (PFPRPLP || PFSV_01LR))
+    if((exchange::ush1l >= 18.0 && (PFPRLP || PFSV_01LP))
     ||
-        ((exchange::ush1l >= 18.0 && (PFPRPPP || PFSV_01PR))))
+        ((exchange::ush1l >= 18.0 && (PFPRPP || PFSV_01PP))))
     {
         bss_inst.BSS824X1A = true;
     }

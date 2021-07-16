@@ -82,6 +82,9 @@ struct SH_ISU
     double H_{};//visota poleta, m
     double Ph_{};//atmosfernoe davlenie na dannoy visote
 
+    //SVS
+    double Vpr{};
+
 
 
 };

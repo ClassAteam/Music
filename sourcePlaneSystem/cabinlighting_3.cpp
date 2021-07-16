@@ -16,12 +16,14 @@ void cabinlighting_int::cabinlighting_3()
     static bool K12_3340{};//zlt-posadka
     static bool K13_3340{};
     static bool K14_3340{};
+    PFPRLR = false;
+    PFPRLP = false;
     // A left side toggling
     if(exchange::ush1l >= 18.0 && F1_3340)
     {
         if (F4_3340)
         {
-            if(K1_3340) PFPRPLP = true;
+            if(K1_3340) PFPRLP = true;
             else
             {
                 if(K2_3340) PFPRLR = true;
@@ -32,11 +34,28 @@ void cabinlighting_int::cabinlighting_3()
                 PVFL = true;
                 K1_3340 = false;
                 K2_3340 = false;
+                K9_3340 = false;
+                K11_3340 = false;
                 K13_3340 = false;
             }
             else
             {
                 PVFL = false;
+                K1_3340 = false;
+                K2_3340 = false;
+                K9_3340 = false;
+                K11_3340 = false;
+                K13_3340 = false;
+            }
+
+            switch(S6_3340)
+            {
+            case(static_cast<int>(s6_3340::otkl)):
+                K9_3340 = true;
+                break;
+            case(static_cast<int>(s6_3340::vzlpos)):
+                K11_3340 = true;
+                break;
             }
 
             if(!K9_3340)
@@ -56,15 +75,6 @@ void cabinlighting_int::cabinlighting_3()
 
             K9_3340 = K11_3340 = false;
 
-            if(S6_3340 == 2)
-            {
-                K9_3340 = true;
-            }
-
-            if (S6_3340 == 1)
-            {
-                K11_3340 = true;
-            }
         }
         else
         {
@@ -80,19 +90,19 @@ void cabinlighting_int::cabinlighting_3()
         {
             if(Vpr <= 115.0 && PVFL && alpha_fsv_ol < 1.0)
             {
-                alpha_fsv_ol = alpha_fsv_ol + 0.01;
+                alpha_fsv_ol = alpha_fsv_ol + 0.1 * ts;
                 if(alpha_fsv_ol >= 1) alpha_fsv_ol = 1.0;
             }
 
             if(Vpr <= 115.0 && !PVFL && alpha_fsv_ol > 0.0)
             {
-                alpha_fsv_ol = alpha_fsv_ol - 0.01;
+                alpha_fsv_ol = alpha_fsv_ol - 0.1 * ts;
                 if(alpha_fsv_ol <= 0) alpha_fsv_ol = 0;
             }
             //emergency insert
             if (Vpr > 115.0 && PVFL && alpha_fsv_ol > 0.0)
             {
-                alpha_fsv_ol = alpha_fsv_ol - 0.01;
+                alpha_fsv_ol = alpha_fsv_ol - 0.1 * ts;
                 if(alpha_fsv_ol <= 0.0) alpha_fsv_ol = 0;
             }
         }
@@ -114,6 +124,9 @@ void cabinlighting_int::cabinlighting_3()
         K13_3340 = false;
     }
 
+    PFPRPP = false;
+    PFPRPR = false;
+
     // B right side toggling
     if (exchange::ush1p >= 18.0 && F14_3340)
     {
@@ -125,16 +138,29 @@ void cabinlighting_int::cabinlighting_3()
                 if(K7_3340) PFPRPR = true;
             }
 
+            K6_3340 = false;
+            K7_3340 = false;
+            K14_3340 = false;
+            K10_3340 = false;
+            K12_3340 = false;
+
             if(S1_3340)
             {
                 PVFP = true;
-                K6_3340 = false;
-                K7_3340 = false;
-                K14_3340 = false;
             }
             else
             {
                 PVFP = false;
+            }
+
+            switch(S6_3340)
+            {
+            case(static_cast<int>(s6_3340::otkl)):
+                K10_3340 = true;
+                break;
+            case(static_cast<int>(s6_3340::vzlpos)):
+                K12_3340 = true;
+                break;
             }
 
             if(!K10_3340)
@@ -150,15 +176,6 @@ void cabinlighting_int::cabinlighting_3()
 
             K10_3340 = K12_3340 = false;
 
-            switch(S6_3340)
-            {
-            case(2):
-                K10_3340 = true;
-                break;
-            case(1):
-                K12_3340 = true;
-                break;
-            }
         }
         else
         {
@@ -177,20 +194,20 @@ void cabinlighting_int::cabinlighting_3()
         {
             if(Vpr <= 115.0 && PVFP && alpha_fsv_op < 1)
             {
-                alpha_fsv_op = alpha_fsv_op + 0.01;
+                alpha_fsv_op = alpha_fsv_op + 0.1 * ts;
                 if(alpha_fsv_op >= 1) alpha_fsv_op = 1.0;
             }
 
             if (Vpr <= 115.0 && !PVFP && alpha_fsv_op > 0)
             {
-                alpha_fsv_op = alpha_fsv_op - 0.01;
+                alpha_fsv_op = alpha_fsv_op - 0.1 * ts;
 
                 if(alpha_fsv_op <= 0) alpha_fsv_op = 0;
             }
             //emergency insert
             if(Vpr > 115.0 && PVFP && alpha_fsv_op > 0)
             {
-                alpha_fsv_op = alpha_fsv_op - 0.01;
+                alpha_fsv_op = alpha_fsv_op - 0.1 * ts;
                 if(alpha_fsv_op <= 0) alpha_fsv_op = 0;
             }
         }

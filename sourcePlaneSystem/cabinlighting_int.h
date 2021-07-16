@@ -246,15 +246,16 @@ levogo borta shturmana-operatora*/
 
     /*pereklyuchatel' FARI ZAPRAVKI VIPUSK-UBORKA LEV*/
     int S3_3340;
-    enum S3_3340{uborka, vipusk};
+    enum class S3_3340{uborka, vipusk, otkl};
 
     /*pereklyuchatel FARI ZAPRAVKI VIPUSK-UBORKA PRAV*/
     int S4_3340;
-    enum class S4_3340{uborka, vipusk};
+    enum  class S4_3340{uborka, vipusk, otkl};
 
     /*pereklyuchatel sveta posadochno-rulezhnih far
  |VZLET POSADKA RULENIE-OTKL"*/
     int S6_3340;
+    enum s6_3340{vzlpos, rulenie, otkl};
 
     /*polozhenie fari svetodiodnoy vidvizhnoy FSV-01 levoy*/
     double alpha_fsv_ol;
@@ -262,16 +263,15 @@ levogo borta shturmana-operatora*/
     /*polozhenie fari svetodiodnoy vidvizhnoy FSV-01 pravoy*/
     double alpha_fsv_op;
 
-    /*skorost' pribornaya m/s*/
+    /*скорость приборная m/s*/
     double Vpr;
 
-    /*polozheni fari FSV-02 osvesheniya agregatov zapravki levoy*/
-    double dalpha_fazl{};
+    /*положение фары ФСВ-02 освещения агрегатов заправки правой   pravoy*/
     double alpha_fazl{};
-
-    /*polozheni fari FSV-02 osvesheniya agregatov zapravki pravoy*/
-    double dalpha_fazp{};
     double alpha_fazp{};
+
+    /* скорость изменения положения фары зап*/
+    double dalpha_faz{12.5};
 
     /*признак работы канала бусто*/
     bool pbusto3[4][2]{};
@@ -325,16 +325,11 @@ levogo borta shturmana-operatora*/
 
     /*признак включение рулежного света левой фары посадочно-рулежной ФПР-16А*/
     bool PFPRLR;
+    bool PFPRLP;
 
     /*признак включение рулежного света правой фары посадочно-рулежной ФПР-16А*/
     bool PFPRPR;
     bool PFPRPP;
-
-    /*признак включение рулежного света левой фары посадочно-рулежной ФПР-16А*/
-    bool PFPRPLP;
-
-    /*признак включение рулежного света левой фары посадочно-рулежной ФПР-16А*/
-    bool PFPRPPP;
 
     /*признак включения рулежного света левой фары светодиодной выдвижной ФСВ01*/
     bool PFSV_01LR;

@@ -400,7 +400,13 @@ void IN_cabinlighting_int  ()
 {
     cabinlighting.S1_3340 = pDev->IN_MAT[289];
     cabinlighting.S6_3340 = pDev->IN_MAT[129];
-    //uniqness of toggling bit excluded by peg updSmth() method
+    if(pDev->IN_MAT[129])
+        cabinlighting.S6_3340 = static_cast<int>(cabinlighting.s6_3340::vzlpos);
+    if(pDev->IN_MAT[130])
+        cabinlighting.S6_3340 = static_cast<int>(cabinlighting.s6_3340::otkl);
+    if((!pDev->IN_MAT[129]) && (!pDev->IN_MAT[130]))
+        cabinlighting.S6_3340 = static_cast<int>(cabinlighting.s6_3340::rulenie);
+    //uniqness of toggling bit contracted by peg updSmth() method
     if(pDev->IN_MAT[133])
         cabinlighting.S1_3341 = static_cast<int>(cabinlighting.S1_3341::ANO10);
     if(pDev->IN_MAT[134])
@@ -409,11 +415,22 @@ void IN_cabinlighting_int  ()
         cabinlighting.S1_3341 = static_cast<int>(cabinlighting.S1_3341::ANO100);
     if(pDev->IN_MAT[136])
         cabinlighting.S1_3341 = static_cast<int>(cabinlighting.S1_3341::MIGANIE);
+    cabinlighting.s1_2860 = pDev->IN_MAT[144];
     cabinlighting.S2_3340 = pDev->IN_MAT[137];
     if(pDev->IN_MAT[138])
         cabinlighting.S3_3340 = static_cast<int>(cabinlighting.S3_3340::vipusk);
     if(pDev->IN_MAT[139])
         cabinlighting.S3_3340 = static_cast<int>(cabinlighting.S3_3340::uborka);
+    if((!pDev->IN_MAT[138]) && (!pDev->IN_MAT[139]))
+        cabinlighting.S3_3340 = static_cast<int>(cabinlighting.S3_3340::otkl);
+
+    if(pDev->IN_MAT[140])
+        cabinlighting.S4_3340 = static_cast<int>(cabinlighting.S4_3340::vipusk);
+    if(pDev->IN_MAT[141])
+        cabinlighting.S4_3340 = static_cast<int>(cabinlighting.S4_3340::uborka);
+    if((!pDev->IN_MAT[140]) && (!pDev->IN_MAT[141]))
+        cabinlighting.S4_3340 = static_cast<int>(cabinlighting.S4_3340::otkl);
+
     cabinlighting.S5_3340 = pDev->IN_MAT[142];
     cabinlighting.s_11710[0] = pDev->IN_MAT[0];
     cabinlighting.s_11710[1] = pDev->IN_MAT[1];
@@ -451,6 +468,8 @@ void IN_cabinlighting_int  ()
     cabinlighting.otk_pbusto3[2][1] = pFromP->Otkaz[99];
     cabinlighting.otk_pbusto3[3][0] = pFromP->Otkaz[100];
     cabinlighting.otk_pbusto3[3][1] = pFromP->Otkaz[101];
+
+    cabinlighting.Vpr = pISU->Vpr;
 }
 void IN_emergencyalarm_int ()
 {}

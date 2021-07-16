@@ -45,7 +45,7 @@ void wingsmech_int::wingsmech_4()
         }
         else
         {
-            bss_inst.BSS824X1A = false;
+            bss_inst.BSS824X3A = false;
         }
     }
     else
@@ -53,7 +53,7 @@ void wingsmech_int::wingsmech_4()
         bss_inst.BSS824X1KK = false;
         bss_inst.BSS824X1MM = false;
 
-        bss_inst.BSS824X1A = false;
+//        bss_inst.BSS824X1A = false;
         bss_inst.BSS824X3C = false;
     }
 
