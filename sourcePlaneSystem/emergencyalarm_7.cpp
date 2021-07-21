@@ -247,10 +247,10 @@ static int
         bss_inst.BSS926X2H = (bss_inst.BSS926X1R) ? true : false;
 
         ///////////////White lights_1
-        bss_inst.BSS926X2J = (bss_inst.zakr_om1) ? true : false;
+        bss_inst.BSS926X2J = (bss_inst.BSS926X1T) ? true : false;
 
         ///////////////White lights_1
-        bss_inst.BSS926X2K = (bss_inst.zakr_m1) ? true : false;
+        bss_inst.BSS926X2K = (bss_inst.BSS926X1V) ? true : false;
 
         ///////////////White lights_1
         bss_inst.BSS926X2L = (bss_inst.BSS926X1X) ? true : false;

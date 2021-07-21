@@ -4,13 +4,15 @@ void aircondition_int::aircondition_4_5()
 {
 
     k1_2120 = false;
+    pruuk101 = false;
 
-    if(exchange::ushal >= 18.0 && exchange::s4_2120)
+    if(exchange::ushal >= 18.0) pruuk101 = true;
+
+    if(exchange::ushal >= 18.0 && exchange::s3_2120)
     {
         k1_2120 = true;
     }
 
-    pruukl = false;
     k3_2120 = false;
     k7_2120 = false;
 
@@ -18,7 +20,7 @@ void aircondition_int::aircondition_4_5()
     {
         if(exchange::s1_2120)
         {
-            pruukl = true;
+            pruuk101 = true;
 
             if(!k9_2110 && !k1_2110) k3_2120 = true;
         }
@@ -32,14 +34,14 @@ void aircondition_int::aircondition_4_5()
         }
     }
 
-    if(otkaz_povishTemprVozd) tvvt1 = 355.0;
+    if(otkaz_povishTemprVozd1) tvvt1 = 355.0;
     else tvvt1 = 70.0;
 
     if(otkaz_povishDavlVozMag1) Potb1_2 = 8.2;
 
     pom1 = false;
 
-    if(pruukl)
+    if(pruuk101)
     {
         if(tvvt1 >= 350.0 || Potb1_2 >= 8.0)
         {
@@ -88,12 +90,12 @@ void aircondition_int::aircondition_4_5()
     {
         if(!k7_2120)
         {
-            alphazktvt12 = alphazktvt12 - 0.25 * tS;
+            alphazktvt12 = alphazktvt12 - 0.25 * ts;
             if(alphazktvt12 < 0.0) alphazktvt12 = 0.0;
         }
         else
         {
-            alphazktvt12 = alphazktvt12 + 0.25 * tS;
+            alphazktvt12 = alphazktvt12 + 0.25 * ts;
             if(alphazktvt12 > 1.0) alphazktvt12 = 1.0;
         }
     }
@@ -102,7 +104,7 @@ void aircondition_int::aircondition_4_5()
     {
         if(!k3_2120)
         {
-            alphazm1 = alphazm1 - 0.25 * tS;
+            alphazm1 = alphazm1 - 0.25 * ts;
             if(alphazm1 < 0.0)
             {
                 alphazm1 = 0.0;
@@ -112,7 +114,7 @@ void aircondition_int::aircondition_4_5()
         }
         else
         {
-            alphazm1 = alphazm1 + 0.25 * tS;
+            alphazm1 = alphazm1 + 0.25 * ts;
             if(alphazm1 > 1.0) alphazm1 = 1.0;
         }
     }
@@ -121,23 +123,23 @@ void aircondition_int::aircondition_4_5()
     {
         if(!k5_2120)
         {
-            alphaztvt1 = alphaztvt1 - 0.25 * tS;
+            alphaztvt1 = alphaztvt1 - 0.25 * ts;
             if(alphaztvt1 < 0.0) alphaztvt1 = 0.0;
         }
         else
         {
-            alphaztvt1 = alphaztvt1 + 0.25 * tS;
+            alphaztvt1 = alphaztvt1 + 0.25 * ts;
             if(alphaztvt1 > 1.0) alphaztvt1 = 1.0;
         }
 
         if(!k6_2120)
         {
-            alphaztvt2 = alphaztvt2 - 0.25 * tS;
+            alphaztvt2 = alphaztvt2 - 0.25 * ts;
             if(alphaztvt2 < 0.0) alphaztvt2 = 0.0;
         }
         else
         {
-            alphaztvt2 = alphaztvt2 + 0.25 * tS;
+            alphaztvt2 = alphaztvt2 + 0.25 * ts;
             if(alphaztvt2 > 1.0) alphaztvt2 = 1.0;
         }
     }
@@ -146,12 +148,12 @@ void aircondition_int::aircondition_4_5()
     {
         if(!pzpe1)
         {
-            alphazpe1 = alphazpe1 - 0.25 * tS;
+            alphazpe1 = alphazpe1 - 0.25 * ts;
             if(alphazpe1 < 0.0) alphazpe1 = 0.0;
         }
         else
         {
-            alphazpe1 = alphazpe1 + 0.25 * tS;
+            alphazpe1 = alphazpe1 + 0.25 * ts;
             if(alphazpe1 > 1.0) alphazpe1 = 1.0;
         }
     }
@@ -160,12 +162,12 @@ void aircondition_int::aircondition_4_5()
     {
         if(!pzpvvt1)
         {
-            alphazpvvt1 = alphazpvvt1 - 0.25 * tS;
+            alphazpvvt1 = alphazpvvt1 - 0.25 * ts;
             if(alphazpvvt1 < 0.0) alphazpvvt1 = 0.0;
         }
         else
         {
-            alphazpvvt1 = alphazpvvt1 + 0.25 * tS;
+            alphazpvvt1 = alphazpvvt1 + 0.25 * ts;
             if(alphazpvvt1 > 1.0) alphazpvvt1 = 1.0;
         }
     }
@@ -178,7 +180,7 @@ void aircondition_int::aircondition_4_5()
         k2_2120 = true;
     }
 
-    pruukp = false;
+    pruuk102 = false;
     k4_2120 = false;
     k10_2120 = false;
 
@@ -186,7 +188,7 @@ void aircondition_int::aircondition_4_5()
     {
         if(exchange::s2_2120)
         {
-            pruukp = true;
+            pruuk102 = true;
 
             if(!k13_2110 && !k2_2120) k4_2120 = true;
         }
@@ -199,14 +201,14 @@ void aircondition_int::aircondition_4_5()
             k10_2120 = false;
         }
     }
-    if(otkaz_povishTemprVozd) tvvt2 = 355.0;
+    if(otkaz_povishTemprVozd2) tvvt2 = 355.0;
     else tvvt2 = 70.0;
 
     if(otkaz_povishDavlVozMag2) Potb3_4 = 8.2;
 
     pom2 = false;
 
-    if(pruukp)
+    if(pruuk102)
     {
         if(tvvt2 >= 350.0 || Potb3_4 >= 8.0)
         {
@@ -234,10 +236,10 @@ void aircondition_int::aircondition_4_5()
 
         if(pom2)
         {
-            if(!exchange::s4_2120) bss_inst.zakr_m1 = true;
-            if(alphazm1 <= 0.0) bss_inst.zakr_m1 = false;
+            if(!exchange::s4_2120) bss_inst.BSS926X3V = true;
+            if(alphazm1 <= 0.0) bss_inst.BSS926X3V = false;
         }
-        else bss_inst.zakr_m1 = false;
+        else bss_inst.BSS926X3V = false;
     }
     else
     {
@@ -255,12 +257,12 @@ void aircondition_int::aircondition_4_5()
     {
         if(!k10_2120)
         {
-            alphazkm12 = alphazkm12 - 0.25 * tS;
+            alphazkm12 = alphazkm12 - 0.25 * ts;
             if(alphazkm12 < 0.0) alphazkm12 = 0.0;
         }
         else
         {
-            alphazkm12 = alphazkm12 + 0.25 * tS;
+            alphazkm12 = alphazkm12 + 0.25 * ts;
             if(alphazkm12 > 1.0) alphazkm12 = 1.0;
         }
     }
@@ -269,7 +271,7 @@ void aircondition_int::aircondition_4_5()
     {
         if(!k4_2120)
         {
-            alphazm2 = alphazm2 - 0.25 * tS;
+            alphazm2 = alphazm2 - 0.25 * ts;
             if(alphazm2 < 0.0)
             {
                 alphazm2 = 0.0;
@@ -279,7 +281,7 @@ void aircondition_int::aircondition_4_5()
         }
         else
         {
-            alphazm2 = alphazm2 + 0.25 * tS;
+            alphazm2 = alphazm2 + 0.25 * ts;
             if(alphazm2 > 1.0) alphazm2 = 1.0;
         }
     }
@@ -288,23 +290,23 @@ void aircondition_int::aircondition_4_5()
     {
         if(!k8_2120)
         {
-            alphaztvt3 = alphaztvt3 - 0.25 * tS;
+            alphaztvt3 = alphaztvt3 - 0.25 * ts;
             if(alphaztvt3 < 0.0) alphaztvt3 = 0.0;
         }
         else
         {
-            alphaztvt3 = alphaztvt3 + 0.25 * tS;
+            alphaztvt3 = alphaztvt3 + 0.25 * ts;
             if(alphaztvt3 > 1.0) alphaztvt3 = 1.0;
         }
 
         if(!k9_2120)
         {
-            alphaztvt4 = alphaztvt4 - 0.25 * tS;
+            alphaztvt4 = alphaztvt4 - 0.25 * ts;
             if(alphaztvt4 < 0.0) alphaztvt4 = 0.0;
         }
         else
         {
-            alphaztvt4 = alphaztvt4 + 0.25 * tS;
+            alphaztvt4 = alphaztvt4 + 0.25 * ts;
             if(alphaztvt4 > 1.0) alphaztvt4 = 1.0;
         }
     }
@@ -313,12 +315,12 @@ void aircondition_int::aircondition_4_5()
     {
         if(!pzpe2)
         {
-            alphazpe2 = alphazpe2 - 0.25 * tS;
+            alphazpe2 = alphazpe2 - 0.25 * ts;
             if(alphazpe2 < 0.0) alphazpe2 = 0.0;
         }
         else
         {
-            alphazpe2 = alphazpe2 + 0.25 * tS;
+            alphazpe2 = alphazpe2 + 0.25 * ts;
             if(alphazpe2 > 1.0) alphazpe2 = 1.0;
         }
     }
@@ -327,12 +329,12 @@ void aircondition_int::aircondition_4_5()
     {
         if(!pzpvvt2)
         {
-            alphazpvvt2 = alphazpvvt2 - 0.25 * tS;
+            alphazpvvt2 = alphazpvvt2 - 0.25 * ts;
             if(alphazpvvt2 < 0.0) alphazpvvt2 = 0.0;
         }
         else
         {
-            alphazpvvt2 = alphazpvvt2 + 0.25 * tS;
+            alphazpvvt2 = alphazpvvt2 + 0.25 * ts;
             if(alphazpvvt2 > 1.0) alphazpvvt2 = 1.0;
         }
     }
@@ -342,8 +344,8 @@ void aircondition_int::aircondition_4_5()
 
     if(exchange::usho1p >= 18.0 && exchange::s5_2120)
     {
-        if(pruukl) sd_sm_fltL = true;
-        if(pruukp) sd_sm_fltP = true;
+        if(pruuk101) sd_sm_fltL = true;
+        if(pruuk102) sd_sm_fltP = true;
     }
 
 }

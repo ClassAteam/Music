@@ -31,7 +31,7 @@ void aircondition_int::aircondition_1_2_3()
     {
         if(exchange::s7_pp73)
         {
-            alpha_zot_vsu = alpha_zot_vsu + 0.5 * tS;
+            alpha_zot_vsu = alpha_zot_vsu + 0.5 * ts;
 
             if(alpha_zot_vsu >= 1.0) alpha_zot_vsu = 1.0;
 
@@ -40,7 +40,7 @@ void aircondition_int::aircondition_1_2_3()
         }
         else
         {
-            alpha_zot_vsu = alpha_zot_vsu - 0.5 * tS;
+            alpha_zot_vsu = alpha_zot_vsu - 0.5 * ts;
 
             if(alpha_zot_vsu <= 0.0)
             {
@@ -183,10 +183,10 @@ void aircondition_int::aircondition_1_2_3()
                     pbrid1 = true;
                     bss_inst.BSS838X5v = true;
                 }
-                else
-                    bss_inst.BSS838X5z = false;
             }
         }
+        bss_inst.BSS838X5z = false;
+
 
 
         if(k22_2110)
@@ -205,11 +205,11 @@ void aircondition_int::aircondition_1_2_3()
                     pbrid2 = true;
                     bss_inst.BSS838X5z = true;
                 }
-                else
-                    bss_inst.BSS838X7R = false;
             }
         }
     }
+
+    bss_inst.BSS838X7R = false;
 
     if(bss_inst.BSS838X5z && bss_inst.BSS838X5v)
         bss_inst.BSS838X7R = true;
@@ -249,8 +249,6 @@ void aircondition_int::aircondition_1_2_3()
                     pbrid3 = true;
                     bss_inst.BSS838X5DD = true;
                 }
-                else
-                    bss_inst.BSS838X5HH = false;
             }
         }
         else
@@ -259,6 +257,7 @@ void aircondition_int::aircondition_1_2_3()
             pbrid3 = false;
             Potb3_zad = 0.0;
         }
+        bss_inst.BSS838X5HH = false;
 
         if(!k26_2110)
         {
@@ -270,8 +269,6 @@ void aircondition_int::aircondition_1_2_3()
                     pbrid4 = true;
                     bss_inst.BSS838X5HH = true;
                 }
-                else
-                    bss_inst.BSS838X7T = false;
             }
         }
         else
@@ -280,6 +277,7 @@ void aircondition_int::aircondition_1_2_3()
             pbrid4 = false;
             Potb4_zad = 0.0;
         }
+        bss_inst.BSS838X7T = false;
     }
 
     if(bss_inst.BSS838X5DD)
@@ -318,8 +316,8 @@ void aircondition_int::aircondition_1_2_3()
 
     if(exchange::ushap >= 18.0)
     {
-        if(exchange::POSK3dv) k16_2110 = true;
-        if(exchange::POSK4dv) k17_2110 = true;
+        if(brakes.X3_45_7620) k16_2110 = true;
+        if(brakes.X4_45_7620) k17_2110 = true;
     }
 
     k8_2110 = false;
@@ -329,8 +327,8 @@ void aircondition_int::aircondition_1_2_3()
 
     if(exchange::ushal >= 18.0)
     {
-        if(exchange::POSK1dv) k8_2110 = true;
-        if(exchange::POSK2dv) k10_2110 = true;
+        if(brakes.X1_45_7620) k8_2110 = true;
+        if(brakes.X2_45_7620) k10_2110 = true;
 
         if(exchange::s7_7322 || exchange::s8_7322 ||
             exchange::s9_7322 || exchange::s10_7322)
@@ -352,8 +350,8 @@ void aircondition_int::aircondition_1_2_3()
 
     if(exchange::ush2l >= 18.0)
     {
-        if(exchange::s9_2920 || exchange::s10_2920 ||
-            exchange::s11_2920 || exchange::s12_2920)
+        if(hydro.Sthird4_2920[0] || hydro.Sthird4_2920[1] ||
+            hydro.Sthird4_2920[2] || hydro.Sthird4_2920[3])
         {
             pvkltnu = true;
 
@@ -372,7 +370,7 @@ void aircondition_int::aircondition_1_2_3()
     {
         if(!k12_2110 && !k9_2110)
         {
-            if(!k7_2110 && exchange::ush2l >= 18.0 && exchange::s5_2120)
+            if(!k7_2110 && exchange::ush2l >= 18.0 && exchange::s5_2110)
             {
                 k5_2110 = true;
                 pzkol = true;
@@ -386,7 +384,7 @@ void aircondition_int::aircondition_1_2_3()
 
         if(pzkol)
         {
-            alphazkol = alphazkol + 0.25 * tS;
+            alphazkol = alphazkol + 0.25 * ts;
             if(alphazkol >= 0.95)
             {
                 alphazkol = 1.0;
@@ -396,7 +394,7 @@ void aircondition_int::aircondition_1_2_3()
         }
         else
         {
-            if(alphazkol > 0.05) alphazkol = alphazkol - 0.25 * tS;
+            if(alphazkol > 0.05) alphazkol = alphazkol - 0.25 * ts;
             else alphazkol = 0.0;
         }
     }
@@ -410,7 +408,7 @@ void aircondition_int::aircondition_1_2_3()
     {
         if(!k18_2110 && !k13_2110)
         {
-            if(!k15_2110 && exchange::ush2l >= 18.0 && exchange::s5_2120)
+            if(!k15_2110 && exchange::ush2l >= 18.0 && exchange::s5_2110)
             {
                 k20_2110 = true;
                 pzkop = true;
@@ -424,7 +422,7 @@ void aircondition_int::aircondition_1_2_3()
 
         if(pzkop)
         {
-            alphazkop = alphazkop + 0.25 * tS;
+            alphazkop = alphazkop + 0.25 * ts;
             if(alphazkop >= 0.95)
             {
                 alphazkop = 1.0;
@@ -434,7 +432,7 @@ void aircondition_int::aircondition_1_2_3()
         }
         else
         {
-            if(alphazkop > 0.05) alphazkop = alphazkop - 0.25 * tS;
+            if(alphazkop > 0.05) alphazkop = alphazkop - 0.25 * ts;
             else alphazkop = 0.0;
         }
     }
@@ -449,14 +447,14 @@ void X(bool& prid_dv, double& Kotbx, double& Potb_zad, double& Potbx, double& en
 {
     if(prid_dv)
     {
-        Kotbx = (Kotbx + 1 * tS) * Kotk;
+        Kotbx = (Kotbx + 1 * ts) * Kotk;
         if(Potbx >= Potb_zad) Potbx = 0.1 * eng;
         else Potbx = 0.1 * eng + Kotbx;
         if(!Kotk && Potbx > 5.0) Potbx = 5.0;
     }
     else
     {
-        Potbx = Potbx - 3.0 * tS;
+        Potbx = Potbx - 3.0 * ts;
         Kotbx = 0.0;
     }
 

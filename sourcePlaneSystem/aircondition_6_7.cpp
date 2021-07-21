@@ -4,7 +4,7 @@ void alpha_toggle(bool& Y, double& alpha, double& Kskzsl);
 
 void aircondition_int::aircondition_6_7()
 {
-    tke_reg = 50.0 * (exchange::tke_vh / 100);
+    tke_reg = 50.0 * (exchange::tke_vh / 50);
 
     pvvll = false;
     pvvlp = false;
@@ -20,7 +20,6 @@ void aircondition_int::aircondition_6_7()
     if(exchange::ush2p >= 18.0)
     {
         if(exchange::s5_2151) pvvsho = true;
-        if(exchange::s6_2151) pvvshn = true;
     }
     k1_2151 = false;
     k2_2151 = false;
@@ -41,7 +40,7 @@ void aircondition_int::aircondition_6_7()
         }
         else k1_2151 = true;
     }
-    pruuke = false;
+    pruuk51 = false;
 
     bss_inst.BSS926X1E = false;
     bss_inst.BSS926X1C = false;
@@ -53,9 +52,9 @@ void aircondition_int::aircondition_6_7()
     pothu1 = false;
     k2_2158 = false;
 
-    if(exchange::ushal > 18.0) pruuke = true;
+    if(exchange::ushal > 18.0) pruuk51 = true;
 
-    if(pruuke)
+    if(pruuk51)
     {
         if(!exchange::s2_2151)
         {
@@ -95,16 +94,16 @@ void aircondition_int::aircondition_6_7()
                         {
                             if(alpha351y2 > 0.05)
                             {
-                                alpha351y2 = alpha351y2 - Kskzsl * tS;
+                                alpha351y2 = alpha351y2 - Kskzsl * ts;
                             }
                             else
                             {
                                 alpha351y2 = 0.0;
                                 if(alpha351y1 > 0.95) alpha351y2 = 1.0;
-                                else alpha351y1 = alpha351y1 + Kskzsl * tS;
+                                else alpha351y1 = alpha351y1 + Kskzsl * ts;
                             }
 
-                            tke = tke - 0.5 * tS;
+                            tke = tke - 0.5 * ts;
                         }
                         else
                         {
@@ -113,11 +112,11 @@ void aircondition_int::aircondition_6_7()
                                 alpha351y1 = 0.0;
 
                                 if(alpha351y2 > 0.95) alpha351y2 = 1.0;
-                                else alpha351y2 = alpha351y2 + Kskzsl * tS;
+                                else alpha351y2 = alpha351y2 + Kskzsl * ts;
                             }
-                            else alpha351y1 = alpha351y1 - Kskzsl * tS;
+                            else alpha351y1 = alpha351y1 - Kskzsl * ts;
 
-                            tke = tke + 0.5 * tS;
+                            tke = tke + 0.5 * ts;
                         }
                     }
                     else tke = tke_reg;
@@ -132,7 +131,7 @@ void aircondition_int::aircondition_6_7()
         {
             y1_2151 = true;
             y2_2151 = false;
-            tke = tke - 1.0 * tS;
+            tke = tke - 1.0 * ts;
             alpha_toggle(y1_2151, alpha351y1, Kskzsl);
             alpha_toggle(y2_2151, alpha351y2, Kskzsl);
         }
@@ -140,7 +139,7 @@ void aircondition_int::aircondition_6_7()
         {
             y1_2151 = false;
             y2_2151 = true;
-            tke = tke + 1.0 * tS;
+            tke = tke + 1.0 * ts;
             alpha_toggle(y1_2151, alpha351y1, Kskzsl);
             alpha_toggle(y2_2151, alpha351y2, Kskzsl);
         }
@@ -152,9 +151,9 @@ void aircondition_int::aircondition_6_7()
             y1_2151 = true;
             y2_2151 = false;
             if(abs(tke - exchange::tnv) > 0.1 && tke > exchange::tnv)
-                tke = tke - 0.5 * tS;
+                tke = tke - 0.5 * ts;
             else
-                tke = tke + 0.5 * tS;
+                tke = tke + 0.5 * ts;
 
             alpha_toggle(y1_2151, alpha351y1, Kskzsl);
             alpha_toggle(y2_2151, alpha351y2, Kskzsl);
@@ -177,13 +176,13 @@ void alpha_toggle(bool& Y, double& alpha, double& Kskzsl)
 {
     if(!Y)
     {
-        if(alpha > 0.05) alpha = alpha - Kskzsl * tS;
+        if(alpha > 0.05) alpha = alpha - Kskzsl * ts;
         else alpha = 0.0;
     }
 
     if(Y)
     {
         if(alpha > 0.95) alpha = 1.0;
-        else alpha = alpha + Kskzsl * tS;
+        else alpha = alpha + Kskzsl * ts;
     }
 }

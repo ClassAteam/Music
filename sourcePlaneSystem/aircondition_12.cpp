@@ -23,7 +23,7 @@ void aircondition_int::aircondition_12()
             tzto_zad = exchange::tnv;
             k3_2159 = true;
 
-            if(alpha359y7 > 0.05) alpha359y7 = alpha359y7 - 0.2 * tS;
+            if(alpha359y7 > 0.05) alpha359y7 = alpha359y7 - 0.2 * ts;
             else alpha359y7 = 0.0;
         }
         else
@@ -55,17 +55,17 @@ void aircondition_int::aircondition_12()
                     {
                         if(tthu4 > tthu4_zad)
                         {
-                            if(alpha359y7 > 0.05) alpha359y7 = alpha359y7 - 0.2 * tS;
+                            if(alpha359y7 > 0.05) alpha359y7 = alpha359y7 - 0.2 * ts;
                             else alpha359y7 = 0.0;
 
-                            tthu4 = tthu4 - 1 * tS;
+                            tthu4 = tthu4 - 1 * ts;
                         }
                         else
                         {
                             if(alpha359y7 > 0.95) alpha359y7 = 1.0;
-                            else alpha359y7 = alpha359y7 + 0.2 * tS;
+                            else alpha359y7 = alpha359y7 + 0.2 * ts;
 
-                            tthu4 = tthu4 + 1.0 * tS;
+                            tthu4 = tthu4 + 1.0 * ts;
                         }
                     }
                     else tthu4 = tthu4_zad;
@@ -76,8 +76,8 @@ void aircondition_int::aircondition_12()
         if(abs(tzto - tzto_zad) <= 0.2) tzto = tzto_zad;
         else
         {
-            if(tzto > tzto_zad) tzto = tzto - 1.0 * tS;
-            else tzto = tzto + 1.0 * tS;
+            if(tzto > tzto_zad) tzto = tzto - 1.0 * ts;
+            else tzto = tzto + 1.0 * ts;
         }
 
         if(tzto > 70.0)

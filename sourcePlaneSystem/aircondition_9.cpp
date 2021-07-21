@@ -21,12 +21,12 @@ void aircondition_int::aircondition_9()
                 alpha352y6 = 1.0;
                 bss_inst.BSS926X1A = true;
             }
-            else alpha352y6 = alpha352y6 + 0.2 * tS;
+            else alpha352y6 = alpha352y6 + 0.2 * ts;
 
         }
         else
         {
-            if(alpha352y6 > 0.05) alpha352y6 = alpha352y6 - 0.2 * tS;
+            if(alpha352y6 > 0.05) alpha352y6 = alpha352y6 - 0.2 * ts;
             else alpha352y6 = 0.0;
         }
     }

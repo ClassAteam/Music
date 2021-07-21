@@ -56,13 +56,13 @@ void aircondition_int::aircondition_10()
 
         if(abs(tpgo_zad - tpgo) > 0.2)
         {
-            if(tpgo > tpgo_zad) tpgo = tpgo - 0.5 * tS;
-            else tpgo = tpgo + 0.5 * tS;
+            if(tpgo > tpgo_zad) tpgo = tpgo - 0.5 * ts;
+            else tpgo = tpgo + 0.5 * ts;
         }
         else tpgo = tpgo_zad;
 
         if(prthu1) Dtpgo1 = 1.0 * alpha359y1;
         if(prthu2) Dtpgo2 = 1.0 * alpha359y2;
-        tpgo = tpgo + Dtpgo1 * tS + Dtpgo2 * tS;
+        tpgo = tpgo + Dtpgo1 * ts + Dtpgo2 * ts;
     }
 }

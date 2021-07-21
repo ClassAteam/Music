@@ -30,6 +30,20 @@ SOURCES += \
     sourceApp/mainwindow.cpp \
     sourceApp/utilTimeClassQt.cpp\
         sourceApp/threadModel.cpp  \
+    sourcePlaneSystem/aircondition_10.cpp \
+    sourcePlaneSystem/aircondition_12.cpp \
+    sourcePlaneSystem/aircondition_13.cpp \
+    sourcePlaneSystem/aircondition_14.cpp \
+    sourcePlaneSystem/aircondition_15.cpp \
+    sourcePlaneSystem/aircondition_16.cpp \
+    sourcePlaneSystem/aircondition_17.cpp \
+    sourcePlaneSystem/aircondition_1_2_3.cpp \
+    sourcePlaneSystem/aircondition_4_5.cpp \
+    sourcePlaneSystem/aircondition_6_7.cpp \
+    sourcePlaneSystem/aircondition_8.cpp \
+    sourcePlaneSystem/aircondition_9.cpp \
+    sourcePlaneSystem/aircondition_int.cpp \
+    sourcePlaneSystem/airconditioni_11.cpp \
     sourcePlaneSystem/algorithms.cpp \
     sourcePlaneSystem/allElCons.cpp \
     sourcePlaneSystem/antifire_1.cpp \
@@ -135,6 +149,20 @@ HEADERS += \
     sourceApp/mainwindow.h \
     sourceApp/utilTimeClassQt.h\
     sourceApp/threadModel.h \ \
+    sourcePlaneSystem/aircondition_10.h \
+    sourcePlaneSystem/aircondition_12.h \
+    sourcePlaneSystem/aircondition_13.h \
+    sourcePlaneSystem/aircondition_14.h \
+    sourcePlaneSystem/aircondition_15.h \
+    sourcePlaneSystem/aircondition_16.h \
+    sourcePlaneSystem/aircondition_17.h \
+    sourcePlaneSystem/aircondition_1_2_3.h \
+    sourcePlaneSystem/aircondition_4_5.h \
+    sourcePlaneSystem/aircondition_6_7.h \
+    sourcePlaneSystem/aircondition_8.h \
+    sourcePlaneSystem/aircondition_9.h \
+    sourcePlaneSystem/aircondition_int.h \
+    sourcePlaneSystem/airconditioni_11.h \
     sourcePlaneSystem/algorithms.h \
     sourcePlaneSystem/allElCons.h \
     sourcePlaneSystem/antifire_1.h \

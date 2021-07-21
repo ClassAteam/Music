@@ -628,7 +628,7 @@ struct bss
         bool vkl_rezerv_torm{};
         bool zakr_om1{};//otkaz magistral' 1
         bool zakr_om2{};//otkaz magistral' 2
-        bool zakr_m1{};//magistral'1
-        bool zakr_m2{};//magistral'2
+        bool BSS926X1T{};//magistral'1
+        bool BSS926X1V{};//magistral'2
 };
 

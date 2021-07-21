@@ -99,6 +99,15 @@ void brakes_int::brakes_1()
                 }
             }
 
+            static int tick1{};
+            X_45_7620_open(tick1, s1_7620, X1_45_7620);
+            static int tick2{};
+            X_45_7620_open(tick2, s2_7620, X2_45_7620);
+            static int tick3{};
+            X_45_7620_open(tick3, s3_7620, X3_45_7620);
+            static int tick4{};
+            X_45_7620_open(tick4, s4_7620, X4_45_7620);
+
             if(X_tp_lev >= 0.12 || X_tp_prav >= 0.12 )
             {
                 PBAVTT = true;
@@ -109,7 +118,7 @@ void brakes_int::brakes_1()
             {
                 PstoyanT = true;
 
-                if(X1_45_7620 || X2_45_7620 || X3_45_7620 || X4_45_7620)
+                if((X1_45_7620 || X2_45_7620 || X3_45_7620 || X4_45_7620) && PRR)
                 {
                     PstartT = true;
                     PstoyanT = false;
@@ -158,3 +167,25 @@ void brakes_int::brakes_1()
     }
 }
 //end logic
+
+void brakes_int::X_45_7620_open(int& tick, bool& sio_button, bool& X_45_num)
+{
+    if(sio_button)
+    {
+        if(tick * TICK <= 3000) tick++;
+    }
+    else
+    {
+        if(tick * TICK > 0) tick--;
+    }
+
+    if(tick * TICK >= 3000)
+    {
+        X_45_num = true;
+    }
+
+    if(tick * TICK <= 0)
+    {
+        X_45_num = false;
+    }
+}

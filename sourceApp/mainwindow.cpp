@@ -26,6 +26,7 @@
 #define SHARED_MEMORY_ISU "ISU_CONNECT"
 
 //----------------------------------------------
+extern aircondition_int   aircondition  ;
 extern antifire_int       antifire      ;
 extern antiicing_int      antiicing     ;
 extern brakes_int         brakes        ;
@@ -173,6 +174,7 @@ void MainWindow::slotTimerAlarm()
     //  packet_send ++;
     //====== PRINT
     Print_manager       ()   ;
+    Print_aircondition  ()   ;
     Print_antifire      ()   ;
     Print_antiicing     ()   ;
     Print_brakes        ()   ;
@@ -209,6 +211,48 @@ void  MainWindow:: Print_manager       ()
     ui->text_11->setText("Время цикла min за период: " + QString::number(pFrameModel->_FrameMinN)+ " мс");
 
 //    ui->label_48->setText("PCI1713_1kan ="     + QString::number(pQtAdvan->pAI[0]->pAf[0]));
+}
+void  MainWindow::Print_aircondition()
+{
+    ui->skv_d001->setText("Признак сигнала ОТБОР ОТ ДВ1 ЗАКРЫТ = " + QString::number(aircondition.skv_d001));
+    ui->skv_d002->setText("Признак сигнала ОТБОР ОТ ДВ2 ЗАКРЫТ = " + QString::number(aircondition.skv_d002));
+    ui->skvd003->setText("Признак сигнала ОТБОР ОТ ДВ3 ЗАКРЫТ = " + QString::number(aircondition.skv_d003));
+    ui->skv_d004->setText("Признак сигнала ОТБОР ОТ ДВ4 ЗАКРЫТ = " + QString::number(aircondition.skv_d004));
+    ui->skv_d005->setText("??? = " + QString::number(aircondition.skv_d005));
+    ui->skv_d006->setText("Признак сигнала ЗАСЛОНКА КОЛЬЦЕВАНИЯ ОТБОРОВ ЛЕВАЯ ОТКРЫТА = " + QString::number(aircondition.skv_d006));
+    ui->skv_d007->setText("Признак сигнала ЗАСЛОНКА КОЛЬЦЕВАНИЯ ОТБОРОВ ПРАВАЯ ОТКРЫТА = " + QString::number(aircondition.skv_d007));
+    ui->skv_d008->setText("Признак сигнала МАГИСТРАЛЬ 1 ОТКЛЮЧЕНА = " + QString::number(aircondition.skv_d008));
+    ui->skv_d009->setText("Признак сигнала МАГИСТРАЛЬ 2 ОТКЛЮЧЕНА = " + QString::number(aircondition.skv_d009));
+    ui->skv_d010->setText("Признак сигнала ЗАСЛОНКА КОЛЬЦЕВАНИЯ МАГИСТРАЛЕЙ 1, 2 ЛЕВАЯ(ТВТ1, ТВТ2) открыта = " + QString::number(aircondition.skv_d010));
+    ui->skv_d011->setText("Признак сигнала ЗАСЛОНКА КОЛЬЦЕВАНИЯ МАГИСТРАЛЕЙ 1, 2 ПРАВАЯ(ТВТ1, ТВТ2) открыта = " + QString::number(aircondition.skv_d011));
+    ui->skv_d012->setText("Признак сигнала ТХУ1 ОТКЛЮЧЕНА = " + QString::number(aircondition.skv_d012));
+    ui->skv_d013->setText("Признак сигнала ТХУ2 ОТКЛЮЧЕНА = " + QString::number(aircondition.skv_d013));
+    ui->skv_d014->setText("Признак сигнала ТХУ3 ОТКЛЮЧЕНА = " + QString::number(aircondition.skv_d014));
+    ui->skv_d015->setText("Признак сигнала ТХУ4 ОТКЛЮЧЕНА = " + QString::number(aircondition.skv_d015));
+    ui->skv_d016->setText("Признак сигнала СКВ ЗС ВКЛЮЧЕНА = " + QString::number(aircondition.skv_d016));
+    ui->skv_d017->setText("Признак сигнала ЗАСЛОНКА ПОДАЧИ ВОЗДУХА В НОСОВОЙ ТЕХНИЧЕСКИЙ ОТСЕК ОТ ТХУ2 ЗАКРЫТА  = " + QString::number(aircondition.skv_d017));
+    ui->skv_d018->setText("Признак сигнала ЗАСЛОНКА ПОДАЧИ ВОЗДУХА В НОСОВОЙ ТЕХНИЧЕСКИЙ ОТСЕК ОТ ТХУ1 ЗАКРЫТА  = " + QString::number(aircondition.skv_d018));
+    ui->skv_d019->setText("Признак сигнала ЗАСЛОНКА ЛИНИИ КОЛЬЦЕВАНИЯ ТХУ3 и ТХУ4 ОТКРЫТА = " + QString::number(aircondition.skv_d019));
+    ui->skv_d020->setText("Признак сигнала ЗАСЛОНКА ЗАСЛОНКА ОБОГРЕВА ВСУ ОТКРЫТА = " + QString::number(aircondition.skv_d020));
+    ui->skv_d024->setText("Признак сигнала МАГИСТРАЛЬ1 ОТКАЗ = " + QString::number(aircondition.skv_d024));
+    ui->skv_d025->setText("Признак сигнала МАГИСТРАЛЬ2 ОТКАЗ = " + QString::number(aircondition.skv_d025));
+    ui->skv_d026->setText("Признак сигнала ОТБОР ЛЕВОГО БОРТА ОТКАЗ = " + QString::number(aircondition.skv_d026));
+    ui->skv_d027->setText("Признак сигнала ОТБОР ПРАВОГО БОРТА ОТКАЗ = " + QString::number(aircondition.skv_d027));
+    ui->skv_d028->setText("Признак сигнала ОТКАЗ ТХУ1 = " + QString::number(aircondition.skv_d028));
+    ui->skv_d029->setText("Признак сигнала ОТКАЗ ТХУ2 = " + QString::number(aircondition.skv_d029));
+    ui->skv_d030->setText("Признак сигнала ОТКАЗ ТХУ3 = " + QString::number(aircondition.skv_d030));
+    ui->skv_d031->setText("Признак сигнала ОТКАЗ ТХУ4 = " + QString::number(aircondition.skv_d031));
+    ui->skv_d032->setText("Признак сигнала СКВ ТХУ ОТКАЗ = " + QString::number(aircondition.skv_d032));
+    ui->skv_d033->setText("Признак сигнала СКВ ПОДАЧИ НЕТ = " + QString::number(aircondition.skv_d033));
+    ui->skv_d034->setText("Признак сигнала ОТКАЗ СКВ ЗС = " + QString::number(aircondition.skv_d034));
+    ui->skv_d035->setText("Признак сигнала РТР И САП ОХЛАЖД ОТКАЗ = " + QString::number(aircondition.skv_d035));
+    ui->skv_d036->setText("Признак сигнала ОТКАЗ ОБОГРЕВА ОТСЕКА ВСУ = " + QString::number(aircondition.skv_d036));
+    ui->skv_d037->setText("Признак сигнала ТО ЗАДНИЙ - ПЕРЕГРЕВ = " + QString::number(aircondition.skv_d037));
+    ui->skv_a001->setText("Сигнал ТЕМПЕРАТУРА В КАБИНЕ ЭКИПАЖА = " + QString::number(aircondition.skv_a001));
+    ui->skv_a002->setText("Сигнал ТЕМПЕРАТУРА В ПЕРЕДНЕМ ГРУЗОВОМ ОТСЕКЕ = " + QString::number(aircondition.skv_a002));
+    ui->skv_a003->setText("Сигнал ТЕМПЕРАТУРА В ЗАДНЕМ ГРУЗОВОМ ОТСЕКЕ = " + QString::number(aircondition.skv_a003));
+    ui->skv_a004->setText("Сигнал ТЕМПЕРАТУРА В ЗАДНЕМ ТЕХНИЧЕСКОМ ОТСЕКЕ = " + QString::number(aircondition.skv_a004));
+
 }
 void  MainWindow:: Print_antifire      ()
 {

@@ -1,8 +1,5 @@
 #include "aircondition_int.h"
 
-aircondition_int::aircondition_int()
-{
-}
 void aircondition_int::updateLogic()
 {
     aircondition_1_2_3();

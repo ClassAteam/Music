@@ -5,6 +5,7 @@
 
 extern bss bss_inst;
 extern uks uks_inst;
+extern const double ts;
 
 class aircondition_int
 {
@@ -50,7 +51,8 @@ public:
         skv_d037{},
         poovsu{},//???
         pnu{},//priznak nachalnih usloviy
-        otkaz_povishTemprVozd{},//otkaz povishenie tempereturi vozduha za VVT2
+        otkaz_povishTemprVozd1{},//otkaz povishenie tempereturi vozduha za VVT1
+        otkaz_povishTemprVozd2{},//otkaz povishenie tempereturi vozduha za VVT2
         otkaz_povishDavlVozMag1{},//otkaz povishenie davleniya vozduha v magistrali2
         otkaz_povishDavlVozMag2{},//otkaz povishenie davleniya vozduha v magistrali2
         otkaz_lev_mag{},//otkaz levoy magistrali
@@ -64,8 +66,8 @@ public:
         otkaz_thu3{},//otkaz thu3
         otkaz_thu4{},//otkaz thu4
         otkaz_per_to_zad{},//otkaz peregrev to zadniy
-        pubzl{},//priznak podklyucheniya ustroystva vozdushnogo zapuska levogo
-        pubzp{},//priznak podklyucheniya ustroystva vozdushnogo zapuskshturmana navigatora
+        puvzl{},//priznak podklyucheniya ustroystva vozdushnogo zapuska levogo
+        puvzp{},//priznak podklyucheniya ustroystva vozdushnogo zapuskshturmana navigatora
         y6_2152{},//priznak upravleniya zaslonkoy podachi vozduha v ZS
         y7gk_2152{},//priznak uprgavleniya zaslonkoy, reguliruyushey podachu goryachego vozduha dvuhkanalnogo bloka zaslonok(izd. 3326)
         y7hk_2152{},//priznak uprgavleniya zaslonkoy, reguliruyushey podachu holodnogo vozduha dvuhkanalnogo bloka zaslonok(izd. 3326)
@@ -113,9 +115,9 @@ public:
         pzpvvt2{},//priznak zaslonki produvki VVT is kanala dvigatelya magistrali2
         pom1{},//priznak otkaza magistrali1
         pom2{},//priznak otkaza magistrali2
-        pruuke{},//
-        pruukl{},//priznak raboti ustroystva upravleniya i kontrolya 7311MKS levogo
-        pruukp{},//priznak raboti ustroystva upravleniya i kontrolya 7311MKS pravogo
+        pruuk51{},//
+        pruuk101{},//priznak raboti ustroystva upravleniya i kontrolya 7311MKS (2110A1)
+        pruuk102{},//priznak raboti ustroystva upravleniya i kontrolya 7311MKS (2110A2)
         pruuk58{},//priznak raboti ustroystva upravleniya i kontrolya 7311MKS pravogo
         pruuk59{},//priznak raboti ustroystva upravleniya i kontrolya 7311MKS levogo
         pruuk591{},//priznak raboti ustroystva upravleniya i kontrolya 7311 (2159A1)
@@ -302,7 +304,7 @@ public:
         tsgo_zad{},//temperatura v SGO zadannaya
         tsgo{};//temperatura v SGO
 
-    aircondition_int(QWidget *parent = nullptr);
+public:
     virtual void updateLogic();
     void aircondition_1_2_3();
     void aircondition_4_5();

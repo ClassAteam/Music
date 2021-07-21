@@ -8,6 +8,8 @@
 extern bss bss_inst;
 extern uks uks_inst;
 
+extern double TICK;
+
 class brakes_int
 {
 public:
@@ -21,6 +23,11 @@ public:
         otkaz_rt{},//otkaz rezervnoy sistemi tormozheniya
         otkaz_ots_dav_v1k_levt{},//otsutstvie davlenie v peroy pare koles levoy telezhki
         otkaz_ots_dav_v1k_pravt{};//otsutstvie davlenie v peroy pare koles pravoy telezhki
+
+    bool s1_7620{};
+    bool s2_7620{};
+    bool s3_7620{};
+    bool s4_7620{};
 
     double
         vkx{};//skorost' dvizheniya po VPP(putevaya skorost'), m/s
@@ -174,5 +181,7 @@ public:
     void brakes_4();
     void brakes_5();
     void brakes_6();
+
+    void X_45_7620_open(int& tick, bool& sio_button, bool& X_45_num);
 
 };

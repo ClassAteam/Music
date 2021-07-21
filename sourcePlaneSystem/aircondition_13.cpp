@@ -24,7 +24,7 @@ void aircondition_int::aircondition_13()
             tsto_zad = exchange::tnv;
             k1_2159 = true;
 
-            if(alpha359y13 > 0.05) alpha359y13 = alpha359y13 - 0.2 * tS;
+            if(alpha359y13 > 0.05) alpha359y13 = alpha359y13 - 0.2 * ts;
             else alpha359y13 = 0.0;
         }
         else
@@ -52,17 +52,17 @@ void aircondition_int::aircondition_13()
                     {
                         if(tthu3 > tthu3_zad)
                         {
-                            if(alpha359y13 > 0.05) alpha359y13 = alpha359y13 - 0.2 * tS;
+                            if(alpha359y13 > 0.05) alpha359y13 = alpha359y13 - 0.2 * ts;
                             else alpha359y13 = 0.0;
 
-                            tthu3 = tthu3 - 3 * tS;
+                            tthu3 = tthu3 - 3 * ts;
                         }
                         else
                         {
                             if(alpha359y13 > 0.95) alpha359y13 = 1.0;
-                            else alpha359y13 = alpha359y13 + 0.2 * tS;
+                            else alpha359y13 = alpha359y13 + 0.2 * ts;
 
-                            tthu3 = tthu3 + 3 * tS;
+                            tthu3 = tthu3 + 3 * ts;
                         }
                     }
                     else
@@ -75,8 +75,8 @@ void aircondition_int::aircondition_13()
 
         if(abs(tsto - tsto_zad) > 0.2)
         {
-            if(tsto > tsto_zad) tsto = tsto - 3 * tS;
-            else tsto = tsto + 3 * tS;
+            if(tsto > tsto_zad) tsto = tsto - 3 * ts;
+            else tsto = tsto + 3 * ts;
         }
         else tsto = tsto_zad;
 
@@ -90,12 +90,12 @@ void aircondition_int::aircondition_13()
     {
         if(y14_2159)
         {
-            if(alpha359y14 >= 0.05) alpha359y14 = alpha359y14 - 0.2 * tS;
+            if(alpha359y14 >= 0.05) alpha359y14 = alpha359y14 - 0.2 * ts;
             else alpha359y14 = 0.0;
         }
         else
         {
-            if(alpha359y14 < 0.95) alpha359y14 = alpha359y14 + 0.2 * tS;
+            if(alpha359y14 < 0.95) alpha359y14 = alpha359y14 + 0.2 * ts;
             else alpha359y14 = 1.0;
         }
     }

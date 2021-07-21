@@ -49,6 +49,7 @@ extern TimeClass* pFrameModel;
 extern double TICK;
 
 ////////////////////////////////////////////////#include "sourcePlaneSystem/brakes_1.h"
+aircondition_int   aircondition  ;
 antifire_int       antifire      ;
 antiicing_int      antiicing     ;
 brakes_int         brakes        ;
@@ -61,6 +62,7 @@ powerdc_int        powerdc       ;
 presure_int        presure       ;
 wingsmech_int      wingsmech     ;
 
+void IN_aircondition_int   ();
 void IN_antifire_int       ();
 void IN_antiicing_int      ();
 void IN_brakes_int         ();
@@ -73,6 +75,7 @@ void IN_powerdc_int        ();
 void IN_presure_int        ();
 void IN_wingsmech_int      ();
 
+void OUT_aircondition_int   ();
 void OUT_antifire_int       ();
 void OUT_antiicing_int      ();
 void OUT_brakes_int         ();
@@ -101,6 +104,10 @@ void dispPlanSystem()
       pDev = static_cast<SH_DEVICE_CONNECT*>(SHARE_ADVANTECH.data());
       pFromP = static_cast<SH_FROMRMI_PILOT*>(SHARE_RMI_PILOT.data());
       pISU = static_cast<SH_ISU*>(SHARE_ISU.data());
+
+      IN_aircondition_int       ();
+      aircondition.updateLogic();
+      OUT_aircondition_int       ();
 
       IN_antifire_int       ();
       antifire.updateLogic();
@@ -254,6 +261,74 @@ void ThreadModel::run ()
 }//
 
 //===============  INPUT Data
+void IN_aircondition_int()
+{
+    if(pDev->IN_MAT[640])
+        exchange::s1_2151 = static_cast<int>(exchange::s1_2151::avtomat);else
+    if(pDev->IN_MAT[641])
+        exchange::s1_2151 = static_cast<int>(exchange::s1_2151::hol);else
+    if(pDev->IN_MAT[642])
+        exchange::s1_2151 = static_cast<int>(exchange::s1_2151::gor);else
+        exchange::s1_2151 = static_cast<int>(exchange::s1_2151::neytr);
+
+    exchange::s1_2110 = pDev->IN_MAT[637];
+    exchange::s2_2110 = pDev->IN_MAT[639];
+    exchange::s3_2110 = pDev->IN_MAT[619];
+    exchange::s4_2110 = pDev->IN_MAT[621];
+    exchange::s7_7322 = pDev->IN_MAT[354];
+    exchange::s8_7322 = pDev->IN_MAT[355];
+    exchange::s9_7322 = pDev->IN_MAT[356];
+    exchange::s10_7322 = pDev->IN_MAT[357];
+    exchange::s5_2110 = pDev->IN_MAT[622];
+    exchange::s1_2120 = pDev->IN_MAT[630];
+    exchange::s3_2120 = pDev->IN_MAT[635];
+    exchange::s6_2120 = pDev->IN_MAT[610];
+    exchange::s2_2120 = pDev->IN_MAT[614];
+    exchange::s4_2120 = pDev->IN_MAT[616];
+    exchange::s5_2120 = pDev->IN_MAT[623];
+    exchange::s2_2151 = pDev->IN_MAT[289];
+    exchange::s3_2151 = pDev->IN_MAT[36];
+    exchange::s4_2151 = pDev->IN_MAT[88];
+    exchange::s5_2151 = pDev->IN_MAT[600];
+    exchange::s6_2151 = pDev->IN_MAT[778];
+    exchange::s1_2158 = pDev->IN_MAT[647];
+    exchange::s1_2152 = pDev->IN_MAT[644];
+    exchange::s1_2153 = pDev->IN_MAT[608];
+    exchange::s2_2153 = pDev->IN_MAT[610];
+    exchange::s2_2159 = pDev->IN_MAT[628];
+    exchange::s1_2159 = pDev->IN_MAT[626];
+    exchange::s1_2112 = pDev->IN_MAT[174];
+    exchange::s4_2112 = pDev->IN_MAT[175];
+    exchange::s1_12360 = pDev->IN_MAT[649];
+    exchange::s2_12360 = pDev->IN_MAT[624];
+    exchange::s3_12360 = pDev->IN_MAT[612];
+
+    exchange::tnv = pISU->tnv;
+    exchange::tke_vh = pDev->IN_A[1][8];
+    exchange::pk70_vkl = pISU->pk70_vkl;
+    exchange::pk70_pgo = pISU->pk70_pgo;
+    exchange::pk70_zgo = pISU->pk70_zgo;
+    exchange::pk70_kontrt = pISU->pk70_kontrt;
+    aircondition.puvzl = pISU->puvzl;
+    aircondition.puvzp = pISU->puvzp;
+
+    aircondition.otkaz_lev_mag = pFromP->Otkaz[53];
+    aircondition.otkaz_prav_mag = pFromP->Otkaz[54];
+    aircondition.otkaz_RID_1dv = pFromP->Otkaz[55];
+    aircondition.otkaz_RID_2dv = pFromP->Otkaz[56];
+    aircondition.otkaz_RID_3dv = pFromP->Otkaz[57];
+    aircondition.otkaz_RID_4dv = pFromP->Otkaz[58];
+    aircondition.otkaz_povishTemprVozd1 = pFromP->Otkaz[102];
+    aircondition.otkaz_povishDavlVozMag1 = pFromP->Otkaz[103];
+    aircondition.otkaz_povishTemprVozd2 = pFromP->Otkaz[104];
+    aircondition.otkaz_povishDavlVozMag2 = pFromP->Otkaz[105];
+    aircondition.otkaz_thu1 = pFromP->Otkaz[106];
+    aircondition.otkaz_thu2 = pFromP->Otkaz[107];
+    aircondition.otkaz_thu3 = pFromP->Otkaz[108];
+    aircondition.otkaz_thu4 = pFromP->Otkaz[109];
+    aircondition.otkaz_per_to_zad = pFromP->Otkaz[110];
+
+}
 void IN_antifire_int       ()
 {
     antifire.S3_2610 = pDev->IN_MAT[289];
@@ -360,10 +435,11 @@ void IN_antiicing_int      ()
 }
 void IN_brakes_int         ()
 {
-    brakes.X1_45_7620 = pISU->X1_45_7620;
-    brakes.X2_45_7620 = pISU->X2_45_7620;
-    brakes.X3_45_7620 = pISU->X3_45_7620;
-    brakes.X4_45_7620 = pISU->X4_45_7620;
+    brakes.s1_7620 = pDev->IN_MAT[336];
+    brakes.s2_7620 = pDev->IN_MAT[338];
+    brakes.s3_7620 = pDev->IN_MAT[340];
+    brakes.s4_7620 = pDev->IN_MAT[342];
+
     exchange::s1_3240 = pDev->IN_MAT[12];
     if(pDev->IN_MAT[12])
         exchange::s1_3240 = static_cast<int>(exchange::s1_3240::slabo);
@@ -500,13 +576,13 @@ void IN_hydro_int          ()
     hydro.Ssecond4_2920[1] = pDev->IN_MAT[205];
     hydro.Ssecond4_2920[2] = pDev->IN_MAT[206];
     hydro.Ssecond4_2920[3] = pDev->IN_MAT[207];
-    if(pDev->IN_MAT[37]) hydro.Sthird4_2920[0] = 2;
+    if(pDev->IN_MAT[37]) hydro.Sthird4_2920[0] = 0;
     if(pDev->IN_MAT[38]) hydro.Sthird4_2920[0] = 1;
-    if(pDev->IN_MAT[39]) hydro.Sthird4_2920[1] = 2;
+    if(pDev->IN_MAT[39]) hydro.Sthird4_2920[1] = 0;
     if(pDev->IN_MAT[40]) hydro.Sthird4_2920[1] = 1;
-    if(pDev->IN_MAT[41]) hydro.Sthird4_2920[2] = 2;
+    if(pDev->IN_MAT[41]) hydro.Sthird4_2920[2] = 0;
     if(pDev->IN_MAT[42]) hydro.Sthird4_2920[2] = 1;
-    if(pDev->IN_MAT[43]) hydro.Sthird4_2920[3] = 2;
+    if(pDev->IN_MAT[43]) hydro.Sthird4_2920[3] = 0;
     if(pDev->IN_MAT[44]) hydro.Sthird4_2920[3] = 1;
     hydro.S13_2920 = pDev->IN_MAT[757];
     exchange::S18_2930 = pDev->IN_MAT[761];
@@ -739,6 +815,49 @@ void IN_wingsmech_int      ()
 
 
 //================== OUT Data
+void OUT_aircondition_int()
+{
+    pDev->OUT_D[2][85] =bss_inst.BSS926X2A;
+    pDev->OUT_D[2][93] =bss_inst.BSS926X2F;
+    pDev->OUT_D[2][94] =  bss_inst.BSS926X2G;
+    pDev->OUT_D[2][103] =  bss_inst.BSS838X6T;
+    pDev->OUT_D[2][102] =  bss_inst.BSS838X6S;
+    pDev->OUT_D[2][86] = bss_inst.BSS926X2B;
+    pDev->OUT_D[2][87] = bss_inst.BSS926X2C;
+    pDev->OUT_D[2][99] = bss_inst.BSS838X6R;
+    pDev->OUT_D[2][98] = bss_inst.BSS838X6P;
+    pDev->OUT_D[2][100] = bss_inst.BSS838X6U;
+    pDev->OUT_D[2][91] = bss_inst.BSS838X6K;
+    pDev->OUT_D[2][92] = bss_inst.BSS838X6L;
+    pDev->OUT_D[5][92] = bss_inst.BSS838X6M;
+    pDev->OUT_D[2][95] = bss_inst.BSS838X6N;
+    pDev->OUT_D[2][97] = bss_inst.BSS838X6W;
+    pDev->OUT_D[1][50] = bss_inst.BSS825X6q;
+    pDev->OUT_D[1][49] = bss_inst.BSS824X2i;
+    pDev->OUT_D[2][105] = bss_inst.BSS926X1T;
+    pDev->OUT_D[2][89] = bss_inst.BSS926X2E;
+    pDev->OUT_D[2][88] = bss_inst.BSS926X2D;
+    pDev->OUT_D[2][90] = bss_inst.BSS838X6J;
+    pDev->OUT_D[2][114] = bss_inst.BSS926X2K;
+    pDev->OUT_D[2][110] = bss_inst.BSS838X6Z;
+    pDev->OUT_D[2][112] = bss_inst.BSS838X6b;
+    pDev->OUT_D[2][119] = bss_inst.BSS838X6d;
+    pDev->OUT_D[2][121] = bss_inst.BSS838X6f;
+    pDev->OUT_D[2][109] = bss_inst.BSS838X6Y;
+    pDev->OUT_D[2][111] = bss_inst.BSS838X6a;
+    pDev->OUT_D[2][118] = bss_inst.BSS838X6c;
+    pDev->OUT_D[2][120] = bss_inst.BSS838X6e;
+    pDev->OUT_D[2][108] = bss_inst.BSS838X6q;
+    pDev->OUT_D[2][117] = bss_inst.BSS838X6r;
+    pDev->OUT_D[2][113] = bss_inst.BSS926X2L;
+    pDev->OUT_D[2][122] = bss_inst.BSS926X2M;
+    pDev->OUT_D[2][123] = bss_inst.BSS926X2N;
+    pDev->OUT_D[2][104] = bss_inst.BSS926X2H;
+    pDev->OUT_D[2][106] = bss_inst.BSS926X2p;
+    pDev->OUT_D[2][115] = bss_inst.BSS926X2s;
+    pDev->OUT_D[2][107] = bss_inst.zakr_om1;
+    pDev->OUT_D[2][116] = bss_inst.zakr_om2;
+}
 void OUT_antifire_int       ()
 {
     pDev->OUT_D[0][1]=antiicing.PONdv4;

@@ -37,6 +37,9 @@ void aircondition_int::aircondition_8()
             if(!k2_2131) y4_2158 = true;
         }
         else bss_inst.BSS926X1J = true;
+
+        if(k1_2158 && k2_2158)
+            bss_inst.BSS838X5T = true;
     }
 
     alpha_toggle(y4_2158, alpha358y4, Kskzsl);

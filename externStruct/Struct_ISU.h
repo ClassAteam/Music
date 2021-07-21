@@ -66,15 +66,6 @@ struct SH_ISU
     //priznak signala polnogo zakritiya stvorok gruzovih otsekov
     bool PBI4M_1{};
 
-    //priznak signala stop-kran otkrit 1 dvigatelya
-    bool X1_45_7620{};
-    //priznak signala stop-kran otkrit 2 dvigatelya
-    bool X2_45_7620{};
-    //priznak signala stop-kran otkrit 3 dvigatelya
-    bool X3_45_7620{};
-    //priznak signala stop-kran otkrit 4 dvigatelya
-    bool X4_45_7620{};
-
     //IDP
     double vkx{};//skorost' dvizheniya po VPP(putevaya skorost'), m/s
     double M{};//chislo Maha
@@ -84,6 +75,15 @@ struct SH_ISU
 
     //SVS
     double Vpr{};
+
+    //from where ???
+    bool pk70_vkl{};
+    bool pk70_pgo{};
+    bool pk70_zgo{};
+    bool pk70_kontrt{};
+    bool puvzl{};
+    bool puvzp{};
+    double tnv{};//температура нуружного воздуха
 
 
 
