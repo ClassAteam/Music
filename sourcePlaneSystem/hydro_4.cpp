@@ -2,8 +2,6 @@
 #include "algorithms.h"
 #include "hydro_4.h" //actually 5th
 
-
-
 void hydro_int::hydro_4()
 {
     bool* pntnugs_pool[] = {&pntnugs1, &pntnugs2, &pntnugs3, &pntnugs4};
@@ -15,7 +13,7 @@ void hydro_int::hydro_4()
     for(int i = 0; i < 4; i++)
     {
         kutgs[i] = 1.0;
-        if(*otkaz_pool[i] == false && PTNUGS[i] == true && Pv_vsu >= 1.5)
+        if(*otkaz_pool[i] == false && PTNUGS[i] && aircondition.Ptnu >= 1.5)
         {
             *pntnugs_pool[i] = true;
 //            *qtnugs_pool[i] = m_2_L_intervals(*Pgs_pool[i], 0, 200, 282,
@@ -23,7 +21,7 @@ void hydro_int::hydro_4()
             *qntnugs_pool[i] =
                 m_2_L_intervals(*Pgs_pool[i], 0, 200, 286, 1, 0.7, 0)
                 *
-                m_3_L_intervals(Pv_vsu, 0, 1, 2, 3, 0, 0, 0.7, 1);
+                m_3_L_intervals(aircondition.Ptnu, 0, 1, 2, 3, 0, 0, 0.7, 1);
         }
         else
         {

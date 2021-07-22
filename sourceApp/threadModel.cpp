@@ -556,7 +556,6 @@ void IN_hydro_int          ()
     hydro.EZR3_34 = pISU->ezr3_34;
     hydro.EZR4_34 = pISU->ezr4_34;
     hydro.PBI4M_1 = pISU->PBI4M_1;
-    hydro.Pv_vsu = pISU->Pvvsu;
     exchange::PRD1dv = pISU->prd1dv;
     exchange::PRD2dv = pISU->prd2dv;
     exchange::PRD3dv = pISU->prd3dv;
@@ -829,8 +828,8 @@ void OUT_aircondition_int()
     pDev->OUT_D[2][100] = bss_inst.BSS838X6U;
     pDev->OUT_D[2][91] = bss_inst.BSS838X6K;
     pDev->OUT_D[2][92] = bss_inst.BSS838X6L;
-    pDev->OUT_D[5][92] = bss_inst.BSS838X6M;
-    pDev->OUT_D[2][95] = bss_inst.BSS838X6N;
+    pDev->OUT_D[2][95] = bss_inst.BSS838X6M;
+    pDev->OUT_D[2][96] = bss_inst.BSS838X6N;
     pDev->OUT_D[2][97] = bss_inst.BSS838X6W;
     pDev->OUT_D[1][50] = bss_inst.BSS825X6q;
     pDev->OUT_D[1][49] = bss_inst.BSS824X2i;

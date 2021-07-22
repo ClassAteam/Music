@@ -81,7 +81,7 @@ public:
 
     double qpgs3{};
     double pgs3_z{0};
-    double Pv_vsu{0.0};//davlenie vozduha, otbiraemoe ot vspomogatelnoy ustanovki
+//    double Pv_vsu{0.0};//davlenie vozduha, otbiraemoe ot vspomogatelnoy ustanovki
     double delta_wpgs3{};
     double kgs{0.05};
     double qngs1{};

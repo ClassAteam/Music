@@ -35,7 +35,6 @@ void aircondition_int::aircondition_1_2_3()
 
             if(alpha_zot_vsu >= 1.0) alpha_zot_vsu = 1.0;
 
-            Potb_vsu = (Potb_vsu * alpha_zot_vsu);
             Ptnu = Potb_vsu;
         }
         else
@@ -50,6 +49,7 @@ void aircondition_int::aircondition_1_2_3()
             }
         }
     }
+    Potb_vsu = (Potb_vsu * alpha_zot_vsu);
 
     if(Potb1_2 < Puvzl) Potb1_2 = Puvzl;
     if(Potb3_4 < Puvzp) Potb3_4 = Puvzp;

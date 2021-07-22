@@ -5,7 +5,7 @@ void alpha_toggle(bool& Y, double& alpha, double& Kskzsl);
 void aircondition_int::aircondition_15()
 {
     k12_2110 = false;
-    k1_2110 = false;
+    k1_2112 = false;
 
     if(exchange::ush1l)
     {
@@ -24,7 +24,7 @@ void aircondition_int::aircondition_15()
     }
 
     k18_2110 = false;
-    k20_2110 = false;
+    k20_2112 = false;
 
     if(exchange::ush1p)
     {

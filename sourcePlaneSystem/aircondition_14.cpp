@@ -52,6 +52,9 @@ void aircondition_int::aircondition_14()
             if(alpha312a6 == 1) bss_inst.BSS838X5b = true;
             if(!k3_12360) bss_inst.BSS838X5r = true;
 
+            if(a3_12360) bss_inst.BSS838X5V = false;
+            if(a6_12360) bss_inst.BSS838X5Z = false;
+
             alpha_toggle(a3_12360, alpha312a3, Kskzsl);
             alpha_toggle(a6_12360, alpha312a6, Kskzsl);
     }
