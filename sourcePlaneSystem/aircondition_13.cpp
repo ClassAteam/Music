@@ -33,7 +33,7 @@ void aircondition_int::aircondition_13()
             if(otkaz_thu3)
             {
                 pothu3 = true;
-                k1_2159 = false;
+                k1_2159 = true;
                 tthu3_zad = 21.0;
                 prthu3 = false;
                 tsto_zad = 55.0;
@@ -43,7 +43,7 @@ void aircondition_int::aircondition_13()
             }
             else
             {
-                k1_2159 = true;
+                k1_2159 = false;
                 prthu3 = true;
                 tthu3_zad = 5.0;
                 if(prthu3)
@@ -84,11 +84,16 @@ void aircondition_int::aircondition_13()
     }
     else tsto = 0.0;
 
-    if(k1_2159 && k2_2159) y14_2159 = true;
+//    if(k1_2159 && k2_2159) y14_2159 = true;
+
+    if(k1_2159 != k2_2159)
+        y14_2159 = true;
+    else
+        y14_2159 = false;
 
     if(exchange::ush2dpp >= 18.0)
     {
-        if(y14_2159)
+        if(!y14_2159)
         {
             if(alpha359y14 >= 0.05) alpha359y14 = alpha359y14 - 0.2 * ts;
             else alpha359y14 = 0.0;

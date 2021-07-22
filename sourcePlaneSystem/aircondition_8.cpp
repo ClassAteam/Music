@@ -10,7 +10,6 @@ void aircondition_int::aircondition_8()
     bss_inst.BSS926X1J = false;
     bss_inst.BSS926X1G = false;
     bss_inst.BSS838X5T = false;
-    pothu2 = false;
     k1_2158 = false;
     prthu2 = false;
 
@@ -31,6 +30,7 @@ void aircondition_int::aircondition_8()
                 else
                 {
                     prthu2 = true;
+                    pothu2 = false;
                     y6_2158 = true;
                 }
             }
@@ -48,7 +48,7 @@ void aircondition_int::aircondition_8()
     y1_2157 = false;
     y2_2157 = false;
 
-    if(exchange::ush2dpl >= 18.0 && exchange::s1_2158)
+    if(exchange::ush2dpl >= 18.0)
     {
         if(!pothu2) y1_2157 = true;
         else

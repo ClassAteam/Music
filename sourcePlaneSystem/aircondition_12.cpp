@@ -33,7 +33,7 @@ void aircondition_int::aircondition_12()
             if(otkaz_thu4)
             {
                 pothu4 = true;
-                k2_2159 = false;
+                k2_2159 = true;
                 tthu4_zad = 21.0;
                 prthu4 = false;
                 tzto_zad = 55.0;
@@ -43,7 +43,7 @@ void aircondition_int::aircondition_12()
             }
             else
             {
-                k2_2159 = true;
+                k2_2159 = false;
                 prthu4 = true;
                 tthu4_zad = 5.0;
 

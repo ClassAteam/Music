@@ -60,8 +60,17 @@ void aircondition_int::aircondition_17()
         else skv_d018 = false;
     }
 
-    if(prthu2) skv_d013 = false;
-    else skv_d013 = true;
+    if(pruuk58)
+    {
+        if(prthu2)
+            skv_d013 = false;
+        else
+            skv_d013 = true;
+    }
+    else
+    {
+        skv_d013 = false;
+    }
 
 ///////////////////////////////////////////////////aircondition_18
 ///

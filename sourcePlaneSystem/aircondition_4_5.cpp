@@ -221,18 +221,23 @@ void aircondition_int::aircondition_4_5()
         if(exchange::PRD4dv) k9_2120 = true;
         else k9_2120 = false;
 
-        if(!k8_2120)
-        {
-            if(!k9_2120)
-            {
-//                pom2 = true;
-//                k4_2120 = false;
-            }
-            else
-                k10_2120 = true;
-        }
+//        if(!k8_2120)
+//        {
+//            if(!k9_2120)
+//            {
+////                pom2 = true;
+////                k4_2120 = false;
+//            }
+//            else
+//                k10_2120 = true;
+//        }
+//        else
+//            if(!k9_2120) k10_2120 = true;
+
+        if(k8_2120 != k9_2120)
+            k10_2110 = true;
         else
-            if(!k9_2120) k10_2120 = true;
+            k10_2120 = false;
 
         if(pom2)
         {

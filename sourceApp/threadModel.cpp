@@ -282,7 +282,7 @@ void IN_aircondition_int()
     exchange::s5_2110 = pDev->IN_MAT[622];
     exchange::s1_2120 = pDev->IN_MAT[630];
     exchange::s3_2120 = pDev->IN_MAT[635];
-    exchange::s6_2120 = pDev->IN_MAT[610];
+    exchange::s6_2120 = pDev->IN_MAT[631];
     exchange::s2_2120 = pDev->IN_MAT[614];
     exchange::s4_2120 = pDev->IN_MAT[616];
     exchange::s5_2120 = pDev->IN_MAT[623];
