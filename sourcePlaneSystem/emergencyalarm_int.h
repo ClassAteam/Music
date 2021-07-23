@@ -1,19 +1,37 @@
 #pragma once
+#include <QVector>
 #include "algorithms.h"
 #include "bss.h"
 #include "allElCons.h"
 #include "input_feed.h"
 #include "exchange.h"
-
 extern bss bss_inst;
 extern bss bss_inst;
 extern double TICK;
 
+enum class type {yellow, red, white};
 
 
 class emergencyalarm_int
 {
 public:
+    emergencyalarm_int();
+
+    bool dummy_array[2][2]{};
+
+    class light
+    {
+    public:
+        light(bool* in_clue, bool* out_clue, bool* is_checked,  type color);
+        bool* inClue;
+        bool* outClue;
+        bool* isChecked;
+        type color;
+        bool* position;
+    };
+
+    QVector<light*> lights;
+
     bool
         PCSOKLL,//priznak centralnogo signalnogo ognya(CSO) krasnogo levogo letchika
         PCSOKPL,//priznak centralnogo signalnogo ognya(CSO) krasnogo pravogo letchika
@@ -72,6 +90,8 @@ public:
         svs_net_rezerva,
         svs_otkaz;
 
+
+
     void lamp_blink(bool &inpClue, bool &lamp, int &blink);
 
 public:
@@ -87,4 +107,5 @@ public:
     void emergencyalarm_8();
     void emergencyalarm_9();
 };
+
 

@@ -1,5 +1,23 @@
 #include "emergencyalarm_int.h"
+#include "externStruct/Struct_DeviceConnect.h"
 
+extern  SH_DEVICE_CONNECT *pDev;
+
+emergencyalarm_int::light::light(bool* in_clue, bool* out_clue, bool* is_checked,  type color)
+    : inClue{in_clue}, outClue{out_clue}, isChecked{is_checked}, color{color}
+{
+
+}
+
+emergencyalarm_int::emergencyalarm_int()
+{
+    //but this is doesnt
+    lights.append(new light(&bss_inst.BSS926X1HH, ((&pDev->OUT_D[2])[18]), new bool,
+                            type::yellow));
+    //why this shit is working
+    lights.append(new light(&bss_inst.BSS926X1HH, &(dummy_array[0][1]), new bool,
+                            type::yellow));
+}
 void emergencyalarm_int::updateLogic()
 {
     emergencyalarm_1();

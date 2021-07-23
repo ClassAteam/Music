@@ -1062,7 +1062,7 @@ void OUT_powerdc_int        ()
     pDev->OUT_D[2][35] = bss_inst.BSS837X2S;
     pDev->OUT_D[2][17] = bss_inst.BSS926X2d;
     pDev->OUT_D[2][19] = bss_inst.BSS837X2Z;
-    pDev->OUT_D[2][18] = bss_inst.BSS926X2e;
+//    pDev->OUT_D[2][18] = bss_inst.BSS926X2e;
     pDev->OUT_D[2][20] = bss_inst.BSS837X2a;
     pDev->OUT_D[2][39] = bss_inst.BSS838X6C;
     pDev->OUT_D[2][41] = bss_inst.BSS838X6G;
