@@ -282,6 +282,7 @@ public:
         deltaPotb4{},
         tke_reg{},
         totvsu{},//temperatura vozduha v otkese VSU
+        totvsu_zad{},//temperatura vozduha v otkese VSU zadannaya
         tthu1{},//temperatura vozduha za THU1
         tthu2{},//temperatura vozduha za THU2
         tthu3{},//temperatura vozduha za THU3

@@ -71,7 +71,7 @@ void emergencyalarm_int::emergencyalarm_4()
     PK913_X1f_b,
     PK913_X1v_b;
 
-    if(PRBSS913 == true)
+    if(PRBSS913)
     {
         ///////////////Yellow lights
         //////////////1
