@@ -11,8 +11,10 @@ emergencyalarm_int::light::light(bool* in_clue, bool* out_clue, bool* is_checked
 
 emergencyalarm_int::emergencyalarm_int()
 {
-    //but this is doesnt
-    lights.append(new light(&bss_inst.BSS926X1HH, ((&pDev->OUT_D[2])[18]), new bool,
+    //but this doesnt
+    lights.append(new light(&bss_inst.BSS926X1HH, (&bss_inst.BSS926X2e), new bool,
+                            type::yellow));
+    lights.append(new light(&bss_inst.BSS837X1z , (&bss_inst.BSS837X2a), new bool,
                             type::yellow));
     //why this shit is working
     lights.append(new light(&bss_inst.BSS926X1HH, &(dummy_array[0][1]), new bool,

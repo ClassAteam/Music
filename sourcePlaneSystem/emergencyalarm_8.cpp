@@ -910,14 +910,14 @@ void emergencyalarm_int::emergencyalarm_8()
 
         ///////////////White lights_1
         //////////////4
-        if (bss_inst.BSS837X1z == true)
-        {
-            bss_inst.BSS837X2a = true;
-        }
-        else
-        {
-            bss_inst.BSS837X2a = false;
-        }
+//        if (bss_inst.BSS837X1z == true)
+//        {
+//            bss_inst.BSS837X2a = true;
+//        }
+//        else
+//        {
+//            bss_inst.BSS837X2a = false;
+//        }
 
         ///////////////White lights_1
         //////////////5
