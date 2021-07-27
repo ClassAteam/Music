@@ -9,7 +9,9 @@ extern bss bss_inst;
 extern bss bss_inst;
 extern double TICK;
 
-enum class type {yellow, red, white};
+enum class clrType {yellow, red, white};
+enum class bssType {bss811, bss812, bss913, bss824, bss825, bss926, bss837
+                     , bss838, bss939};
 
 
 class emergencyalarm_int
@@ -22,12 +24,13 @@ public:
     class light
     {
     public:
-        light(bool* in_clue, bool* out_clue, bool* is_checked,  type color);
+        light(bool* in_clue, bool* out_clue, bool* is_checked,  clrType color
+              , bssType bss);
         bool* inClue;
         bool* outClue;
         bool* isChecked;
-        type color;
-        bool* position;
+        clrType color;
+        bssType bss;
     };
 
     QVector<light*> lights;

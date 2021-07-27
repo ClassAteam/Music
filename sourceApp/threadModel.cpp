@@ -34,6 +34,7 @@
 
 #include "sourceApp/mainwindow.h"
 //class MainWindow w;
+extern SH_DEVICE_CONNECT  DEVICE_CONNECT;//, *pDevShar;
 extern  QSharedMemory SHARE_ADVANTECH;
 extern  SH_DEVICE_CONNECT *pDev;
 
@@ -101,9 +102,14 @@ void dispPlanSystem()
 //           SHARE_ADVANTECH.unlock();
 //      }
 
-      pDev = static_cast<SH_DEVICE_CONNECT*>(SHARE_ADVANTECH.data());
-      pFromP = static_cast<SH_FROMRMI_PILOT*>(SHARE_RMI_PILOT.data());
-      pISU = static_cast<SH_ISU*>(SHARE_ISU.data());
+      static bool firsttime{true};
+      if(firsttime)
+      {
+          pDev = static_cast<SH_DEVICE_CONNECT*>(SHARE_ADVANTECH.data());
+          pFromP = static_cast<SH_FROMRMI_PILOT*>(SHARE_RMI_PILOT.data());
+          pISU = static_cast<SH_ISU*>(SHARE_ISU.data());
+          firsttime = false;
+      }
 
       IN_aircondition_int       ();
       aircondition.updateLogic();
@@ -1040,60 +1046,69 @@ void OUT_pneumatic_int      ()
 
 void OUT_powerdc_int        ()
 {
-    pDev->OUT_D[2][32] = bss_inst.BSS837X2P;
-    pDev->OUT_D[2][33] = bss_inst.BSS837X2V;
-    pDev->OUT_D[2][27] = bss_inst.BSS926X2i;
-    pDev->OUT_D[2][11] = bss_inst.BSS926X2g;
-    pDev->OUT_D[2][21] = bss_inst.BSS926X2m;
-    pDev->OUT_D[2][14] = bss_inst.BSS926X2h;
-    pDev->OUT_D[2][24] = bss_inst.BSS926X2n;
-    pDev->OUT_D[2][12] = bss_inst.BSS926X2z;
-    pDev->OUT_D[2][15] = bss_inst.BSS926X2b;
-    pDev->OUT_D[2][22] = bss_inst.BSS837X2X;
-    pDev->OUT_D[2][25] = bss_inst.BSS837X2T;
-    pDev->OUT_D[2][13] = bss_inst.BSS926X2a;
-    pDev->OUT_D[2][16] = bss_inst.BSS926X2c;
-    pDev->OUT_D[2][23] = bss_inst.BSS837X2Y;
-    pDev->OUT_D[2][26] = bss_inst.BSS837X2U;
-    pDev->OUT_D[2][28] = bss_inst.BSS926X2j;
-    pDev->OUT_D[2][30] = bss_inst.BSS837X2N;
-    pDev->OUT_D[2][31] = bss_inst.BSS837X2R;
-    pDev->OUT_D[2][34] = bss_inst.BSS837X2W;
-    pDev->OUT_D[2][35] = bss_inst.BSS837X2S;
-    pDev->OUT_D[2][17] = bss_inst.BSS926X2d;
-    pDev->OUT_D[2][19] = bss_inst.BSS837X2Z;
-    pDev->OUT_D[2][18] = bss_inst.BSS926X2e;
-    pDev->OUT_D[2][20] = bss_inst.BSS837X2a;
-    pDev->OUT_D[2][39] = bss_inst.BSS838X6C;
-    pDev->OUT_D[2][41] = bss_inst.BSS838X6G;
-    pDev->OUT_D[2][48] = bss_inst.BSS837X2p;
-    pDev->OUT_D[2][50] = bss_inst.BSS837X2i;
-    pDev->OUT_D[2][54] = bss_inst.BSS926X2q;
-    pDev->OUT_D[2][55] = bss_inst.BSS926X2r;
-    pDev->OUT_D[2][56] = bss_inst.BSS837X2d;
-    pDev->OUT_D[2][40] = bss_inst.BSS838X6D;
-    pDev->OUT_D[2][42] = bss_inst.BSS838X6H;
-    pDev->OUT_D[2][22] = bss_inst.BSS837X2q;
-    pDev->OUT_D[2][51] = bss_inst.BSS837X2j;
-    pDev->OUT_D[2][38] = bss_inst.BSS838X6B;
-    pDev->OUT_D[2][44] = bss_inst.BSS838X6F;
-    pDev->OUT_D[2][47] = bss_inst.BSS837X2n;
-    pDev->OUT_D[2][53] = bss_inst.BSS837X2h;
-    pDev->OUT_D[2][37] = bss_inst.BSS838X6A;
-    pDev->OUT_D[2][43] = bss_inst.BSS838X6E;
-    pDev->OUT_D[2][46] = bss_inst.BSS837X2m;
-    pDev->OUT_D[2][52] = bss_inst.BSS837X2g;
-    pDev->OUT_D[2][57] = bss_inst.BSS837X2b;
-    pDev->OUT_D[2][58] = bss_inst.BSS837X2c;
-    pDev->OUT_D[2][59] = bss_inst.BSS837X2k;
-    pDev->OUT_D[2][60] = bss_inst.BSS837X2f;
-    pDev->OUT_D[2][36] = bss_inst.BSS926X2P;
-    pDev->OUT_D[2][45] = bss_inst.BSS837X2e;
-    pDev->OUT_D[2][5] = bss_inst.BSS837X2E;
-    pDev->OUT_D[2][6] = bss_inst.BSS837X2H;
-    pDev->OUT_D[2][9] = bss_inst.BSS837X2G;
-    pDev->OUT_D[2][10] = bss_inst.BSS837X2K;
-    pDev->OUT_D[2][7] = bss_inst.BSS837X2F;
+    //OUT_D
+    for(int i = 0; i < N1758UDO; ++i)
+    {
+        for(int y = 0; y < KANAL_1758UDO; ++y)
+        {
+            pDev->OUT_D[i][y] = DEVICE_CONNECT.OUT_D[i][y];
+//            DEVICE_CONNECT.OUT_D[i][y] = pDev->OUT_D[i][y];
+        }
+    }
+//    pDev->OUT_D[2][32] = bss_inst.BSS837X2P;
+//    pDev->OUT_D[2][33] = bss_inst.BSS837X2V;
+//    pDev->OUT_D[2][27] = bss_inst.BSS926X2i;
+//    pDev->OUT_D[2][11] = bss_inst.BSS926X2g;
+//    pDev->OUT_D[2][21] = bss_inst.BSS926X2m;
+//    pDev->OUT_D[2][14] = bss_inst.BSS926X2h;
+//    pDev->OUT_D[2][24] = bss_inst.BSS926X2n;
+//    pDev->OUT_D[2][12] = bss_inst.BSS926X2z;
+//    pDev->OUT_D[2][15] = bss_inst.BSS926X2b;
+//    pDev->OUT_D[2][22] = bss_inst.BSS837X2X;
+//    pDev->OUT_D[2][25] = bss_inst.BSS837X2T;
+//    pDev->OUT_D[2][13] = bss_inst.BSS926X2a;
+//    pDev->OUT_D[2][16] = bss_inst.BSS926X2c;
+//    pDev->OUT_D[2][23] = bss_inst.BSS837X2Y;
+//    pDev->OUT_D[2][26] = bss_inst.BSS837X2U;
+//    pDev->OUT_D[2][28] = bss_inst.BSS926X2j;
+//    pDev->OUT_D[2][30] = bss_inst.BSS837X2N;
+//    pDev->OUT_D[2][31] = bss_inst.BSS837X2R;
+//    pDev->OUT_D[2][34] = bss_inst.BSS837X2W;
+//    pDev->OUT_D[2][35] = bss_inst.BSS837X2S;
+//    pDev->OUT_D[2][17] = bss_inst.BSS926X2d;
+//    pDev->OUT_D[2][19] = bss_inst.BSS837X2Z;
+////    pDev->OUT_D[2][18] = bss_inst.BSS926X2e;
+//    pDev->OUT_D[2][20] = bss_inst.BSS837X2a;
+//    pDev->OUT_D[2][39] = bss_inst.BSS838X6C;
+//    pDev->OUT_D[2][41] = bss_inst.BSS838X6G;
+//    pDev->OUT_D[2][48] = bss_inst.BSS837X2p;
+//    pDev->OUT_D[2][50] = bss_inst.BSS837X2i;
+//    pDev->OUT_D[2][54] = bss_inst.BSS926X2q;
+//    pDev->OUT_D[2][55] = bss_inst.BSS926X2r;
+//    pDev->OUT_D[2][56] = bss_inst.BSS837X2d;
+//    pDev->OUT_D[2][40] = bss_inst.BSS838X6D;
+//    pDev->OUT_D[2][42] = bss_inst.BSS838X6H;
+//    pDev->OUT_D[2][22] = bss_inst.BSS837X2q;
+//    pDev->OUT_D[2][51] = bss_inst.BSS837X2j;
+//    pDev->OUT_D[2][38] = bss_inst.BSS838X6B;
+//    pDev->OUT_D[2][44] = bss_inst.BSS838X6F;
+//    pDev->OUT_D[2][47] = bss_inst.BSS837X2n;
+//    pDev->OUT_D[2][53] = bss_inst.BSS837X2h;
+//    pDev->OUT_D[2][37] = bss_inst.BSS838X6A;
+//    pDev->OUT_D[2][43] = bss_inst.BSS838X6E;
+//    pDev->OUT_D[2][46] = bss_inst.BSS837X2m;
+//    pDev->OUT_D[2][52] = bss_inst.BSS837X2g;
+//    pDev->OUT_D[2][57] = bss_inst.BSS837X2b;
+//    pDev->OUT_D[2][58] = bss_inst.BSS837X2c;
+//    pDev->OUT_D[2][59] = bss_inst.BSS837X2k;
+//    pDev->OUT_D[2][60] = bss_inst.BSS837X2f;
+//    pDev->OUT_D[2][36] = bss_inst.BSS926X2P;
+//    pDev->OUT_D[2][45] = bss_inst.BSS837X2e;
+//    pDev->OUT_D[2][5] = bss_inst.BSS837X2E;
+//    pDev->OUT_D[2][6] = bss_inst.BSS837X2H;
+//    pDev->OUT_D[2][9] = bss_inst.BSS837X2G;
+//    pDev->OUT_D[2][10] = bss_inst.BSS837X2K;
+//    pDev->OUT_D[2][7] = bss_inst.BSS837X2F;
 }
 
 void OUT_presure_int        ()
