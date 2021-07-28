@@ -51,7 +51,8 @@ const double ts{TICK / 1000}; //cyrcle time in seconds
 
 SH_FROMRMI_PILOT   FROMRMI_PILOT,  *pFromP=&FROMRMI_PILOT;  // for socket_in
 SH_FROMRMI_PILOT   FROMRMI_OPER,   *pFromO=&FROMRMI_OPER;  // for socket_in
-SH_DEVICE_CONNECT  DEVICE_CONNECT, *pDev=&DEVICE_CONNECT ;//, *pDevShar;
+//SH_DEVICE_CONNECT  DEVICE_CONNECT, *pDev=&DEVICE_CONNECT ;//, *pDevShar;
+//          pDev = static_cast<SH_DEVICE_CONNECT*>(SHARE_ADVANTECH.data());
 SH_ISU  ISU, *pISU=&ISU ;//
 
 QUdpSocket *socket_out = nullptr;
@@ -60,6 +61,7 @@ QUdpSocket *socket_in = nullptr;
 QSharedMemory SHARE_ADVANTECH;
 QSharedMemory SHARE_RMI_PILOT;
 QSharedMemory SHARE_ISU;
+SH_DEVICE_CONNECT* pDev{};
 
 extern bool exitThreadModel;
 bool s2 = false;
@@ -100,7 +102,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     SHARE_ADVANTECH.setKey(SHARED_MEMORY_DEVICE_CONNECT);
     SHARE_ADVANTECH.attach();
-
+    pDev = static_cast<SH_DEVICE_CONNECT*>(SHARE_ADVANTECH.data());
     SHARE_RMI_PILOT.setKey(SHARED_MEMORY_RMI_PIL);
     SHARE_RMI_PILOT.attach();
 

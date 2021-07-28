@@ -105,7 +105,7 @@ void dispPlanSystem()
       static bool firsttime{true};
       if(firsttime)
       {
-          pDev = static_cast<SH_DEVICE_CONNECT*>(SHARE_ADVANTECH.data());
+//          pDev = static_cast<SH_DEVICE_CONNECT*>(SHARE_ADVANTECH.data());
           pFromP = static_cast<SH_FROMRMI_PILOT*>(SHARE_RMI_PILOT.data());
           pISU = static_cast<SH_ISU*>(SHARE_ISU.data());
           firsttime = false;
@@ -1047,14 +1047,14 @@ void OUT_pneumatic_int      ()
 void OUT_powerdc_int        ()
 {
     //OUT_D
-    for(int i = 0; i < N1758UDO; ++i)
-    {
-        for(int y = 0; y < KANAL_1758UDO; ++y)
-        {
-            pDev->OUT_D[i][y] = DEVICE_CONNECT.OUT_D[i][y];
-//            DEVICE_CONNECT.OUT_D[i][y] = pDev->OUT_D[i][y];
-        }
-    }
+//    for(int i = 0; i < N1758UDO; ++i)
+//    {
+//        for(int y = 0; y < KANAL_1758UDO; ++y)
+//        {
+//            pDev->OUT_D[i][y] = DEVICE_CONNECT.OUT_D[i][y];
+//        }
+//    }
+
 //    pDev->OUT_D[2][32] = bss_inst.BSS837X2P;
 //    pDev->OUT_D[2][33] = bss_inst.BSS837X2V;
 //    pDev->OUT_D[2][27] = bss_inst.BSS926X2i;
@@ -1062,7 +1062,7 @@ void OUT_powerdc_int        ()
 //    pDev->OUT_D[2][21] = bss_inst.BSS926X2m;
 //    pDev->OUT_D[2][14] = bss_inst.BSS926X2h;
 //    pDev->OUT_D[2][24] = bss_inst.BSS926X2n;
-//    pDev->OUT_D[2][12] = bss_inst.BSS926X2z;
+//    pDev->OUT_D[2][12] = bss_inst.BSS926X2z;???
 //    pDev->OUT_D[2][15] = bss_inst.BSS926X2b;
 //    pDev->OUT_D[2][22] = bss_inst.BSS837X2X;
 //    pDev->OUT_D[2][25] = bss_inst.BSS837X2T;
