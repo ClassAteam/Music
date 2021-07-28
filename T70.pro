@@ -77,14 +77,6 @@ SOURCES += \
     sourcePlaneSystem/cabinlighting_9.cpp \
     sourcePlaneSystem/cabinlighting_int.cpp \
     sourcePlaneSystem/emergencyalarm_1.cpp \
-    sourcePlaneSystem/emergencyalarm_2.cpp \
-    sourcePlaneSystem/emergencyalarm_3.cpp \
-    sourcePlaneSystem/emergencyalarm_4.cpp \
-    sourcePlaneSystem/emergencyalarm_5.cpp \
-    sourcePlaneSystem/emergencyalarm_6.cpp \
-    sourcePlaneSystem/emergencyalarm_7.cpp \
-    sourcePlaneSystem/emergencyalarm_8.cpp \
-    sourcePlaneSystem/emergencyalarm_9.cpp \
     sourcePlaneSystem/emergencyalarm_int.cpp \
     sourcePlaneSystem/exchange.cpp \
     sourcePlaneSystem/hydro_1.cpp \
@@ -196,14 +188,6 @@ HEADERS += \
     sourcePlaneSystem/cabinlighting_9.h \
     sourcePlaneSystem/cabinlighting_int.h \
     sourcePlaneSystem/emergencyalarm_1.h \
-    sourcePlaneSystem/emergencyalarm_2.h \
-    sourcePlaneSystem/emergencyalarm_3.h \
-    sourcePlaneSystem/emergencyalarm_4.h \
-    sourcePlaneSystem/emergencyalarm_5.h \
-    sourcePlaneSystem/emergencyalarm_6.h \
-    sourcePlaneSystem/emergencyalarm_7.h \
-    sourcePlaneSystem/emergencyalarm_8.h \
-    sourcePlaneSystem/emergencyalarm_9.h \
     sourcePlaneSystem/emergencyalarm_int.h \
     sourcePlaneSystem/exchange.h \
     sourcePlaneSystem/hydro_1.h \

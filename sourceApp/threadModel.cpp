@@ -822,87 +822,87 @@ void IN_wingsmech_int      ()
 //================== OUT Data
 void OUT_aircondition_int()
 {
-    pDev->OUT_D[2][85] =bss_inst.BSS926X2A;
-    pDev->OUT_D[2][93] =bss_inst.BSS926X2F;
-    pDev->OUT_D[2][94] =  bss_inst.BSS926X2G;
-    pDev->OUT_D[2][103] =  bss_inst.BSS838X6T;
-    pDev->OUT_D[2][102] =  bss_inst.BSS838X6S;
-    pDev->OUT_D[2][86] = bss_inst.BSS926X2B;
-    pDev->OUT_D[2][87] = bss_inst.BSS926X2C;
-    pDev->OUT_D[2][99] = bss_inst.BSS838X6R;
-    pDev->OUT_D[2][98] = bss_inst.BSS838X6P;
-    pDev->OUT_D[2][100] = bss_inst.BSS838X6U;
-    pDev->OUT_D[2][91] = bss_inst.BSS838X6K;
-    pDev->OUT_D[2][92] = bss_inst.BSS838X6L;
-    pDev->OUT_D[2][95] = bss_inst.BSS838X6M;
-    pDev->OUT_D[2][96] = bss_inst.BSS838X6N;
-    pDev->OUT_D[2][97] = bss_inst.BSS838X6W;
-    pDev->OUT_D[1][50] = bss_inst.BSS825X6q;
-    pDev->OUT_D[1][49] = bss_inst.BSS824X2i;
-    pDev->OUT_D[2][105] = bss_inst.BSS926X1T;
-    pDev->OUT_D[2][89] = bss_inst.BSS926X2E;
-    pDev->OUT_D[2][88] = bss_inst.BSS926X2D;
-    pDev->OUT_D[2][90] = bss_inst.BSS838X6J;
-    pDev->OUT_D[2][114] = bss_inst.BSS926X2K;
-    pDev->OUT_D[2][110] = bss_inst.BSS838X6Z;
-    pDev->OUT_D[2][112] = bss_inst.BSS838X6b;
-    pDev->OUT_D[2][119] = bss_inst.BSS838X6d;
-    pDev->OUT_D[2][121] = bss_inst.BSS838X6f;
-    pDev->OUT_D[2][109] = bss_inst.BSS838X6Y;
-    pDev->OUT_D[2][111] = bss_inst.BSS838X6a;
-    pDev->OUT_D[2][118] = bss_inst.BSS838X6c;
-    pDev->OUT_D[2][120] = bss_inst.BSS838X6e;
-    pDev->OUT_D[2][108] = bss_inst.BSS838X6q;
-    pDev->OUT_D[2][117] = bss_inst.BSS838X6r;
-    pDev->OUT_D[2][113] = bss_inst.BSS926X2L;
-    pDev->OUT_D[2][122] = bss_inst.BSS926X2M;
-    pDev->OUT_D[2][123] = bss_inst.BSS926X2N;
-    pDev->OUT_D[2][104] = bss_inst.BSS926X2H;
-    pDev->OUT_D[2][106] = bss_inst.BSS926X2p;
-    pDev->OUT_D[2][115] = bss_inst.BSS926X2s;
-    pDev->OUT_D[2][107] = bss_inst.zakr_om1;
-    pDev->OUT_D[2][116] = bss_inst.zakr_om2;
+//    pDev->OUT_D[2][85] =bss_inst.BSS926X2A;
+//    pDev->OUT_D[2][93] =bss_inst.BSS926X2F;
+//    pDev->OUT_D[2][94] =  bss_inst.BSS926X2G;
+//    pDev->OUT_D[2][103] =  bss_inst.BSS838X6T;
+//    pDev->OUT_D[2][102] =  bss_inst.BSS838X6S;
+//    pDev->OUT_D[2][86] = bss_inst.BSS926X2B;
+//    pDev->OUT_D[2][87] = bss_inst.BSS926X2C;
+//    pDev->OUT_D[2][99] = bss_inst.BSS838X6R;
+//    pDev->OUT_D[2][98] = bss_inst.BSS838X6P;
+//    pDev->OUT_D[2][100] = bss_inst.BSS838X6U;
+//    pDev->OUT_D[2][91] = bss_inst.BSS838X6K;
+//    pDev->OUT_D[2][92] = bss_inst.BSS838X6L;
+//    pDev->OUT_D[2][95] = bss_inst.BSS838X6M;
+//    pDev->OUT_D[2][96] = bss_inst.BSS838X6N;
+//    pDev->OUT_D[2][97] = bss_inst.BSS838X6W;
+//    pDev->OUT_D[1][50] = bss_inst.BSS825X6q;
+//    pDev->OUT_D[1][49] = bss_inst.BSS824X2i;
+//    pDev->OUT_D[2][105] = bss_inst.BSS926X1T;
+//    pDev->OUT_D[2][89] = bss_inst.BSS926X2E;
+//    pDev->OUT_D[2][88] = bss_inst.BSS926X2D;
+//    pDev->OUT_D[2][90] = bss_inst.BSS838X6J;
+//    pDev->OUT_D[2][114] = bss_inst.BSS926X2K;
+//    pDev->OUT_D[2][110] = bss_inst.BSS838X6Z;
+//    pDev->OUT_D[2][112] = bss_inst.BSS838X6b;
+//    pDev->OUT_D[2][119] = bss_inst.BSS838X6d;
+//    pDev->OUT_D[2][121] = bss_inst.BSS838X6f;
+//    pDev->OUT_D[2][109] = bss_inst.BSS838X6Y;
+//    pDev->OUT_D[2][111] = bss_inst.BSS838X6a;
+//    pDev->OUT_D[2][118] = bss_inst.BSS838X6c;
+//    pDev->OUT_D[2][120] = bss_inst.BSS838X6e;
+//    pDev->OUT_D[2][108] = bss_inst.BSS838X6q;
+//    pDev->OUT_D[2][117] = bss_inst.BSS838X6r;
+//    pDev->OUT_D[2][113] = bss_inst.BSS926X2L;
+//    pDev->OUT_D[2][122] = bss_inst.BSS926X2M;
+//    pDev->OUT_D[2][123] = bss_inst.BSS926X2N;
+//    pDev->OUT_D[2][104] = bss_inst.BSS926X2H;
+//    pDev->OUT_D[2][106] = bss_inst.BSS926X2p;
+//    pDev->OUT_D[2][115] = bss_inst.BSS926X2s;
+//    pDev->OUT_D[2][107] = bss_inst.zakr_om1;
+//    pDev->OUT_D[2][116] = bss_inst.zakr_om2;
 }
 void OUT_antifire_int       ()
 {
-    pDev->OUT_D[0][1]=antiicing.PONdv4;
+//    pDev->OUT_D[0][1]=antiicing.PONdv4;
 
-    pDev->OUT_D[0][98] = bss_inst.BSS811X2U;
-    pDev->OUT_D[0][99] = bss_inst.BSS811X2W;
-    pDev->OUT_D[0][100] = bss_inst.BSS812X6S;
-    pDev->OUT_D[0][101] = bss_inst.BSS812X6U;
-    pDev->OUT_D[0][106] = bss_inst.BSS811X2Z;
-    pDev->OUT_D[0][107] = bss_inst.BSS811X2a;
-    pDev->OUT_D[0][108] = bss_inst.BSS913X2j;
-    pDev->OUT_D[0][109] = bss_inst.BSS913X2k;
-    pDev->OUT_D[0][112] = bss_inst.BSS913X2m;
-    pDev->OUT_D[0][111] = bss_inst.BSS913X2n;
-    pDev->OUT_D[0][110] = bss_inst.BSS913X2p;
-    pDev->OUT_D[0][97] = bss_inst.BSS811X2Y;
-    pDev->OUT_D[0][102] = bss_inst.BSS811X2V;
-    pDev->OUT_D[0][103] = bss_inst.BSS811X2X;
-    pDev->OUT_D[0][104] = bss_inst.BSS812X6T;
-    pDev->OUT_D[0][105] = bss_inst.BSS812X6V;
-    pDev->OUT_D[0][96] = bss_inst.BSS811X2b;
-    pDev->OUT_D[0][19] = bss_inst.BSS811X2D;
-    pDev->OUT_D[2][69] = bss_inst.BSS838X6p;
-    pDev->OUT_D[2][79] = bss_inst.BSS838X6i;
-    pDev->OUT_D[2][80] = bss_inst.BSS926X2R;
-    pDev->OUT_D[2][81] = bss_inst.BSS926X2S;
-    pDev->OUT_D[2][82] = bss_inst.BSS926X2T;
+//    pDev->OUT_D[0][98] = bss_inst.BSS811X2U;
+//    pDev->OUT_D[0][99] = bss_inst.BSS811X2W;
+//    pDev->OUT_D[0][100] = bss_inst.BSS812X6S;
+//    pDev->OUT_D[0][101] = bss_inst.BSS812X6U;
+//    pDev->OUT_D[0][106] = bss_inst.BSS811X2Z;
+//    pDev->OUT_D[0][107] = bss_inst.BSS811X2a;
+//    pDev->OUT_D[0][108] = bss_inst.BSS913X2j;
+//    pDev->OUT_D[0][109] = bss_inst.BSS913X2k;
+//    pDev->OUT_D[0][112] = bss_inst.BSS913X2m;
+//    pDev->OUT_D[0][111] = bss_inst.BSS913X2n;
+//    pDev->OUT_D[0][110] = bss_inst.BSS913X2p;
+//    pDev->OUT_D[0][97] = bss_inst.BSS811X2Y;
+//    pDev->OUT_D[0][102] = bss_inst.BSS811X2V;
+//    pDev->OUT_D[0][103] = bss_inst.BSS811X2X;
+//    pDev->OUT_D[0][104] = bss_inst.BSS812X6T;
+//    pDev->OUT_D[0][105] = bss_inst.BSS812X6V;
+//    pDev->OUT_D[0][96] = bss_inst.BSS811X2b;
+//    pDev->OUT_D[0][19] = bss_inst.BSS811X2D;
+//    pDev->OUT_D[2][69] = bss_inst.BSS838X6p;
+//    pDev->OUT_D[2][79] = bss_inst.BSS838X6i;
+//    pDev->OUT_D[2][80] = bss_inst.BSS926X2R;
+//    pDev->OUT_D[2][81] = bss_inst.BSS926X2S;
+//    pDev->OUT_D[2][82] = bss_inst.BSS926X2T;
 }
 
 void OUT_antiicing_int      ()
 {
-    pDev->OUT_D[1][45] = bss_inst.BSS824X2a;
-    pDev->OUT_D[1][46] = bss_inst.BSS824X2b;
-    pDev->OUT_D[1][47] = bss_inst.BSS824X2C;
-    pDev->OUT_D[1][48] = bss_inst.BSS824X2D;
-    pDev->OUT_D[1][44] = bss_inst.BSS825_prog;
-    pDev->OUT_D[0][78] = bss_inst.BSS811X2L;
-    pDev->OUT_D[1][4] = bss_inst.BSS824X2J;
-    pDev->OUT_D[1][53] = bss_inst.BSS825X6f;
-    pDev->OUT_D[1][54] = bss_inst.BSS825X6g;
+//    pDev->OUT_D[1][45] = bss_inst.BSS824X2a;
+//    pDev->OUT_D[1][46] = bss_inst.BSS824X2b;
+//    pDev->OUT_D[1][47] = bss_inst.BSS824X2C;
+//    pDev->OUT_D[1][48] = bss_inst.BSS824X2D;
+//    pDev->OUT_D[1][44] = bss_inst.BSS825_prog;
+//    pDev->OUT_D[0][78] = bss_inst.BSS811X2L;
+//    pDev->OUT_D[1][4] = bss_inst.BSS824X2J;
+//    pDev->OUT_D[1][53] = bss_inst.BSS825X6f;
+//    pDev->OUT_D[1][54] = bss_inst.BSS825X6g;
     pDev->OUT_D[3][68] = antiicing.H1_3040;
     pDev->OUT_D[1][114] = antiicing.H1_3030;
     pDev->OUT_D[1][115] = antiicing.H2_3030;
@@ -911,13 +911,13 @@ void OUT_antiicing_int      ()
 
 void OUT_brakes_int         ()
 {
-    pDev->OUT_D[0][67] = bss_inst.BSS812X6r;
-    pDev->OUT_D[0][65] = bss_inst.BSS812X6n;
-    pDev->OUT_D[0][66] = bss_inst.BSS812X6p;
-    pDev->OUT_D[0][69] = bss_inst.BSS812X6W;
-    pDev->OUT_D[1][5] = bss_inst.BSS824X2R;
-    pDev->OUT_D[1][7] = bss_inst.BSS824X2H;
-    pDev->OUT_D[1][6] = bss_inst.BSS824X2G;
+//    pDev->OUT_D[0][67] = bss_inst.BSS812X6r;
+//    pDev->OUT_D[0][65] = bss_inst.BSS812X6n;
+//    pDev->OUT_D[0][66] = bss_inst.BSS812X6p;
+//    pDev->OUT_D[0][69] = bss_inst.BSS812X6W;
+//    pDev->OUT_D[1][5] = bss_inst.BSS824X2R;
+//    pDev->OUT_D[1][7] = bss_inst.BSS824X2H;
+//    pDev->OUT_D[1][6] = bss_inst.BSS824X2G;
 }
 
 void OUT_cabinlighting_int  ()
@@ -995,21 +995,21 @@ void OUT_hydro_int          ()
     pDev->OUT_D[0][98] = hydro.H12_2930;
     pDev->OUT_D[0][99] = hydro.H13_2930;
     pDev->OUT_D[0][104] = hydro.H1_2935;
-    pDev->OUT_D[0][4] = bss_inst.BSS811X2M;
-    pDev->OUT_D[0][5] = bss_inst.BSS811X2N;
-    pDev->OUT_D[0][6] = bss_inst.BSS811X2P;
-    pDev->OUT_D[0][7] = bss_inst.BSS811X2R;
-    pDev->OUT_D[0][79] = bss_inst.BSS811X2d;
-    pDev->OUT_D[0][80] = bss_inst.BSS811X2e;
-    pDev->OUT_D[0][81] = bss_inst.BSS811X2f;
-    pDev->OUT_D[0][82] = bss_inst.BSS811X2g;
-    pDev->OUT_D[0][74] = bss_inst.BSS812X6C;
-    pDev->OUT_D[0][75] = bss_inst.BSS812X6D;
-    pDev->OUT_D[0][76] = bss_inst.BSS812X6E;
-    pDev->OUT_D[0][77] = bss_inst.BSS812X6F;
-    pDev->OUT_D[0][73] = bss_inst.BSS812X6G;
-    pDev->OUT_D[1][52] = bss_inst.BSS824X2e;
-    pDev->OUT_D[0][22] = bss_inst.BSS811X2G;
+//    pDev->OUT_D[0][4] = bss_inst.BSS811X2M;
+//    pDev->OUT_D[0][5] = bss_inst.BSS811X2N;
+//    pDev->OUT_D[0][6] = bss_inst.BSS811X2P;
+//    pDev->OUT_D[0][7] = bss_inst.BSS811X2R;
+//    pDev->OUT_D[0][79] = bss_inst.BSS811X2d;
+//    pDev->OUT_D[0][80] = bss_inst.BSS811X2e;
+//    pDev->OUT_D[0][81] = bss_inst.BSS811X2f;
+//    pDev->OUT_D[0][82] = bss_inst.BSS811X2g;
+//    pDev->OUT_D[0][74] = bss_inst.BSS812X6C;
+//    pDev->OUT_D[0][75] = bss_inst.BSS812X6D;
+//    pDev->OUT_D[0][76] = bss_inst.BSS812X6E;
+//    pDev->OUT_D[0][77] = bss_inst.BSS812X6F;
+//    pDev->OUT_D[0][73] = bss_inst.BSS812X6G;
+//    pDev->OUT_D[1][52] = bss_inst.BSS824X2e;
+//    pDev->OUT_D[0][22] = bss_inst.BSS811X2G;
     pDev->OUT_A[0][12] = hydro.pprgs1;
     pDev->OUT_A[0][13] = hydro.pprgs2;
     pDev->OUT_A[0][14] = hydro.pprgs3;
@@ -1019,15 +1019,15 @@ void OUT_hydro_int          ()
 
 void OUT_landinggear_int    ()
 {
-    pDev->OUT_D[1][28] = bss_inst.BSS825X6Y;
-    pDev->OUT_D[1][30] = bss_inst.BSS825X6Z;
-    pDev->OUT_D[1][32] = bss_inst.BSS825X6a;
-    pDev->OUT_D[1][27] = bss_inst.BSS824X2X;
-    pDev->OUT_D[1][26] = bss_inst.BSS824X2Y;
-    pDev->OUT_D[1][29] = bss_inst.BSS824X2U;
-    pDev->OUT_D[1][31] = bss_inst.BSS824X2V;
-    pDev->OUT_D[1][33] = bss_inst.BSS824X2W;
-    pDev->OUT_D[1][64] = bss_inst.BSS812X6Y;
+//    pDev->OUT_D[1][28] = bss_inst.BSS825X6Y;
+//    pDev->OUT_D[1][30] = bss_inst.BSS825X6Z;
+//    pDev->OUT_D[1][32] = bss_inst.BSS825X6a;
+//    pDev->OUT_D[1][27] = bss_inst.BSS824X2X;
+//    pDev->OUT_D[1][26] = bss_inst.BSS824X2Y;
+//    pDev->OUT_D[1][29] = bss_inst.BSS824X2U;
+//    pDev->OUT_D[1][31] = bss_inst.BSS824X2V;
+//    pDev->OUT_D[1][33] = bss_inst.BSS824X2W;
+//    pDev->OUT_D[1][64] = bss_inst.BSS812X6Y;
 
 }
 
@@ -1035,25 +1035,25 @@ void OUT_pneumatic_int      ()
 {
     pDev->OUT_D[4][4] = pneumatic.psdzh_duo;
     pDev->OUT_D[4][5] = pneumatic.psdz_duo;
-    pDev->OUT_D[0][12] = bss_inst.BSS811X2c;
-    pDev->OUT_D[1][12] = bss_inst.BSS824X2E;
-    pDev->OUT_D[2][62] = bss_inst.BSS837X2M;
-    pDev->OUT_D[2][61] = bss_inst.BSS837X2L;
-    pDev->OUT_D[1][18] = bss_inst.BSS824X2B;
-    pDev->OUT_D[0][116] = bss_inst.BSS811X2S;
-    pDev->OUT_D[0][117] = bss_inst.BSS811X2T;
+//    pDev->OUT_D[0][12] = bss_inst.BSS811X2c;
+//    pDev->OUT_D[1][12] = bss_inst.BSS824X2E;
+//    pDev->OUT_D[2][62] = bss_inst.BSS837X2M;
+//    pDev->OUT_D[2][61] = bss_inst.BSS837X2L;
+//    pDev->OUT_D[1][18] = bss_inst.BSS824X2B;
+//    pDev->OUT_D[0][116] = bss_inst.BSS811X2S;
+//    pDev->OUT_D[0][117] = bss_inst.BSS811X2T;
 }
 
 void OUT_powerdc_int        ()
 {
     //OUT_D
-//    for(int i = 0; i < N1758UDO; ++i)
-//    {
-//        for(int y = 0; y < KANAL_1758UDO; ++y)
-//        {
-//            pDev->OUT_D[i][y] = DEVICE_CONNECT.OUT_D[i][y];
-//        }
-//    }
+    for(int i = 0; i < N1758UDO; ++i)
+    {
+        for(int y = 0; y < KANAL_1758UDO; ++y)
+        {
+            pDev->OUT_D[i][y] = DEVICE_CONNECT.OUT_D[i][y];
+        }
+    }
 
 //    pDev->OUT_D[2][32] = bss_inst.BSS837X2P;
 //    pDev->OUT_D[2][33] = bss_inst.BSS837X2V;
@@ -1115,7 +1115,7 @@ void OUT_presure_int        ()
 {
     pDev->OUT_D[2][83] = bss_inst.BSS838X6g;
     pDev->OUT_D[1][1] = bss_inst.BSS824X2D;
-    pDev->OUT_D[0][12] = bss_inst.BSS811X2C;
+//    pDev->OUT_D[0][12] = bss_inst.BSS811X2C;
     pDev->OUT_D[2][84] = bss_inst.BSS838X6h;
 }
 
@@ -1125,6 +1125,6 @@ void OUT_wingsmech_int      ()
     pDev->OUT_D[1][67] = bss_inst.BSS824X2h;
     pDev->OUT_D[1][65] = bss_inst.BSS825X6E;
     pDev->OUT_D[0][114] = bss_inst.BSS913X2h;
-    pDev->OUT_D[0][115] = bss_inst.BSS913X2i;
+//    pDev->OUT_D[0][115] = bss_inst.BSS913X2i;
 }
 

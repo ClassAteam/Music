@@ -101,14 +101,6 @@ public:
     virtual void updateLogic();
 
     void emergencyalarm_1();
-    void emergencyalarm_2();
-    void emergencyalarm_3();
-    void emergencyalarm_4();
-    void emergencyalarm_5();
-    void emergencyalarm_6();
-    void emergencyalarm_7();
-    void emergencyalarm_8();
-    void emergencyalarm_9();
 };
 
 

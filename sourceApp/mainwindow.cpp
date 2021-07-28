@@ -49,10 +49,10 @@ double TICK=5.0;//ms
 double TICK_Graf=50.0;//
 const double ts{TICK / 1000}; //cyrcle time in seconds
 
+SH_DEVICE_CONNECT DEVICE_CONNECT;
+SH_DEVICE_CONNECT* pDev{};
 SH_FROMRMI_PILOT   FROMRMI_PILOT,  *pFromP=&FROMRMI_PILOT;  // for socket_in
 SH_FROMRMI_PILOT   FROMRMI_OPER,   *pFromO=&FROMRMI_OPER;  // for socket_in
-//SH_DEVICE_CONNECT  DEVICE_CONNECT, *pDev=&DEVICE_CONNECT ;//, *pDevShar;
-//          pDev = static_cast<SH_DEVICE_CONNECT*>(SHARE_ADVANTECH.data());
 SH_ISU  ISU, *pISU=&ISU ;//
 
 QUdpSocket *socket_out = nullptr;
@@ -61,7 +61,6 @@ QUdpSocket *socket_in = nullptr;
 QSharedMemory SHARE_ADVANTECH;
 QSharedMemory SHARE_RMI_PILOT;
 QSharedMemory SHARE_ISU;
-SH_DEVICE_CONNECT* pDev{};
 
 extern bool exitThreadModel;
 bool s2 = false;

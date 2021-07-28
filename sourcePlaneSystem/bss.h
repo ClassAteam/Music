@@ -630,5 +630,6 @@ struct bss
         bool zakr_om2{};//otkaz magistral' 2
         bool BSS926X1T{};//magistral'1
         bool BSS926X1V{};//magistral'2
+        bool wheeling{};
 };
 
