@@ -554,7 +554,16 @@ void IN_cabinlighting_int  ()
     cabinlighting.Vpr = pISU->Vpr;
 }
 void IN_emergencyalarm_int ()
-{}
+{
+    exchange::s1_3364 = pDev->IN_MAT[98];
+    exchange::s2_3364 = pDev->IN_MAT[185];
+    exchange::s3_3364 = pDev->IN_MAT[670];
+    exchange::s4_3364 = pDev->IN_MAT[807];
+    exchange::s5_3364 = pDev->IN_MAT[107];
+    exchange::s6_3364 = pDev->IN_MAT[108];
+    exchange::s7_3364 = pDev->IN_MAT[767];
+    exchange::s8_3364 = pDev->IN_MAT[912];
+}
 void IN_hydro_int          ()
 {
     hydro.EZR1_34 = pISU->ezr1_34;
