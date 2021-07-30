@@ -6,9 +6,17 @@ extern  SH_DEVICE_CONNECT *pDev;
 
 void emergencyalarm_int::emergencyalarm_1()
 {
+    cso_ll_k = false;
+    cso_ll_zh = false;
+    cso_pl_k = false;
+    cso_pl_zh = false;
+    cso_sho_k = false;
+    cso_sho_zh = false;
+    cso_shn_k = false;
+    cso_shn_zh = false;
     //Red lights_1
-    static int bss811X2C{};
-    lamp_blink(bss_inst.BSS811X1E, bss811X2C);
+//    static int bss811X2C{};
+//    lamp_blink(bss_inst.BSS811X1E, bss811X2C);
     //Red lights_1
     static int bss824X2D{};
     lamp_blink(bss_inst.BSS824X1G, bss824X2D);
@@ -40,8 +48,12 @@ void emergencyalarm_int::emergencyalarm_1()
         if(light->powerCheck())
         {
             light->lightFromBtn();
-            *light->outClue = *light->inClue;
+            light->lightUp();
             light->updCentrlLight(*this);
+        }
+        else
+        {
+            *light->outClue = false;
         }
     }
 

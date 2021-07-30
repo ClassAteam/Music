@@ -22,7 +22,8 @@ public:
     class light
     {
     public:
-        light(bool* in_clue, bool* out_clue, clrType color , bssType bss);
+        light(QString mname, bool* in_clue, bool* out_clue, clrType color , bssType bss);
+        QString name;
         bool* inClue;
         bool* outClue;
         bool isChecked{};
@@ -30,6 +31,7 @@ public:
         bssType bss;
         bool powerCheck();
         void lightFromBtn();
+        void lightUp();
         void updCentrlLight(emergencyalarm_int& emergencyalarm);
         bool fromLlPad();
         bool fromPlPad();
