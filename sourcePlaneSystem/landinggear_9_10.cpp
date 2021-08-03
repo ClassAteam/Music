@@ -217,9 +217,9 @@ void landinggear_int::landinggear_9_10() //actually 9 - 10th
             K39_3230 = true;
 
             if(K36_3230)
-                bss_inst.BSS825X5v = true;
+                bss_inst.levOpShVipshno = true;
             else
-                bss_inst.BSS825X5v = false;
+                bss_inst.levOpShVipshno = false;
         }
         else
         {
@@ -228,27 +228,27 @@ void landinggear_int::landinggear_9_10() //actually 9 - 10th
             else
             {
                 if(K36_3230)
-                    bss_inst.BSS825X5v = true;
+                    bss_inst.levOpShVipshno = true;
                 else
-                    bss_inst.BSS825X5v = false;
+                    bss_inst.levOpShVipshno = false;
             }
         }
 
-        m_switch(&K36_3230, &bss_inst.BSS825X5v);
-        m_switch(&K41_3230, &bss_inst.BSS825X5z);
-        m_switch(&K39_3230, &bss_inst.BSS825X5x);
-        m_switch(&K37_3230, &bss_inst.BSS825X5BB);
-        m_switch(&K42_3230, &bss_inst.BSS825X5DD);
+        m_switch(&K36_3230, &bss_inst.levOpShVipshno);
+        m_switch(&K41_3230, &bss_inst.pravOpShVipshno);
+        m_switch(&K39_3230, &bss_inst.perOpShasVipno);
+        m_switch(&K37_3230, &bss_inst.levOpShVipshno);
+        m_switch(&K42_3230, &bss_inst.pravOpShVipshno);
         m_switch(&K38_3230, &bss_inst.BSS824X1n);
         m_switch(&K43_3230, &bss_inst.BSS824X1r);
         m_switch(&K40_3230, &bss_inst.BSS824X1p);
     }
     else
     {
-        bss_inst.BSS825X5z = false;
-        bss_inst.BSS825X5x = false;
-        bss_inst.BSS825X5BB = false;
-        bss_inst.BSS825X5DD = false;
+        bss_inst.pravOpShVipshno = false;
+        bss_inst.perOpShasVipno = false;
+        bss_inst.levOpShVipshno = false;
+        bss_inst.pravOpShVipshno = false;
         bss_inst.BSS824X1n = false;
         bss_inst.BSS824X1r = false;
         bss_inst.BSS824X1p = false;

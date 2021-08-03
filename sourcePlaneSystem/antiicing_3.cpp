@@ -209,7 +209,7 @@ static int
     PVOVNA1 = (exchange::ush1l >= 18.0 && exchange::s3_3080) ? true : false;
     PVOVNA4 = (exchange::ush2p >= 18.0 && S6_3080) ? true : false;
 
-    bss_inst.BSS825PR = (exchange::usho1p >= 18.0 && F110_3020) ? true : false;
+    bss_inst.BSS825X5p = (exchange::usho1p >= 18.0 && F110_3020) ? true : false;
 
 //    POV3dv1 = (PONdv1 * 35) + (POB1dv1 * 40) + (POB2dv1 * 40) + (POB3dv1 * 30);
 

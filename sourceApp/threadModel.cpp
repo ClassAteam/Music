@@ -912,10 +912,11 @@ void OUT_antiicing_int      ()
 //    pDev->OUT_D[1][4] = bss_inst.BSS824X2J;
 //    pDev->OUT_D[1][53] = bss_inst.BSS825X6f;
 //    pDev->OUT_D[1][54] = bss_inst.BSS825X6g;
-    pDev->OUT_D[3][68] = antiicing.H1_3040;
-    pDev->OUT_D[1][114] = antiicing.H1_3030;
-    pDev->OUT_D[1][115] = antiicing.H2_3030;
-    pDev->OUT_D[1][113] = antiicing.H3_3030;
+//    pDev->OUT_D[3][68] = antiicing.H1_3040;
+    DEVICE_CONNECT.OUT_D[1][114] = antiicing.H1_3030;
+    DEVICE_CONNECT.OUT_D[1][115] = antiicing.H2_3030;
+    DEVICE_CONNECT.OUT_D[1][113] = antiicing.H3_3030;
+    DEVICE_CONNECT.OUT_D[3][68] = antiicing.H1_3040;
 }
 
 void OUT_brakes_int         ()

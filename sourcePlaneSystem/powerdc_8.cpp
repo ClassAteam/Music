@@ -8,9 +8,9 @@ void powerdc_int::powerdc_8()
     else
         bss_inst.BSS837X1d = false;
     if(purg27pk5)
-        bss_inst.BSS837X1p = true;
+        bss_inst.pravOtAkk = true;
     else
-        bss_inst.BSS837X1p = false;
+        bss_inst.pravOtAkk = false;
     if(purg27pk3 || pss27)
         bss_inst.BSS926X3C = true;
     else
@@ -24,15 +24,15 @@ void powerdc_int::powerdc_8()
     else
         bss_inst.BSS926X3J = false;
     if(pvkchrl)
-        bss_inst.BSS926X3A = true;
+        bss_inst.vklChRL = true;
     else
-        bss_inst.BSS926X3A = false;
+        bss_inst.vklChRL = false;
     if(pvkchrp)
         bss_inst.BSS926X3L = true;
     else
         bss_inst.BSS926X3L = false;
 
-    bss_inst.BSS926X1x = false;
+    bss_inst.otklyuchiG1L = false;
     bss_inst.BSS926X1z = false;
     bss_inst.BSS837X1b=  false;
 
@@ -43,12 +43,12 @@ void powerdc_int::powerdc_8()
             if(otk_pereg_gen1)
             {
                 bss_inst.BSS837X1b = true;
-                bss_inst.BSS926X1x = true;
+                bss_inst.otklyuchiG1L = true;
             }
         }
         else
         {
-            bss_inst.BSS926X1x = true;
+            bss_inst.otklyuchiG1L = true;
         }
     }
     else

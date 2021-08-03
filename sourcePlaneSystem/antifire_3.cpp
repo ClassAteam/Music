@@ -7,24 +7,24 @@ void antifire_int::antifire_3()
     {
         if(K50_2610 || K51_2610 || lzh_srab_pereg_1_dv)
         {
-            bss_inst.BSS811X1p = true;
+            bss_inst.peregrDv1 = true;
             uks_inst.UKS3X314 = true;
         }
         else
         {
-            bss_inst.BSS811X1p = false;
+            bss_inst.peregrDv1 = false;
             uks_inst.UKS3X314 = false;
         }
     }
 
     if((exchange::ushal >= 18.0) && K50_2610 && K51_2610)
     {
-        bss_inst.BSS811X1n = true;
+        bss_inst.pozharDv1 = true;
         uks_inst.UKS4X33 = true;
     }
     else
     {
-        bss_inst.BSS811X1n = false;
+        bss_inst.pozharDv1 = false;
         uks_inst.UKS4X33 = false;
     }
 
@@ -174,10 +174,16 @@ void antifire_int::antifire_3()
     else
         PKO = false;
 
-    if(exchange::ushal >= 18.0 && K24_2610)
+    if(exchange::ushal >= 18.0 || K24_2610)
+    {
         bss_inst.BSS811X1B = true;
+        bss_inst.vsuPohzar = true;
+    }
     else
+    {
         bss_inst.BSS811X1B = false;
+        bss_inst.vsuPohzar = false;
+    }
 
     if(exchange::ushal >= 18 && F45_2610)
     {
@@ -355,4 +361,5 @@ void antifire_int::antifire_3()
         bss_inst.BSS811X1v = false;
 
     ///////////////////////////end logic()
+
 }

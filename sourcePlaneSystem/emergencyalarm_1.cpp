@@ -34,10 +34,10 @@ void emergencyalarm_int::emergencyalarm_1()
     lamp_blink(bss_inst.BSS825X7A, BSS825X6E);
     //White lights_1 17
     static int BSS825X6Y{};
-    lamp_blink(bss_inst.BSS825X5BB, BSS825X6Y);
+    lamp_blink(bss_inst.levOpShVipshno, BSS825X6Y);
     //White lights_1 18
     static int BSS825X6a{};
-    lamp_blink(bss_inst.BSS825X5DD, BSS825X6a);
+    lamp_blink(bss_inst.pravOpShVipshno, BSS825X6a);
     static int bss838X6g{};
     lamp_blink(bss_inst.BSS838X5MM, bss838X6g);
     static int bss838X6h{};

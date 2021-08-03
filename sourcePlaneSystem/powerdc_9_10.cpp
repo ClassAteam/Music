@@ -23,7 +23,7 @@ void powerdc_int::powerdc_9_10()
     else
         uks_inst.UKS3X326 = false;
 
-    if(bss_inst.BSS926X1x)
+    if(bss_inst.otklyuchiG1L)
         uks_inst.UKS1X38 = true;
     else
         uks_inst.UKS1X38 = false;
@@ -100,7 +100,7 @@ void powerdc_int::powerdc_9_10()
     else
         uks_inst.UKS4X357 = false;
 
-    if(bss_inst.BSS926X3A)
+    if(bss_inst.vklChRL)
         uks_inst.UKS2X314 = true;
     else
         uks_inst.UKS2X314 = false;
@@ -115,7 +115,7 @@ void powerdc_int::powerdc_9_10()
     else
         uks_inst.UKS2X313 = false;
 
-    if(bss_inst.BSS837X1p)
+    if(bss_inst.pravOtAkk)
         uks_inst.UKS4X338 = true;
     else
         uks_inst.UKS4X338 = false;

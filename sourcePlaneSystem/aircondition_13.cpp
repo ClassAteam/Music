@@ -3,7 +3,7 @@
 void aircondition_int::aircondition_13()
 {
     bss_inst.BSS838X5f = false;
-    bss_inst.BSS838X5d = false;
+    bss_inst.otklyuchiToGo = false;
     y11_2159 = false;
     y13_2159 = false;
     k4_2159 = false;
@@ -37,7 +37,7 @@ void aircondition_int::aircondition_13()
                 tthu3_zad = 21.0;
                 prthu3 = false;
                 tsto_zad = 55.0;
-                bss_inst.BSS838X5d = true;
+                bss_inst.otklyuchiToGo = true;
                 y11_2159 = false;
                 k4_2159 = true;
             }

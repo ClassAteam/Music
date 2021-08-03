@@ -93,6 +93,7 @@ SOURCES += \
     sourcePlaneSystem/input_feed.cpp \
     sourcePlaneSystem/interfacing.cpp \
     sourcePlaneSystem/landinggear_1.cpp \
+    sourcePlaneSystem/landinggear_11.cpp \
     sourcePlaneSystem/landinggear_11_12.cpp \
     sourcePlaneSystem/landinggear_2.cpp \
     sourcePlaneSystem/landinggear_3.cpp \
@@ -204,6 +205,7 @@ HEADERS += \
     sourcePlaneSystem/input_feed.h \
     sourcePlaneSystem/interfacing.h \
     sourcePlaneSystem/landinggear_1.h \
+    sourcePlaneSystem/landinggear_11.h \
     sourcePlaneSystem/landinggear_11_12.h \
     sourcePlaneSystem/landinggear_2.h \
     sourcePlaneSystem/landinggear_3.h \

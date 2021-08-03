@@ -13,19 +13,19 @@ void powerdc_int::powerdc_20()
 
     Y_f(f92_2420, psgp1, pvksku[0], bss_inst.BSS838X5G, bss_inst.BSS838X5E,
         bss_inst.BSS838X5C, exchange::ushal, overload_gen1, bss_inst.BSS837X1BB,
-        pvkgen[0], bss_inst.BSS838X5A, prgen[0]);
+        pvkgen[0], bss_inst.otklyuchiGen1, prgen[0]);
 
     Y_f(f142_2420, psgp2, pvksku[1], bss_inst.BSS838X5R, bss_inst.BSS838X5N,
         bss_inst.BSS838X5L, exchange::ushal, overload_gen2, bss_inst.BSS837X1DD,
-        pvkgen[1], bss_inst.BSS838X5L, prgen[1]);
+        pvkgen[1], bss_inst.otklyuchiGen2, prgen[1]);
 
-    Y_f(f242_2420, psgp3, pvksku[2], bss_inst.BSS837X3R, bss_inst.BSS837X3N,
+    Y_f(f242_2420, psgp3, pvksku[2], bss_inst.ppo3Otkl, bss_inst.BSS837X3N,
         bss_inst.BSS837X3L, exchange::ushap, overload_gen3, bss_inst.BSS837X3G,
-        pvkgen[2], bss_inst.BSS837X3J, prgen[2]);
+        pvkgen[2], bss_inst.otklyuchiGen3, prgen[2]);
 
     Y_f(f282_2420, psgp4, pvksku[3], bss_inst.BSS837X3E, bss_inst.BSS837X3C,
         bss_inst.BSS837X3A, exchange::ushap, overload_gen4, bss_inst.BSS837X1KK,
-        pvkgen[3], bss_inst.BSS837X1MM, prgen[3]);
+        pvkgen[3], bss_inst.otklyuchiGen4, prgen[3]);
 
  Z_f(prgen[0], prgen[1], pchrl, bss_inst.BSS926X3N, k31_2420, bss_inst.BSS837X1N, k13_2420, bss_inst.BSS837X1J);
 
@@ -117,6 +117,10 @@ void Y_f(bool &f92, bool &psgp1, bool &pvksku, bool &BSS838X5G, bool &BSS838X5E,
                 BSS838X5A = false;
             else
                 BSS838X5A = true;
+        }
+        else
+        {
+            BSS838X5A = false;
         }
     }
     else

@@ -12,6 +12,12 @@ extern uks uks_inst;
 class antifire_int
 {
 public:
+    class peregrevClue
+    {
+    public:
+        peregrevClue(const double& bus);
+        bool power();
+    };
 
     bool
         PAPDvh6{},//priznak nalichiya napryazheniya na vhode paneli zapuska VSU
