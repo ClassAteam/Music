@@ -1,11 +1,15 @@
 #include "landinggear_int.h"
+#include "emergencyalarm_int.h"
 #include "algorithms.h"
+#include "switches.h"
+
+extern emergencyalarm_int emergencyalarm;
 
 extern const double ts;
 
 void landinggear_int::updateLogic()
 {
-    landinggear_123();
+    eventUpd();
 //    landinggear_1();
 //    landinggear_2();
 //    landinggear_3();
@@ -20,6 +24,7 @@ void landinggear_int::updateLogic()
 
 void landinggear_int::release()
 {
+    setVelocity();
     leftRack.release();
     rightRack.release();
     frontRack.release();
@@ -30,6 +35,7 @@ void landinggear_int::release()
 }
 void landinggear_int::intake()
 {
+    setVelocity();
     leftRack.intake();
     rightRack.intake();
     frontRack.intake();
@@ -49,30 +55,53 @@ double landinggear_int::presureCheck()
         result = 45.0;
     return result;
 }
+double landinggear_int::pneumoCheck()
+{
+    double result{0.001};
+
+    return result;
+}
 void landinggear_int::setVelocity()
 {
-    leftRack.moveVelocity = (presureCheck() / 1000);
-    rightRack.moveVelocity = presureCheck() / 1000;
-    frontRack.moveVelocity = presureCheck() / 1000;
-    leftRack.sashes.moveVelocity = presureCheck() / 1000;
-    rightRack.sashes.moveVelocity = presureCheck() / 1000;
-    frontRack.sashes.moveVelocity = presureCheck() / 1000;
-    leftRack.wheelcart.moveVelocity = presureCheck() / 1000;
-    rightRack.wheelcart.moveVelocity = presureCheck() / 1000;
+    if(s30_3230::instance().pos == s30_3230::position::intake)
+    {
+        leftRack.moveVelocity = presureCheck() / 1000;
+        rightRack.moveVelocity = presureCheck() / 1000;
+        frontRack.moveVelocity = presureCheck() / 1000;
+        leftRack.sashes.moveVelocity = presureCheck() / 1000;
+        rightRack.sashes.moveVelocity = presureCheck() / 1000;
+        frontRack.sashes.moveVelocity = presureCheck() / 1000;
+        leftRack.wheelcart.moveVelocity = presureCheck() / 1000;
+        rightRack.wheelcart.moveVelocity = presureCheck() / 1000;
+    }
+    else
+    {
+        leftRack.moveVelocity = pneumoCheck() / 1000;
+        rightRack.moveVelocity = pneumoCheck() / 1000;
+        frontRack.moveVelocity = pneumoCheck() / 1000;
+        leftRack.sashes.moveVelocity = pneumoCheck() / 1000;
+        rightRack.sashes.moveVelocity = pneumoCheck() / 1000;
+        frontRack.sashes.moveVelocity = pneumoCheck() / 1000;
+        leftRack.wheelcart.moveVelocity = pneumoCheck() / 1000;
+        rightRack.wheelcart.moveVelocity = pneumoCheck() / 1000;
+
+    }
 }
 void landinggear_int::alarmUpd()
 {
     bss_inst.levOpShVipshno = (leftRack.isReleased()) ? true : false;
     bss_inst.pravOpShVipshno = (rightRack.isReleased()) ? true : false;
     bss_inst.perOpShasVipno = (frontRack.isReleased()) ? true : false;
-    bss_inst.BSS825X5BB = (!leftRack.isReleased() && !leftRack.isIntaken())
+
+    bss_inst.levOpNeVipNeUbr = (!leftRack.isReleased() && !leftRack.isIntaken())
                                   ? true : false;
-    bss_inst.BSS825X5DD = (!rightRack.isReleased() && !rightRack.isIntaken())
+    bss_inst.pravOpNeVipNeUbr = (!rightRack.isReleased() && !rightRack.isIntaken())
                                   ? true : false;
-    bss_inst.BSS824X1n = (leftRack.isIntaken()) ? true : false;
-    bss_inst.BSS824X1r = (rightRack.isIntaken()) ? true : false;
-    bss_inst.BSS824X1p = (frontRack.isIntaken()) ? true : false;
-    bss_inst.BSS824X1j = (presureCheck() <= 1.0) ? true : false;
+
+    bss_inst.levOpShUbrno = (leftRack.isIntaken()) ? true : false;
+    bss_inst.pravOpShUbrno = (rightRack.isIntaken()) ? true : false;
+    bss_inst.perOpShUbrno = (frontRack.isIntaken()) ? true : false;
+    bss_inst.Pmalo = (presureCheck() <= 11.0) ? true : false;
 
 
 }

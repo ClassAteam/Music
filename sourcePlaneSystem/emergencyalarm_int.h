@@ -23,12 +23,16 @@ public:
     {
     public:
         light(QString mname, bool* in_clue, bool* out_clue, clrType color , bssType bss);
+        light(QString mname, bool* in_clue, bool* out_clue, clrType color ,
+              bssType bss, bool isblinking);
         QString name;
         bool* inClue;
         bool* outClue;
         bool isChecked{};
         clrType color;
         bssType bss;
+        bool isBlnkng{};
+        int counter{};
         bool powerCheck();
         void lightFromBtn();
         void lightUp();
@@ -37,6 +41,7 @@ public:
         bool fromPlPad();
         bool fromShoPad();
         bool fromShnPad();
+        bool lamp_blink();
     };
 
     QVector<light*> lights;
@@ -49,7 +54,6 @@ public:
     bool cso_shn_k{};//признак включения цсо ШН красная
     bool cso_shn_zh{};//признак включения цсо ШН желтая
 
-    void lamp_blink(bool &inpClue, int &blink);
 
 public:
     virtual void updateLogic();

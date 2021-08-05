@@ -10,6 +10,7 @@ const double opened{1.0};
 class landinggear_int
 {
     double presureCheck();
+    double pneumoCheck();
     void release();
     void intake();
     void setVelocity();
@@ -316,6 +317,6 @@ public:
     void landinggear_7_8();
     void landinggear_9_10();
     void landinggear_11_12();
-    void landinggear_123();
+    void eventUpd();
     void balloon_presure(double* P_bal);
 };

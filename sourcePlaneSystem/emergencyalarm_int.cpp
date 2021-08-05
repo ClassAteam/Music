@@ -9,6 +9,13 @@ emergencyalarm_int::light::light(QString mname, bool* in_clue, bool* out_clue,
 {
 
 }
+emergencyalarm_int::light::light(QString mname, bool* in_clue, bool* out_clue,
+                                 clrType color, bssType bss, bool isblinking)
+    : name{mname}, inClue{in_clue}, outClue{out_clue}, color{color}, bss{bss},
+    isBlnkng{isblinking}
+{
+
+}
 
 emergencyalarm_int::emergencyalarm_int()
 {
@@ -274,15 +281,15 @@ emergencyalarm_int::emergencyalarm_int()
                             clrType::yellow, bssType::bss824));
     lights.append(new light("BSS824X1h", &bss_inst.BSS824X1h, (&bss_inst.BSS824X2S),
                             clrType::yellow, bssType::bss824));
-    lights.append(new light("BSS824X1j", &bss_inst.BSS824X1j, (&bss_inst.BSS824X2T),
+    lights.append(new light("BSS824X1j", &bss_inst.Pmalo, (&bss_inst.BSS824X2T),
                             clrType::yellow, bssType::bss824));
     lights.append(new light("BSS824X1A", &bss_inst.BSS824X1A, (&bss_inst.BSS824X2A),
                             clrType::yellow, bssType::bss824));
-    lights.append(new light("BSS824X1n", &bss_inst.BSS824X1n, &DEVICE_CONNECT.OUT_D[1][29],
+    lights.append(new light("BSS824X1n", &bss_inst.levOpShUbrno, &DEVICE_CONNECT.OUT_D[1][29],
                             clrType::yellow, bssType::bss824));
-    lights.append(new light("BSS824X1p", &bss_inst.BSS824X1p, &DEVICE_CONNECT.OUT_D[1][31],
+    lights.append(new light("BSS824X1p", &bss_inst.perOpShUbrno, &DEVICE_CONNECT.OUT_D[1][31],
                             clrType::yellow, bssType::bss824));
-    lights.append(new light("BSS824X1r", &bss_inst.BSS824X1r, &DEVICE_CONNECT.OUT_D[1][33],
+    lights.append(new light("BSS824X1r", &bss_inst.pravOpShUbrno, &DEVICE_CONNECT.OUT_D[1][33],
                             clrType::yellow, bssType::bss824));
     lights.append(new light("BSS824X1t", &bss_inst.BSS824X1t, &DEVICE_CONNECT.OUT_D[1][27],
                             clrType::yellow, bssType::bss824));
@@ -759,7 +766,15 @@ void emergencyalarm_int::light::lightUp()
 {
     if(*inClue &&  !(*outClue) && isChecked)
         isChecked = false;
-    *outClue = *inClue;
+    if(isBlnkng)
+    {
+        if(*inClue)
+            *outClue = lamp_blink();
+    }
+    else
+    {
+        *outClue = *inClue;
+    }
 }
 
 void emergencyalarm_int::light::updCentrlLight(emergencyalarm_int& emergencyalarm)
@@ -840,23 +855,18 @@ void emergencyalarm_int::light::updCentrlLight(emergencyalarm_int& emergencyalar
     }
 }
 
-void emergencyalarm_int::lamp_blink(bool &inpClue, int &blink)
+bool emergencyalarm_int::light::lamp_blink()
 {
-    if(inpClue)
+    counter++;
+    if((counter * TICK) < 100)
     {
-        blink++;
-        if((blink * TICK) < 100)
-        {
-            inpClue = false;
-        }
-        if(((blink * TICK)) >= 100)
-        {
-            inpClue = true;
-            if(blink * TICK >= 200) blink = 0;
-        }
+        return false;
     }
-    else
+    if(((counter * TICK)) >= 100)
     {
-        blink = 0;
+        if(((counter * TICK)) >= 400)
+            counter = 0;
+        return true;
     }
+    return false;
 }
