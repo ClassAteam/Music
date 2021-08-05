@@ -617,45 +617,50 @@ void IN_hydro_int          ()
 }
 void IN_landinggear_int    ()
 {
-    exchange::S1_3230 = pDev->IN_MAT[157];
-    exchange::s2_3230 = pDev->IN_MAT[156];
-    landinggea.S3_3230 = pDev->IN_MAT[762];
-    landinggea.S30_3230 = pDev->IN_MAT[469];
-    exchange::s1_3250 = pDev->IN_MAT[5];
-    exchange::s4_3250 = pDev->IN_MAT[7];
-    exchange::S31_3230 = pDev->IN_MAT[763];
-    exchange::S55_3230 = pDev->IN_MAT[857];
-    exchange::S56_3230 = pDev->IN_MAT[861];
-    exchange::S57_3230 = pDev->IN_MAT[859];
-    exchange::S58_3230 = pDev->IN_MAT[863];
-    landinggea.Xped_buf = pDev->IN_A[0][12];
+//    exchange::S1_3230 = pDev->IN_MAT[157];
+//    exchange::s2_3230 = pDev->IN_MAT[156];
+//    landinggea.S3_3230 = pDev->IN_MAT[762];
+//    landinggea.S30_3230 = pDev->IN_MAT[469];
+//    exchange::s1_3250 = pDev->IN_MAT[5];
+//    exchange::s4_3250 = pDev->IN_MAT[7];
+//    exchange::S31_3230 = pDev->IN_MAT[763];
+//    exchange::S55_3230 = pDev->IN_MAT[857];
+//    exchange::S56_3230 = pDev->IN_MAT[861];
+//    exchange::S57_3230 = pDev->IN_MAT[859];
+//    exchange::S58_3230 = pDev->IN_MAT[863];
+//    landinggea.Xped_buf = pDev->IN_A[0][12];
 
-    if(pISU->wrapsign)
-    {
-        landinggea.Sl = 0.2;
-        landinggea.Sp = 0.2;
-    }
-    else
-    {
-        landinggea.Sl = 0.0;
-        landinggea.Sp = 0.0;
-    }
+//    if(pISU->wrapsign)
+//    {
+//        landinggea.Sl = 0.2;
+//        landinggea.Sp = 0.2;
+//    }
+//    else
+//    {
+//        landinggea.Sl = 0.0;
+//        landinggea.Sp = 0.0;
+//    }
 
-    if(pFromP->Otkaz[72])
+//    if(pFromP->Otkaz[72])
+//    {
+//        landinggea.otkaz_nevip_l_opor = true;
+//        landinggea.otkaz_nevip_p_opor = true;
+//        landinggea.otkaz_nevip_n_opor = true;
+//    }
+//    landinggea.otkaz_nevip_l_opor = pFromP->Otkaz[76];
+//    landinggea.otkaz_nevip_n_opor = pFromP->Otkaz[78];
+//    landinggea.otkaz_nevip_p_opor = pFromP->Otkaz[77];
+//    landinggea.otkaz_nepoln_ubor_n = pFromP->Otkaz[73];
+//    landinggea.otkaz_nepoln_ubor_l = pFromP->Otkaz[74];
+//    landinggea.otkaz_nepoln_ubor_p = pFromP->Otkaz[75];
+//    landinggea.otkaz_ne_vikl_avt_pos_vip_shas = pFromP->Otkaz[79];
+//    landinggea.otkaz_1_kanala = pFromP->Otkaz[80];
+//    landinggea.otkaz_2_kanala = pFromP->Otkaz[81];
+    //IN_MAT
+    for(int i = 0; i < MAT_UDI_UDO; i ++)
     {
-        landinggea.otkaz_nevip_l_opor = true;
-        landinggea.otkaz_nevip_p_opor = true;
-        landinggea.otkaz_nevip_n_opor = true;
+        DEVICE_CONNECT.IN_MAT[i] = pDev->IN_MAT[i];
     }
-    landinggea.otkaz_nevip_l_opor = pFromP->Otkaz[76];
-    landinggea.otkaz_nevip_n_opor = pFromP->Otkaz[78];
-    landinggea.otkaz_nevip_p_opor = pFromP->Otkaz[77];
-    landinggea.otkaz_nepoln_ubor_n = pFromP->Otkaz[73];
-    landinggea.otkaz_nepoln_ubor_l = pFromP->Otkaz[74];
-    landinggea.otkaz_nepoln_ubor_p = pFromP->Otkaz[75];
-    landinggea.otkaz_ne_vikl_avt_pos_vip_shas = pFromP->Otkaz[79];
-    landinggea.otkaz_1_kanala = pFromP->Otkaz[80];
-    landinggea.otkaz_2_kanala = pFromP->Otkaz[81];
 }
 void IN_pneumatic_int      ()
 {

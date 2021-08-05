@@ -5,10 +5,92 @@
 extern bss bss_inst;
 
 extern double TICK;
+const double opened{1.0};
 
 class landinggear_int
 {
+    double presureCheck();
+    void release();
+    void intake();
+    void setVelocity();
+    void alarmUpd();
+    void outputUpd();
+
+    class mainRack
+    {
+    public:
+        double curPos{opened};
+        double curShift{opened};
+        double moveVelocity{opened};
+    public:
+        bool isReleased();
+        bool isShifted();
+        bool isShiftedBack();
+        bool isIntaken();
+        double chngCurPos(bool open_close);
+        double chngShift(bool open_close);
+        double release();
+        double intake();
+        class sashes
+        {
+        public:
+            double curPos{opened};
+            double moveVelocity{};
+        public:
+            double release();
+            double chngCurPos(bool open_close);
+            double intake();
+            bool isReleased();
+            bool isIntaken();
+        };
+
+        class wheelCart
+        {
+        public:
+            double curPos{opened};
+            double moveVelocity{};
+        public:
+            bool isReleased();
+            bool isIntaken();
+            double release();
+            double intake();
+            double chngCurPos(bool open_close);
+        };
+        sashes sashes;
+        wheelCart wheelcart;
+    };
+    class frontRack
+    {
+    public:
+        double curPos{opened};
+        double moveVelocity;
+    public:
+        bool isReleased();
+        bool isIntaken();
+        double chngCurPos(bool open_close);
+        double release();
+        double intake();
+        class sashes
+        {
+        public:
+            double curPos{opened};
+            double moveVelocity;
+        public:
+            double release();
+            double chngCurPos(bool open_close);
+            double intake();
+            bool isReleased();
+            bool isIntaken();
+        };
+
+        sashes sashes;
+    };
+
 public:
+    mainRack leftRack;
+    mainRack rightRack;
+    frontRack frontRack;
+
     bool
         PUPLOP{},//priznak ubrannogo polozheniya levoy opori shassi
         PUPPEROP{},//priznak ubrannogo polozheniya peredney opori shassi
@@ -234,5 +316,6 @@ public:
     void landinggear_7_8();
     void landinggear_9_10();
     void landinggear_11_12();
+    void landinggear_123();
     void balloon_presure(double* P_bal);
 };

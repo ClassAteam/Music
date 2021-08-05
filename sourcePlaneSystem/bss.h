@@ -218,6 +218,8 @@ struct bss
         bool BSS824X3T{};
         bool BSS825X5p{};
         bool BSS825X5A{};
+        bool BSS825X5BB{};
+        bool BSS825X5DD{};
         bool levOpShVipshno{};
         bool BSS825X5C{};
         bool pravOpShVipshno{};

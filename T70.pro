@@ -93,8 +93,8 @@ SOURCES += \
     sourcePlaneSystem/input_feed.cpp \
     sourcePlaneSystem/interfacing.cpp \
     sourcePlaneSystem/landinggear_1.cpp \
-    sourcePlaneSystem/landinggear_11.cpp \
     sourcePlaneSystem/landinggear_11_12.cpp \
+    sourcePlaneSystem/landinggear_123.cpp \
     sourcePlaneSystem/landinggear_2.cpp \
     sourcePlaneSystem/landinggear_3.cpp \
     sourcePlaneSystem/landinggear_4.cpp \
@@ -123,6 +123,7 @@ SOURCES += \
     sourcePlaneSystem/powerdc_int.cpp \
     sourcePlaneSystem/presure.cpp \
     sourcePlaneSystem/presure_int.cpp \
+    sourcePlaneSystem/switches.cpp \
     sourcePlaneSystem/uks.cpp \
     sourcePlaneSystem/wind_functions.cpp \
     sourcePlaneSystem/wingsmech_1.cpp \
@@ -205,8 +206,8 @@ HEADERS += \
     sourcePlaneSystem/input_feed.h \
     sourcePlaneSystem/interfacing.h \
     sourcePlaneSystem/landinggear_1.h \
-    sourcePlaneSystem/landinggear_11.h \
     sourcePlaneSystem/landinggear_11_12.h \
+    sourcePlaneSystem/landinggear_123.h \
     sourcePlaneSystem/landinggear_2.h \
     sourcePlaneSystem/landinggear_3.h \
     sourcePlaneSystem/landinggear_4.h \
@@ -236,6 +237,7 @@ HEADERS += \
     sourcePlaneSystem/powerdc_int.h \
     sourcePlaneSystem/presure.h \
     sourcePlaneSystem/presure_int.h \
+    sourcePlaneSystem/switches.h \
     sourcePlaneSystem/uks.h \
     sourcePlaneSystem/wind_functions.h \
     sourcePlaneSystem/wingsmech_1.h \

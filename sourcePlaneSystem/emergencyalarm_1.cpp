@@ -3,7 +3,6 @@
 
 extern  SH_DEVICE_CONNECT *pDev;
 
-
 void emergencyalarm_int::emergencyalarm_1()
 {
     cso_ll_k = false;

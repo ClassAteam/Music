@@ -204,5 +204,5 @@ int exchange::s1_3240{};//pereklyuchatel' "TORMOZA AVT NORM-PONIZH-SLABO"
 int exchange::s1_2151{};
 int exchange::s1_3020{};
 int exchange::s7_3040{};
-int exchange::s2_3230{};
+//int exchange::s2_3230{};
 int exchange::S31_3230{};

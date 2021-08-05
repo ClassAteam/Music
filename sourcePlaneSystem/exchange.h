@@ -221,6 +221,6 @@ struct exchange
     enum class s20_2430{apsh1, apsh2, apsh3, apsh5, apsh6};
     static int S31_3230;//??
     enum class s31_3230{opora_pered, opora_lev, opora_prav};
-    static int s2_3230;//pereklyuchatel' "SHASSI" "VIPUSK - UBORKA"
-    enum class s2_3230{release, intake};
+//    static int s2_3230;//pereklyuchatel' "SHASSI" "VIPUSK - UBORKA"
+//    enum class s2_3230{release, intake};
 };
