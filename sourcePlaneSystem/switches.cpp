@@ -26,6 +26,6 @@ s30_3230& s30_3230::instance()
     if(*(singleton.Release))
         singleton.pos = release;
     else
-        singleton.pos = intake;
+        singleton.pos = off;
     return singleton;
 }

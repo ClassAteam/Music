@@ -164,9 +164,11 @@ struct bss
         bool BSS824X1f{};
         bool BSS824X1h{};
         bool Pmalo{};
-        bool levOpShUbrno{};
+        bool levOpShNeUbrno{};
+        bool levOpShVipshnaB{};
         bool perOpShUbrno{};
-        bool pravOpShUbrno{};
+        bool pravOpShNeUbrno{};
+        bool pravOpVipushnaB{};
         bool BSS824X1t{};
         bool BSS824X1v{};
         bool BSS824X1x{};
@@ -220,9 +222,9 @@ struct bss
         bool BSS825X5A{};
         bool levOpNeVipNeUbr{};
         bool pravOpNeVipNeUbr{};
-        bool levOpShVipshno{};
+        bool levOpShVipshna{};
         bool BSS825X5C{};
-        bool pravOpShVipshno{};
+        bool pravOpShVipshna{};
         bool BSS825X5E{};
         bool BSS825X5FF{};
         bool BSS825X5G{};

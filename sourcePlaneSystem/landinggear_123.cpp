@@ -3,18 +3,20 @@
 
 void landinggear_int::eventUpd()
 {
-    if(s2_3230::instance().pos == s2_3230::position::release)
+    checkMode();
+    if(curMode == mode::usualRel)
     {
         release();
     }
-    if(s2_3230::instance().pos == s2_3230::position::intake)
+    if(curMode == mode::usualIntake)
     {
         intake();
     }
-//    if(s30_3230::instance().pos == s30_3230::position::intake)
-//    {
-//        release();
-//    }
+    if(curMode == mode::emergRel)
+    {
+        release();
+    }
+
     alarmUpd();
 
 }

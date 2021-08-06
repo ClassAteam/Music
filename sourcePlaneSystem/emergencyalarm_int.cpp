@@ -10,9 +10,9 @@ emergencyalarm_int::light::light(QString mname, bool* in_clue, bool* out_clue,
 
 }
 emergencyalarm_int::light::light(QString mname, bool* in_clue, bool* out_clue,
-                                 clrType color, bssType bss, bool isblinking)
+                                 clrType color, bssType bss, bool* blinkclue)
     : name{mname}, inClue{in_clue}, outClue{out_clue}, color{color}, bss{bss},
-    isBlnkng{isblinking}
+    blinkClue{blinkclue}
 {
 
 }
@@ -285,11 +285,11 @@ emergencyalarm_int::emergencyalarm_int()
                             clrType::yellow, bssType::bss824));
     lights.append(new light("BSS824X1A", &bss_inst.BSS824X1A, (&bss_inst.BSS824X2A),
                             clrType::yellow, bssType::bss824));
-    lights.append(new light("BSS824X1n", &bss_inst.levOpShUbrno, &DEVICE_CONNECT.OUT_D[1][29],
+    lights.append(new light("BSS824X1n", &bss_inst.levOpShNeUbrno, &DEVICE_CONNECT.OUT_D[1][29],
                             clrType::yellow, bssType::bss824));
     lights.append(new light("BSS824X1p", &bss_inst.perOpShUbrno, &DEVICE_CONNECT.OUT_D[1][31],
                             clrType::yellow, bssType::bss824));
-    lights.append(new light("BSS824X1r", &bss_inst.pravOpShUbrno, &DEVICE_CONNECT.OUT_D[1][33],
+    lights.append(new light("BSS824X1r", &bss_inst.pravOpShNeUbrno, &DEVICE_CONNECT.OUT_D[1][33],
                             clrType::yellow, bssType::bss824));
     lights.append(new light("BSS824X1t", &bss_inst.BSS824X1t, &DEVICE_CONNECT.OUT_D[1][27],
                             clrType::yellow, bssType::bss824));
@@ -395,13 +395,7 @@ emergencyalarm_int::emergencyalarm_int()
                             clrType::white, bssType::bss825));
     lights.append(new light("BSS825X7R", &bss_inst.BSS825X7R, &DEVICE_CONNECT.OUT_D[1][50],
                             clrType::white, bssType::bss825));
-//    lights.append(new light("BSS825X5v", &bss_inst.levOpShVipshno, &DEVICE_CONNECT.OUT_D[1][28],
-//                            clrType::white, bssType::bss825));
     lights.append(new light("BSS825X5x", &bss_inst.perOpShasVipno, &DEVICE_CONNECT.OUT_D[1][30],
-                            clrType::white, bssType::bss825));
-//    lights.append(new light("BSS825X5z", &bss_inst.pravOpShVipshno, &DEVICE_CONNECT.OUT_D[1][32],
-//                            clrType::white, bssType::bss825));
-    lights.append(new light("BSS825X5z", &bss_inst.pravOpShVipshno, (&bss_inst.BSS825X6a),
                             clrType::white, bssType::bss825));
     lights.append(new light("BSS825X5KK", &bss_inst.BSS825X5KK, &DEVICE_CONNECT.OUT_D[1][53],
                             clrType::white, bssType::bss825));
@@ -650,10 +644,10 @@ emergencyalarm_int::emergencyalarm_int()
                             clrType::white, bssType::bss824));
     lights.append(new light("BSS325X7A", &bss_inst.BSS825X7A, &DEVICE_CONNECT.OUT_D[1][65],
                             clrType::white, bssType::bss825));
-    lights.append(new light("BSS825X5BB", &bss_inst.levOpShVipshno, &DEVICE_CONNECT.OUT_D[1][28],
-                            clrType::white, bssType::bss825));
-    lights.append(new light("BSS825X5DD", &bss_inst.pravOpShVipshno, &DEVICE_CONNECT.OUT_D[1][32],
-                            clrType::white, bssType::bss825));
+    lights.append(new light("BSS825X5BB", &bss_inst.levOpShVipshna, &DEVICE_CONNECT.OUT_D[1][28],
+                            clrType::white, bssType::bss825, &bss_inst.levOpShVipshnaB));
+    lights.append(new light("BSS825X5DD", &bss_inst.pravOpShVipshna, &DEVICE_CONNECT.OUT_D[1][32],
+                            clrType::white, bssType::bss825, &bss_inst.pravOpVipushnaB));
     lights.append(new light("BSS825X5MM", &bss_inst.BSS825X5MM, &DEVICE_CONNECT.OUT_D[2][83],
                             clrType::white, bssType::bss825));
     lights.append(new light("BSS838X7A", &bss_inst.BSS838X7A, &DEVICE_CONNECT.OUT_D[2][84],
@@ -766,10 +760,13 @@ void emergencyalarm_int::light::lightUp()
 {
     if(*inClue &&  !(*outClue) && isChecked)
         isChecked = false;
-    if(isBlnkng)
+    if(blinkClue != nullptr)
     {
-        if(*inClue)
+        *outClue = *inClue;
+        if(*blinkClue)
+        {
             *outClue = lamp_blink();
+        }
     }
     else
     {

@@ -442,43 +442,34 @@ void  MainWindow:: Print_hydro         ()
 }
 void  MainWindow:: Print_landinggea    ()
 {
-    ui->delta_sh_l->setText("величина, пропорциональная углу выпуска левой стойки = " + QString::number(landinggea.delta_sh_l));
-    ui->delta_sh_p->setText("величина, пропорциональная углу выпуска правой стойки = " + QString::number(landinggea.delta_sh_p));
-    ui->delta_sh_n->setText("величина, пропорциональная углу выпуска носовой стойки = " + QString::number(landinggea.delta_sh_n));
-    ui->fi_nk->setText("Текущее значение угла поворота носового колеса, град = " + QString::number(landinggea.fi_nk));
-    ui->gk_vsh->setText("гидрокран выпуска шасси = " + QString::number(landinggea.gk_vsh));
-    ui->gk_ush->setText("гидрокран уборки шасси = " + QString::number(landinggea.gk_ush));
-    ui->p1oblop->setText("признак 1 обжатия левой опоры шасси = " + QString::number(exchange::P1OBLOP));
-    ui->p2oblop->setText("признак 2 обжатия левой опоры шасси = " + QString::number(exchange::P2OBLOP));
-    ui->p1obpop->setText("признак 1 обжатия правой опоры шасси = " + QString::number(exchange::P1OBPOP));
-    ui->p2obpop->setText("признак 2 обжатия правой опоры шасси = " + QString::number(exchange::P2OBPOP));
-    ui->pvplop->setText("признак выпущенного положения левой опоры шасси = " + QString::number(landinggea.PVPLOP));
-    ui->puplop->setText("признак убранного положения левой опоры шасси = " + QString::number(landinggea.PUPLOP));
-    ui->pvppop->setText("признак выпущенного положения правой опоры шасси = " + QString::number(landinggea.PVPPOP));
-    ui->puppop->setText("признак убранного положения правой опоры шасси = " + QString::number(landinggea.PUPPOP));
-    ui->pvpperop->setText("признак выпущенного положения передней опоры шасси = " + QString::number(landinggea.PVPPEROP));
-    ui->pupperop->setText("признак убранного положения передней опоры шасси = " + QString::number(landinggea.PUPPEROP));
-    ui->uks4x313->setText("ЛЕВАЯ ОПОРА ОБЖАТА КАНАЛ 1 = " + QString::number(uks_inst.UKS4X313));
-    ui->uks4x316->setText("ЛЕВАЯ ОПОРА УБРАНА = " + QString::number(uks_inst.UKS4X316));
-    ui->uks4x317->setText("СТВОРКИ ЛЕВОЙ ОПОРЫ ЗАКРЫТЫ = " + QString::number(uks_inst.UKS4X317));
-    ui->uks4x315->setText("ЛЕВАЯ ОПОРА СМЕЩЕНА = " + QString::number(uks_inst.UKS4X315));
-    ui->uks4x314->setText("ЛЕВАЯ ОПОРА ВЫПУЩЕНА = " + QString::number(uks_inst.UKS4X314));
-    ui->uks4x38->setText("ПРАВАЯ ОПОРА ОБЖАТА КАНАЛ 1 = " + QString::number(uks_inst.UKS4X38));
-    ui->uks4x39->setText("ПРАВАЯ ОПОРА ВЫПУЩЕНА = " + QString::number(uks_inst.UKS4X39));
-    ui->uks4x310->setText("ПРАВАЯ ОПОРА СМЕЩЕНА = " + QString::number(uks_inst.UKS4X310));
-    ui->uks4x311->setText("ПРАВАЯ ОПОРА УБРАНА = " + QString::number(uks_inst.UKS4X311));
-    ui->uks4x312->setText("СТВОРКИ ПРАВОЙ ОПОРЫ ЗАКРЫТЫ = " + QString::number(uks_inst.UKS4X312));
-    ui->uks4x322->setText("ЛЕВАЯ ОПОРА ОБЖАТА КАНАЛ 2 = " + QString::number(uks_inst.UKS4X322));
-    ui->uks4x321->setText("ПРАВАЯ ОПОРА ОБЖАТА КАНАЛ 2 = " + QString::number(uks_inst.UKS4X321));
-    ui->uks4x318->setText("ПЕРЕДНЯЯ ОПОРА ВЫПУЩЕНА = " + QString::number(uks_inst.UKS4X318));
-    ui->uks4x320->setText("СТВОРКИ ПЕРЕДНЕЙ ОПОРЫ ЗАКРЫТЫ = " + QString::number(uks_inst.UKS4X320));
-    ui->uks4x319->setText("ПЕРЕДНЯЯ ОПОРА УБРАНА = " + QString::number(uks_inst.UKS4X319));
-    ui->sus14a1isp->setText("ИСПРАВНОСТЬ канала 1 СУС-14А = " + QString::number(landinggea.SUS_14A_1_isp));
-    ui->sus14a2isp->setText("ИСПРАВНОСТЬ канала 2 СУС-14А = " + QString::number(landinggea.SUS_14A_2_isp));
-    ui->sus14a1rul->setText("РУЛЕНИЕ канала 1 СУС-14А = " + QString::number(landinggea.SUS_14A_1_rul));
-    ui->sus14a2rul->setText("РУЛЕНИЕ канала 2 СУС-14А = " + QString::number(landinggea.SUS_14A_2_rul));
-    ui->sus14a1vzl->setText("ВЗЛЕТА - ПОСАДКА канала 1 СУС-14А = " + QString::number(landinggea.SUS_14A_1_vzl));
-    ui->sus14a2vzl->setText("ВЗЛЕТА - ПОСАДКА канала 2 СУС-14А = " + QString::number(landinggea.SUS_14A_2_vzl));
+    ui->leftRackCurPos->setText(QString("Теукущее положение левой опоры %1")
+                                    .arg(landinggea.leftRack.curPos));
+    ui->leftRackSashes->setText(QString("Теукущее положение створок левых %1")
+                                    .arg(landinggea.leftRack.sashes.curPos));
+    ui->leftRackShift->setText(QString("Теукущее смещение левой опоры %1")
+                                    .arg(landinggea.leftRack.curShift));
+    ui->leftRackCart->setText(QString("Теукущее положение левой тележки %1")
+                                    .arg(landinggea.leftRack.wheelcart.curPos));
+    ui->leftRackVelocity->setText(QString("Теукущая скорость выпуска левой опоры %1")
+                                    .arg(landinggea.leftRack.moveVelocity));
+
+    ui->rightRackCurPos->setText(QString("Теукущее положение правой опоры %1")
+                                    .arg(landinggea.rightRack.curPos));
+    ui->rightRackSashes->setText(QString("Теукущее положение створок правых %1")
+                                    .arg(landinggea.rightRack.sashes.curPos));
+    ui->rightRackShift->setText(QString("Теукущее смещение правой опоры %1")
+                                    .arg(landinggea.rightRack.curShift));
+    ui->righRackCart->setText(QString("Теукущее положение правой тележки %1")
+                                    .arg(landinggea.rightRack.wheelcart.curPos));
+    ui->rightRackVelocity->setText(QString("Теукущая скорость выпуска правой опоры %1")
+                                    .arg(landinggea.rightRack.moveVelocity));
+
+    ui->frontRackCurPos->setText(QString("Теукущее положение передней опоры %1")
+                                    .arg(landinggea.frontRack.curPos));
+    ui->frontRackSashes->setText(QString("Теукущее положение створок передних %1")
+                                    .arg(landinggea.frontRack.sashes.curPos));
+    ui->frontRackVelocity->setText(QString("Теукущая скорость выпуска передней опоры %1")
+                                    .arg(landinggea.frontRack.moveVelocity));
 
 }
 void  MainWindow:: Print_pneumatic     ()

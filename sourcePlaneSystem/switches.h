@@ -18,7 +18,7 @@ public:
     static s30_3230& instance();
 
     bool* Release;
-    enum position{release, intake};
+    enum position{off, release};
     position pos;
     double* bus1;
 };

@@ -28,10 +28,6 @@ void landinggear_int::release()
     leftRack.release();
     rightRack.release();
     frontRack.release();
-    qDebug() << "release";
-    qDebug() << "leftRack current pos = " << leftRack.curPos;
-    qDebug() << "rightRack current pos = " << rightRack.curPos;
-    qDebug() << "frontRack current pos = " << frontRack.curPos;
 }
 void landinggear_int::intake()
 {
@@ -39,10 +35,6 @@ void landinggear_int::intake()
     leftRack.intake();
     rightRack.intake();
     frontRack.intake();
-    qDebug() << "intake";
-    qDebug() << "leftRack current pos = " << leftRack.curPos;
-    qDebug() << "rightRack current pos = " << rightRack.curPos;
-    qDebug() << "frontRack current pos = " << frontRack.curPos;
 }
 double landinggear_int::presureCheck()
 {
@@ -57,13 +49,27 @@ double landinggear_int::presureCheck()
 }
 double landinggear_int::pneumoCheck()
 {
-    double result{0.001};
+    double result{};
+    result = 0.04;
 
     return result;
 }
+void landinggear_int::checkMode()
+{
+    if(s30_3230::instance().pos == s30_3230::position::release)
+    {
+        curMode = emergRel;
+    }else if(s2_3230::instance().pos == s2_3230::position::release)
+    {
+        curMode = mode::usualRel;
+    } else if(s2_3230::instance().pos == s2_3230::position::intake)
+    {
+        curMode = mode::usualIntake;
+    }
+}
 void landinggear_int::setVelocity()
 {
-    if(s30_3230::instance().pos == s30_3230::position::intake)
+    if(curMode == mode::usualIntake || curMode == mode::usualRel)
     {
         leftRack.moveVelocity = presureCheck() / 1000;
         rightRack.moveVelocity = presureCheck() / 1000;
@@ -74,32 +80,32 @@ void landinggear_int::setVelocity()
         leftRack.wheelcart.moveVelocity = presureCheck() / 1000;
         rightRack.wheelcart.moveVelocity = presureCheck() / 1000;
     }
-    else
+    if(curMode == mode::emergRel)
     {
-        leftRack.moveVelocity = pneumoCheck() / 1000;
-        rightRack.moveVelocity = pneumoCheck() / 1000;
-        frontRack.moveVelocity = pneumoCheck() / 1000;
-        leftRack.sashes.moveVelocity = pneumoCheck() / 1000;
-        rightRack.sashes.moveVelocity = pneumoCheck() / 1000;
-        frontRack.sashes.moveVelocity = pneumoCheck() / 1000;
-        leftRack.wheelcart.moveVelocity = pneumoCheck() / 1000;
-        rightRack.wheelcart.moveVelocity = pneumoCheck() / 1000;
+        leftRack.moveVelocity = pneumoCheck();
+        rightRack.moveVelocity = pneumoCheck();
+        frontRack.moveVelocity = pneumoCheck();
+        leftRack.sashes.moveVelocity = pneumoCheck();
+        rightRack.sashes.moveVelocity = pneumoCheck();
+        frontRack.sashes.moveVelocity = pneumoCheck();
+        leftRack.wheelcart.moveVelocity = pneumoCheck();
+        rightRack.wheelcart.moveVelocity = pneumoCheck();
 
     }
 }
 void landinggear_int::alarmUpd()
 {
-    bss_inst.levOpShVipshno = (leftRack.isReleased()) ? true : false;
-    bss_inst.pravOpShVipshno = (rightRack.isReleased()) ? true : false;
+    bss_inst.levOpShVipshna = (leftRack.isReleased()) ? true : false;
+    bss_inst.pravOpShVipshna = (rightRack.isReleased()) ? true : false;
     bss_inst.perOpShasVipno = (frontRack.isReleased()) ? true : false;
 
-    bss_inst.levOpNeVipNeUbr = (!leftRack.isReleased() && !leftRack.isIntaken())
+    bss_inst.levOpShVipshnaB = (!leftRack.isReleased() && !leftRack.isIntaken())
                                   ? true : false;
-    bss_inst.pravOpNeVipNeUbr = (!rightRack.isReleased() && !rightRack.isIntaken())
+    bss_inst.pravOpVipushnaB = (!rightRack.isReleased() && !rightRack.isIntaken())
                                   ? true : false;
 
-    bss_inst.levOpShUbrno = (leftRack.isIntaken()) ? true : false;
-    bss_inst.pravOpShUbrno = (rightRack.isIntaken()) ? true : false;
+    bss_inst.levOpShNeUbrno = (leftRack.isIntaken()) ? true : false;
+    bss_inst.pravOpShNeUbrno = (rightRack.isIntaken()) ? true : false;
     bss_inst.perOpShUbrno = (frontRack.isIntaken()) ? true : false;
     bss_inst.Pmalo = (presureCheck() <= 11.0) ? true : false;
 

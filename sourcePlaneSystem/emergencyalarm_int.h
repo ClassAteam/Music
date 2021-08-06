@@ -24,14 +24,14 @@ public:
     public:
         light(QString mname, bool* in_clue, bool* out_clue, clrType color , bssType bss);
         light(QString mname, bool* in_clue, bool* out_clue, clrType color ,
-              bssType bss, bool isblinking);
+              bssType bss, bool* blinkclu);
         QString name;
         bool* inClue;
         bool* outClue;
         bool isChecked{};
         clrType color;
         bssType bss;
-        bool isBlnkng{};
+        bool* blinkClue{};
         int counter{};
         bool powerCheck();
         void lightFromBtn();

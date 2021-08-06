@@ -9,8 +9,11 @@ const double opened{1.0};
 
 class landinggear_int
 {
+    enum mode{usualRel, emergRel, usualIntake, idle};
+    mode curMode;
     double presureCheck();
     double pneumoCheck();
+    void checkMode();
     void release();
     void intake();
     void setVelocity();
