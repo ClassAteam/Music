@@ -54,7 +54,7 @@ double landinggear_int::pneumoCheck()
 
     return result;
 }
-void landinggear_int::checkMode()
+void landinggear_int::checkForMode()
 {
     if(s30_3230::instance().pos == s30_3230::position::release)
     {

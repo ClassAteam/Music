@@ -13,7 +13,7 @@ class landinggear_int
     mode curMode;
     double presureCheck();
     double pneumoCheck();
-    void checkMode();
+    void checkForMode();
     void release();
     void intake();
     void setVelocity();

@@ -3,7 +3,7 @@
 
 void landinggear_int::eventUpd()
 {
-    checkMode();
+    checkForMode();
     if(curMode == mode::usualRel)
     {
         release();
@@ -18,5 +18,4 @@ void landinggear_int::eventUpd()
     }
 
     alarmUpd();
-
 }
