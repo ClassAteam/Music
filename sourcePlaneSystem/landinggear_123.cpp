@@ -1,7 +1,7 @@
 #include "landinggear_123.h"
 #include "switches.h"
 
-void landinggear_int::eventUpd()
+void landinggear_int::timerEventUpd()
 {
     checkForMode();
     if(curMode == mode::usualRel)

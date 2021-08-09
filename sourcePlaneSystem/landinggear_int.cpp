@@ -9,7 +9,7 @@ extern const double ts;
 
 void landinggear_int::updateLogic()
 {
-    eventUpd();
+    timerEventUpd();
 //    landinggear_1();
 //    landinggear_2();
 //    landinggear_3();
@@ -67,6 +67,23 @@ void landinggear_int::checkForMode()
         curMode = mode::usualIntake;
     }
 }
+
+bool landinggear_int::mainRack::isSashesOnTheMove()
+{
+     if(!sashes.isIntaken() && !sashes.isReleased())
+         return true;
+     else
+         return false;
+}
+
+bool landinggear_int::mainRack::doShiftHappens()
+{
+     if(!isShifted() && !isShiftedBack())
+         return true;
+     else
+         return false;
+
+}
 void landinggear_int::setVelocity()
 {
     if(curMode == mode::usualIntake || curMode == mode::usualRel)
@@ -95,56 +112,62 @@ void landinggear_int::setVelocity()
 }
 void landinggear_int::alarmUpd()
 {
-    bss_inst.levOpShVipshna = (leftRack.isReleased()) ? true : false;
-    bss_inst.pravOpShVipshna = (rightRack.isReleased()) ? true : false;
-    bss_inst.perOpShasVipno = (frontRack.isReleased()) ? true : false;
+    //[1][28]
+    bss_inst.leftRackReleased = (leftRack.isReleased()) ? true : false;
+    //[1][32]
+    bss_inst.rightRackReleased = (rightRack.isReleased()) ? true : false;
+    //[1][30]
+    bss_inst.frontRackReleased = (frontRack.isReleased()) ? true : false;
 
-    bss_inst.levOpShVipshnaB = (!leftRack.isReleased() && !leftRack.isIntaken())
-                                  ? true : false;
-    bss_inst.pravOpVipushnaB = (!rightRack.isReleased() && !rightRack.isIntaken())
-                                  ? true : false;
+    //[1][28]
+    bss_inst.leftRackReleasedB = leftRack.doShiftHappens();
+    //[1][32]
+    bss_inst.rightRackReleasedB = rightRack.doShiftHappens();
 
-    bss_inst.levOpShNeUbrno = (leftRack.isIntaken()) ? true : false;
-    bss_inst.pravOpShNeUbrno = (rightRack.isIntaken()) ? true : false;
-    bss_inst.perOpShUbrno = (frontRack.isIntaken()) ? true : false;
+    //[1][29]
+    bss_inst.leftSashesOnTheMove = leftRack.isSashesOnTheMove();
+    //[1][33]
+    bss_inst.rightSashesOnTheMove = rightRack.isSashesOnTheMove();
+
+    //[1][31]
+    bss_inst.frontRackMove = frontRackMove(*this);
+
     bss_inst.Pmalo = (presureCheck() <= 11.0) ? true : false;
-
-
 }
 void landinggear_int::outputUpd()
 {
 
 }
-void landinggear_int::balloon_presure( double* P_bal)
-{
-    double delta_V_bal;
-    double V_bal;
-    V_bal = 0;
-    if((*P_bal) == P_bal_l)
-    {
-        V_bal = V_bal_l;
-        delta_V_bal = (Ksho * (*P_bal));
-        V_bal = V_bal + delta_V_bal;
-        V_bal_l = V_bal;
-        *P_bal = 6615000 / V_bal;
-    }
-    if((*P_bal) == P_bal_p)
-    {
-        V_bal = V_bal_p;
-        delta_V_bal = (Ksho * (*P_bal));
-        V_bal = V_bal + delta_V_bal;
-        V_bal_p = V_bal;
-        *P_bal = 6615000 / V_bal;
-    }
-    if((*P_bal) == P_bal_per)
-    {
-        V_bal = V_bal_n;
-        delta_V_bal = (Ksho * (*P_bal));
-        V_bal = V_bal + delta_V_bal;
-        V_bal_n = V_bal;
-        *P_bal = 5550000 / V_bal;
-    }
-}
+//void landinggear_int::balloon_presure( double* P_bal)
+//{
+//    double delta_V_bal;
+//    double V_bal;
+//    V_bal = 0;
+//    if((*P_bal) == P_bal_l)
+//    {
+//        V_bal = V_bal_l;
+//        delta_V_bal = (Ksho * (*P_bal));
+//        V_bal = V_bal + delta_V_bal;
+//        V_bal_l = V_bal;
+//        *P_bal = 6615000 / V_bal;
+//    }
+//    if((*P_bal) == P_bal_p)
+//    {
+//        V_bal = V_bal_p;
+//        delta_V_bal = (Ksho * (*P_bal));
+//        V_bal = V_bal + delta_V_bal;
+//        V_bal_p = V_bal;
+//        *P_bal = 6615000 / V_bal;
+//    }
+//    if((*P_bal) == P_bal_per)
+//    {
+//        V_bal = V_bal_n;
+//        delta_V_bal = (Ksho * (*P_bal));
+//        V_bal = V_bal + delta_V_bal;
+//        V_bal_n = V_bal;
+//        *P_bal = 5550000 / V_bal;
+//    }
+//}
 
 //main Rack
 double landinggear_int::mainRack::release()
@@ -331,6 +354,25 @@ double landinggear_int::frontRack::intake()
     chngCurPos(false);
     return curPos;
 }
+
+bool landinggear_int::frontRackMove(landinggear_int& gear_inst)
+{
+    if(gear_inst.curMode == mode::usualRel)
+    {
+        if(!frontRack.isReleased())
+            return true;
+        else
+            return false;
+    }
+    if(gear_inst.curMode == mode::usualIntake)
+    {
+        if(!(frontRack.sashes.isIntaken()))
+            return true;
+        else
+            return false;
+    }
+    return false;
+}
 bool landinggear_int::frontRack::isReleased()
 {
     if(curPos >= 1.0)
@@ -399,9 +441,5 @@ double landinggear_int::frontRack::sashes::chngCurPos(bool open_close)
 }
 
 
-bool landinggear_int::K5_3250{};
-bool landinggear_int::K6_3250{};
-bool landinggear_int::K9_3230{};
-bool landinggear_int::S18_2930{};
 
 

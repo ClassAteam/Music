@@ -92,16 +92,7 @@ SOURCES += \
     sourcePlaneSystem/hydro_int.cpp \
     sourcePlaneSystem/input_feed.cpp \
     sourcePlaneSystem/interfacing.cpp \
-    sourcePlaneSystem/landinggear_1.cpp \
-    sourcePlaneSystem/landinggear_11_12.cpp \
     sourcePlaneSystem/landinggear_123.cpp \
-    sourcePlaneSystem/landinggear_2.cpp \
-    sourcePlaneSystem/landinggear_3.cpp \
-    sourcePlaneSystem/landinggear_4.cpp \
-    sourcePlaneSystem/landinggear_5.cpp \
-    sourcePlaneSystem/landinggear_6.cpp \
-    sourcePlaneSystem/landinggear_7_8.cpp \
-    sourcePlaneSystem/landinggear_9_10.cpp \
     sourcePlaneSystem/landinggear_int.cpp \
     sourcePlaneSystem/pneumatic_1.cpp \
     sourcePlaneSystem/pneumatic_int.cpp \
@@ -205,16 +196,7 @@ HEADERS += \
     sourcePlaneSystem/hydro_int.h \
     sourcePlaneSystem/input_feed.h \
     sourcePlaneSystem/interfacing.h \
-    sourcePlaneSystem/landinggear_1.h \
-    sourcePlaneSystem/landinggear_11_12.h \
     sourcePlaneSystem/landinggear_123.h \
-    sourcePlaneSystem/landinggear_2.h \
-    sourcePlaneSystem/landinggear_3.h \
-    sourcePlaneSystem/landinggear_4.h \
-    sourcePlaneSystem/landinggear_5.h \
-    sourcePlaneSystem/landinggear_6.h \
-    sourcePlaneSystem/landinggear_7_8.h \
-    sourcePlaneSystem/landinggear_9_10.h \
     sourcePlaneSystem/landinggear_int.h \
     sourcePlaneSystem/mainwindow.h \
     sourcePlaneSystem/pneumatic_1.h \

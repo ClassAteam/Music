@@ -164,11 +164,11 @@ struct bss
         bool BSS824X1f{};
         bool BSS824X1h{};
         bool Pmalo{};
-        bool levOpShNeUbrno{};
-        bool levOpShVipshnaB{};
-        bool perOpShUbrno{};
-        bool pravOpShNeUbrno{};
-        bool pravOpVipushnaB{};
+        bool leftSashesOnTheMove{};
+        bool leftRackReleasedB{};
+        bool frontRackMove{};
+        bool rightSashesOnTheMove{};
+        bool rightRackReleasedB{};
         bool BSS824X1t{};
         bool BSS824X1v{};
         bool BSS824X1x{};
@@ -222,9 +222,9 @@ struct bss
         bool BSS825X5A{};
         bool levOpNeVipNeUbr{};
         bool pravOpNeVipNeUbr{};
-        bool levOpShVipshna{};
+        bool leftRackReleased{};
         bool BSS825X5C{};
-        bool pravOpShVipshna{};
+        bool rightRackReleased{};
         bool BSS825X5E{};
         bool BSS825X5FF{};
         bool BSS825X5G{};
@@ -247,7 +247,7 @@ struct bss
         bool BSS825X5n{};
         bool BSS825X5r{};
         bool BSS825X5t{};
-        bool perOpShasVipno{};
+        bool frontRackReleased{};
         bool BSS825X6A{};
         bool BSS825X6B{};
         bool BSS825X6C{};
