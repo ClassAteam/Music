@@ -1,4 +1,4 @@
-#include "landinggear_123.h"
+#include "landinggear_int.h"
 #include "switches.h"
 
 void landinggear_int::timerEventUpd()
