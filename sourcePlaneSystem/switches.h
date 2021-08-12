@@ -22,4 +22,18 @@ public:
     position pos;
     double* bus1;
 };
+class s31_3230//"ПЕРЕКЛЮЧАТЕЛЬ ШАССИ ОТКЛ-ОПОРА ПЕРЕДН-ОПОРА ЛЕВ- ОПОРА ПРАВАЯ"
+{
+public:
+    s31_3230();
+    static s31_3230& instance();
+
+    bool* Otkl;
+    bool* Peredn;
+    bool* Lev;
+    bool* Prav;
+    enum position{otkl, peredn, lev, prav};
+    position pos;
+    double* bus1;
+};
 

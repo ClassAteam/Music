@@ -452,6 +452,8 @@ void  MainWindow:: Print_landinggea    ()
                                     .arg(landinggea.leftRack.wheelcart.curPos));
     ui->leftRackVelocity->setText(QString("Теукущая скорость выпуска левой опоры %1")
                                     .arg(landinggea.leftRack.moveVelocity));
+    ui->speedFromBalloonLeft->setText(QString("Теукущая скорость от пневмобаллона %1")
+                                          .arg(landinggea.leftBalloon.getPresure()));
 
     ui->rightRackCurPos->setText(QString("Теукущее положение правой опоры %1")
                                     .arg(landinggea.rightRack.curPos));
@@ -463,6 +465,8 @@ void  MainWindow:: Print_landinggea    ()
                                     .arg(landinggea.rightRack.wheelcart.curPos));
     ui->rightRackVelocity->setText(QString("Теукущая скорость выпуска правой опоры %1")
                                     .arg(landinggea.rightRack.moveVelocity));
+    ui->speedFromBalloonRight->setText(QString("Теукущая скорость от пневмобаллона %1")
+                                          .arg(landinggea.rightBalloon.getPresure()));
 
     ui->frontRackCurPos->setText(QString("Теукущее положение передней опоры %1")
                                     .arg(landinggea.frontRack.curPos));
@@ -470,6 +474,8 @@ void  MainWindow:: Print_landinggea    ()
                                     .arg(landinggea.frontRack.sashes.curPos));
     ui->frontRackVelocity->setText(QString("Теукущая скорость выпуска передней опоры %1")
                                     .arg(landinggea.frontRack.moveVelocity));
+    ui->speedFromBallonFront->setText(QString("Теукущая скорость от пневмобаллона %1")
+                                          .arg(landinggea.frontBalloon.getPresure()));
 
 }
 void  MainWindow:: Print_pneumatic     ()

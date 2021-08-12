@@ -1666,10 +1666,10 @@
          </rect>
         </property>
         <layout class="QGridLayout" name="leftRack">
-         <item row="3" column="0">
-          <widget class="QLabel" name="leftRackCart">
+         <item row="4" column="0">
+          <widget class="QLabel" name="leftRackVelocity">
            <property name="text">
-            <string>leftRackCart</string>
+            <string>leftRackVelocity</string>
            </property>
           </widget>
          </item>
@@ -1680,13 +1680,6 @@
            </property>
           </widget>
          </item>
-         <item row="1" column="0">
-          <widget class="QLabel" name="leftRackSashes">
-           <property name="text">
-            <string>leftRackSashes</string>
-           </property>
-          </widget>
-         </item>
          <item row="2" column="0">
           <widget class="QLabel" name="leftRackShift">
            <property name="text">
@@ -1694,10 +1687,24 @@
            </property>
           </widget>
          </item>
-         <item row="4" column="0">
-          <widget class="QLabel" name="leftRackVelocity">
+         <item row="1" column="0">
+          <widget class="QLabel" name="leftRackSashes">
            <property name="text">
-            <string>leftRackVelocity</string>
+            <string>leftRackSashes</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="leftRackCart">
+           <property name="text">
+            <string>leftRackCart</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="0">
+          <widget class="QLabel" name="speedFromBalloonLeft">
+           <property name="text">
+            <string>speedFromBalloonLeft</string>
            </property>
           </widget>
          </item>
@@ -1713,6 +1720,27 @@
          </rect>
         </property>
         <layout class="QGridLayout" name="rightRack">
+         <item row="2" column="0">
+          <widget class="QLabel" name="rightRackShift">
+           <property name="text">
+            <string>righRackShift</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="0">
+          <widget class="QLabel" name="rightRackVelocity">
+           <property name="text">
+            <string>rightRackVelocity</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="rightRackSashes">
+           <property name="text">
+            <string>righRackSashes</string>
+           </property>
+          </widget>
+         </item>
          <item row="3" column="0">
           <widget class="QLabel" name="righRackCart">
            <property name="text">
@@ -1727,24 +1755,10 @@
            </property>
           </widget>
          </item>
-         <item row="1" column="0">
-          <widget class="QLabel" name="rightRackSashes">
+         <item row="5" column="0">
+          <widget class="QLabel" name="speedFromBalloonRight">
            <property name="text">
-            <string>righRackSashes</string>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="0">
-          <widget class="QLabel" name="rightRackShift">
-           <property name="text">
-            <string>righRackShift</string>
-           </property>
-          </widget>
-         </item>
-         <item row="4" column="0">
-          <widget class="QLabel" name="rightRackVelocity">
-           <property name="text">
-            <string>rightRackVelocity</string>
+            <string>speedFromBalloonRight</string>
            </property>
           </widget>
          </item>
@@ -1778,6 +1792,13 @@
           <widget class="QLabel" name="frontRackVelocity">
            <property name="text">
             <string>frontRackVelocity</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="speedFromBallonFront">
+           <property name="text">
+            <string>SpeedFromBalloonFront</string>
            </property>
           </widget>
          </item>

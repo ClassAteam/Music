@@ -25,12 +25,12 @@ void brakes_int::brakes_6()
                 }
                 else
                 {
-                    if(landinggea.S34_3230 && landinggea.S36_3230)
-                    {
+//                    if(landinggea.S34_3230 && landinggea.S36_3230)
+//                    {
 
-                    }
-                    else
-                        K2_9921 = true;
+//                    }
+//                    else
+//                        K2_9921 = true;
                 }
             }
         }

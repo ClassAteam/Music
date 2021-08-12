@@ -366,8 +366,8 @@ allElConsDir::allElConsDir()
 //    consumers.append(new sngElConsDir(8.0, sngElConsDir::shal, "pbutzo", &pbutzo));
     consumers.append(new sngElConsDir(10.0, sngElConsDir::sh1dpl, "poppd1",
  &antiicing.poppd1));
-    consumers.append(new sngElConsDir(8.0, sngElConsDir::sh1dpl, "gk_avn",
- &landinggea.gk_avn));
+//    consumers.append(new sngElConsDir(8.0, sngElConsDir::sh1dpl, "gk_avn",
+// &landinggea.gk_avn));
 //    consumers.append(new sngElConsDir(20.0, sngElConsDir::sh1dpl, "k1_17723", &k1_17723));
 //    consumers.append(new sngElConsDir(5.0, sngElConsDir::sh1dpl, "s1_11028", &s1_11028));
 //    consumers.append(new sngElConsDir(5.0, sngElConsDir::sh1dpl, "s1_11313", &s1_11313));
@@ -416,10 +416,10 @@ allElConsDir::allElConsDir()
  &hydro.prn1gs4));
     consumers.append(new sngElConsDir(3.0, sngElConsDir::shap, "prn2gs4",
  &hydro.prn2gs4));
-    consumers.append(new sngElConsDir(12.0, sngElConsDir::shap, "gk_avl",
- &landinggea.gk_avl));
-    consumers.append(new sngElConsDir(12.0, sngElConsDir::shap, "gk_avp",
- &landinggea.gk_avp));
+//    consumers.append(new sngElConsDir(12.0, sngElConsDir::shap, "gk_avl",
+// &landinggea.gk_avl));
+//    consumers.append(new sngElConsDir(12.0, sngElConsDir::shap, "gk_avp",
+// &landinggea.gk_avp));
 //    consumers.append(new sngElConsDir(10.0, sngElConsDir::shap, "k18_7322", &k18_7322));
 //    consumers.append(new sngElConsDir(10.0, sngElConsDir::sh1dpp, "k11_2250", &k11_2250));
     consumers.append(new sngElConsDir(9.0, sngElConsDir::sh1dpp, "poppd2",

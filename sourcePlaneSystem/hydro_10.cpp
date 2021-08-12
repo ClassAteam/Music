@@ -177,49 +177,49 @@ void hydro_int::hydro_10()
       qpfistv[3]
       );
 
-    qpnk[0] = (landinggea.GK_nk1) ? landinggea.V_nk * ts * koef_snk : 0.0;
-    qpnk[2] = (landinggea.GK_nk2) ? landinggea.V_nk * ts * koef_snk : 0.0;
+//    qpnk[0] = (landinggea.GK_nk1) ? landinggea.V_nk * ts * koef_snk : 0.0;
+//    qpnk[2] = (landinggea.GK_nk2) ? landinggea.V_nk * ts * koef_snk : 0.0;
 
-    if(!landinggea.gk_oovsh)
-    {
-        static double deltashlp{landinggea.delta_sh_l};
-        static double deltashpp{landinggea.delta_sh_p};
-        static double deltashnp{landinggea.delta_sh_n};
-        static double deltashiftlp{landinggea.delta_shift_l};
-        static double deltashiftpp{landinggea.delta_shift_p};
-        static double deltastvl{landinggea.delta_stv_l};
-        static double deltastvp{landinggea.delta_stv_p};
-        static double deltastvn{landinggea.delta_stv_n};
+//    if(!landinggea.gk_oovsh)
+//    {
+//        static double deltashlp{landinggea.delta_sh_l};
+//        static double deltashpp{landinggea.delta_sh_p};
+//        static double deltashnp{landinggea.delta_sh_n};
+//        static double deltashiftlp{landinggea.delta_shift_l};
+//        static double deltashiftpp{landinggea.delta_shift_p};
+//        static double deltastvl{landinggea.delta_stv_l};
+//        static double deltastvp{landinggea.delta_stv_p};
+//        static double deltastvn{landinggea.delta_stv_n};
 
-        qpshl[1] = abs(landinggea.delta_sh_l - deltashlp) * koef_ssh;
-        qpshp[1] = abs(landinggea.delta_sh_p - deltashpp) * koef_ssh;
-        qpshn[1] = abs(landinggea.delta_sh_n - deltashnp) * koef_ssh;
-        qpshiftl[1] = abs(landinggea.delta_shift_l - deltashiftlp) * koef_sm;
-        qpshiftp[1] = abs(landinggea.delta_shift_p - deltashiftpp) * koef_sm;
-        qpstvl[1] = abs(landinggea.delta_stv_l - deltastvl) * koef_sstvsh;
-        qpstvp[1] = abs(landinggea.delta_stv_p - deltastvp) * koef_sstvsh;
-        qpstvn[1] = abs(landinggea.delta_stv_n - deltastvn) * koef_sstvsh;
+//        qpshl[1] = abs(landinggea.delta_sh_l - deltashlp) * koef_ssh;
+//        qpshp[1] = abs(landinggea.delta_sh_p - deltashpp) * koef_ssh;
+//        qpshn[1] = abs(landinggea.delta_sh_n - deltashnp) * koef_ssh;
+//        qpshiftl[1] = abs(landinggea.delta_shift_l - deltashiftlp) * koef_sm;
+//        qpshiftp[1] = abs(landinggea.delta_shift_p - deltashiftpp) * koef_sm;
+//        qpstvl[1] = abs(landinggea.delta_stv_l - deltastvl) * koef_sstvsh;
+//        qpstvp[1] = abs(landinggea.delta_stv_p - deltastvp) * koef_sstvsh;
+//        qpstvn[1] = abs(landinggea.delta_stv_n - deltastvn) * koef_sstvsh;
 
-        deltashlp = landinggea.delta_sh_l;
-        deltashpp = landinggea.delta_sh_p;
-        deltashnp = landinggea.delta_sh_n;
-        deltashiftlp = landinggea.delta_shift_l;
-        deltashiftpp = landinggea.delta_shift_p;
-        deltastvl = landinggea.delta_stv_l;
-        deltastvp = landinggea.delta_stv_p;
-        deltastvn = landinggea.delta_stv_n;
-    }
-    else
-    {
-        qpshl[1] = 0.0;
-        qpshp[1] = 0.0;
-        qpshn[1] = 0.0;
-        qpshiftl[1] = 0.0;
-        qpshiftp[1] = 0.0;
-        qpstvl[1] = 0.0;
-        qpstvp[1] = 0.0;
-        qpstvn[1] = 0.0;
-    }
+//        deltashlp = landinggea.delta_sh_l;
+//        deltashpp = landinggea.delta_sh_p;
+//        deltashnp = landinggea.delta_sh_n;
+//        deltashiftlp = landinggea.delta_shift_l;
+//        deltashiftpp = landinggea.delta_shift_p;
+//        deltastvl = landinggea.delta_stv_l;
+//        deltastvp = landinggea.delta_stv_p;
+//        deltastvn = landinggea.delta_stv_n;
+//    }
+//    else
+//    {
+//        qpshl[1] = 0.0;
+//        qpshp[1] = 0.0;
+//        qpshn[1] = 0.0;
+//        qpshiftl[1] = 0.0;
+//        qpshiftp[1] = 0.0;
+//        qpstvl[1] = 0.0;
+//        qpstvp[1] = 0.0;
+//        qpstvn[1] = 0.0;
+//    }
 
     static double deltazlp{wingsmech.delta_z_l};
     static double deltazpp{wingsmech.delta_z_p};

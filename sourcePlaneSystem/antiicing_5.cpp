@@ -1,4 +1,7 @@
 #include "antiicing_5.h"
+#include "landinggear_int.h"
+
+extern landinggear_int landinggea;
 
 
 void antiicing_int::antiicing_5()
@@ -9,7 +12,7 @@ void antiicing_int::antiicing_5()
     if(exchange::ush1l >= 18.0 && exchange::s2_3040)
     {
         if(exchange::PRD1dv && exchange::PRD4dv &&
-            (landinggear_int::K5_3250 || landinggear_int::K6_3250))
+            (landinggea.leftRack.isReleased()))
             K1_3040 = true;
 
         if(!K26_3230)
@@ -30,7 +33,7 @@ void antiicing_int::antiicing_5()
     if(usho1p >= 18.0 && exchange::s4_3040)
     {
         if (exchange::PRD2dv == true &&  exchange::PRD3dv &&
-            (landinggear_int::K5_3250 || landinggear_int::K6_3250))
+            (landinggea.leftRack.isReleased()))
             K2_3040 = true;
 
         if(!K24_3230)
@@ -51,7 +54,7 @@ void antiicing_int::antiicing_5()
     if(exchange::usho2p >= 18.0 && exchange::s6_3040)
     {
         if (exchange::PRD2dv &&  exchange::PRD3dv &&
-            (landinggear_int::K5_3250 || landinggear_int::K6_3250))
+            (landinggea.leftRack.isReleased()))
             K3_3040 = true;
 
         if(!K24_3230)

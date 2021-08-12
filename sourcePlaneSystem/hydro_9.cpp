@@ -1,4 +1,7 @@
 #include "hydro_9.h"
+#include "landinggear_int.h"
+
+extern landinggear_int landinggea;
 
 void hydro_int::hydro_9()
 {
@@ -45,7 +48,7 @@ void hydro_int::hydro_9()
     else
         K5_2935 = false;
 
-    m_DoubleTrue(&landinggear_int::S18_2930, &K5_2935, &H1_2935);
+    m_DoubleTrue(landinggea.leftRack.isShifted(), K5_2935, H1_2935);
 
     if(exchange::ush2l >= 18.0)
     {

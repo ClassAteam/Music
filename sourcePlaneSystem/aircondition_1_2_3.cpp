@@ -1,4 +1,7 @@
 #include "aircondition_1_2_3.h"
+#include "landinggear_int.h"
+
+extern landinggear_int landinggea;
 
 void X(bool& prid_dv, double& Kotbx, double& Potb_zad, double& Potbx, double& eng, double& Kotk);
 
@@ -10,7 +13,7 @@ void aircondition_int::aircondition_1_2_3()
     if(Potb3 >= Potb4) Potb3_4 = Potb3;
     else Potb3_4 = Potb4;
 
-    if(exchange::speed >= 0.01 || !landinggear_int::K9_3230)
+    if(exchange::speed >= 0.01 || landinggea.leftRack.isIntaken())
     {
         Puvzl = 0.0;
         Puvzp = 0.0;

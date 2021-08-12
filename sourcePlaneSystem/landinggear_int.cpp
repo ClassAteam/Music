@@ -2,6 +2,9 @@
 #include "emergencyalarm_int.h"
 #include "algorithms.h"
 #include "switches.h"
+#include "externStruct/Struct_DeviceConnect.h"
+
+extern  SH_DEVICE_CONNECT DEVICE_CONNECT;
 
 extern emergencyalarm_int emergencyalarm;
 
@@ -10,16 +13,6 @@ extern const double ts;
 void landinggear_int::updateLogic()
 {
     timerEventUpd();
-//    landinggear_1();
-//    landinggear_2();
-//    landinggear_3();
-//    landinggear_4();
-//    landinggear_5();
-//    landinggear_6();
-//    landinggear_7_8();
-//    landinggear_9_10();
-//    landinggear_11_12();
-
 }
 
 void landinggear_int::release()
@@ -54,6 +47,38 @@ double landinggear_int::pneumoCheck()
 
     return result;
 }
+
+bool landinggear_int::h2_3230()
+{
+    switch(s31_3230::instance().pos)
+    {
+    case s31_3230::position::peredn:
+    {
+        if(frontBalloon.getPresure() <= 0.043)
+            return true;
+        break;
+    }
+    case s31_3230::position::lev:
+    {
+        if(leftBalloon.getPresure() <= 0.043)
+            return true;
+        break;
+    }
+    case s31_3230::position::prav:
+    {
+        if(rightBalloon.getPresure() <= 0.043)
+            return true;
+        break;
+    }
+    case s31_3230::position::otkl:
+    {
+        return false;
+        break;
+    }
+    }
+    return false;
+}
+
 void landinggear_int::checkForMode()
 {
     if(s30_3230::instance().pos == s30_3230::position::release)
@@ -91,48 +116,142 @@ void landinggear_int::setVelocity()
         leftRack.moveVelocity = presureCheck() / 1000;
         rightRack.moveVelocity = presureCheck() / 1000;
         frontRack.moveVelocity = presureCheck() / 1000;
-        leftRack.sashes.moveVelocity = presureCheck() / 1000;
-        rightRack.sashes.moveVelocity = presureCheck() / 1000;
-        frontRack.sashes.moveVelocity = presureCheck() / 1000;
-        leftRack.wheelcart.moveVelocity = presureCheck() / 1000;
-        rightRack.wheelcart.moveVelocity = presureCheck() / 1000;
+        leftRack.shiftVelocity = presureCheck() / 300;
+        rightRack.shiftVelocity = presureCheck() / 300;
+        leftRack.sashes.moveVelocity = presureCheck() / 300;
+        rightRack.sashes.moveVelocity = presureCheck() / 300;
+        frontRack.sashes.moveVelocity = presureCheck() / 300;
+        leftRack.wheelcart.moveVelocity = presureCheck() / 500;
+        rightRack.wheelcart.moveVelocity = presureCheck() / 500;
     }
     if(curMode == mode::emergRel)
     {
-        leftRack.moveVelocity = pneumoCheck();
-        rightRack.moveVelocity = pneumoCheck();
-        frontRack.moveVelocity = pneumoCheck();
-        leftRack.sashes.moveVelocity = pneumoCheck();
-        rightRack.sashes.moveVelocity = pneumoCheck();
-        frontRack.sashes.moveVelocity = pneumoCheck();
-        leftRack.wheelcart.moveVelocity = pneumoCheck();
-        rightRack.wheelcart.moveVelocity = pneumoCheck();
+        if(!leftRack.isReleased())
+        leftRack.moveVelocity = leftBalloon.consume();
+        if(!rightRack.isReleased())
+        rightRack.moveVelocity = rightBalloon.consume();
+        if(!frontRack.isReleased())
+        frontRack.moveVelocity = frontBalloon.consume();
 
+        if(!leftRack.sashes.isReleased())
+        leftRack.sashes.moveVelocity = leftBalloon.consume();
+        if(!rightRack.sashes.isReleased())
+        rightRack.sashes.moveVelocity = rightBalloon.consume();
+        if(!frontRack.sashes.isReleased())
+        frontRack.sashes.moveVelocity = frontBalloon.consume();
+        if(!leftRack.wheelcart.isReleased())
+        leftRack.wheelcart.moveVelocity = leftBalloon.consume();
+        if(!rightRack.wheelcart.isReleased())
+        rightRack.wheelcart.moveVelocity = rightBalloon.consume();
     }
 }
+
 void landinggear_int::alarmUpd()
 {
     //[1][28]
-    bss_inst.leftRackReleased = (leftRack.isReleased()) ? true : false;
+    bss_inst.s_1_28 = (leftRack.isReleased()) ? true : false;
     //[1][32]
-    bss_inst.rightRackReleased = (rightRack.isReleased()) ? true : false;
+    bss_inst.s_1_32 = (rightRack.isReleased()) ? true : false;
     //[1][30]
-    bss_inst.frontRackReleased = (frontRack.isReleased()) ? true : false;
+    bss_inst.s_1_30 = (frontRack.isReleased()) ? true : false;
 
-    //[1][28]
-    bss_inst.leftRackReleasedB = leftRack.doShiftHappens();
-    //[1][32]
-    bss_inst.rightRackReleasedB = rightRack.doShiftHappens();
+    if(curMode == mode::usualIntake)
+    {
+        //1
+        if(!leftRack.isShifted())
+        {
+            bss_inst.s_1_28_b = true;
+            bss_inst.s_1_29 = false;
+        }
+        //2
+        if(leftRack.isShiftedBack())
+        {
+            bss_inst.s_1_28_b = false;
+            bss_inst.s_1_28 = false;
+        }
+        if(!leftRack.isReleased())
+        {
+            bss_inst.s_1_29 = true;
+        }
+        //3
+        if(leftRack.sashes.isIntaken())
+        {
+            bss_inst.s_1_29 = false;
+        }
 
-    //[1][29]
-    bss_inst.leftSashesOnTheMove = leftRack.isSashesOnTheMove();
-    //[1][33]
-    bss_inst.rightSashesOnTheMove = rightRack.isSashesOnTheMove();
+        //1
+        if(!rightRack.isShifted())
+        {
+            bss_inst.s_1_32_b = true;
+            bss_inst.s_1_33 = false;
+        }
+        //2
+        if(rightRack.isShiftedBack())
+        {
+            bss_inst.s_1_32 = false;
+            bss_inst.s_1_32_b = false;
+        }
+        if(!rightRack.isReleased())
+        {
+            bss_inst.s_1_33 = true;
+        }
+        //3
+        if(rightRack.sashes.isIntaken())
+        {
+            bss_inst.s_1_33 = false;
+        }
+    }
+
+    if(curMode == mode::usualRel || curMode == mode::emergRel)
+    {
+        //1
+        if(!leftRack.sashes.isIntaken() && !leftRack.sashes.isReleased())
+            bss_inst.s_1_29 = true;
+        //2
+        if(leftRack.doShiftHappens())
+        {
+            bss_inst.s_1_28 = false;
+            bss_inst.s_1_28_b = true;
+            bss_inst.s_1_29 = false;
+        }
+        //3
+        if(leftRack.isShifted())
+        {
+            bss_inst.s_1_28_b = false;
+            bss_inst.s_1_28 = true;
+        }
+
+        //1
+        if(!rightRack.sashes.isIntaken() && !rightRack.sashes.isReleased())
+            bss_inst.s_1_33 = true;
+        //2
+        if(rightRack.doShiftHappens())
+        {
+            bss_inst.s_1_32 = false;
+            bss_inst.s_1_32_b = true;
+            bss_inst.s_1_33 = false;
+        }
+        //3
+        if(rightRack.isShifted())
+        {
+            bss_inst.s_1_32_b = false;
+            bss_inst.s_1_32 = true;
+        }
+    }
+
+
+
+//    //[1][29]
+//    bss_inst.s_1_29 = leftRack.isSashesOnTheMove();
+//    //[1][33]
+//    bss_inst.s_1_33 = rightRack.isSashesOnTheMove();
 
     //[1][31]
-    bss_inst.frontRackMove = frontRackMove(*this);
+    bss_inst.s_1_31 = frontRackMove(*this);
 
     bss_inst.Pmalo = (presureCheck() <= 11.0) ? true : false;
+    //[1][116]
+    DEVICE_CONNECT.OUT_D[1][116] = h2_3230();
 }
 void landinggear_int::outputUpd()
 {
@@ -173,23 +292,25 @@ void landinggear_int::outputUpd()
 double landinggear_int::mainRack::release()
 {
     sashes.release();
-    if(sashes.curPos >= 0.4)
+    if(sashes.isReleased())
         chngCurPos(true);
     if(isReleased())
         chngShift(true);
-    if(isShifted())
+    if(curPos >= 0.25)
         wheelcart.release();
     return curPos;
 }
 double landinggear_int::mainRack::intake()
 {
     chngShift(false);
-    wheelcart.intake();
     if(isShiftedBack())
     {
         chngCurPos(false);
-        sashes.intake();
     }
+    if(curPos <= 0.75)
+        wheelcart.intake();
+    if(isIntaken())
+        sashes.intake();
     return curPos;
 }
 bool landinggear_int::mainRack::isReleased()
@@ -238,12 +359,12 @@ double landinggear_int::mainRack::chngShift(bool open_close)
     if(open_close)
     {
         if(!isShifted())
-            curShift = curShift + moveVelocity * ts;
+            curShift = curShift + shiftVelocity * ts;
     }
     else
     {
         if(!isShiftedBack())
-            curShift = curShift - moveVelocity * ts;
+            curShift = curShift - shiftVelocity * ts;
     }
     return curPos;
 }
@@ -344,14 +465,15 @@ double landinggear_int::mainRack::wheelCart::chngCurPos(bool open_close)
 double landinggear_int::frontRack::release()
 {
     sashes.release();
-    if(sashes.curPos >= 0.4)
+    if(sashes.isReleased())
         chngCurPos(true);
     return curPos;
 }
 double landinggear_int::frontRack::intake()
 {
-    sashes.intake();
     chngCurPos(false);
+    if(isIntaken())
+        sashes.intake();
     return curPos;
 }
 
@@ -440,6 +562,20 @@ double landinggear_int::frontRack::sashes::chngCurPos(bool open_close)
     return curPos;
 }
 
+double landinggear_int::pneumoballoon::consume()
+{
+    if(presure > 0.0)presure = presure - 0.0000001;
+    else presure = 0.0;
 
+    return presure;
+}
 
+void landinggear_int::pneumoballoon::toChargeOn()
+{
+    presure = balloonFullChargedSpeed;
+}
 
+double landinggear_int::pneumoballoon::getPresure()
+{
+    return presure;
+}

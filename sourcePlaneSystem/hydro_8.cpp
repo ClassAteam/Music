@@ -121,7 +121,7 @@ void hydro_int::hydro_8() //actually 9th sheet
     uks_inst.UKS4X298 = tb3;
     uks_inst.UKS4X2100 = tb4;
 
-    if(landinggea.S38_3230 && exchange::ushgP[3][0] >= 100.0)
+    if(landinggea.rightRack.isReleased() && exchange::ushgP[3][0] >= 100.0)
     {
         uks_inst.UKS2UBGS1 = qgs1;
         uks_inst.UKS2UBGS2 = qgs2;

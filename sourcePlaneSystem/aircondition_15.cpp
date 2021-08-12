@@ -42,7 +42,7 @@ void aircondition_int::aircondition_15()
         else bss_inst.BSS825X7R = false;
     }
 
-    if(pruuk101 && landinggea.S35_3230)
+    if(pruuk101 && landinggea.leftRack.isIntaken())
     {
         k2_2143 = true;
         totvsu_zad = 27.0;

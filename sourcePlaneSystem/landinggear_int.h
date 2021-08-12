@@ -6,6 +6,7 @@ extern bss bss_inst;
 
 extern double TICK;
 const double opened{1.0};
+const double balloonFullChargedSpeed{0.045};
 
 class landinggear_int
 {
@@ -13,6 +14,7 @@ class landinggear_int
     mode curMode;
     double presureCheck();
     double pneumoCheck();
+    bool h2_3230();
     void checkForMode();
     void release();
     void intake();
@@ -27,6 +29,7 @@ class landinggear_int
         double curPos{opened};
         double curShift{opened};
         double moveVelocity{opened};
+        double shiftVelocity{opened};
         bool isSashesOnTheMove();
         bool doShiftHappens();
         bool isReleased();
@@ -95,11 +98,22 @@ class landinggear_int
 
         sashes sashes;
     };
+    class pneumoballoon
+    {
+        double presure{balloonFullChargedSpeed};
+    public:
+        double consume();
+        void toChargeOn();
+        double getPresure();
+    };
 
 public:
     mainRack leftRack;
     mainRack rightRack;
     frontRack frontRack;
+    pneumoballoon leftBalloon;
+    pneumoballoon rightBalloon;
+    pneumoballoon frontBalloon;
 
 
 public:

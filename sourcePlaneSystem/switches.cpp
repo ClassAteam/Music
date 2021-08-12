@@ -29,3 +29,25 @@ s30_3230& s30_3230::instance()
         singleton.pos = off;
     return singleton;
 }
+
+s31_3230::s31_3230() : Otkl{&DEVICE_CONNECT.IN_MAT[763]},
+    Peredn{&DEVICE_CONNECT.IN_MAT[764]},
+    Lev{&DEVICE_CONNECT.IN_MAT[765]},
+    Prav{&DEVICE_CONNECT.IN_MAT[766]}
+{
+
+}
+
+s31_3230 &s31_3230::instance()
+{
+    static s31_3230 singleton;
+    if(*(singleton.Otkl))
+        singleton.pos = otkl;
+    else if(*(singleton.Peredn))
+        singleton.pos = peredn;
+    else if(*singleton.Lev)
+        singleton.pos = lev;
+    else if(*singleton.Prav)
+        singleton.pos = prav;
+    return singleton;
+}

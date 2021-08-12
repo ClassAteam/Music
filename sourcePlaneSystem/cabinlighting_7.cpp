@@ -1,4 +1,7 @@
 #include "cabinlighting_7.h"
+#include "landinggear_int.h"
+
+extern landinggear_int landinggea;
 
 void cabinlighting_int::cabinlighting_7()
 {
@@ -31,14 +34,14 @@ void cabinlighting_int::cabinlighting_7()
     K8_3341 = false;
     K9_3341 = false;
 
-    if(exchange::ush1dpp >= 18.0 && landinggea.S40_3230) K2_3341 = true;
+    if(exchange::ush1dpp >= 18.0 && landinggea.frontRack.isReleased()) K2_3341 = true;
     if(exchange::ushap >= 18.0 && exchange::K27_3230) K5_3341 = true;
     if(K2_3341 && !K5_3341) K7_3341 = true;
 
     K3_3341 = false;
     K6_3341 = false;
 
-    if(exchange::ush1dpl >= 18.0 && landinggea.S17_3230 && landinggea.S18_3230)
+    if(exchange::ush1dpl >= 18.0 && landinggea.leftRack.isReleased())
         K3_3341 = true;
 
     if(exchange::ushal >= 18.0 && exchange::K26_3230)
@@ -48,7 +51,7 @@ void cabinlighting_int::cabinlighting_7()
 
     K4_3341 = false;
 
-    if(exchange::ush1dpp >= 18.0 && landinggea.S25_3230 && landinggea.S26_3230)
+    if(exchange::ush1dpp >= 18.0 && landinggea.rightRack.isReleased())
         K4_3341 = true;
 
     if(K4_3341 && !K5_3341) K9_3341 = true;

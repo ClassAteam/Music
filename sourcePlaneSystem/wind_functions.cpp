@@ -94,15 +94,15 @@ void m_switch(bool* toggler, bool* toggling)
         *toggling = false;
     }
 }
-void m_DoubleTrue(bool* UpperToggler, bool* UnderToggler, bool* Trigger)
+void m_DoubleTrue(bool UpperToggler, bool UnderToggler, bool& Trigger)
 {
-    if(*UpperToggler == true || *UnderToggler == true)
+    if(UpperToggler == true || UnderToggler == true)
     {
-        *Trigger = true;
+        Trigger = true;
     }
     else
     {
-        *Trigger = false;
+        Trigger = false;
     }
 }
 void m_DoubleTrueAnd(bool* UpperToggler, bool* UnderToggler, bool* Trigger)

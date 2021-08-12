@@ -52,7 +52,7 @@ void hydro_int::hydro_1()
 
         if(exchange::ushal >= 18.0)
         {
-            if(landinggea.S35_3230)
+            if(landinggea.leftRack.isIntaken())
             {
                 K23_2910 = true;
             }
@@ -65,7 +65,7 @@ void hydro_int::hydro_1()
     }
     if(exchange::ushap >= 18.0)
     {
-        if(landinggea.S39_3230)
+        if(landinggea.rightRack.isIntaken())
             K22_2910 = true;
         else
             K22_2910 = false;
