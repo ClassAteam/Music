@@ -94,6 +94,7 @@ SOURCES += \
     sourcePlaneSystem/interfacing.cpp \
     sourcePlaneSystem/landinggear_event.cpp \
     sourcePlaneSystem/landinggear_int.cpp \
+    sourcePlaneSystem/landinggear_old.cpp \
     sourcePlaneSystem/pneumatic_1.cpp \
     sourcePlaneSystem/pneumatic_int.cpp \
     sourcePlaneSystem/powerdc_1.cpp \
@@ -198,6 +199,7 @@ HEADERS += \
     sourcePlaneSystem/interfacing.h \
     sourcePlaneSystem/landinggear_event.h \
     sourcePlaneSystem/landinggear_int.h \
+    sourcePlaneSystem/landinggear_old.h \
     sourcePlaneSystem/mainwindow.h \
     sourcePlaneSystem/pneumatic_1.h \
     sourcePlaneSystem/pneumatic_int.h \

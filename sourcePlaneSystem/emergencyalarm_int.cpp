@@ -468,7 +468,7 @@ emergencyalarm_int::emergencyalarm_int()
                             bssType::bss913));
 
     lights.append(new light("BSS913X3A", &bss_inst.BSS913X3A,
-                            &bss_inst.BSS913X2h, clrType::white,
+                            &DEVICE_CONNECT.OUT_D[0][114], clrType::white,
                             bssType::bss913));
 
     lights.append(new light("BSS913X3C", &bss_inst.BSS913X3C,
@@ -609,7 +609,7 @@ emergencyalarm_int::emergencyalarm_int()
 
     lights.append(new light("BSS824X1KK", &bss_inst.BSS824X1KK,
                             &DEVICE_CONNECT.OUT_D[1][66], clrType::white,
-                            bssType::bss824));
+                            bssType::bss824, &bss_inst.BSS824X1MM));
 
     lights.append(new light("BSS824X3N", &bss_inst.BSS824X3N,
                             &bss_inst.BSS824X2p, clrType::white,
@@ -700,8 +700,8 @@ emergencyalarm_int::emergencyalarm_int()
                             clrType::red, bssType::bss825));
 
     lights.append(new light("BSS825X5J", &bss_inst.BSS825X5J,
-                            &bss_inst.BSS825X6E, clrType::white,
-                            bssType::bss825));
+                            &DEVICE_CONNECT.OUT_D[1][65], clrType::white,
+                            bssType::bss825, &bss_inst.BSS825X7A));
 
     lights.append(new light("BSS825X5V", &bss_inst.BSS825X5V,
                             &bss_inst.BSS825X6K, clrType::white,
@@ -1202,7 +1202,7 @@ emergencyalarm_int::emergencyalarm_int()
                             bssType::bss838));
 
     lights.append(new light("BSS812X5v", &bss_inst.BSS812X5v,
-                            &DEVICE_CONNECT.OUT_D[1][64], clrType::white,
+                            &DEVICE_CONNECT.OUT_D[0][64], clrType::white,
                             bssType::bss812));
 
     lights.append(new light("BSS812X5x", &bss_inst.BSS812X5x,
@@ -1221,21 +1221,10 @@ emergencyalarm_int::emergencyalarm_int()
                             &DEVICE_CONNECT.OUT_D[1][22], clrType::white,
                             bssType::bss824));
 
-    lights.append(new light("BSS824X1MM", &bss_inst.BSS824X1MM,
-                            &DEVICE_CONNECT.OUT_D[1][66], clrType::white,
-                            bssType::bss824));
 
     lights.append(new light("BSS824X3A", &bss_inst.BSS824X3A,
                             &DEVICE_CONNECT.OUT_D[1][67], clrType::white,
-                            bssType::bss824));
-
-    lights.append(new light("BSS824X3C", &bss_inst.BSS824X3C,
-                            &DEVICE_CONNECT.OUT_D[1][67], clrType::white,
-                            bssType::bss824));
-
-    lights.append(new light("BSS325X7A", &bss_inst.BSS825X7A,
-                            &DEVICE_CONNECT.OUT_D[1][65], clrType::white,
-                            bssType::bss825));
+                            bssType::bss824, &bss_inst.BSS824X3C));
 
     lights.append(new light("BSS825X5BB", &bss_inst.s_1_28,
                             &DEVICE_CONNECT.OUT_D[1][28], clrType::white,

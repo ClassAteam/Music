@@ -55,39 +55,39 @@ antifire_int       antifire      ;
 antiicing_int      antiicing     ;
 brakes_int         brakes        ;
 cabinlighting_int  cabinlighting ;
-emergencyalarm_int emergencyalarm;
 hydro_int          hydro         ;
 landinggear_int    landinggea    ;
 pneumatic_int      pneumatic     ;
 powerdc_int        powerdc       ;
 presure_int        presure       ;
 wingsmech_int      wingsmech     ;
+emergencyalarm_int emergencyalarm;
 
 void IN_aircondition_int   ();
 void IN_antifire_int       ();
 void IN_antiicing_int      ();
 void IN_brakes_int         ();
 void IN_cabinlighting_int  ();
-void IN_emergencyalarm_int ();
 void IN_hydro_int          ();
 void IN_landinggear_int    ();
 void IN_pneumatic_int      ();
 void IN_powerdc_int        ();
 void IN_presure_int        ();
 void IN_wingsmech_int      ();
+void IN_emergencyalarm_int ();
 
 void OUT_aircondition_int   ();
 void OUT_antifire_int       ();
 void OUT_antiicing_int      ();
 void OUT_brakes_int         ();
 void OUT_cabinlighting_int  ();
-void OUT_emergencyalarm_int ();
 void OUT_hydro_int          ();
 void OUT_landinggear_int    ();
 void OUT_pneumatic_int      ();
 void OUT_powerdc_int        ();
 void OUT_presure_int        ();
 void OUT_wingsmech_int      ();
+void OUT_emergencyalarm_int ();
 
 
 
@@ -132,10 +132,6 @@ void dispPlanSystem()
       cabinlighting.updateLogic();
       OUT_cabinlighting_int  ();
 
-      IN_emergencyalarm_int ();
-      emergencyalarm.updateLogic();
-      OUT_emergencyalarm_int ();
-
       IN_hydro_int          ();
       hydro.updateLogic();
       OUT_hydro_int          ();
@@ -159,6 +155,10 @@ void dispPlanSystem()
       IN_wingsmech_int      ();
       wingsmech.updateLogic();
       OUT_wingsmech_int      ();
+
+      IN_emergencyalarm_int ();
+      emergencyalarm.updateLogic();
+      OUT_emergencyalarm_int ();
 
 //      if (SHARE_ADVANTECH.isAttached())
 //      {
@@ -621,25 +621,25 @@ void IN_landinggear_int    ()
 //    exchange::s2_3230 = pDev->IN_MAT[156];
 //    landinggea.S3_3230 = pDev->IN_MAT[762];
 //    landinggea.S30_3230 = pDev->IN_MAT[469];
-//    exchange::s1_3250 = pDev->IN_MAT[5];
-//    exchange::s4_3250 = pDev->IN_MAT[7];
+    exchange::s1_3250 = pDev->IN_MAT[5];
+    exchange::s4_3250 = pDev->IN_MAT[7];
 //    exchange::S31_3230 = pDev->IN_MAT[763];
-//    exchange::S55_3230 = pDev->IN_MAT[857];
-//    exchange::S56_3230 = pDev->IN_MAT[861];
-//    exchange::S57_3230 = pDev->IN_MAT[859];
-//    exchange::S58_3230 = pDev->IN_MAT[863];
-//    landinggea.Xped_buf = pDev->IN_A[0][12];
+exchange::S55_3230 = pDev->IN_MAT[857];
+exchange::S56_3230 = pDev->IN_MAT[861];
+exchange::S57_3230 = pDev->IN_MAT[859];
+exchange::S58_3230 = pDev->IN_MAT[863];
+landinggea.Xped_buf = pDev->IN_A[0][12];
 
-//    if(pISU->wrapsign)
-//    {
-//        landinggea.Sl = 0.2;
-//        landinggea.Sp = 0.2;
-//    }
-//    else
-//    {
-//        landinggea.Sl = 0.0;
-//        landinggea.Sp = 0.0;
-//    }
+if(pISU->wrapsign)
+{
+    landinggea.Sl = 0.2;
+    landinggea.Sp = 0.2;
+}
+else
+{
+    landinggea.Sl = 0.0;
+    landinggea.Sp = 0.0;
+}
 
 //    if(pFromP->Otkaz[72])
 //    {
@@ -1136,10 +1136,10 @@ void OUT_presure_int        ()
 
 void OUT_wingsmech_int      ()
 {
-    pDev->OUT_D[1][66] = bss_inst.BSS824X2f;
-    pDev->OUT_D[1][67] = bss_inst.BSS824X2h;
-    pDev->OUT_D[1][65] = bss_inst.BSS825X6E;
-    pDev->OUT_D[0][114] = bss_inst.BSS913X2h;
+//    pDev->OUT_D[1][66] = bss_inst.BSS824X2f;
+//    pDev->OUT_D[1][67] = bss_inst.BSS824X2h;
+//    pDev->OUT_D[1][65] = bss_inst.BSS825X6E;
+//    pDev->OUT_D[0][114] = bss_inst.BSS913X2h;
 //    pDev->OUT_D[0][115] = bss_inst.BSS913X2i;
 }
 

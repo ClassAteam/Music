@@ -3,6 +3,20 @@
 
 extern  SH_DEVICE_CONNECT DEVICE_CONNECT;
 
+s1_3230::s1_3230() : On{&DEVICE_CONNECT.IN_MAT[157]}
+{
+
+}
+s1_3230& s1_3230::instance()
+{
+    static s1_3230 singleton;
+    if(*(singleton.On))
+        singleton.pos = on;
+    else
+        singleton.pos = off;
+    return singleton;
+}
+
 s2_3230::s2_3230() : Release{&DEVICE_CONNECT.IN_MAT[156]}
 {
 
@@ -14,6 +28,20 @@ s2_3230& s2_3230::instance()
         singleton.pos = intake;
     else
         singleton.pos = release;
+    return singleton;
+}
+
+s3_3230::s3_3230() : On{&DEVICE_CONNECT.IN_MAT[762]}
+{
+
+}
+s3_3230& s3_3230::instance()
+{
+    static s3_3230 singleton;
+    if(*(singleton.On))
+        singleton.pos = on;
+    else
+        singleton.pos = off;
     return singleton;
 }
 s30_3230::s30_3230() : Release{&DEVICE_CONNECT.IN_MAT[469]}
@@ -49,5 +77,19 @@ s31_3230 &s31_3230::instance()
         singleton.pos = lev;
     else if(*singleton.Prav)
         singleton.pos = prav;
+    return singleton;
+}
+
+s4_3250::s4_3250() : On{&DEVICE_CONNECT.IN_MAT[7]}
+{
+
+}
+s4_3250& s4_3250::instance()
+{
+    static s4_3250 singleton;
+    if(*(singleton.On))
+        singleton.pos = on;
+    else
+        singleton.pos = off;
     return singleton;
 }

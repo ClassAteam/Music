@@ -1,5 +1,16 @@
 #pragma once
 
+class s1_3230//Выключатель "ОТКЛЮЧЕНИЕ ОСНОВНОГО УПРАВЛЕНИЯ ШАССИ"
+{
+public:
+    s1_3230();
+    static s1_3230& instance();
+
+    bool* On;
+    enum position{off, on};
+    position pos;
+    double* bus1;
+};
 class s2_3230//Переключатель "ШАССИ: ВЫПУСК - УБОРКА"
 {
 public:
@@ -8,6 +19,17 @@ public:
 
     bool* Release;
     enum position{release, intake};
+    position pos;
+    double* bus1;
+};
+class s3_3230//Выключатель "ОСНОВН УПРАВЛ СИГНАЛ ДАВЛ"
+{
+public:
+    s3_3230();
+    static s3_3230& instance();
+
+    bool* On;
+    enum position{off, on};
     position pos;
     double* bus1;
 };
@@ -33,6 +55,17 @@ public:
     bool* Lev;
     bool* Prav;
     enum position{otkl, peredn, lev, prav};
+    position pos;
+    double* bus1;
+};
+class s4_3250//Выключатель "ПОВОРОТ КОЛЕС РУЛЕНИЕ"
+{
+public:
+    s4_3250();
+    static s4_3250& instance();
+
+    bool* On;
+    enum position{off, on};
     position pos;
     double* bus1;
 };

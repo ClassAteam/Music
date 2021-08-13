@@ -1,4 +1,7 @@
 #include "wingsmech_3.h"
+#include "landinggear_int.h"
+
+extern landinggear_int landinggea;
 
 void wingsmech_int::wingsmech_3()
 {
@@ -89,7 +92,7 @@ void wingsmech_int::wingsmech_3()
             }
             else
             {
-                if(exchange::P2OBLOP)
+                if(landinggea.isOnTheLand())
                 {
                     if(X_L >= 35)
                     {
@@ -132,7 +135,7 @@ void wingsmech_int::wingsmech_3()
             }
             else
             {
-                if(exchange::P2OBPOP == true)
+                if(landinggea.isOnTheLand())
                 {
                     if(X_P >= 35)
                     {
@@ -180,7 +183,7 @@ void wingsmech_int::wingsmech_3()
             }
             else
             {
-                if(exchange::P2OBLOP)
+                if(landinggea.isOnTheLand())
                 {
                     if(X_L > 35)
                     {
@@ -227,7 +230,7 @@ void wingsmech_int::wingsmech_3()
             }
             else
             {
-                if(exchange::P2OBPOP)
+                if(landinggea.isOnTheLand())
                 {
                     if(X_P > 35)
                     {

@@ -13,6 +13,7 @@ extern const double ts;
 void landinggear_int::updateLogic()
 {
     timerEventUpd();
+    landinggear_old();
 }
 
 void landinggear_int::release()
@@ -79,18 +80,88 @@ bool landinggear_int::h2_3230()
     return false;
 }
 
+bool landinggear_int::bss824x1t()
+{
+    if(curMode == mode::usualRel || curMode == mode::usualIntake)
+    {
+        static int counter{};
+        if(exchange::pgs2 <= 130.0)
+        {
+            counter++;
+            if(counter * TICK >= 60000)
+            {
+                return true;
+                counter = 60000;
+            }
+        }
+        else
+        {
+            counter = 0;
+        }
+    }
+
+    static int counter{};
+    if(s3_3230::instance().pos == s3_3230::position::on)
+    {
+        counter++;
+        if(counter * TICK >= 60000)
+        {
+            return true;
+            counter = 60000;
+        }
+    }
+    else
+    {
+        counter = 0;
+        return false;
+    }
+    return false;
+}
+
+bool landinggear_int::bss824x1v()
+{
+    if((wingsmech.delta_z_l > 0.1 || wingsmech.delta_z_p > 0.1)
+        && (!leftRack.isReleased() ||
+            !rightRack.isReleased() ||
+            !frontRack.isReleased()))
+        return true;
+    return false;
+}
+
+bool landinggear_int::isOnTheLand()
+{
+    if(Sl >= 0.2 && Sp >= 0.2)
+    {
+        return true;
+    }
+    return false;
+}
+
 void landinggear_int::checkForMode()
 {
     if(s30_3230::instance().pos == s30_3230::position::release)
     {
         curMode = emergRel;
-    }else if(s2_3230::instance().pos == s2_3230::position::release)
+        return;
+    }
+    if(s1_3230::instance().pos == s1_3230::position::on)
+    {
+        curMode = mode::idle;
+        return;
+    }
+    if(s2_3230::instance().pos == s2_3230::position::release)
     {
         curMode = mode::usualRel;
-    } else if(s2_3230::instance().pos == s2_3230::position::intake)
-    {
-        curMode = mode::usualIntake;
+        return;
     }
+    if(s2_3230::instance().pos == s2_3230::position::intake)
+    {
+        if(!isOnTheLand())
+            curMode = mode::usualIntake;
+        return;
+    }
+    curMode = mode::idle;
+    return;
 }
 
 bool landinggear_int::mainRack::isSashesOnTheMove()
@@ -252,6 +323,11 @@ void landinggear_int::alarmUpd()
     bss_inst.Pmalo = (presureCheck() <= 11.0) ? true : false;
     //[1][116]
     DEVICE_CONNECT.OUT_D[1][116] = h2_3230();
+    if(s4_3250::instance().pos == s4_3250::position::on)
+        bss_inst.BSS812X5v = true;
+
+    bss_inst.BSS824X1t = bss824x1t();
+    bss_inst.BSS824X1v = bss824x1v();
 }
 void landinggear_int::outputUpd()
 {

@@ -180,13 +180,13 @@ void MainWindow::slotTimerAlarm()
     Print_antiicing     ()   ;
     Print_brakes        ()   ;
     Print_cabinlighting ()   ;
-    Print_emergencyalarm()   ;
     Print_hydro         ()   ;
     Print_landinggea    ()   ;
     Print_pneumatic     ()   ;
     Print_powerdc       ()   ;
     Print_presure       ()   ;
     Print_wingsmech     ()   ;
+    Print_emergencyalarm()   ;
 }
 
 //=============================PRINT=====================================
@@ -476,7 +476,8 @@ void  MainWindow:: Print_landinggea    ()
                                     .arg(landinggea.frontRack.moveVelocity));
     ui->speedFromBallonFront->setText(QString("Теукущая скорость от пневмобаллона %1")
                                           .arg(landinggea.frontBalloon.getPresure()));
-
+    ui->fi_nk->setText(QString("Текущее значение угла поворота носового %1 ")
+                                          .arg(landinggea.fi_nk));
 }
 void  MainWindow:: Print_pneumatic     ()
 {
