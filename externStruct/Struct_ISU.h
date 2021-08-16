@@ -49,6 +49,11 @@ struct SH_ISU
     double dfistv3{};
     //skorost' peremesheniya stvorok perepuska vozduha dvigatelya #4
     double dfistv4{};
+    //
+    bool ezr_23sku1_vikl_dv1;//признак сигнала из СКУ "ВЫКЛЮЧИ ДВ"
+    bool ezr_23sku2_vikl_dv2;//признак сигнала из СКУ "ВЫКЛЮЧИ ДВ"
+    bool ezr_23sku3_vikl_dv3;//признак сигнала из СКУ "ВЫКЛЮЧИ ДВ"
+    bool ezr_23sku4_vikl_dv4;//признак сигнала из СКУ "ВЫКЛЮЧИ ДВ"
 
     //SUR
     //keel speed

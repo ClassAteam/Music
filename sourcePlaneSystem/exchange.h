@@ -128,6 +128,7 @@ struct exchange
     static bool s5_2151;//vikluichatel' "VENITILYATOR" shturmana operatora
     static bool s5_2420;//perekl vkluch generatora peremnnogo toka GEN2
     static bool s5_2430;//perekl g2(27)
+    static bool s6_2430;//
     static bool s5_3364;//knopka KONTR SIGNAL lev letchika
     static bool s6_2120;//pereklyuchatel' :KOLTSEVANIE MAGISTRALI"
     static bool s6_2151;//vikluichatel' "VENITILYATOR" shturmana navigatora

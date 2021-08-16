@@ -174,7 +174,7 @@ void antifire_int::antifire_3()
     else
         PKO = false;
 
-    if(exchange::ushal >= 18.0 || K24_2610)
+    if(exchange::ushal >= 18.0 && K24_2610)
     {
         bss_inst.BSS811X1B = true;
         bss_inst.vsuPohzar = true;
@@ -360,6 +360,5 @@ void antifire_int::antifire_3()
     else
         bss_inst.BSS811X1v = false;
 
-    ///////////////////////////end logic()
 
 }

@@ -19,6 +19,10 @@ public:
         bool power();
     };
 
+    bool ezr_23sku1_vikl_dv1;//признак сигнала из СКУ "ВЫКЛЮЧИ ДВ"
+    bool ezr_23sku2_vikl_dv2;//признак сигнала из СКУ "ВЫКЛЮЧИ ДВ"
+    bool ezr_23sku3_vikl_dv3;//признак сигнала из СКУ "ВЫКЛЮЧИ ДВ"
+    bool ezr_23sku4_vikl_dv4;//признак сигнала из СКУ "ВЫКЛЮЧИ ДВ"
     bool
         PAPDvh6{},//priznak nalichiya napryazheniya na vhode paneli zapuska VSU
         S10_2610{},//knopka proverki ognetushiteley OGNETUSH

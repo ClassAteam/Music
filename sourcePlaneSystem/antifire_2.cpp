@@ -1,5 +1,7 @@
 #include "antifire_2.h"
+#include "brakes_int.h"
 
+extern brakes_int brakes;
 void antifire_int::antifire_2()
 {
     //F91 toggle
@@ -552,4 +554,137 @@ void antifire_int::antifire_2()
     if(F111_2610 && K42_2610) PW_2_och = false;
 
     if(F121_2610 && K49_2610) PW_3_och = false;
+
+    bss_inst.BSS913X1A = false;
+    bss_inst.BSS913X1R = false;
+    bss_inst.BSS913X1f = false;
+    bss_inst.BSS913X1v = false;
+
+    bss_inst.BSS825X5f_b = false;
+    bss_inst.BSS825X5h_b = false;
+    bss_inst.BSS825X5j_b = false;
+    bss_inst.BSS825X5n_b = false;
+
+    bss_inst.BSS825X5R = false;
+    bss_inst.BSS825X5T = false;
+
+    bss_inst.BSS825X5f = false;
+    bss_inst.BSS825X5h = false;
+    bss_inst.BSS825X5j = false;
+    bss_inst.BSS825X5n = false;
+
+    //1
+    if(F25_2610)
+    {
+        if(exchange::ushal >= 18.0) bss_inst.BSS913X1A = true;
+
+        if(exchange::ushap >= 18.0)
+        {
+            if(!brakes.X1_45_7620) bss_inst.BSS825X5f = true;
+            else bss_inst.BSS825X5f_b = true;
+        }
+
+    }
+    else
+    {
+        if(ezr_23sku1_vikl_dv1)
+        {
+            bss_inst.BSS913X1A = true;
+            if(exchange::ushap >= 18.0 && brakes.X1_45_7620)
+                bss_inst.BSS825X5f_b = true;
+            else
+                bss_inst.BSS825X5f = true;
+        }
+        else
+        {
+            if(exchange::ushap >= 18.0 && !brakes.X1_45_7620)
+                bss_inst.BSS825X5f = true;
+        }
+    }
+
+    //2
+    if(F35_2610)
+    {
+        if(exchange::ushal >= 18.0) bss_inst.BSS913X1R = true;
+
+        if(exchange::ushap >= 18.0)
+        {
+            if(!brakes.X2_45_7620) bss_inst.BSS825X5h = true;
+            else bss_inst.BSS825X5h_b = true;
+        }
+
+    }
+    else
+    {
+        if(ezr_23sku2_vikl_dv2)
+        {
+            bss_inst.BSS913X1R = true;
+            if(exchange::ushap >= 18.0 && brakes.X2_45_7620)
+                bss_inst.BSS825X5h_b = true;
+            else
+                bss_inst.BSS825X5h = true;
+        }
+        else
+        {
+            if(exchange::ushap >= 18.0 && !brakes.X2_45_7620)
+                bss_inst.BSS825X5h = true;
+        }
+    }
+
+    //3
+    if(F55_2610)
+    {
+        if(exchange::ushap >= 18.0) bss_inst.BSS913X1f = true;
+
+        if(exchange::ushal >= 18.0)
+        {
+            if(!brakes.X3_45_7620) bss_inst.BSS825X5j = true;
+            else bss_inst.BSS825X5j_b = true;
+        }
+
+    }
+    else
+    {
+        if(ezr_23sku3_vikl_dv3)
+        {
+            bss_inst.BSS913X1f = true;
+            if(exchange::ushal >= 18.0 && brakes.X3_45_7620)
+                bss_inst.BSS825X5j_b = true;
+            else
+                bss_inst.BSS825X5j = true;
+        }
+        else
+        {
+            if(exchange::ushal >= 18.0 && !brakes.X3_45_7620)
+                bss_inst.BSS825X5j = true;
+        }
+    }
+    //4
+    if(F65_2610)
+    {
+        if(exchange::ushap >= 18.0) bss_inst.BSS913X1v = true;
+
+        if(exchange::ushal >= 18.0)
+        {
+            if(!brakes.X4_45_7620) bss_inst.BSS825X5n = true;
+            else bss_inst.BSS825X5n_b = true;
+        }
+
+    }
+    else
+    {
+        if(ezr_23sku4_vikl_dv4)
+        {
+            bss_inst.BSS913X1v = true;
+            if(exchange::ushal >= 18.0 && brakes.X4_45_7620)
+                bss_inst.BSS825X5n_b = true;
+            else
+                bss_inst.BSS825X5n = true;
+        }
+        else
+        {
+            if(exchange::ushal >= 18.0 && !brakes.X4_45_7620)
+                bss_inst.BSS825X5n = true;
+        }
+    }
 }

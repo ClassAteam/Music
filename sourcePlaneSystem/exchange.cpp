@@ -12,6 +12,7 @@ bool exchange::s2_2430{};//perekl knopochn vkluch rap1
 bool exchange::s9_2430{};//perekl knopochn vkluch rap2
 bool exchange::s7_2430{};//perekl knopochn SOED SETEY
 bool exchange::s3_2430{};//perekl knopochn vklucheniya CHASTICHNIY REZHIM(27 LEV)
+bool exchange::s6_2430{};//
 bool exchange::s10_2430{};//perekl knopochn vklucheniya CHASTICHNIY REZHIM(27 PRAV)
 bool exchange::s17_2420{};//knopka FAZI A
 bool exchange::s18_2420{};//knopka FAZI B

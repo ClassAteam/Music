@@ -337,6 +337,10 @@ void IN_aircondition_int()
 }
 void IN_antifire_int       ()
 {
+    antifire.ezr_23sku1_vikl_dv1 = pISU->ezr_23sku1_vikl_dv1;
+    antifire.ezr_23sku2_vikl_dv2 = pISU->ezr_23sku2_vikl_dv2;
+    antifire.ezr_23sku3_vikl_dv3 = pISU->ezr_23sku3_vikl_dv3;
+    antifire.ezr_23sku4_vikl_dv4 = pISU->ezr_23sku4_vikl_dv4;
     antifire.S3_2610 = pDev->IN_MAT[289];
     antifire.S4_2610 = pDev->IN_MAT[291];
     //s5_2610l
@@ -686,6 +690,7 @@ void IN_powerdc_int        ()
 {
     exchange::s1_2430 = pDev->IN_MAT[556];
     exchange::s4_2430 = pDev->IN_MAT[531];
+    exchange::s6_2430 = pDev->IN_MAT[553];
     exchange::s5_2430 = pDev->IN_MAT[535];
     exchange::s8_2430 = pDev->IN_MAT[543];
     exchange::s11_2430 = pDev->IN_MAT[547];
@@ -1128,10 +1133,10 @@ void OUT_powerdc_int        ()
 
 void OUT_presure_int        ()
 {
-    pDev->OUT_D[2][83] = bss_inst.BSS838X6g;
-    pDev->OUT_D[1][1] = bss_inst.BSS824X2D;
+//    pDev->OUT_D[2][83] = bss_inst.BSS838X6g;
+//    pDev->OUT_D[1][1] = bss_inst.BSS824X2D;
 //    pDev->OUT_D[0][12] = bss_inst.BSS811X2C;
-    pDev->OUT_D[2][84] = bss_inst.BSS838X6h;
+//    pDev->OUT_D[2][84] = bss_inst.BSS838X6h;
 }
 
 void OUT_wingsmech_int      ()

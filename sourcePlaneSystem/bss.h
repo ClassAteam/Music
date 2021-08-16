@@ -231,9 +231,9 @@ struct bss
         bool BSS825X5HH{};
         bool BSS825X5J{};
         bool BSS825X5KK{};
-        bool BSS825X5L{};
+        bool BSS825X5f_b{};
         bool BSS825X5MM{};
-        bool BSS825X5N{};
+        bool BSS825X5h_b{};
         bool BSS825X5R{};
         bool BSS825X5T{};
         bool BSS825X5V{};
@@ -244,7 +244,9 @@ struct bss
         bool BSS825X5f{};
         bool BSS825X5h{};
         bool BSS825X5j{};
+        bool BSS825X5j_b{};
         bool BSS825X5n{};
+        bool BSS825X5n_b{};
         bool BSS825X5r{};
         bool BSS825X5t{};
         bool s_1_30{};

@@ -478,6 +478,69 @@ void  MainWindow:: Print_landinggea    ()
                                           .arg(landinggea.frontBalloon.getPresure()));
     ui->fi_nk->setText(QString("Текущее значение угла поворота носового %1 ")
                                           .arg(landinggea.fi_nk));
+    ui->p1oblop->setText(QString("признак 1 обжатия левой опоры шасси %1 ")
+                             .arg(landinggea.leftRack.isReleased()));
+    ui->p2oblop->setText(QString("признак 2 обжатия левой опоры шасси %1 ")
+                             .arg(landinggea.leftRack.isReleased()));
+    ui->p1obpop->setText(QString("признак 1 обжатия правой опоры шасси %1 ")
+                             .arg(landinggea.rightRack.isReleased()));
+    ui->p2obpop->setText(QString("признак 2 обжатия правой опоры шасси %1 ")
+                             .arg(landinggea.rightRack.isReleased()));
+    ui->pvplop->setText(QString("признак выпущенного положения левой опоры шасси %1 ")
+                             .arg(landinggea.leftRack.isReleased()));
+    ui->puplop->setText(QString("признак убранного положения левой опоры шасси %1 ")
+                             .arg(landinggea.leftRack.isReleased()));
+    ui->pvppop->setText(QString("признак выпущенного положения правой опоры шасси %1 ")
+                             .arg(landinggea.rightRack.isReleased()));
+    ui->puppop->setText(QString("признак убранного положения правой опоры шасси %1 ")
+                             .arg(landinggea.rightRack.isIntaken()));
+    ui->pvpperop->setText(QString("признак выпущенного положения передней опоры шасси %1 ")
+                             .arg(landinggea.frontRack.isReleased()));
+    ui->pupperop->setText(QString("признак убранного положения передней опоры шасси %1 ")
+                             .arg(landinggea.frontRack.isIntaken()));
+    ui->uks4x313->setText(QString("ЛЕВАЯ ОПОРА ОБЖАТА КАНАЛ 1 %1 ")
+                             .arg(landinggea.leftRack.isReleased()));
+
+    ui->uks4x316->setText(QString("ЛЕВАЯ ОПОРА УБРАНА %1 ")
+                              .arg(landinggea.leftRack.isIntaken()));
+    ui->uks4x317->setText(QString("СТВОРКИ ЛЕВОЙ ОПОРЫ ЗАКРЫТЫ %1 ")
+                              .arg(landinggea.leftRack.sashes.isIntaken()));
+    ui->uks4x315->setText(QString("ЛЕВАЯ ОПОРА СМЕЩЕНА %1 ")
+                              .arg(landinggea.leftRack.isShifted()));
+    ui->uks4x314->setText(QString("ЛЕВАЯ ОПОРА ВЫПУЩЕНА %1 ")
+                              .arg(landinggea.leftRack.isReleased()));
+    ui->uks4x38->setText(QString("ПРАВАЯ ОПОРА ОБЖАТА КАНАЛ 1 %1 ")
+                             .arg(landinggea.rightRack.isReleased()));
+    ui->uks4x39->setText(QString("ПРАВАЯ ОПОРА ВЫПУЩЕНА %1 ")
+                             .arg(landinggea.rightRack.isReleased()));
+    ui->uks4x310->setText(QString("ПРАВАЯ ОПОРА СМЕЩЕНА %1 ")
+                              .arg(landinggea.rightRack.isShifted()));
+    ui->uks4x311->setText(QString("ПРАВАЯ ОПОРА УБРАНА %1 ")
+                              .arg(landinggea.rightRack.sashes.isIntaken()));
+    ui->uks4x312->setText(QString("СТВОРКИ ПРАВОЙ ОПОРЫ ЗАКРЫТЫ %1 ")
+                              .arg(landinggea.rightRack.sashes.isIntaken()));
+    ui->uks4x322->setText(QString("ЛЕВАЯ ОПОРА ОБЖАТА КАНАЛ 2 %1 ")
+                              .arg(landinggea.leftRack.isReleased()));
+    ui->uks4x321->setText(QString("ПРАВАЯ ОПОРА ОБЖАТА КАНАЛ 2 %1 ")
+                              .arg(landinggea.rightRack.isReleased()));
+    ui->uks4x318->setText(QString("ПЕРЕДНЯЯ ОПОРА ВЫПУЩЕНА %1 ")
+                              .arg(landinggea.frontRack.isReleased()));
+    ui->uks4x320->setText(QString("СТВОРКИ ПЕРЕДНЕЙ ОПОРЫ ЗАКРЫТЫ %1 ")
+                              .arg(landinggea.frontRack.sashes.isIntaken()));
+    ui->uks4x319->setText(QString("ПЕРЕДНЯЯ ОПОРА УБРАНА %1 ")
+                              .arg(landinggea.frontRack.isIntaken()));
+    ui->sus14a1isp->setText(QString("ИСПРАВНОСТЬ канала 1 СУС-14А %1 ")
+                                .arg(landinggea.SUS_14A_1_isp));
+    ui->sus14a2isp->setText(QString("ИСПРАВНОСТЬ канала 2 СУС-14А %1 ")
+                                .arg(landinggea.SUS_14A_2_isp));
+    ui->sus14a1rul->setText(QString("РУЛЕНИЕ канала 1 СУС-14А %1 ")
+                                .arg(landinggea.SUS_14A_1_rul));
+    ui->sus14a2rul->setText(QString("РУЛЕНИЕ канала 2 СУС-14А %1 ")
+                                .arg(landinggea.SUS_14A_2_rul));
+    ui->sus14a1vzl->setText(QString("ВЗЛЕТА - ПОСАДКА канала 1 СУС-14А %1 ")
+                                .arg(landinggea.SUS_14A_1_vzl));
+    ui->sus14a2vzl->setText(QString("ВЗЛЕТА - ПОСАДКА канала 2 СУС-14А %1 ")
+                                .arg(landinggea.SUS_14A_2_vzl));
 }
 void  MainWindow:: Print_pneumatic     ()
 {

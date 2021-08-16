@@ -443,4 +443,21 @@ void powerdc_int::powerdc_2_3() //2 //3
         purg27pk7 = false;
         pvkchrp = true;
     }
+
+    if(exchange::s6_2430)
+    {
+        purg27lk9 = false;
+        plp27 = false;
+        purg27pk9 = false;
+        ppp27 = false;
+        uks_inst.UKS3X333 = true;
+        bss_inst.BSS926X3H = true;
+    }
+    else
+    {
+        bss_inst.BSS926X3H = false;
+        uks_inst.UKS3X333 = false;
+    }
+
 }
+
