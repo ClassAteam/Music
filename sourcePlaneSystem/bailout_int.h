@@ -44,7 +44,6 @@ public:
         PSRKVSHN{};//priznak signala pregulirovaniya kresla shturmana navigatora po visote
 
     bool
-
         PRM1{},//priznak katapultirovaniya s rabochego mesta levogo letchika
         PRM2{},//priznak katapultirovaniya s rabochego mesta pravogo letchika
         PRM3{},//priznak katapultirovaniya s rabochego mesta shturmana operatora
@@ -53,9 +52,9 @@ public:
         PPRM2{},//priznak pokidaniya rabochego mesta pravogo letchika
         PPRM3{},//priznak pokidaniya rabochego mesta shturmana operatora
         PPRM4{},//priznak pokidaniya rabochego mesta shturmana navigatora
-        s9_2910{},//knopka KONTROL' (ispravnost' piropatronov)
-        s10_2910{},//knopka KONTROL' (ispravnost' tespey kresla)
-        s18_2910{};//knopka PROVERKA (na shitke nazemnoy podgotovki levom)
+        s9_10010{},//knopka KONTROL' (ispravnost' piropatronov)
+        s10_10010{},//knopka KONTROL' (ispravnost' tespey kresla)
+        s18_2930{};//knopka PROVERKA (na shitke nazemnoy podgotovki levom)
     double
         throw_tick{};
 

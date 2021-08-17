@@ -57,6 +57,8 @@ SOURCES += \
     sourcePlaneSystem/antiicing_5.cpp \
     sourcePlaneSystem/antiicing_6.cpp \
     sourcePlaneSystem/antiicing_int.cpp \
+    sourcePlaneSystem/bailout_1_2.cpp \
+    sourcePlaneSystem/bailout_int.cpp \
     sourcePlaneSystem/brakes_1.cpp \
     sourcePlaneSystem/brakes_2.cpp \
     sourcePlaneSystem/brakes_3.cpp \
@@ -162,6 +164,8 @@ HEADERS += \
     sourcePlaneSystem/antiicing_5.h \
     sourcePlaneSystem/antiicing_6.h \
     sourcePlaneSystem/antiicing_int.h \
+    sourcePlaneSystem/bailout_1_2.h \
+    sourcePlaneSystem/bailout_int.h \
     sourcePlaneSystem/brakes_1.h \
     sourcePlaneSystem/brakes_2.h \
     sourcePlaneSystem/brakes_3.h \

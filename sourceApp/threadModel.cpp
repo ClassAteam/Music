@@ -53,6 +53,7 @@ extern double TICK;
 aircondition_int   aircondition  ;
 antifire_int       antifire      ;
 antiicing_int      antiicing     ;
+bailout_int        bailout       ;
 brakes_int         brakes        ;
 cabinlighting_int  cabinlighting ;
 hydro_int          hydro         ;
@@ -67,6 +68,7 @@ void IN_aircondition_int   ();
 void IN_antifire_int       ();
 void IN_antiicing_int      ();
 void IN_brakes_int         ();
+void IN_bailout_int         ();
 void IN_cabinlighting_int  ();
 void IN_hydro_int          ();
 void IN_landinggear_int    ();
@@ -80,6 +82,7 @@ void OUT_aircondition_int   ();
 void OUT_antifire_int       ();
 void OUT_antiicing_int      ();
 void OUT_brakes_int         ();
+void OUT_bailout_int         ();
 void OUT_cabinlighting_int  ();
 void OUT_hydro_int          ();
 void OUT_landinggear_int    ();
@@ -123,6 +126,10 @@ void dispPlanSystem()
       antiicing.updateLogic();
       OUT_antiicing_int      ();
 
+
+      IN_bailout_int         ();
+      bailout.updateLogic();
+      OUT_bailout_int         ();
 
       IN_brakes_int         ();
       brakes.updateLogic();
@@ -443,6 +450,27 @@ void IN_antiicing_int      ()
     antiicing.M_buf = pISU->M;
     antiicing.signal_obled = pFromP->icing;
 }
+
+void IN_bailout_int         ()
+{
+
+    bailout.KVRKLL = pDev->IN_D[1][104];
+    bailout.KVRKPL = pDev->IN_D[1][105];
+    bailout.KVRKSHO = pDev->IN_D[1][106];
+    bailout.KVRKSHN = pDev->IN_D[1][107];
+    bailout.KVZLL = pDev->IN_D[1][108];
+    bailout.KVZPL = pDev->IN_D[1][109];
+    bailout.KVZSHO = pDev->IN_D[1][110];
+    bailout.KVZSHN = pDev->IN_D[1][111];
+    bailout.s9_10010 = pDev->IN_MAT[759];
+    bailout.s10_10010 = pDev->IN_MAT[758];
+    bailout.s13_10010 = pDev->IN_MAT[273];
+    bailout.s14_10010 = pDev->IN_MAT[272];
+    bailout.s15_10010 = pDev->IN_MAT[276];
+    bailout.s12_10020 = pDev->IN_D[1][100];
+    bailout.s13_10020 = pDev->IN_D[1][102];
+}
+
 void IN_brakes_int         ()
 {
     brakes.s1_7620 = pDev->IN_MAT[336];
@@ -927,6 +955,39 @@ void OUT_antiicing_int      ()
     DEVICE_CONNECT.OUT_D[1][115] = antiicing.H2_3030;
     DEVICE_CONNECT.OUT_D[1][113] = antiicing.H3_3030;
     DEVICE_CONNECT.OUT_D[3][68] = antiicing.H1_3040;
+}
+
+void OUT_bailout_int         ()
+{
+
+    DEVICE_CONNECT.OUT_D[1][55] = bailout.PSPKLL;
+
+    DEVICE_CONNECT.OUT_D[1][56] = bailout.PSPKPL;
+
+    DEVICE_CONNECT.OUT_D[1][57] = bailout.PSRKVLL;
+
+    DEVICE_CONNECT.OUT_D[1][58] = bailout.PSRKVPL;
+
+    DEVICE_CONNECT.OUT_D[1][59] = bailout.PSRKVSHO;
+
+    DEVICE_CONNECT.OUT_D[1][60] = bailout.PSRKVSHN;
+
+    DEVICE_CONNECT.OUT_D[1][105] = bailout.H1_10010;
+
+    DEVICE_CONNECT.OUT_D[1][106] = bailout.H2_10010;
+
+    DEVICE_CONNECT.OUT_D[1][113] = bailout.H3_10010;
+
+    DEVICE_CONNECT.OUT_D[1][110] = bailout.H4_10010;
+
+    DEVICE_CONNECT.OUT_D[1][109] = bailout.H8_10010;
+
+    DEVICE_CONNECT.OUT_D[1][108] = bailout.H9_10010;
+
+    DEVICE_CONNECT.OUT_D[1][112] = bailout.H10_10010;
+
+    DEVICE_CONNECT.OUT_D[1][111] = bailout.H11_10010;
+
 }
 
 void OUT_brakes_int         ()

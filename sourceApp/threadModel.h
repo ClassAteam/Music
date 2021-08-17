@@ -13,6 +13,7 @@
 #include "sourcePlaneSystem\antifire_int.h       "     //  противопожарный
 #include "sourcePlaneSystem\antiicing_int.h      "     //  антиобледенительный
 #include "sourcePlaneSystem\brakes_int.h         "     //  тормоза
+#include "sourcePlaneSystem\bailout_int.h         "    //  катапультирование
 #include "sourcePlaneSystem\cabinlighting_int.h  "     //  кабинное освещение
 #include "sourcePlaneSystem\emergencyalarm_int.h "     //  аварийная сигнализация
 #include "sourcePlaneSystem\exchange.h           "     //  обмен

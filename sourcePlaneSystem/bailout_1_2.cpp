@@ -1,4 +1,9 @@
 #include "bailout_1_2.h"
+#include "hydro_int.h"
+
+extern hydro_int hydro;
+
+extern double TICK;
 
 void bailout_int::bailout_1_2()
 {
@@ -14,7 +19,7 @@ void bailout_int::bailout_1_2()
 
     if(exchange::ush1dpl >= 18.0)
     {
-        if(s18_2910)
+        if(exchange::S18_2930)
         {
             H1_10010 = true;
             H2_10010 = true;
@@ -27,7 +32,7 @@ void bailout_int::bailout_1_2()
         }
         else
         {
-            if(s9_2910)
+            if(s9_10010)
             {
                 H3_10010 = true;
                 H4_10010 = true;
@@ -35,7 +40,7 @@ void bailout_int::bailout_1_2()
                 H10_10010 = true;
             }
 
-            if(s10_2910)
+            if(s10_10010)
             {
                 if(!KVRKLL) H1_10010 = true;
                 if(!KVRKPL) H2_10010 = true;
@@ -78,13 +83,16 @@ void bailout_int::bailout_1_2()
     bss_inst.BSS838X7G = false;
     bss_inst.BSS939X1N = false;
     bss_inst.BSS824X1d = false;
-    bss_inst.BSS811X1R = false;
-    bss_inst.BSS811X1T = false;
 
     if(exchange::ush1dpl >= 18.0)
     {
         if(s13_10010) bss_inst.BSS939X1N = true;
         if(s14_10010) bss_inst.BSS838X7G = true;
+    }
+    else
+    {
+        bss_inst.BSS811X1R = false;
+        bss_inst.BSS811X1T = false;
     }
     uks_inst.UKS3X312 = false;
     uks_inst.UKS3X313 = false;
