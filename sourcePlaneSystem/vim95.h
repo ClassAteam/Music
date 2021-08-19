@@ -30,6 +30,7 @@ class VIM95
         vor(int* course, double* freq, const QVector<SH_ISU::VorBeacon>& beacons);
 
     public:
+        SH_ISU::VorBeacon currentBeacon;
         vorPack pack;
     };
 
