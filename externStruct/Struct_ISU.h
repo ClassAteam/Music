@@ -1,4 +1,7 @@
 //expected signals from ISU
+#pragma once
+#include <QVector>
+
 
 struct SH_ISU
 {
@@ -74,7 +77,6 @@ struct SH_ISU
     //IDP
     double vkx{};//skorost' dvizheniya po VPP(putevaya skorost'), m/s
     double M{};//chislo Maha
-
     double H_{};//visota poleta, m
     double Ph_{};//atmosfernoe davlenie na dannoy visote
 
@@ -90,6 +92,18 @@ struct SH_ISU
     bool puvzp{};
     double tnv{};//температура нуружного воздуха
 
+    //VIM95
+    enum modeType{VOR, ILS, SP50};
+    int course;
+    double freq;
 
-
+    class VorBeacon
+    {
+    public:
+        double freq;
+        double distance;
+        double angle;
+        QString alias;
+    };
+//    QVector<VorBeacon> beacons;
 };

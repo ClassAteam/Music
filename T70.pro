@@ -117,8 +117,10 @@ SOURCES += \
     sourcePlaneSystem/powerdc_int.cpp \
     sourcePlaneSystem/presure.cpp \
     sourcePlaneSystem/presure_int.cpp \
+    sourcePlaneSystem/stations.cpp \
     sourcePlaneSystem/switches.cpp \
     sourcePlaneSystem/uks.cpp \
+    sourcePlaneSystem/vim95.cpp \
     sourcePlaneSystem/wind_functions.cpp \
     sourcePlaneSystem/wingsmech_1.cpp \
     sourcePlaneSystem/wingsmech_2.cpp \
@@ -225,8 +227,10 @@ HEADERS += \
     sourcePlaneSystem/powerdc_int.h \
     sourcePlaneSystem/presure.h \
     sourcePlaneSystem/presure_int.h \
+    sourcePlaneSystem/stations.h \
     sourcePlaneSystem/switches.h \
     sourcePlaneSystem/uks.h \
+    sourcePlaneSystem/vim95.h \
     sourcePlaneSystem/wind_functions.h \
     sourcePlaneSystem/wingsmech_1.h \
     sourcePlaneSystem/wingsmech_2.h \
