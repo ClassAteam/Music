@@ -46,4 +46,4 @@ public:
 bool operator!=(const vorBeacon& beacon1, const vorBeacon& beacon2);
 bool operator!=(const ilsLocalizer& localizer1, const ilsLocalizer& localizer2);
 
-double glideSlope;
+//double glideSlope;
