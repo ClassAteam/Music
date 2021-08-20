@@ -1,16 +1,17 @@
 #pragma once
 #include <QString>
 #include <QVector>
-#include "externStruct/Struct_ISU.h"
+#include "land_comstations.h"
 
-struct vorPack
+struct vorPack//выходные данные в режиме VOR
 {
-    int beaconCourse;	//азимут радиомаяка
-    int shifting;		//отклонение от линии пути при полете по заданному азимуту
-    bool to_from;;		//сигнал направления полета ВС
-    int courseAngle;	//курсовой угол радиомаяка
+
+    int beaconCourse;//азимут радиомаяка
+    int shifting;//отклонение от линии пути при полете по заданному азимуту
+    bool to_from;//сигнал направления полета ВС
+    int courseAngle;//курсовой угол радиомаяка
     bool signalCaptured;//сигнал готовности курса
-    QString beaconName;	//код опознанного маяка
+    QString beaconName;//код опознанного маяка
 };
 
 
@@ -24,14 +25,25 @@ class VIM95
         const double VISUAL_DISTANCE{10000};
         const int* course;
         const double* freq;
-        const QVector<SH_ISU::VorBeacon>* beacons;
         bool tryBeaconCapture();
         bool producePack();
-        vor(int* course, double* freq, const QVector<SH_ISU::VorBeacon>& beacons);
+        int beaconAzimuth();
+        int shifting();
+        bool to_from();
+        int courseAngle();
+        bool signalCaptured();
+        vor(int* course, double* freq);
 
     public:
-        SH_ISU::VorBeacon currentBeacon;
-        vorPack pack;
+        vorBeacon currBeacon;//захваченный маяк в предыдущем фрейме,
+        //если currBeacon.alias = "none", то маяк не был захвачен
+        vorPack pack;//выходной пакет данных для последнего фрейма
+    };
+
+    class ils
+    {
+        bool takeIlsLocalizer();
+        ilsLocalizer currLocalizer;
     };
 
 public:

@@ -93,17 +93,17 @@ struct SH_ISU
     double tnv{};//температура нуружного воздуха
 
     //VIM95
-    enum modeType{VOR, ILS, SP50};
-    int course;
-    double freq;
-
-    class VorBeacon
+    enum modeType{VOR, ILS, SP50};//режим установленный в вычислителе
+    int course;//курс установленный в вычислителе
+    double freq;//частота установленная в вычислителе
+    int NorthAngle;//фактический азимут
+    //позиция в пространстве глиссадного маяка
+    struct PlanePos
     {
     public:
-        double freq;
-        double distance;
-        double angle;
-        QString alias;
+        double x;
+        double y;
     };
-//    QVector<VorBeacon> beacons;
+
+
 };

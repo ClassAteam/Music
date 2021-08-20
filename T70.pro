@@ -94,6 +94,7 @@ SOURCES += \
     sourcePlaneSystem/hydro_int.cpp \
     sourcePlaneSystem/input_feed.cpp \
     sourcePlaneSystem/interfacing.cpp \
+    sourcePlaneSystem/land_comstations.cpp \
     sourcePlaneSystem/landinggear_event.cpp \
     sourcePlaneSystem/landinggear_int.cpp \
     sourcePlaneSystem/landinggear_old.cpp \
@@ -117,7 +118,6 @@ SOURCES += \
     sourcePlaneSystem/powerdc_int.cpp \
     sourcePlaneSystem/presure.cpp \
     sourcePlaneSystem/presure_int.cpp \
-    sourcePlaneSystem/stations.cpp \
     sourcePlaneSystem/switches.cpp \
     sourcePlaneSystem/uks.cpp \
     sourcePlaneSystem/vim95.cpp \
@@ -203,6 +203,7 @@ HEADERS += \
     sourcePlaneSystem/hydro_int.h \
     sourcePlaneSystem/input_feed.h \
     sourcePlaneSystem/interfacing.h \
+    sourcePlaneSystem/land_comstations.h \
     sourcePlaneSystem/landinggear_event.h \
     sourcePlaneSystem/landinggear_int.h \
     sourcePlaneSystem/landinggear_old.h \
@@ -227,7 +228,6 @@ HEADERS += \
     sourcePlaneSystem/powerdc_int.h \
     sourcePlaneSystem/presure.h \
     sourcePlaneSystem/presure_int.h \
-    sourcePlaneSystem/stations.h \
     sourcePlaneSystem/switches.h \
     sourcePlaneSystem/uks.h \
     sourcePlaneSystem/vim95.h \
