@@ -3,8 +3,6 @@
 
 extern SH_ISU ISU;
 
-
-
 VIM95::VIM95(modeType mode_in) : mode{mode_in}
 {
 
@@ -73,11 +71,11 @@ int VIM95::vor::courseAngle()
 }
 
 
-bool VIM95::ils::takeIlsLocalizer()
+bool VIM95::ils::tryBeaconCapture()
 {
-    ilsLocalizer nullLocalizer;
-    currLocalizer = land_comstations::instance().takeIlsLocalizer();
-    if(currLocalizer != nullLocalizer)
+    currLocalizer = land_comstations::instance().tryIlsCapture(ISU.planePosX,
+                                                               ISU.planePosY);
+    if(currLocalizer->name != "none")
         return true;
     return false;
 }

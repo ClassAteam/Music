@@ -97,13 +97,9 @@ struct SH_ISU
     int course;//курс установленный в вычислителе
     double freq;//частота установленная в вычислителе
     int NorthAngle;//фактический азимут
-    //позиция в пространстве глиссадного маяка
-    struct PlanePos
-    {
-    public:
-        double x;
-        double y;
-    };
+    //позиция в пространстве ЛА
+    double planePosX;
+    double planePosY;
 
 
 };

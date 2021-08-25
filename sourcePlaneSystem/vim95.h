@@ -42,8 +42,9 @@ class VIM95
 
     class ils
     {
-        bool takeIlsLocalizer();
-        ilsLocalizer currLocalizer;
+    public:
+        bool tryBeaconCapture();
+        ilsLocalizer* currLocalizer;
     };
 
 public:

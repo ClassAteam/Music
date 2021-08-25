@@ -1,7 +1,12 @@
 #pragma once
 #include <QString>
 #include <QVector>
+#include <QLineF>
+#include <QPointF>
+#include <QPolygonF>
 #include "externStruct/Struct_ISU.h"
+
+extern SH_ISU ISU;
 
 class vorBeacon;
 class ilsBeacon;
@@ -11,12 +16,13 @@ class land_comstations
 {
 private:
     const double VISUAL_DISTANCE{10000};
-    SH_ISU::PlanePos positon;
+    QPointF position;
     QVector<vorBeacon> beacons;
     QVector<ilsLocalizer> ilsBeacons;
 public:
     vorBeacon tryBeaconCapture(double freq);
-    ilsLocalizer takeIlsLocalizer();//проверить сигнал горизонта глиссады
+    ilsLocalizer* tryIlsCapture(double x_position, double y_position);
+    ilsLocalizer checkIlsLocalizer();//проверить сигнал горизонта глиссады
 
     land_comstations();
     static land_comstations& instance();
@@ -37,9 +43,21 @@ public:
     double value;//относительная величина (0 - верный горизонтальный курс
     //на полосу, 100 - вне зоны захвата маяка)
     QString name;
-    double x;
-    double y;
-    int magneticAzimuth;
+    QPolygonF getZone();
+    ilsLocalizer();
+private:
+    double course;
+    double distance;
+    const QPointF runWayStartPos;
+    const QPointF runWayEndPos;
+    const QLineF glissadeHorizonLine;
+    const QPolygonF approachingZone;
+    int runWayAzimuth;
+    QLineF makeHorizonLine();
+    QPolygonF makeApproachingZone();
+    ilsLocalizer(QString name_in, QPointF runwaystart_in, QPointF runwayend_in);
+public:
+    ilsLocalizer& operator=(const ilsLocalizer& localizer);
 };
 
 
