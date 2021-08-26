@@ -187,6 +187,7 @@ void MainWindow::slotTimerAlarm()
     Print_presure       ()   ;
     Print_wingsmech     ()   ;
     Print_emergencyalarm()   ;
+    Print_navi_inst()   ;
 }
 
 //=============================PRINT=====================================
@@ -816,4 +817,15 @@ void  MainWindow:: Print_wingsmech     ()
     ui->p143_17->setText("Рассинхронизация консолей (2 канал СПК) = " + QString::number(uks_inst.P_143_17));
 }
 
+void  MainWindow:: Print_navi_inst       ()
+{
+
+    ui->localizer_value->setText(QString("Попадание по горизонтали ИЛС %1 ")
+                                     .arg(VIM95::instance().ils.proceedValue()));
+    ui->x_in_coor->setText(QString("Позиция ЛА по горизонтали %1 ")
+                                    .arg(pISU->planePosX));
+    ui->y_in_coor->setText(QString("Позиция ЛА по вертикали %1 ")
+                                    .arg(pISU->planePosY));
+
+}
 

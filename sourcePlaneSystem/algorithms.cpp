@@ -1,4 +1,8 @@
 #include "algorithms.h"
+#include "math.h"
+#include <QLineF>
+#include <QPointF>
+
 
 //to take  the value along the function within 2 linear intervals
 double m_2_L_intervals(double input,
@@ -180,4 +184,18 @@ int i,i2;
         f1=y1[i2]+(x-x1[i2])/(x1[i2]-x1[i])*(y1[i2]-y1[i]);
        }
     return(f1);
+}
+
+double dist_point_line(QPointF point, QLineF line)
+{
+    double x0 = point.x();
+    double y0 = point.y();
+    double x1 = line.p1().x();
+    double y1 = line.p1().y();
+    double x2 = line.p2().x();
+    double y2 = line.p2().y();
+    double distance;
+    distance = abs((x2-x1)*(y1-y0)-(x1-x0)*(y2-y1)) /
+               sqrt(pow(x2-x1,2)+pow(y2-y1,2));
+    return distance;
 }

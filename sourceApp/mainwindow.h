@@ -43,6 +43,7 @@ private:
     void  Print_powerdc       ();
     void  Print_presure       ();
     void  Print_wingsmech     ();
+    void Print_navi_inst()   ;
 
 };
 #endif // MAINWINDOW_H

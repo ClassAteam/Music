@@ -18,11 +18,10 @@ private:
     const double VISUAL_DISTANCE{10000};
     QPointF position;
     QVector<vorBeacon> beacons;
-    QVector<ilsLocalizer> ilsBeacons;
+    QVector<ilsLocalizer*> ilsBeacons;
 public:
     vorBeacon tryBeaconCapture(double freq);
     ilsLocalizer* tryIlsCapture(double x_position, double y_position);
-    ilsLocalizer checkIlsLocalizer();//проверить сигнал горизонта глиссады
 
     land_comstations();
     static land_comstations& instance();
@@ -44,20 +43,22 @@ public:
     //на полосу, 100 - вне зоны захвата маяка)
     QString name;
     QPolygonF getZone();
+    QLineF getHorizonLine();
+    void setDistance(double distance);
+
     ilsLocalizer();
+    ilsLocalizer(QString name_in, QPointF runwaystart_in, QPointF runwayend_in);
 private:
-    double course;
     double distance;
     const QPointF runWayStartPos;
     const QPointF runWayEndPos;
     const QLineF glissadeHorizonLine;
     const QPolygonF approachingZone;
     int runWayAzimuth;
+
     QLineF makeHorizonLine();
     QPolygonF makeApproachingZone();
-    ilsLocalizer(QString name_in, QPointF runwaystart_in, QPointF runwayend_in);
-public:
-    ilsLocalizer& operator=(const ilsLocalizer& localizer);
+
 };
 
 

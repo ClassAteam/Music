@@ -1,11 +1,19 @@
 #include "vim95.h"
 #include "externStruct/Struct_ISU.h"
+#include "algorithms.h"
 
 extern SH_ISU ISU;
+extern SH_ISU* pISU;
 
-VIM95::VIM95(modeType mode_in) : mode{mode_in}
+VIM95::VIM95()
 {
 
+}
+
+VIM95 &VIM95::instance()
+{
+    static VIM95 singleton;
+    return singleton;
 }
 
 VIM95::vor::vor(int *course_in, double *freq_in) : course{course_in},
@@ -70,12 +78,25 @@ int VIM95::vor::courseAngle()
     return (currBeacon.azimuth - ISU.NorthAngle);
 }
 
-
 bool VIM95::ils::tryBeaconCapture()
 {
-    currLocalizer = land_comstations::instance().tryIlsCapture(ISU.planePosX,
-                                                               ISU.planePosY);
+    currLocalizer = land_comstations::instance().tryIlsCapture(pISU->planePosX,
+                                                               pISU->planePosY);
     if(currLocalizer->name != "none")
         return true;
     return false;
+}
+
+double VIM95::ils::proceedValue()
+{
+    if(tryBeaconCapture())
+    {
+        QPointF planePos{pISU->planePosX, pISU->planePosY};
+        double distance;
+        distance = dist_point_line(planePos, currLocalizer->getHorizonLine());
+        currLocalizer->setDistance(distance);
+        currLocalizer->value = distance;
+        return currLocalizer->value;
+    }
+    return 1000.0;
 }

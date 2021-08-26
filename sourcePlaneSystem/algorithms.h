@@ -1,5 +1,7 @@
 #pragma once
-#include "math.h"
+
+class QPointF;
+class QLineF;
 
 double m_2_L_intervals(double input,
                                         double x1,
@@ -48,3 +50,5 @@ double two_points_to_Y(double insert, double x1,
 double presure_from_altitude(double altitude);
 
 double yx_d(double *x1,double *y1,int n,double x);
+
+double dist_point_line(QPointF point, QLineF line);

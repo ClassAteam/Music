@@ -25,6 +25,7 @@
 #include "sourcePlaneSystem\uks.h                "     //
 #include "sourcePlaneSystem\wingsmech_int.h      "     //  мехаанизация крыла
 #include "sourcePlaneSystem\aircondition_int.h   "     //  кондиционир воздуха
+#include "sourcePlaneSystem\vim95.h   "     //  кондиционир воздуха
 //void dispPlanSystem();
 //void antifire_1();
 //void antifire_2();

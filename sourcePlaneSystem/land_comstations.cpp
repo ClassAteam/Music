@@ -2,8 +2,9 @@
 
 land_comstations::land_comstations()
 {
-
-
+        ilsBeacons.append(new ilsLocalizer("test_beacon",
+                                       QPointF(1000.0, 1000.0),
+                                       QPointF(1100.0, 1100.0)));
 }
 
 land_comstations &land_comstations::instance()
@@ -25,34 +26,20 @@ vorBeacon land_comstations::tryBeaconCapture(const double freq)
     return null;
 }
 
-ilsLocalizer* land_comstations::tryIlsCapture(double x_position, double y_position)
+ilsLocalizer* land_comstations::tryIlsCapture(double x_position,
+                                              double y_position)
 {
     static ilsLocalizer* null = new ilsLocalizer;
     QPointF position_point(x_position, y_position);
     for(auto &beacon : ilsBeacons)
     {
-        if(beacon.getZone().containsPoint(position_point,
+        if(beacon->getZone().containsPoint(position_point,
                                            Qt::FillRule::OddEvenFill))
         {
-            return &beacon;
+            return beacon;
         }
     }
     return null;
-}
-
-bool operator!=(const vorBeacon& beacon1, const vorBeacon& beacon2)
-{
-    if(beacon1.name != beacon2.name)
-        return true;
-    else
-        return false;
-}
-bool operator!=(const ilsLocalizer& localizer1, const ilsLocalizer& localizer2)
-{
-    if(localizer1.name != localizer2.name)
-        return true;
-    else
-        return false;
 }
 
 QLineF ilsLocalizer::makeHorizonLine()
@@ -91,7 +78,32 @@ QPolygonF ilsLocalizer::getZone()
     return approachingZone;
 }
 
+QLineF ilsLocalizer::getHorizonLine()
+{
+    return glissadeHorizonLine;
+}
+
+void ilsLocalizer::setDistance(double distance_in)
+{
+    distance = distance_in;
+}
+
 ilsLocalizer::ilsLocalizer()
 {
     name = "none";
+}
+
+bool operator!=(const vorBeacon& beacon1, const vorBeacon& beacon2)
+{
+    if(beacon1.name != beacon2.name)
+        return true;
+    else
+        return false;
+}
+bool operator!=(const ilsLocalizer& localizer1, const ilsLocalizer& localizer2)
+{
+    if(localizer1.name != localizer2.name)
+        return true;
+    else
+        return false;
 }

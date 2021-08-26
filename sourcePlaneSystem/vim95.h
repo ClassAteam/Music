@@ -44,11 +44,15 @@ class VIM95
     {
     public:
         bool tryBeaconCapture();
+        double proceedValue();
         ilsLocalizer* currLocalizer;
     };
 
 public:
-    VIM95(modeType mode);
-    void proceed();
+    ils ils;
+public:
+    VIM95();
+
+    static VIM95& instance();
 };
 
