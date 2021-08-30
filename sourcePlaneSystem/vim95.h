@@ -31,7 +31,6 @@ class VIM95
         int shifting();
         bool to_from();
         int courseAngle();
-        bool signalCaptured();
         vor(int* course, double* freq);
 
     public:
@@ -40,19 +39,20 @@ class VIM95
         vorPack pack;//выходной пакет данных для последнего фрейма
     };
 
-    class ils
+    class ilsSystem
     {
     public:
-        bool tryBeaconCapture();
-        double proceedValue();
+        double proceedValue();//получить отклонение по горизонту
+        double proceedGlissadeValue();//получить отклонение от глиссады
         ilsLocalizer* currLocalizer;
+
+    private:
+        bool tryBeaconCapture();
     };
 
 public:
-    ils ils;
-public:
     VIM95();
-
+    ilsSystem ils;
     static VIM95& instance();
 };
 

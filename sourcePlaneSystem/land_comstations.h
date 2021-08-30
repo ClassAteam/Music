@@ -4,9 +4,8 @@
 #include <QLineF>
 #include <QPointF>
 #include <QPolygonF>
+#include <QVector3D>
 #include "externStruct/Struct_ISU.h"
-
-extern SH_ISU ISU;
 
 class vorBeacon;
 class ilsBeacon;
@@ -14,17 +13,17 @@ class ilsLocalizer;
 
 class land_comstations
 {
-private:
-    const double VISUAL_DISTANCE{10000};
-    QPointF position;
-    QVector<vorBeacon> beacons;
-    QVector<ilsLocalizer*> ilsBeacons;
 public:
     vorBeacon tryBeaconCapture(double freq);
     ilsLocalizer* tryIlsCapture(double x_position, double y_position);
 
     land_comstations();
     static land_comstations& instance();
+
+private:
+    const double VISUAL_DISTANCE{10000};
+    QVector<vorBeacon> beacons;
+    QVector<ilsLocalizer*> ilsBeacons;
 };
 
 class vorBeacon
@@ -39,26 +38,33 @@ public:
 class ilsLocalizer
 {
 public:
-    double value;//относительная величина (0 - верный горизонтальный курс
-    //на полосу, 100 - вне зоны захвата маяка)
-    QString name;
-    QPolygonF getZone();
-    QLineF getHorizonLine();
-    void setDistance(double distance);
+    double proceedValue();//относительная величина (0 - на горизонтальном
+    //отрезке глиссады, 1000 - вне зоны захвата маяка)
+    double proceedGlissadeValue();
+    QString checkName();//позывной маяка
+    ilsLocalizer* inRange(QPointF position);//возвращает свой указатель если мы
+    //находимся в зоне действия данного маяка
 
+    ilsLocalizer(QString name_in, QPointF runwaystart_in, QPointF runwayend_in,
+                 double glissadeAngle);
     ilsLocalizer();
-    ilsLocalizer(QString name_in, QPointF runwaystart_in, QPointF runwayend_in);
+
 private:
+    double value;
+    double glissadeValue;
+    QString name;
     double distance;
+    double distanceToGlissade;
     const QPointF runWayStartPos;
     const QPointF runWayEndPos;
     const QLineF glissadeHorizonLine;
     const QPolygonF approachingZone;
-    int runWayAzimuth;
+    const QVector<QVector3D> glissadePlane;
 
     QLineF makeHorizonLine();
     QPolygonF makeApproachingZone();
-
+    QVector<QVector3D> makeGlissadePlane(double angle);
+    double makeApproachingHeightPoint(double angle);
 };
 
 

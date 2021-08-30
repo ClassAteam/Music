@@ -100,6 +100,7 @@ struct SH_ISU
     //позиция в пространстве ЛА
     double planePosX;
     double planePosY;
+    double planePosZ;
 
 
 };

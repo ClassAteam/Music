@@ -4,6 +4,8 @@
 
 extern SH_ISU ISU;
 extern SH_ISU* pISU;
+const double MAXIMUM_HORIZON_ARROW_VALUE{1000};
+const double MAXIMUM_VERT_ARROW_VALUE{10000};
 
 VIM95::VIM95()
 {
@@ -78,25 +80,30 @@ int VIM95::vor::courseAngle()
     return (currBeacon.azimuth - ISU.NorthAngle);
 }
 
-bool VIM95::ils::tryBeaconCapture()
+bool VIM95::ilsSystem::tryBeaconCapture()
 {
     currLocalizer = land_comstations::instance().tryIlsCapture(pISU->planePosX,
                                                                pISU->planePosY);
-    if(currLocalizer->name != "none")
+    if(currLocalizer->checkName() != "none")
         return true;
     return false;
 }
 
-double VIM95::ils::proceedValue()
+double VIM95::ilsSystem::proceedValue()
 {
     if(tryBeaconCapture())
     {
-        QPointF planePos{pISU->planePosX, pISU->planePosY};
-        double distance;
-        distance = dist_point_line(planePos, currLocalizer->getHorizonLine());
-        currLocalizer->setDistance(distance);
-        currLocalizer->value = distance;
-        return currLocalizer->value;
+        return currLocalizer->proceedValue();
     }
-    return 1000.0;
+    return MAXIMUM_HORIZON_ARROW_VALUE;
 }
+
+double VIM95::ilsSystem::proceedGlissadeValue()
+{
+    if(tryBeaconCapture())
+    {
+        return currLocalizer->proceedGlissadeValue();
+    }
+    return MAXIMUM_VERT_ARROW_VALUE;
+}
+

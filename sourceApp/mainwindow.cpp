@@ -822,6 +822,8 @@ void  MainWindow:: Print_navi_inst       ()
 
     ui->localizer_value->setText(QString("Попадание по горизонтали ИЛС %1 ")
                                      .arg(VIM95::instance().ils.proceedValue()));
+    ui->glissadeValue->setText(QString("Попадание по высоте ИЛС %1 ")
+                                     .arg(VIM95::instance().ils.proceedGlissadeValue()));
     ui->x_in_coor->setText(QString("Позиция ЛА по горизонтали %1 ")
                                     .arg(pISU->planePosX));
     ui->y_in_coor->setText(QString("Позиция ЛА по вертикали %1 ")
