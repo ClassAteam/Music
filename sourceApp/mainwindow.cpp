@@ -825,7 +825,7 @@ void  MainWindow:: Print_navi_inst       ()
     ui->glissadeValue->setText(QString("Попадание по высоте ИЛС %1 ") .arg(VIM95::instance().ils.GlissadeArrowValue));
     ui->x_in_coor->setText(QString("Позиция ЛА по горизонтали %1 ") .arg(pISU->planePosX));
     ui->y_in_coor->setText(QString("Позиция ЛА по вертикали %1 ") .arg(pISU->planePosY));
-    ui->northAngle->setText(QString("Азимут на ВС %1 ") .arg(pISU->NorthAngle));
+    ui->northAngle->setText(QString("Полярный азимут ВС %1 ") .arg(pISU->NorthAngle));
 
     VIM95::instance().vor.updateParams();
     ui->vorAzimuth->setText(QString("Азимут на маяк VOR %1 ") .arg(VIM95::instance().vor.northCourseToBeacon));

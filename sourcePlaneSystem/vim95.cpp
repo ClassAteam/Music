@@ -4,8 +4,6 @@
 
 extern SH_ISU ISU;
 extern SH_ISU* pISU;
-const double MAXIMUM_HORIZON_ARROW_VALUE{1000};
-const double MAXIMUM_VERT_ARROW_VALUE{10000};
 
 VIM95::VIM95()
 {
@@ -18,34 +16,20 @@ VIM95 &VIM95::instance()
     return singleton;
 }
 
-
-bool VIM95::vorSystem::tryBeaconCapture()
+void VIM95::vorSystem::updateParams()
 {
     curBeacon = land_comstations::instance().tryVorCapture(freq, pISU->planePosX,
                                                            pISU->planePosY);
-    if(curBeacon->checkName() != "none")
-        return true;
-    return false;
-}
+    if(curBeacon->checkName() == "none") return;
 
-void VIM95::vorSystem::updateParams()
-{
-    if(tryBeaconCapture())
-    {
-        northCourseToBeacon = curBeacon->northCourseToBeacon(pISU->planePosX,
-                                                             pISU->planePosY);
+    northCourseToBeacon = curBeacon->northCourseToBeacon(pISU->planePosX,
+                                                         pISU->planePosY);
 
-        relativeCourseToBeacon = curBeacon->relativeCourseToBeacon(
-            pISU->planePosX, pISU->planePosY, pISU->NorthAngle);
+    relativeCourseToBeacon = curBeacon->relativeCourseToBeacon(
+        pISU->planePosX, pISU->planePosY, pISU->NorthAngle);
 
-        to_from = curBeacon->to_from(pISU->planePosX, pISU->planePosY,
-                                     pISU->NorthAngle);
-    }
-    else
-    {
-        northCourseToBeacon = -999999.0;
-        relativeCourseToBeacon = -999999.0;
-    }
+    to_from = curBeacon->to_from(pISU->planePosX, pISU->planePosY,
+                                 pISU->NorthAngle);
 }
 
 void VIM95::vorSystem::setFreq(double freq_in)
@@ -53,37 +37,14 @@ void VIM95::vorSystem::setFreq(double freq_in)
     freq = freq_in;
 }
 
-bool VIM95::ilsSystem::tryBeaconCapture()
+void VIM95::ilsSystem::updateParams()
 {
     currBeacon = land_comstations::instance().tryIlsCapture(pISU->planePosX,
                                                                pISU->planePosY);
-    if(currBeacon->checkName() != "none")
-        return true;
-    return false;
-}
+    if(currBeacon->checkName() == "none") return;
 
-double VIM95::ilsSystem::proceedHorizonValue()
-{
-    if(tryBeaconCapture())
-    {
-        return currBeacon->proceedValue();
-    }
-    return MAXIMUM_HORIZON_ARROW_VALUE;
-}
-
-double VIM95::ilsSystem::proceedGlissadeValue()
-{
-    if(tryBeaconCapture())
-    {
-        return currBeacon->proceedGlissadeValue();
-    }
-    return MAXIMUM_VERT_ARROW_VALUE;
-}
-
-void VIM95::ilsSystem::updateParams()
-{
-    HorizonArrowValue = proceedHorizonValue();
-    GlissadeArrowValue = proceedGlissadeValue();
+    HorizonArrowValue = currBeacon->proceedValue();
+    GlissadeArrowValue = currBeacon->proceedGlissadeValue();
 }
 
 

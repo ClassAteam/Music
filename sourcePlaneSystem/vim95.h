@@ -22,7 +22,6 @@ class VIM95
 
     private:
         vorBeacon* curBeacon;
-        bool tryBeaconCapture();
         double freq;
     };
 
@@ -35,9 +34,6 @@ class VIM95
 
     private:
         ilsBeacon* currBeacon;
-        bool tryBeaconCapture();
-        double proceedHorizonValue();
-        double proceedGlissadeValue();
     };
 
 public:
