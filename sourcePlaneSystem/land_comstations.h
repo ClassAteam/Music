@@ -9,45 +9,59 @@
 
 class vorBeacon;
 class ilsBeacon;
-class ilsLocalizer;
+class ilsBeacon;
 
 class land_comstations
 {
 public:
-    vorBeacon tryBeaconCapture(double freq);
-    ilsLocalizer* tryIlsCapture(double x_position, double y_position);
+    vorBeacon* tryVorCapture(double freq, double x_position, double y_position);
+    ilsBeacon* tryIlsCapture(double x_position, double y_position);
 
     land_comstations();
     static land_comstations& instance();
 
 private:
-    const double VISUAL_DISTANCE{10000};
-    QVector<vorBeacon> beacons;
-    QVector<ilsLocalizer*> ilsBeacons;
+    QVector<vorBeacon*> vorBeacons;
+    QVector<ilsBeacon*> ilsBeacons;
 };
 
 class vorBeacon
 {
 public:
-    double freq;
-    double distance;
-    double azimuth;
+    vorBeacon* inRange(QPointF position);
+    double northCourseToBeacon(double x_coord, double y_coord);
+    double relativeCourseToBeacon(double x_coord, double y_coord,
+                                  double jetCourse);
+    bool to_from(double x_coord, double y_coord, double jet_course);
+    double getFreq();
+    QString checkName();//позывной маяка
+
+    vorBeacon(QPointF centralPoint, double freq, QString name);
+    vorBeacon();
+
+
+private:
+    const double freq;
+    const QPointF position;
+    const QPolygonF zone;
     QString name;
+    double beaconCourse;
+    QPolygonF makeRangeZone();
 };
 
-class ilsLocalizer
+class ilsBeacon
 {
 public:
     double proceedValue();//относительная величина (0 - на горизонтальном
     //отрезке глиссады, 1000 - вне зоны захвата маяка)
     double proceedGlissadeValue();
     QString checkName();//позывной маяка
-    ilsLocalizer* inRange(QPointF position);//возвращает свой указатель если мы
+    ilsBeacon* inRange(QPointF position);//возвращает свой указатель если мы
     //находимся в зоне действия данного маяка
 
-    ilsLocalizer(QString name_in, QPointF runwaystart_in, QPointF runwayend_in,
+    ilsBeacon(QString name_in, QPointF runwaystart_in, QPointF runwayend_in,
                  double glissadeAngle);
-    ilsLocalizer();
+    ilsBeacon();
 
 private:
     double value;
@@ -69,6 +83,17 @@ private:
 
 
 bool operator!=(const vorBeacon& beacon1, const vorBeacon& beacon2);
-bool operator!=(const ilsLocalizer& localizer1, const ilsLocalizer& localizer2);
+bool operator!=(const ilsBeacon& localizer1, const ilsBeacon& localizer2);
 
 //double glideSlope;
+
+struct vorPack//выходные данные в режиме VOR
+{
+
+    int beaconCourse;//азимут радиомаяка
+    int shifting;//отклонение от линии пути при полете по заданному азимуту
+    bool to_from;//сигнал направления полета ВС
+    int courseAngle;//курсовой угол радиомаяка
+    bool signalCaptured;//сигнал готовности курса
+    QString beaconName;//код опознанного маяка
+};

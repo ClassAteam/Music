@@ -96,7 +96,7 @@ struct SH_ISU
     enum modeType{VOR, ILS, SP50};//режим установленный в вычислителе
     int course;//курс установленный в вычислителе
     double freq;//частота установленная в вычислителе
-    int NorthAngle;//фактический азимут
+    double NorthAngle;//фактический азимут
     //позиция в пространстве ЛА
     double planePosX;
     double planePosY;

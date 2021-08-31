@@ -4162,6 +4162,13 @@
          </rect>
         </property>
         <layout class="QGridLayout" name="gridLayout_13">
+         <item row="1" column="0">
+          <widget class="QLabel" name="y_in_coor">
+           <property name="text">
+            <string>y_in_coor</string>
+           </property>
+          </widget>
+         </item>
          <item row="0" column="0">
           <widget class="QLabel" name="x_in_coor">
            <property name="text">
@@ -4169,10 +4176,43 @@
            </property>
           </widget>
          </item>
-         <item row="1" column="0">
-          <widget class="QLabel" name="y_in_coor">
+         <item row="2" column="0">
+          <widget class="QLabel" name="northAngle">
            <property name="text">
-            <string>y_in_coor</string>
+            <string>northangle</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="gridLayoutWidget_7">
+        <property name="geometry">
+         <rect>
+          <x>950</x>
+          <y>140</y>
+          <width>401</width>
+          <height>151</height>
+         </rect>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_14">
+         <item row="0" column="0">
+          <widget class="QLabel" name="vorRelativeAzimuth">
+           <property name="text">
+            <string>vorRelativeAzimuth</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="vorAzimuth">
+           <property name="text">
+            <string>vorAzimuth</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="vor_to_from">
+           <property name="text">
+            <string>vor_to_from</string>
            </property>
           </widget>
          </item>

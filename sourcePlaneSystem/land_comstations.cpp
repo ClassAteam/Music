@@ -7,13 +7,15 @@ extern SH_ISU ISU;
 extern SH_ISU* pISU;
 
 const double APPROACHING_MAXIMUM_DISTANCE{18000};
-
+const double BEACON_REACH_DISTANCE{10000};
 land_comstations::land_comstations()
 {
-        ilsBeacons.append(new ilsLocalizer("test_beacon",
+        ilsBeacons.append(new ilsBeacon("test_beacon",
                                        QPointF(1000.0, 1000.0),
                                        QPointF(1100.0, 1100.0),
                                        3.0));
+        vorBeacons.append(new vorBeacon(QPointF(-2000.0, 2000.0),
+                                        150.0, "test_vor_beacon"));
 }
 
 land_comstations &land_comstations::instance()
@@ -22,23 +24,10 @@ land_comstations &land_comstations::instance()
     return singleton;
 }
 
-vorBeacon land_comstations::tryBeaconCapture(const double freq)
-{
-    vorBeacon null;
-    for(auto &beacon : beacons)
-    {
-        if(beacon.freq == freq && beacon.distance < VISUAL_DISTANCE)
-        {
-            return beacon;
-        }
-    }
-    return null;
-}
 
-ilsLocalizer* land_comstations::tryIlsCapture(double x_position,
-                                              double y_position)
+ilsBeacon* land_comstations::tryIlsCapture(double x_position, double y_position)
 {
-    static ilsLocalizer* null = new ilsLocalizer;
+    static ilsBeacon* null = new ilsBeacon;
     QPointF position_point(x_position, y_position);
     for(auto &beacon : ilsBeacons)
     {
@@ -47,7 +36,7 @@ ilsLocalizer* land_comstations::tryIlsCapture(double x_position,
     return null;
 }
 
-QLineF ilsLocalizer::makeHorizonLine()
+QLineF ilsBeacon::makeHorizonLine()
 {
     double PolarAngle{};
     QLineF runWayLine{runWayStartPos, runWayEndPos};
@@ -59,7 +48,7 @@ QLineF ilsLocalizer::makeHorizonLine()
     return approachLine;
 }
 
-QPolygonF ilsLocalizer::makeApproachingZone()
+QPolygonF ilsBeacon::makeApproachingZone()
 {
     QPolygonF zone;
     QLineF leftBorder{glissadeHorizonLine.p1(), glissadeHorizonLine.p2()};
@@ -70,7 +59,7 @@ QPolygonF ilsLocalizer::makeApproachingZone()
     return zone;
 }
 
-QVector<QVector3D> ilsLocalizer::makeGlissadePlane(double angle)
+QVector<QVector3D> ilsBeacon::makeGlissadePlane(double angle)
 {
     QVector<QVector3D> glissadeVertPlane;
     QVector3D approachingEntranceHeight;
@@ -80,7 +69,7 @@ QVector<QVector3D> ilsLocalizer::makeGlissadePlane(double angle)
                                           glissadeHorizonLine.p2().y(),
                                           makeApproachingHeightPoint(angle));
     runWayStartPoint = QVector3D(glissadeHorizonLine.p1());
-    QLineF glissadeLine(ilsLocalizer::glissadeHorizonLine);
+    QLineF glissadeLine(ilsBeacon::glissadeHorizonLine);
     glissadeLine.setLength(500);
     glissadeLine.setAngle(glissadeLine.angle() + 90);
     normalizedStartPoint = QVector3D(glissadeLine.p2());
@@ -90,7 +79,7 @@ QVector<QVector3D> ilsLocalizer::makeGlissadePlane(double angle)
     return glissadeVertPlane;
 }
 
-double ilsLocalizer::makeApproachingHeightPoint(double angle)
+double ilsBeacon::makeApproachingHeightPoint(double angle)
 {
     double slope;
     double height;
@@ -103,7 +92,7 @@ double ilsLocalizer::makeApproachingHeightPoint(double angle)
     return height;
 }
 
-ilsLocalizer::ilsLocalizer(QString name_in, QPointF runwaystart_in,
+ilsBeacon::ilsBeacon(QString name_in, QPointF runwaystart_in,
                            QPointF runwayend_in, double glissadeAngle)
     : name{name_in}, runWayStartPos{runwaystart_in}, runWayEndPos{runwayend_in},
     glissadeHorizonLine{makeHorizonLine()},
@@ -113,14 +102,14 @@ ilsLocalizer::ilsLocalizer(QString name_in, QPointF runwaystart_in,
 
 }
 
-double ilsLocalizer::proceedValue()
+double ilsBeacon::proceedValue()
 {
         QPointF planePos{pISU->planePosX, pISU->planePosY};
         distance = dist_point_line(planePos, glissadeHorizonLine);
         return distance;
 }
 
-double ilsLocalizer::proceedGlissadeValue()
+double ilsBeacon::proceedGlissadeValue()
 {
     QVector3D planePos(pISU->planePosX, pISU->planePosY, pISU->planePosZ);
     distanceToGlissade = planePos.distanceToPlane(glissadePlane[0],
@@ -129,14 +118,14 @@ double ilsLocalizer::proceedGlissadeValue()
     return distanceToGlissade;
 }
 
-QString ilsLocalizer::checkName()
+QString ilsBeacon::checkName()
 {
     return name;
 }
 
-ilsLocalizer* ilsLocalizer::inRange(QPointF position)
+ilsBeacon* ilsBeacon::inRange(QPointF position)
 {
-    static ilsLocalizer* null = new ilsLocalizer;
+    static ilsBeacon* null = new ilsBeacon;
 
     if(approachingZone.containsPoint(position, Qt::FillRule::OddEvenFill))
         return this;
@@ -144,19 +133,105 @@ ilsLocalizer* ilsLocalizer::inRange(QPointF position)
     return null;
 }
 
-ilsLocalizer::ilsLocalizer() : value{0.0}, name{"none"}, distance{0.0},
+ilsBeacon::ilsBeacon() : value{0.0}, name{"none"}, distance{0.0},
     runWayStartPos{}, runWayEndPos{}, glissadeHorizonLine{}, approachingZone{}
 {
 
 }
 
-bool operator!=(const vorBeacon& beacon1, const vorBeacon& beacon2)
+QPolygonF vorBeacon::makeRangeZone()
 {
-    if(beacon1.name != beacon2.name)
-        return true;
-    else
-        return false;
+    QPolygonF zone;
+    QPointF edge;
+    QLineF radian(position, edge);
+    radian.setLength(BEACON_REACH_DISTANCE);
+    for(int i = 0; i <= 360; i+=10)
+    {
+        radian.setAngle(i);
+        zone << radian.p2();
+    }
+    return zone;
 }
+vorBeacon* vorBeacon::inRange(QPointF position)
+{
+    static vorBeacon* null = new vorBeacon;
+    if(zone.containsPoint(position, Qt::FillRule::OddEvenFill))
+        return this;
+    return null;
+}
+
+double vorBeacon::northCourseToBeacon(double x, double y)
+{
+    double result;
+    QPointF plane_pos(x,y);
+    QLineF to_beacon_line (plane_pos, position);
+    result = to_beacon_line.angle() - 270;
+    if(result < 0.0)
+        return 360 + result;
+    else
+        return result;
+}
+double vorBeacon::relativeCourseToBeacon(double x, double y,
+                              double jetCourse)
+{
+    double result;
+    result = 360 - (jetCourse - northCourseToBeacon(x,y));
+    if(result > 360.0)
+        return result - 360.0;
+    else
+        return result;
+//    return 360 -abs(jetCourse - northCourseToBeacon(x, y));
+}
+
+bool vorBeacon::to_from(double x, double y, double course)
+{
+    if(relativeCourseToBeacon(x,y, course) <= 90.0)
+        return true;
+    return false;
+}
+
+
+double vorBeacon::getFreq()
+{
+    return freq;
+}
+
+QString vorBeacon::checkName()
+{
+    return name;
+}
+
+vorBeacon* land_comstations::tryVorCapture(double freq, double x_position,
+                                           double y_position)
+{
+    static vorBeacon* null = new vorBeacon;
+    QPointF position_point(x_position, y_position);
+    for(auto &beacon : vorBeacons)
+    {
+        if(freq == beacon->getFreq())
+            return beacon->inRange(position_point);
+    }
+    return null;
+}
+vorBeacon::vorBeacon() : freq{0.-1}, position{}, zone{}, name{"none"},
+    beaconCourse{-999.0}
+{
+
+}
+vorBeacon::vorBeacon(QPointF centralPoint, double freq, QString name) :
+    freq{freq}, position{centralPoint}, zone{makeRangeZone()}, name{name}
+{
+
+}
+
+
+//bool operator!=(const vorBeacon& beacon1, const vorBeacon& beacon2)
+//{
+//    if(beacon1.name != beacon2.name)
+//        return true;
+//    else
+//        return false;
+//}
 //bool operator!=(const ilsLocalizer& localizer1, const ilsLocalizer& localizer2)
 //{
 //    if(localizer1.name != localizer2.name)

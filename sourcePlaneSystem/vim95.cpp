@@ -9,7 +9,7 @@ const double MAXIMUM_VERT_ARROW_VALUE{10000};
 
 VIM95::VIM95()
 {
-
+    vor.setFreq(150.0);
 }
 
 VIM95 &VIM95::instance()
@@ -18,82 +18,55 @@ VIM95 &VIM95::instance()
     return singleton;
 }
 
-VIM95::vor::vor(int *course_in, double *freq_in) : course{course_in},
-    freq{freq_in}
-{
 
-}
-
-bool VIM95::vor::tryBeaconCapture()
+bool VIM95::vorSystem::tryBeaconCapture()
 {
-    vorBeacon nullBeacon;
-    currBeacon = land_comstations::instance().tryBeaconCapture(*freq);
-    if(currBeacon != nullBeacon)
+    curBeacon = land_comstations::instance().tryVorCapture(freq, pISU->planePosX,
+                                                           pISU->planePosY);
+    if(curBeacon->checkName() != "none")
         return true;
     return false;
 }
 
-bool VIM95::vor::producePack()
+void VIM95::vorSystem::updateParams()
 {
     if(tryBeaconCapture())
     {
-        pack.beaconCourse = beaconAzimuth();
-        pack.shifting = shifting();
-        pack.to_from = to_from();
-        pack.courseAngle = courseAngle();
-        pack.signalCaptured = true;
-        pack.beaconName = currBeacon.name;
-        return true;
+        northCourseToBeacon = curBeacon->northCourseToBeacon(pISU->planePosX,
+                                                             pISU->planePosY);
+
+        relativeCourseToBeacon = curBeacon->relativeCourseToBeacon(
+            pISU->planePosX, pISU->planePosY, pISU->NorthAngle);
+
+        to_from = curBeacon->to_from(pISU->planePosX, pISU->planePosY,
+                                     pISU->NorthAngle);
     }
     else
     {
-        pack.beaconCourse = 0;
-        pack.shifting = 0;
-        pack.to_from = false;
-        pack.courseAngle = 0;
-        pack.signalCaptured = false;
-        pack.beaconName = "none";
-        return false;
+        northCourseToBeacon = -999999.0;
+        relativeCourseToBeacon = -999999.0;
     }
 }
 
-int VIM95::vor::beaconAzimuth()
+void VIM95::vorSystem::setFreq(double freq_in)
 {
-    return currBeacon.azimuth;
-}
-
-int VIM95::vor::shifting()
-{
-    return *course - ISU.NorthAngle;
-}
-
-bool VIM95::vor::to_from()
-{
-    if(ISU.NorthAngle == currBeacon.azimuth)
-        return true;
-    else
-        return false;
-}
-
-int VIM95::vor::courseAngle()
-{
-    return (currBeacon.azimuth - ISU.NorthAngle);
+    freq = freq_in;
 }
 
 bool VIM95::ilsSystem::tryBeaconCapture()
 {
-    currLocalizer = land_comstations::instance().tryIlsCapture(pISU->planePosX,
+    currBeacon = land_comstations::instance().tryIlsCapture(pISU->planePosX,
                                                                pISU->planePosY);
-    if(currLocalizer->checkName() != "none")
+    if(currBeacon->checkName() != "none")
         return true;
     return false;
 }
 
-double VIM95::ilsSystem::proceedValue()
+double VIM95::ilsSystem::proceedHorizonValue()
 {
     if(tryBeaconCapture())
     {
-        return currLocalizer->proceedValue();
+        return currBeacon->proceedValue();
     }
     return MAXIMUM_HORIZON_ARROW_VALUE;
 }
@@ -102,8 +75,15 @@ double VIM95::ilsSystem::proceedGlissadeValue()
 {
     if(tryBeaconCapture())
     {
-        return currLocalizer->proceedGlissadeValue();
+        return currBeacon->proceedGlissadeValue();
     }
     return MAXIMUM_VERT_ARROW_VALUE;
 }
+
+void VIM95::ilsSystem::updateParams()
+{
+    HorizonArrowValue = proceedHorizonValue();
+    GlissadeArrowValue = proceedGlissadeValue();
+}
+
 
