@@ -195,7 +195,9 @@ double dist_point_line(QPointF point, QLineF line)
     double x2 = line.p2().x();
     double y2 = line.p2().y();
     double distance;
-    distance = abs((x2-x1)*(y1-y0)-(x1-x0)*(y2-y1)) /
-               sqrt(pow(x2-x1,2)+pow(y2-y1,2));
+//    distance = abs((x2-x1)*(y1-y0)-(x1-x0)*(y2-y1)) /
+//               sqrt(pow(x2-x1,2)+pow(y2-y1,2));//without sign
+    distance = ((x2-x1)*(y1-y0)-(x1-x0)*(y2-y1)) /
+               sqrt(pow(x2-x1,2)+pow(y2-y1,2));//with sign
     return distance;
 }

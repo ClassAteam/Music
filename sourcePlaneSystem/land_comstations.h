@@ -29,12 +29,12 @@ class vorBeacon
 {
 public:
     vorBeacon* inRange(QPointF position);
-    double northCourseToBeacon(double x_coord, double y_coord);
-    double relativeCourseToBeacon(double x_coord, double y_coord,
-                                  double jetCourse);
-    bool to_from(double x_coord, double y_coord, double jet_course);
+    double northCourseToBeacon(double x, double y);
+    double relativeCourseToBeacon(double x, double y, double Course);
+    bool to_from(double x, double y, double jet_course);
+    double distanceToBeacon(double x, double y);
     double getFreq();
-    QString checkName();//позывной маяка
+    QString checkName();
 
     vorBeacon(QPointF centralPoint, double freq, QString name);
     vorBeacon();
@@ -52,23 +52,17 @@ private:
 class ilsBeacon
 {
 public:
-    double proceedValue();//относительная величина (0 - на горизонтальном
-    //отрезке глиссады, 1000 - вне зоны захвата маяка)
-    double proceedGlissadeValue();
-    QString checkName();//позывной маяка
-    ilsBeacon* inRange(QPointF position);//возвращает свой указатель если мы
-    //находимся в зоне действия данного маяка
+    double distanceToGlissadeProj(double x, double y);
+    double distnaceToGlissadePlane(double x, double y, double z);
+    QString checkName();
+    ilsBeacon* inRange(QPointF position);
 
     ilsBeacon(QString name_in, QPointF runwaystart_in, QPointF runwayend_in,
                  double glissadeAngle);
     ilsBeacon();
 
 private:
-    double value;
-    double glissadeValue;
-    QString name;
-    double distance;
-    double distanceToGlissade;
+    const QString name;
     const QPointF runWayStartPos;
     const QPointF runWayEndPos;
     const QLineF glissadeHorizonLine;
@@ -78,7 +72,7 @@ private:
     QLineF makeHorizonLine();
     QPolygonF makeApproachingZone();
     QVector<QVector3D> makeGlissadePlane(double angle);
-    double makeApproachingHeightPoint(double angle);
+    double ApproachingHeight(double angle);
 };
 
 

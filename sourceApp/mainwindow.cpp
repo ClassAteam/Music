@@ -820,17 +820,20 @@ void  MainWindow:: Print_wingsmech     ()
 void  MainWindow:: Print_navi_inst       ()
 {
 
-    VIM95::instance().ils.updateParams();
-    ui->localizer_value->setText(QString("Попадание по горизонтали ИЛС %1 ") .arg(VIM95::instance().ils.HorizonArrowValue));
-    ui->glissadeValue->setText(QString("Попадание по высоте ИЛС %1 ") .arg(VIM95::instance().ils.GlissadeArrowValue));
     ui->x_in_coor->setText(QString("Позиция ЛА по горизонтали %1 ") .arg(pISU->planePosX));
     ui->y_in_coor->setText(QString("Позиция ЛА по вертикали %1 ") .arg(pISU->planePosY));
     ui->northAngle->setText(QString("Полярный азимут ВС %1 ") .arg(pISU->NorthAngle));
+
+    VIM95::instance().ils.updateParams();
+    ui->localizer_value->setText(QString("Попадание по горизонтали ИЛС %1 ") .arg(VIM95::instance().ils.HorizonArrowValue));
+    ui->glissadeValue->setText(QString("Попадание по высоте ИЛС %1 ") .arg(VIM95::instance().ils.GlissadeArrowValue));
+    ui->ilsBeaconName->setText(QString("Позывной маяка ИЛС %1 ") .arg(VIM95::instance().ils.capturedBeaconName));
 
     VIM95::instance().vor.updateParams();
     ui->vorAzimuth->setText(QString("Азимут на маяк VOR %1 ") .arg(VIM95::instance().vor.northCourseToBeacon));
     ui->vorRelativeAzimuth->setText(QString("относительный Азимут на маяк VOR %1 ") .arg(VIM95::instance().vor.relativeCourseToBeacon));
     ui->vor_to_from->setText(QString("1 - на маяк, 0 - от маяка VOR %1 ").arg(VIM95::instance().vor.to_from));
+    ui->vorBeaconName->setText(QString("Позывной маяка VOR %1 ") .arg(VIM95::instance().vor.capturedBeaconName));
 
 }
 

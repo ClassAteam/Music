@@ -3,11 +3,9 @@
 #include "math.h"
 #include <QDebug>
 
-extern SH_ISU ISU;
-extern SH_ISU* pISU;
-
 const double APPROACHING_MAXIMUM_DISTANCE{18000};
-const double BEACON_REACH_DISTANCE{10000};
+const double VOR_BEACON_REACH_DISTANCE{10000};
+
 land_comstations::land_comstations()
 {
         ilsBeacons.append(new ilsBeacon("test_beacon",
@@ -15,15 +13,10 @@ land_comstations::land_comstations()
                                        QPointF(1100.0, 1100.0),
                                        3.0));
         vorBeacons.append(new vorBeacon(QPointF(-2000.0, 2000.0),
-                                        150.0, "test_vor_beacon"));
+                                        150.0, "test_vor_beacon_1"));
+        vorBeacons.append(new vorBeacon(QPointF(7000.0, -7000.0),
+                                        150.0, "test_vor_beacon_2"));
 }
-
-land_comstations &land_comstations::instance()
-{
-    static land_comstations singleton;
-    return singleton;
-}
-
 
 ilsBeacon* land_comstations::tryIlsCapture(double x_position, double y_position)
 {
@@ -67,7 +60,7 @@ QVector<QVector3D> ilsBeacon::makeGlissadePlane(double angle)
     QVector3D normalizedStartPoint;
     approachingEntranceHeight = QVector3D(glissadeHorizonLine.p2().x(),
                                           glissadeHorizonLine.p2().y(),
-                                          makeApproachingHeightPoint(angle));
+                                          ApproachingHeight(angle));
     runWayStartPoint = QVector3D(glissadeHorizonLine.p1());
     QLineF glissadeLine(ilsBeacon::glissadeHorizonLine);
     glissadeLine.setLength(500);
@@ -79,16 +72,13 @@ QVector<QVector3D> ilsBeacon::makeGlissadePlane(double angle)
     return glissadeVertPlane;
 }
 
-double ilsBeacon::makeApproachingHeightPoint(double angle)
+double ilsBeacon::ApproachingHeight(double angle)
 {
     double slope;
     double height;
     slope = glissadeHorizonLine.length() / abs(cos(angle));
     qDebug() << "horizonLinelength = " << glissadeHorizonLine.length();
     height = sin(angle) * slope;
-    qDebug() << "cos angle = " << cos(angle);
-    qDebug() << "sin angle = " << sin(angle);
-    qDebug() << "height = " << height;
     return height;
 }
 
@@ -102,25 +92,17 @@ ilsBeacon::ilsBeacon(QString name_in, QPointF runwaystart_in,
 
 }
 
-double ilsBeacon::proceedValue()
+double ilsBeacon::distanceToGlissadeProj(double x, double y)
 {
-        QPointF planePos{pISU->planePosX, pISU->planePosY};
-        distance = dist_point_line(planePos, glissadeHorizonLine);
-        return distance;
+        QPointF planePos{x, y};
+        return dist_point_line(planePos, glissadeHorizonLine);
 }
 
-double ilsBeacon::proceedGlissadeValue()
+double ilsBeacon::distnaceToGlissadePlane(double x, double y, double z)
 {
-    QVector3D planePos(pISU->planePosX, pISU->planePosY, pISU->planePosZ);
-    distanceToGlissade = planePos.distanceToPlane(glissadePlane[0],
-                                                  glissadePlane[1],
-                                                  glissadePlane[2]);
-    return distanceToGlissade;
-}
-
-QString ilsBeacon::checkName()
-{
-    return name;
+    QVector3D planePos(x, y, z);
+    return planePos.distanceToPlane(glissadePlane[0], glissadePlane[1],
+                                    glissadePlane[2]);
 }
 
 ilsBeacon* ilsBeacon::inRange(QPointF position)
@@ -133,8 +115,8 @@ ilsBeacon* ilsBeacon::inRange(QPointF position)
     return null;
 }
 
-ilsBeacon::ilsBeacon() : value{0.0}, name{"none"}, distance{0.0},
-    runWayStartPos{}, runWayEndPos{}, glissadeHorizonLine{}, approachingZone{}
+ilsBeacon::ilsBeacon() : name{"none"}, runWayStartPos{}, runWayEndPos{},
+    glissadeHorizonLine{}, approachingZone{}
 {
 
 }
@@ -144,7 +126,7 @@ QPolygonF vorBeacon::makeRangeZone()
     QPolygonF zone;
     QPointF edge;
     QLineF radian(position, edge);
-    radian.setLength(BEACON_REACH_DISTANCE);
+    radian.setLength(VOR_BEACON_REACH_DISTANCE);
     for(int i = 0; i <= 360; i+=10)
     {
         radian.setAngle(i);
@@ -152,6 +134,7 @@ QPolygonF vorBeacon::makeRangeZone()
     }
     return zone;
 }
+
 vorBeacon* vorBeacon::inRange(QPointF position)
 {
     static vorBeacon* null = new vorBeacon;
@@ -171,6 +154,7 @@ double vorBeacon::northCourseToBeacon(double x, double y)
     else
         return result;
 }
+
 double vorBeacon::relativeCourseToBeacon(double x, double y,
                               double jetCourse)
 {
@@ -180,7 +164,6 @@ double vorBeacon::relativeCourseToBeacon(double x, double y,
         return result - 360.0;
     else
         return result;
-//    return 360 -abs(jetCourse - northCourseToBeacon(x, y));
 }
 
 bool vorBeacon::to_from(double x, double y, double course)
@@ -190,26 +173,25 @@ bool vorBeacon::to_from(double x, double y, double course)
     return false;
 }
 
-
-double vorBeacon::getFreq()
+double vorBeacon::distanceToBeacon(double x, double y)
 {
-    return freq;
+    QPointF planePos{x, y};
+    QLineF line_to_beacon {planePos, position};
+    return line_to_beacon.length();
 }
 
-QString vorBeacon::checkName()
-{
-    return name;
-}
-
-vorBeacon* land_comstations::tryVorCapture(double freq, double x_position,
-                                           double y_position)
+vorBeacon* land_comstations::tryVorCapture(double freq, double x, double y)
 {
     static vorBeacon* null = new vorBeacon;
-    QPointF position_point(x_position, y_position);
+    QPointF position(x, y);
     for(auto &beacon : vorBeacons)
     {
         if(freq == beacon->getFreq())
-            return beacon->inRange(position_point);
+        {
+            null = beacon->inRange(position);
+            if(null->checkName() != "none")
+                return null;
+        }
     }
     return null;
 }
@@ -223,6 +205,28 @@ vorBeacon::vorBeacon(QPointF centralPoint, double freq, QString name) :
 {
 
 }
+
+double vorBeacon::getFreq()
+{
+    return freq;
+}
+
+QString vorBeacon::checkName()
+{
+    return name;
+}
+
+QString ilsBeacon::checkName()
+{
+    return name;
+}
+
+land_comstations &land_comstations::instance()
+{
+    static land_comstations singleton;
+    return singleton;
+}
+
 
 
 //bool operator!=(const vorBeacon& beacon1, const vorBeacon& beacon2)

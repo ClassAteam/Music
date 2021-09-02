@@ -4136,6 +4136,13 @@
          </rect>
         </property>
         <layout class="QGridLayout" name="gridLayout_12">
+         <item row="1" column="0">
+          <widget class="QLabel" name="glissadeValue">
+           <property name="text">
+            <string>Вертикаль ИЛС</string>
+           </property>
+          </widget>
+         </item>
          <item row="0" column="0">
           <widget class="QLabel" name="localizer_value">
            <property name="text">
@@ -4143,10 +4150,10 @@
            </property>
           </widget>
          </item>
-         <item row="1" column="0">
-          <widget class="QLabel" name="glissadeValue">
+         <item row="2" column="0">
+          <widget class="QLabel" name="ilsBeaconName">
            <property name="text">
-            <string>Вертикаль ИЛС</string>
+            <string>ilsBeaconName</string>
            </property>
           </widget>
          </item>
@@ -4202,6 +4209,13 @@
            </property>
           </widget>
          </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="vor_to_from">
+           <property name="text">
+            <string>vor_to_from</string>
+           </property>
+          </widget>
+         </item>
          <item row="1" column="0">
           <widget class="QLabel" name="vorAzimuth">
            <property name="text">
@@ -4209,10 +4223,10 @@
            </property>
           </widget>
          </item>
-         <item row="2" column="0">
-          <widget class="QLabel" name="vor_to_from">
+         <item row="3" column="0">
+          <widget class="QLabel" name="vorBeaconName">
            <property name="text">
-            <string>vor_to_from</string>
+            <string>vorBeaconName</string>
            </property>
           </widget>
          </item>

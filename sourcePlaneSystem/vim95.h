@@ -7,12 +7,24 @@
 
 class VIM95
 {
+public:
+    double xJetPosition();
+    double yJetPosition();
+    double zJetPosition();
+    double PolarAngle();
+
+private:
     enum modeType{VOR, ILS, SP50};
     modeType mode;
+    double* xJetPos;
+    double* yJetPos;
+    double* zJetPos;
+    double* JetPolarAngle;
 
     class vorSystem
     {
     public:
+        QString capturedBeaconName;
         double northCourseToBeacon;
         double relativeCourseToBeacon;
         bool to_from;
@@ -21,13 +33,14 @@ class VIM95
         void setFreq(double freq);
 
     private:
-        vorBeacon* curBeacon;
+        vorBeacon* currBeacon;
         double freq;
     };
 
     class ilsSystem
     {
     public:
+        QString capturedBeaconName;
         double HorizonArrowValue;
         double GlissadeArrowValue;
         void updateParams();
