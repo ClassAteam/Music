@@ -21,7 +21,7 @@ void VIM95::vorSystem::updateParams()
     }
 
     northCourseToBeacon = currBeacon->northCourseToBeacon(x, y);
-    relativeCourseToBeacon = currBeacon->relativeCourseToBeacon(x, x, ang);
+    relativeCourseToBeacon = currBeacon->relativeCourseToBeacon(x, y, ang);
     to_from = currBeacon->to_from(x, y, ang);
     capturedBeaconName = currBeacon->checkName();
 }
