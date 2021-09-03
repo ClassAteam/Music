@@ -57,8 +57,8 @@ public:
     QString checkName();
     ilsBeacon* inRange(QPointF position);
 
-    ilsBeacon(QString name_in, QPointF runwaystart_in, QPointF runwayend_in,
-                 double glissadeAngle);
+    ilsBeacon(QString name, QPointF runwaystart, QPointF runwayend,
+              double glissadeAngle);
     ilsBeacon();
 
 private:
@@ -73,6 +73,9 @@ private:
     QPolygonF makeApproachingZone();
     QVector<QVector3D> makeGlissadePlane(double angle);
     double ApproachingHeight(double angle);
+
+    double freq;
+    bool setFreq();
 };
 
 
