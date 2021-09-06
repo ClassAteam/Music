@@ -14,7 +14,7 @@ public:
     double PolarAngle();
 
 private:
-    enum modeType{VOR, ILS, SP50};
+    enum modeType{VOR, ILS, SP50, AVT, VIKL};
     modeType mode;
     double* xJetPos;
     double* yJetPos;
