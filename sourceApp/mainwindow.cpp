@@ -828,6 +828,10 @@ void  MainWindow:: Print_navi_inst       ()
     ui->localizer_value->setText(QString("Попадание по горизонтали ИЛС: %1 ") .arg(VIM95::instance().ils.HorizonArrowValue));
     ui->glissadeValue->setText(QString("Попадание по высоте ИЛС: %1 ") .arg(VIM95::instance().ils.GlissadeArrowValue));
     ui->ilsBeaconName->setText(QString("Позывной маяка ИЛС: %1 ") .arg(VIM95::instance().ils.capturedBeaconName));
+    ui->ilsDMEdistance->setText(QString("Дистанция до ДМЕ маяка: %1 ") .arg(VIM95::instance().ils.DMEdistance));
+    ui->innerMarkerPassed->setText(QString("Пройден внутренний маркер ILS: %1 ") .arg(VIM95::instance().ils.innerMarkerBulb));
+    ui->middleMarkerPassed->setText(QString("Пройден средний маркер ILS: %1 ") .arg(VIM95::instance().ils.middleMarkerBulb));
+    ui->outerMarkerPassed->setText(QString("Пройден внешний маркер ILS: %1 ") .arg(VIM95::instance().ils.outerMarkerBulb));
 
     VIM95::instance().vor.updateParams();
     ui->vorAzimuth->setText(QString("Азимут на маяк VOR: %1 ") .arg(VIM95::instance().vor.northCourseToBeacon));

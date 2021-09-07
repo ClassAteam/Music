@@ -43,7 +43,12 @@ private:
         QString capturedBeaconName;
         double HorizonArrowValue;
         double GlissadeArrowValue;
+        double DMEdistance;
+        bool innerMarkerBulb;
+        bool middleMarkerBulb;
+        bool outerMarkerBulb;
         void updateParams();
+        ilsSystem();
 
     private:
         ilsBeacon* currBeacon;

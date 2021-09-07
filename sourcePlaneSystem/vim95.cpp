@@ -37,13 +37,28 @@ void VIM95::ilsSystem::updateParams()
     {
         HorizonArrowValue = -999.0;
         GlissadeArrowValue = -999.0;
+        DMEdistance = -999.0;
         capturedBeaconName = currBeacon->checkName();
         return;
     }
 
     HorizonArrowValue = currBeacon->distanceToGlissadeProj(x, y);
     GlissadeArrowValue = currBeacon->distnaceToGlissadePlane(x, y, z);
+    DMEdistance = currBeacon->distanceToTouchDownPoint(x, y, z);
     capturedBeaconName = currBeacon->checkName();
+
+    if(currBeacon->checkMarker(x,y,z) == ilsBeacon::passedMarker::INNER)
+        innerMarkerBulb = true;
+    if(currBeacon->checkMarker(x,y,z) == ilsBeacon::passedMarker::MIDDLE)
+        middleMarkerBulb = true;
+    if(currBeacon->checkMarker(x,y,z) == ilsBeacon::passedMarker::OUTER)
+        outerMarkerBulb = true;
+}
+
+VIM95::ilsSystem::ilsSystem() : innerMarkerBulb{}, middleMarkerBulb{},
+    outerMarkerBulb{}
+{
+
 }
 
 VIM95::VIM95() : xJetPos{&pISU->planePosX}, yJetPos{&pISU->planePosY},

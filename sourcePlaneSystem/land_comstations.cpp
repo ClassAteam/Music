@@ -5,13 +5,17 @@
 
 const double APPROACHING_MAXIMUM_DISTANCE{18000};
 const double VOR_BEACON_REACH_DISTANCE{10000};
+const double ACCEPTABLE_DISTANCE_TO_LOCALIZER{50};
+const double ACCEPTABLE_DISTANCE_TO_GLISSADE{30};
+const double INNER_MARKER_DISTANCE{304.8};
+const double MIDDLE_MARKER_DISTANCE{1066.8};
 
 land_comstations::land_comstations()
 {
-        ilsBeacons.append(new ilsBeacon("test_beacon",
+        ilsBeacons.append(new ilsBeacon("test_ils_beacon1",
                                        QPointF(1000.0, 1000.0),
                                        QPointF(1100.0, 1100.0),
-                                       3.0));
+                                       3.0, 5000.0));
         vorBeacons.append(new vorBeacon(QPointF(-2000.0, 2000.0),
                                         150.0, "test_vor_beacon_1"));
         vorBeacons.append(new vorBeacon(QPointF(7000.0, -7000.0),
@@ -82,12 +86,68 @@ double ilsBeacon::ApproachingHeight(double angle)
     return height;
 }
 
+bool ilsBeacon::innerMarkerPos(double x, double y, double z)
+{
+    if(distanceToTouchDownPoint(x,y,z) > INNER_MARKER_DISTANCE - 50.0 &&
+        distanceToTouchDownPoint(x,y,z) < INNER_MARKER_DISTANCE +50)
+        return true;
+    else
+        return false;
+}
+
+bool ilsBeacon::middleMarkerPos(double x, double y, double z)
+{
+    if(distanceToTouchDownPoint(x,y,z) > MIDDLE_MARKER_DISTANCE - 50.0 &&
+        distanceToTouchDownPoint(x,y,z) < MIDDLE_MARKER_DISTANCE +50)
+        return true;
+    else
+        return false;
+}
+
+bool ilsBeacon::outerMarkerPos(double x, double y, double z)
+{
+    if(distanceToTouchDownPoint(x,y,z) > outerMarkerDist - 50.0 &&
+        distanceToTouchDownPoint(x,y,z) < outerMarkerDist +50)
+        return true;
+    else
+        return false;
+}
+
+double ilsBeacon::distanceToTouchDownPoint(double x, double y, double z)
+{
+    QVector3D jetPos(x, y, z);
+    QVector3D touchDownPoint(runWayStartPos.x(), runWayStartPos.y(), 0.0);
+    return jetPos.distanceToPoint(touchDownPoint);
+}
+
+ilsBeacon::passedMarker ilsBeacon::checkMarker(double x, double y, double z)
+{
+    if(isAccurateApproach(x,y,z))
+    {
+        if(innerMarkerPos(x,y,z)) return INNER;
+        if(middleMarkerPos(x,y,z)) return MIDDLE;
+        if(outerMarkerPos(x,y,z)) return OUTER;
+    }
+    return NOT_APPROACHED;
+}
+
+bool ilsBeacon::isAccurateApproach(double x, double y, double z)
+{
+    if(abs(distanceToGlissadeProj(x,y)) < ACCEPTABLE_DISTANCE_TO_LOCALIZER &&
+        abs(distnaceToGlissadePlane(x,y,z)) < ACCEPTABLE_DISTANCE_TO_GLISSADE)
+        return true;
+    else
+        return false;
+}
+
 ilsBeacon::ilsBeacon(QString name_in, QPointF runwaystart_in,
-                           QPointF runwayend_in, double glissadeAngle)
+                     QPointF runwayend_in, double glissadeAngle,
+                     double outerMarker_in)
     : name{name_in}, runWayStartPos{runwaystart_in}, runWayEndPos{runwayend_in},
     glissadeHorizonLine{makeHorizonLine()},
     approachingZone{makeApproachingZone()},
-    glissadePlane{makeGlissadePlane(glissadeAngle)}
+    glissadePlane{makeGlissadePlane(glissadeAngle)},
+    outerMarkerDist{outerMarker_in}
 {
 
 }
@@ -116,7 +176,7 @@ ilsBeacon* ilsBeacon::inRange(QPointF position)
 }
 
 ilsBeacon::ilsBeacon() : name{"none"}, runWayStartPos{}, runWayEndPos{},
-    glissadeHorizonLine{}, approachingZone{}
+    glissadeHorizonLine{}, approachingZone{}, outerMarkerDist{}
 {
 
 }

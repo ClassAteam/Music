@@ -52,14 +52,19 @@ private:
 class ilsBeacon
 {
 public:
+    enum passedMarker{INNER, MIDDLE, OUTER, NOT_APPROACHED};
     double distanceToGlissadeProj(double x, double y);
     double distnaceToGlissadePlane(double x, double y, double z);
+    double distanceToTouchDownPoint(double x, double y, double z);
+    passedMarker checkMarker(double x, double y, double z);
+    bool isAccurateApproach(double x, double y, double z);
     QString checkName();
     ilsBeacon* inRange(QPointF position);
 
     ilsBeacon(QString name, QPointF runwaystart, QPointF runwayend,
-              double glissadeAngle);
+              double glissadeAngle, double outer_marker_dist);
     ilsBeacon();
+
 
 private:
     const QString name;
@@ -68,11 +73,15 @@ private:
     const QLineF glissadeHorizonLine;
     const QPolygonF approachingZone;
     const QVector<QVector3D> glissadePlane;
+    const double outerMarkerDist;
 
     QLineF makeHorizonLine();
     QPolygonF makeApproachingZone();
     QVector<QVector3D> makeGlissadePlane(double angle);
     double ApproachingHeight(double angle);
+    bool innerMarkerPos(double x, double y, double z);
+    bool middleMarkerPos(double x, double y, double z);
+    bool outerMarkerPos(double x, double y, double z);
 
     double freq;
     bool setFreq();
