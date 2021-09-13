@@ -5,8 +5,11 @@
 #include <QPointF>
 #include <QPolygonF>
 #include <QVector3D>
+#include <vector>
+#include <memory>
 #include "externStruct/Struct_ISU.h"
 
+class Airfield;
 class vorBeacon;
 class ilsBeacon;
 class ilsBeacon;
@@ -23,6 +26,7 @@ public:
 private:
     QVector<vorBeacon*> vorBeacons;
     QVector<ilsBeacon*> ilsBeacons;
+    std::unique_ptr<std::vector<std::unique_ptr<Airfield>>> stations;
 };
 
 class vorBeacon

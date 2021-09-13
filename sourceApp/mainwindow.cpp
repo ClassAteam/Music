@@ -819,7 +819,6 @@ void  MainWindow:: Print_wingsmech     ()
 
 void  MainWindow:: Print_navi_inst       ()
 {
-
     ui->x_in_coor->setText(QString("Позиция ЛА по горизонтали: %1 ") .arg(pISU->planePosX));
     ui->y_in_coor->setText(QString("Позиция ЛА по вертикали: %1 ") .arg(pISU->planePosY));
     ui->northAngle->setText(QString("Полярный азимут ВС: %1 ") .arg(pISU->NorthAngle));

@@ -1,4 +1,5 @@
 QT       += core gui network
+QT       += sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -78,6 +79,7 @@ SOURCES += \
     sourcePlaneSystem/cabinlighting_8.cpp \
     sourcePlaneSystem/cabinlighting_9.cpp \
     sourcePlaneSystem/cabinlighting_int.cpp \
+    sourcePlaneSystem/databasemanager.cpp \
     sourcePlaneSystem/emergencyalarm_1.cpp \
     sourcePlaneSystem/emergencyalarm_int.cpp \
     sourcePlaneSystem/exchange.cpp \
@@ -118,6 +120,8 @@ SOURCES += \
     sourcePlaneSystem/powerdc_int.cpp \
     sourcePlaneSystem/presure.cpp \
     sourcePlaneSystem/presure_int.cpp \
+    sourcePlaneSystem/station.cpp \
+    sourcePlaneSystem/stationsdao.cpp \
     sourcePlaneSystem/switches.cpp \
     sourcePlaneSystem/uks.cpp \
     sourcePlaneSystem/vim95.cpp \
@@ -187,6 +191,7 @@ HEADERS += \
     sourcePlaneSystem/cabinlighting_8.h \
     sourcePlaneSystem/cabinlighting_9.h \
     sourcePlaneSystem/cabinlighting_int.h \
+    sourcePlaneSystem/databasemanager.h \
     sourcePlaneSystem/emergencyalarm_1.h \
     sourcePlaneSystem/emergencyalarm_int.h \
     sourcePlaneSystem/exchange.h \
@@ -228,6 +233,8 @@ HEADERS += \
     sourcePlaneSystem/powerdc_int.h \
     sourcePlaneSystem/presure.h \
     sourcePlaneSystem/presure_int.h \
+    sourcePlaneSystem/station.h \
+    sourcePlaneSystem/stationsdao.h \
     sourcePlaneSystem/switches.h \
     sourcePlaneSystem/uks.h \
     sourcePlaneSystem/vim95.h \

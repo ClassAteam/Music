@@ -3,6 +3,8 @@
 #include "math.h"
 #include <QDebug>
 
+#include "databasemanager.h"
+
 const double APPROACHING_MAXIMUM_DISTANCE{18000};
 const double VOR_BEACON_REACH_DISTANCE{10000};
 const double ACCEPTABLE_DISTANCE_TO_LOCALIZER{50};
@@ -12,6 +14,8 @@ const double MIDDLE_MARKER_DISTANCE{1066.8};
 
 land_comstations::land_comstations()
 {
+    stations = DatabaseManager::instance().stationsDao.stations();
+
         ilsBeacons.append(new ilsBeacon("test_ils_beacon1",
                                        QPointF(1000.0, 1000.0),
                                        QPointF(1100.0, 1100.0),
