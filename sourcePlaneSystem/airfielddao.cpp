@@ -1,4 +1,4 @@
-#include "stationsdao.h"
+#include "airfielddao.h"
 
 #include <QSqlDatabase>
 #include <QSqlQuery>
@@ -9,12 +9,14 @@
 
 using namespace std;
 
-AirfieldsDao::AirfieldsDao(QSqlDatabase& database) :
+AirfieldDao::AirfieldDao(QSqlDatabase& database) :
     mDatabase(database)
 {
+    Airfield test_airfield("test_airfield");
+    addStation(test_airfield);
 }
 
-void AirfieldsDao::init() const
+void AirfieldDao::init() const
 {
     if(!mDatabase.tables().contains("stations"))
     {
@@ -24,7 +26,7 @@ void AirfieldsDao::init() const
     }
 }
 
-void AirfieldsDao::addStation(Airfield& station) const
+void AirfieldDao::addStation(Airfield& station) const
 {
     QSqlQuery query(mDatabase);
     query.prepare("INSERT INTO stations (name) VALUES (:name)");
@@ -34,7 +36,7 @@ void AirfieldsDao::addStation(Airfield& station) const
     DatabaseManager::debugQuery(query);
 }
 
-void AirfieldsDao::updateStation(const Airfield& station)const
+void AirfieldDao::updateStation(const Airfield& station)const
 {
     QSqlQuery query(mDatabase);
     query.prepare("UPDATE stations SET name = (:name) WHERE id = (:id)");
@@ -44,7 +46,7 @@ void AirfieldsDao::updateStation(const Airfield& station)const
     DatabaseManager::debugQuery(query);
 }
 
-void AirfieldsDao::removeStation(int id) const
+void AirfieldDao::removeStation(int id) const
 {
     QSqlQuery query(mDatabase);
     query.prepare("DELETE FROM stations WHERE id = (:id)");
@@ -53,7 +55,9 @@ void AirfieldsDao::removeStation(int id) const
     DatabaseManager::debugQuery(query);
 }
 
-unique_ptr<vector<unique_ptr<Airfield>>> AirfieldsDao::stations() const
+//should be specific pointer (e.g landcomstations::vorBeacon) and method
+//should be named accordingly
+unique_ptr<vector<unique_ptr<Airfield>>> AirfieldDao::stations() const
 {
     QSqlQuery query("SELECT * FROM stations", mDatabase);
     query.exec();

@@ -45,6 +45,7 @@ SOURCES += \
     sourcePlaneSystem/aircondition_9.cpp \
     sourcePlaneSystem/aircondition_int.cpp \
     sourcePlaneSystem/airconditioni_11.cpp \
+    sourcePlaneSystem/airfielddao.cpp \
     sourcePlaneSystem/algorithms.cpp \
     sourcePlaneSystem/allElCons.cpp \
     sourcePlaneSystem/antifire_1.cpp \
@@ -121,7 +122,6 @@ SOURCES += \
     sourcePlaneSystem/presure.cpp \
     sourcePlaneSystem/presure_int.cpp \
     sourcePlaneSystem/station.cpp \
-    sourcePlaneSystem/stationsdao.cpp \
     sourcePlaneSystem/switches.cpp \
     sourcePlaneSystem/uks.cpp \
     sourcePlaneSystem/vim95.cpp \
@@ -157,6 +157,7 @@ HEADERS += \
     sourcePlaneSystem/aircondition_9.h \
     sourcePlaneSystem/aircondition_int.h \
     sourcePlaneSystem/airconditioni_11.h \
+    sourcePlaneSystem/airfielddao.h \
     sourcePlaneSystem/algorithms.h \
     sourcePlaneSystem/allElCons.h \
     sourcePlaneSystem/antifire_1.h \
@@ -234,7 +235,6 @@ HEADERS += \
     sourcePlaneSystem/presure.h \
     sourcePlaneSystem/presure_int.h \
     sourcePlaneSystem/station.h \
-    sourcePlaneSystem/stationsdao.h \
     sourcePlaneSystem/switches.h \
     sourcePlaneSystem/uks.h \
     sourcePlaneSystem/vim95.h \

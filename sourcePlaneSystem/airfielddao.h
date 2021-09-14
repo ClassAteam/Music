@@ -6,10 +6,10 @@
 class QSqlDatabase;
 class Airfield;
 
-class AirfieldsDao
+class AirfieldDao
 {
 public:
-    AirfieldsDao(QSqlDatabase& database);
+    AirfieldDao(QSqlDatabase& database);
     void init() const;
 
     void addStation(Airfield& station) const;

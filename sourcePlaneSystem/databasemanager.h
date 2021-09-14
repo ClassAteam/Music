@@ -4,7 +4,7 @@
 
 #include <QString>
 
-#include "stationsdao.h"
+#include "airfielddao.h"
 
 class QSqlQuery;
 class QSqlDatabase;
@@ -27,6 +27,6 @@ private:
     std::unique_ptr<QSqlDatabase> mDatabase;
 
 public:
-    const AirfieldsDao stationsDao;
+    const AirfieldDao stationsDao;
 };
 
