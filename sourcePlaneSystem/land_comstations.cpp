@@ -16,7 +16,7 @@ land_comstations::land_comstations()
 {
     stations = DatabaseManager::instance().stationsDao.stations();
 
-        ilsBeacons.append(new ilsBeacon("test_ils_beacon1",
+        ilsBeacons->push_back(new ilsBeacon("test_ils_beacon1",
                                        QPointF(1000.0, 1000.0),
                                        QPointF(1100.0, 1100.0),
                                        3.0, 5000.0));
@@ -30,7 +30,7 @@ ilsBeacon* land_comstations::tryIlsCapture(double x_position, double y_position)
 {
     static ilsBeacon* null = new ilsBeacon;
     QPointF position_point(x_position, y_position);
-    for(auto &beacon : ilsBeacons)
+    for(auto &beacon : *ilsBeacons)
     {
         return beacon->inRange(position_point);
     }
@@ -197,6 +197,11 @@ QPolygonF vorBeacon::makeRangeZone()
         zone << radian.p2();
     }
     return zone;
+}
+
+void vorBeacon::setName(QString in_name)
+{
+    name = in_name;
 }
 
 vorBeacon* vorBeacon::inRange(QPointF position)

@@ -24,9 +24,10 @@ public:
     static land_comstations& instance();
 
 private:
-    QVector<vorBeacon*> vorBeacons;
-    QVector<ilsBeacon*> ilsBeacons;
-    std::unique_ptr<std::vector<std::unique_ptr<Airfield>>> stations;
+//    QVector<vorBeacon*> vorBeacons;
+//    QVector<ilsBeacon*> ilsBeacons;
+    std::unique_ptr<std::vector<std::unique_ptr<vorBeacon>>> vorBeacons;
+    std::unique_ptr<std::vector<std::unique_ptr<ilsBeacon>>> ilsBeacons;
 };
 
 class vorBeacon
@@ -39,6 +40,7 @@ public:
     double distanceToBeacon(double x, double y);
     double getFreq();
     QString checkName();
+    void setName(QString name);
 
     vorBeacon(QPointF centralPoint, double freq, QString name);
     vorBeacon();

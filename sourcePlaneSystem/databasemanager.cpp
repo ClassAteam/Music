@@ -4,18 +4,11 @@
 #include <QDebug>
 #include <QSqlError>
 #include <QSqlQuery>
+#include <QVariant>
+
+#include "land_comstations.h"
 
 using namespace std;
-
-void DatabaseManager::debugQuery(const QSqlQuery query)
-{
-    if (query.lastError().type() == QSqlError::ErrorType::NoError) {
-        qDebug() << "Query OK:"  << query.lastQuery();
-    } else {
-       qWarning() << "Query KO:" << query.lastError().text();
-       qWarning() << "Query text:" << query.lastQuery();
-    }
-}
 
 DatabaseManager&DatabaseManager::instance()
 {
@@ -38,10 +31,23 @@ DatabaseManager::~DatabaseManager()
     mDatabase->close();
 }
 
+QVector<vorBeacon> DatabaseManager::getVorBeacons()
+{
+    QSqlQuery query("SELECT * FROM stations", *mDatabase);
+    query.exec();
+    unique_ptr<vector<unique_ptr<vorBeacon>>> list (new vector<unique_ptr<vorBeacon>>());
+    while(query.next())
+    {
+        unique_ptr<vorBeacon> beacon(new vorBeacon);
+        beacon->setName(query.value("vorbeacon_name").toString());
+
+    }
+
+}
 
 //should be specific pointer (e.g landcomstations::vorBeacon) and method
 //should be named accordingly
-unique_ptr<vector<unique_ptr<vorBeacon>>> AirfieldDao::stations() const
+vorBeacon DatabaseManager::stations() const
 {
     QSqlQuery query("SELECT * FROM stations", mDatabase);
     query.exec();
@@ -53,4 +59,9 @@ unique_ptr<vector<unique_ptr<vorBeacon>>> AirfieldDao::stations() const
         list->push_back(move(station));
     }
     return list;
+}
+
+vorBeacon AirfieldDao::stations()
+{
+
 }
