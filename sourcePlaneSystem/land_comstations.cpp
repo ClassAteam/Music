@@ -261,11 +261,13 @@ vorBeacon* land_comstations::tryVorCapture(double freq, double x, double y)
     }
     return null;
 }
+
 vorBeacon::vorBeacon() : freq{0.-1}, position{}, zone{}, name{"none"},
     beaconCourse{-999.0}
 {
 
 }
+
 vorBeacon::vorBeacon(QPointF centralPoint, double freq, QString name) :
     freq{freq}, position{centralPoint}, zone{makeRangeZone()}, name{name}
 {

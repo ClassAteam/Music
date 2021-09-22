@@ -124,7 +124,7 @@ unique_ptr<vector<unique_ptr<vorBeacon>>> DatabaseManager::getVorBeacons()
     return list;
 }
 
-std::unique_ptr<std::vector<std::unique_ptr<ilsBeacon> > > DatabaseManager::getIlsBeacons()
+std::unique_ptr<std::vector<std::unique_ptr<ilsBeacon>>> DatabaseManager::getIlsBeacons()
 {
     QSqlQuery query("SELECT * FROM ilsbeacons", *mDatabase);
     query.exec();
@@ -145,7 +145,6 @@ std::unique_ptr<std::vector<std::unique_ptr<ilsBeacon> > > DatabaseManager::getI
         list->push_back(move(beacon));
     }
     return list;
-
 }
 
 DatabaseManager::~DatabaseManager()
