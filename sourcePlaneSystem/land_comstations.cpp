@@ -14,16 +14,18 @@ const double MIDDLE_MARKER_DISTANCE{1066.8};
 
 land_comstations::land_comstations()
 {
-    stations = DatabaseManager::instance().stationsDao.stations();
+    vorBeacons = DatabaseManager::instance().getVorBeacons();
+    ilsBeacons = DatabaseManager::instance().getIlsBeacons();
+//    stations = DatabaseManager::instance().stationsDao.stations();
 
-        ilsBeacons->push_back(new ilsBeacon("test_ils_beacon1",
-                                       QPointF(1000.0, 1000.0),
-                                       QPointF(1100.0, 1100.0),
-                                       3.0, 5000.0));
-        vorBeacons.append(new vorBeacon(QPointF(-2000.0, 2000.0),
-                                        150.0, "test_vor_beacon_1"));
-        vorBeacons.append(new vorBeacon(QPointF(7000.0, -7000.0),
-                                        150.0, "test_vor_beacon_2"));
+//        ilsBeacons->push_back(new ilsBeacon("test_ils_beacon1",
+//                                       QPointF(1000.0, 1000.0),
+//                                       QPointF(1100.0, 1100.0),
+//                                       3.0, 5000.0));
+//        vorBeacons.append(new vorBeacon(QPointF(-2000.0, 2000.0),
+//                                        150.0, "test_vor_beacon_1"));
+//        vorBeacons.append(new vorBeacon(QPointF(7000.0, -7000.0),
+//                                        150.0, "test_vor_beacon_2"));
 }
 
 ilsBeacon* land_comstations::tryIlsCapture(double x_position, double y_position)
@@ -199,11 +201,6 @@ QPolygonF vorBeacon::makeRangeZone()
     return zone;
 }
 
-void vorBeacon::setName(QString in_name)
-{
-    name = in_name;
-}
-
 vorBeacon* vorBeacon::inRange(QPointF position)
 {
     static vorBeacon* null = new vorBeacon;
@@ -253,7 +250,7 @@ vorBeacon* land_comstations::tryVorCapture(double freq, double x, double y)
 {
     static vorBeacon* null = new vorBeacon;
     QPointF position(x, y);
-    for(auto &beacon : vorBeacons)
+    for(auto &beacon : *vorBeacons)
     {
         if(freq == beacon->getFreq())
         {

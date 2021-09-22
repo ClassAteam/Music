@@ -40,7 +40,6 @@ public:
     double distanceToBeacon(double x, double y);
     double getFreq();
     QString checkName();
-    void setName(QString name);
 
     vorBeacon(QPointF centralPoint, double freq, QString name);
     vorBeacon();
@@ -65,6 +64,7 @@ public:
     passedMarker checkMarker(double x, double y, double z);
     bool isAccurateApproach(double x, double y, double z);
     QString checkName();
+    void setName(QString name);
     ilsBeacon* inRange(QPointF position);
 
     ilsBeacon(QString name, QPointF runwaystart, QPointF runwayend,
