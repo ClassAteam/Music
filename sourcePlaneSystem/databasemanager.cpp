@@ -52,7 +52,6 @@ DatabaseManager::DatabaseManager(const QString& path) :
     {
         qDebug() << "Database is up to date";
     }
-
 }
 
 QSqlError DatabaseManager::initDb()
