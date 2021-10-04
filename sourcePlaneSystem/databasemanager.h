@@ -11,14 +11,16 @@ class vorBeacon;
 class ilsBeacon;
 class QSqlError;
 
-//const QString DATABASE_FILENAME = "airports.db";
-const QString DATABASE_FILENAME = "airports_2.db";
+const QString DATABASE_FILENAME = "airports.db";
+//const QString DATABASE_FILENAME = "airports_2.db";
 
 class DatabaseManager
 {
 public:
     std::unique_ptr<std::vector<std::unique_ptr<vorBeacon>>> getVorBeacons();
     std::unique_ptr<std::vector<std::unique_ptr<ilsBeacon>>> getIlsBeacons();
+    void testDatabase_1();
+    void testDatabase_2();
 
     static DatabaseManager& instance();
     ~DatabaseManager();

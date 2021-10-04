@@ -43,14 +43,15 @@ DatabaseManager::DatabaseManager(const QString& path) :
     qDebug() << "Database connection: " << (openStatus ? "OK" : "Error");
 
     QStringList tables = mDatabase->tables();
-    if (!(tables.contains("vorbeacons", Qt::CaseInsensitive)))
+    if (!(tables.contains("testtable", Qt::CaseInsensitive)))
     {
         qDebug() << "Initializing database";
         initDb();
     }
     else
     {
-        qDebug() << "Database is up to date";
+        qDebug() << "Database is loaded";
+        initDb();
     }
 }
 
@@ -144,6 +145,27 @@ std::unique_ptr<std::vector<std::unique_ptr<ilsBeacon>>> DatabaseManager::getIls
         list->push_back(move(beacon));
     }
     return list;
+}
+
+void DatabaseManager::testDatabase_1()
+{
+    qDebug() << "testring database";
+    QSqlQuery query("SELECT * FROM testtable", *mDatabase);
+    query.exec();
+    while(query.next())
+    {
+        qDebug() << query.value("id").toString() << "==" << query.value("name").toString();
+    }
+}
+
+void DatabaseManager::testDatabase_2()
+{
+    QSqlQuery query("SELECT * FROM vorbeacons", *mDatabase);
+    query.exec();
+    while(query.next())
+    {
+        qDebug() << query.value("xpos").toString() << "==";
+    }
 }
 
 DatabaseManager::~DatabaseManager()
