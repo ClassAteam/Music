@@ -15,7 +15,7 @@ const double MIDDLE_MARKER_DISTANCE{1066.8};
 land_comstations::land_comstations()
 {
     DatabaseManager::instance().testDatabase_1();
-    DatabaseManager::instance().testDatabase_2();
+//    DatabaseManager::instance().testDatabase_2();
     vorBeacons = DatabaseManager::instance().getVorBeacons();
     ilsBeacons = DatabaseManager::instance().getIlsBeacons();
 

@@ -35,6 +35,7 @@ private:
     void addVorBeacon(QSqlQuery &q,  int xpos, int ypos, int freq, QString name);
     void addIlsBeacon(QSqlQuery &q,  int xpos1, int ypos1, int xpos2, int ypos2,
                       int angle, int marker, QString name);
+    void debugQuery(const QSqlQuery query);
 
 };
 
