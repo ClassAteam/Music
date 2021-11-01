@@ -154,9 +154,10 @@ void DatabaseManager::testDatabase_1()
     query.exec();
     while(query.next())
     {
-        qDebug() << query.value("id").toString() << "==" <<
-            query.value("airfield_lon").toString() << "internal_id = " <<
-            query.value("internal_id").toString();
+        qDebug() << query.value("id").toString() << ":"
+                 << "lon = " << query.value("airfield_lon").toString()
+                 << "lat = " << query.value("airfield_lat").toString()
+                 << "internal_id = " << query.value("internal_id").toString();
     }
 }
 
