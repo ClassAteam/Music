@@ -155,9 +155,20 @@ void DatabaseManager::testDatabase_1()
     while(query.next())
     {
         qDebug() << query.value("id").toString() << ":"
-                 << "lon = " << query.value("airfield_lon").toString()
-                 << "lat = " << query.value("airfield_lat").toString()
-                 << "internal_id = " << query.value("internal_id").toString();
+                 << "lon=" << query.value("airfield_lon").toString()
+                 << "lat=" << query.value("airfield_lat").toString()
+                 << "type=" << query.value("airfield_type").toString()
+                 << "last_update=" << query.value("airfield_last_update").toString()
+                 << "is_active=" << query.value("airfield_active").toString()
+                 << "is_verified=" << query.value("airfield_verified").toString()
+                 << "is_international=" << query.value("airfield_international").toString()
+                 << "name=" << query.value("airfield_name").toString()
+                 << "nameru=" << query.value("airfield_name_ru").toString()
+                 << "city=" << query.value("airfield_city").toString()
+                 << "belongs=" << query.value("airfield_belongs").toString()
+                 << "height=" << query.value("airfield_height").toString()
+                 << "deltam=" << query.value("airfield_delta_m").toString()
+                 << "internal_id=" << query.value("internal_id").toString();
     }
 }
 
