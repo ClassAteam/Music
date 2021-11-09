@@ -21,6 +21,8 @@ public:
     std::unique_ptr<std::vector<std::unique_ptr<ilsBeacon>>> getIlsBeacons();
     void testDatabase_1();
     void testDatabase_2();
+    void testDatabase_3();
+    void testDatabase_4();
 
     static DatabaseManager& instance();
     ~DatabaseManager();

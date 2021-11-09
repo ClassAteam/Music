@@ -43,7 +43,7 @@ DatabaseManager::DatabaseManager(const QString& path) :
     qDebug() << "Database connection: " << (openStatus ? "OK" : "Error");
 
     QStringList tables = mDatabase->tables();
-    if (!(tables.contains("testtable", Qt::CaseInsensitive)))
+    if (!(tables.contains("airfields", Qt::CaseInsensitive)))
     {
         qDebug() << "Initializing database";
         initDb();
@@ -126,22 +126,19 @@ unique_ptr<vector<unique_ptr<vorBeacon>>> DatabaseManager::getVorBeacons()
 
 std::unique_ptr<std::vector<std::unique_ptr<ilsBeacon>>> DatabaseManager::getIlsBeacons()
 {
-    QSqlQuery query("SELECT * FROM ilsbeacons", *mDatabase);
+    QSqlQuery query("SELECT * FROM runways", *mDatabase);
     query.exec();
     unique_ptr<vector<unique_ptr<ilsBeacon>>> list (new vector<unique_ptr<ilsBeacon>>());
     while(query.next())
     {
-        QPointF start(query.value("xpos1").toDouble(),
-                      query.value("ypos1").toDouble());
+        QPointF start(query.value("porog1_lon").toDouble(),
+                      query.value("porog1_lat").toDouble());
 
-        QPointF end(query.value("xpos2").toDouble(),
-                      query.value("ypos2").toDouble());
+        QPointF end(query.value("porog2_lon").toDouble(),
+                      query.value("porog2_lat").toDouble());
 
         unique_ptr<ilsBeacon> beacon(new ilsBeacon(query.value("name").toString(),
-                                                   start, end,
-                                                   query.value("angle").toDouble(),
-                                                   query.value("marker").toDouble()
-                                                   ));
+                                                   start, end, 2.2, 300.0));
         list->push_back(move(beacon));
     }
     return list;
@@ -149,8 +146,8 @@ std::unique_ptr<std::vector<std::unique_ptr<ilsBeacon>>> DatabaseManager::getIls
 
 void DatabaseManager::testDatabase_1()
 {
-    qDebug() << "testing database";
-    QSqlQuery query("SELECT * FROM testtable", *mDatabase);
+    qDebug() << "testing airfields database";
+    QSqlQuery query("SELECT * FROM airfields WHERE internal_id=8206", *mDatabase);
     query.exec();
     while(query.next())
     {
@@ -169,6 +166,43 @@ void DatabaseManager::testDatabase_1()
                  << "height=" << query.value("airfield_height").toString()
                  << "deltam=" << query.value("airfield_delta_m").toString()
                  << "internal_id=" << query.value("internal_id").toString();
+    }
+}
+
+void DatabaseManager::testDatabase_3()
+{
+    qDebug() << "testing runways database";
+    QSqlQuery query("SELECT * FROM runways WHERE airfield_id=9827", *mDatabase);
+    query.exec();
+    while(query.next())
+    {
+        qDebug() << query.value("id").toString() << ":"
+                 << "vpp_id=" << query.value("vpp_id").toString()
+                 << "name=" << query.value("name").toString()
+                 << "airfield_id=" << query.value("airfield_id").toString()
+                 << "length=" << query.value("length").toString()
+                 << "width=" << query.value("width").toString()
+                 << "porog1_lon=" << query.value("porog1_lon").toString()
+                 << "porog1_lat=" << query.value("porog1_lat").toString()
+                 << "porog2_lon=" << query.value("porog2_lon").toString()
+                 << "porog2_lat=" << query.value("porog2_lat").toString();
+    }
+}
+
+void DatabaseManager::testDatabase_4()
+{
+    qDebug() << "testing rstations database";
+    QSqlQuery query("SELECT * FROM rstations WHERE airfield_id=9827", *mDatabase);
+    query.exec();
+    while(query.next())
+    {
+        qDebug() << query.value("id").toString() << ":"
+                 << "vpp_id=" << query.value("vpp_id").toString()
+                 << "airfield_id=" << query.value("airfield_id").toString()
+                 << "external_id=" << query.value("external_id").toString()
+                 << "freq=" << query.value("freq").toString()
+                 << "callsign=" << query.value("callsign").toString()
+                 << "type=" << query.value("type").toString();
     }
 }
 

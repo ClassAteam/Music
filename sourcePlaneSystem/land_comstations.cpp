@@ -15,10 +15,11 @@ const double MIDDLE_MARKER_DISTANCE{1066.8};
 land_comstations::land_comstations()
 {
     DatabaseManager::instance().testDatabase_1();
+    DatabaseManager::instance().testDatabase_3();
+    DatabaseManager::instance().testDatabase_4();
 //    DatabaseManager::instance().testDatabase_2();
     vorBeacons = DatabaseManager::instance().getVorBeacons();
     ilsBeacons = DatabaseManager::instance().getIlsBeacons();
-
 }
 
 ilsBeacon* land_comstations::tryIlsCapture(double x_position, double y_position)
@@ -27,7 +28,9 @@ ilsBeacon* land_comstations::tryIlsCapture(double x_position, double y_position)
     QPointF position_point(x_position, y_position);
     for(auto &beacon : *ilsBeacons)
     {
-        return beacon->inRange(position_point);
+        if(beacon->checkName() == "04L/22R")
+            return beacon.get();
+//        return beacon->inRange(position_point);
     }
     return null;
 }
@@ -80,7 +83,7 @@ double ilsBeacon::ApproachingHeight(double angle)
     double slope;
     double height;
     slope = glissadeHorizonLine.length() / abs(cos(angle));
-    qDebug() << "horizonLinelength = " << glissadeHorizonLine.length();
+//    qDebug() << "horizonLinelength = " << glissadeHorizonLine.length();
     height = sin(angle) * slope;
     return height;
 }

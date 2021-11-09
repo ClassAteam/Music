@@ -1,5 +1,6 @@
 #include "vim95.h"
 #include "externStruct/Struct_ISU.h"
+#include <QDebug>
 
 extern SH_ISU ISU;
 extern SH_ISU* pISU;
@@ -41,6 +42,8 @@ void VIM95::ilsSystem::updateParams()
         capturedBeaconName = currBeacon->checkName();
         return;
     }
+
+    qDebug() << "the currently groped beacon name is: " << currBeacon->checkName();
 
     HorizonArrowValue = currBeacon->distanceToGlissadeProj(x, y);
     GlissadeArrowValue = currBeacon->distnaceToGlissadePlane(x, y, z);
