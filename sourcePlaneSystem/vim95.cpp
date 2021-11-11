@@ -43,7 +43,7 @@ void VIM95::ilsSystem::updateParams()
         return;
     }
 
-    qDebug() << "the currently groped beacon name is: " << currBeacon->checkName();
+    qDebug() << currBeacon->checkName() <<  " ILS beacon captured";
 
     HorizonArrowValue = currBeacon->distanceToGlissadeProj(x, y);
     GlissadeArrowValue = currBeacon->distnaceToGlissadePlane(x, y, z);

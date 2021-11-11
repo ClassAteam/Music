@@ -28,7 +28,7 @@ ilsBeacon* land_comstations::tryIlsCapture(double x_position, double y_position)
     QPointF position_point(x_position, y_position);
     for(auto &beacon : *ilsBeacons)
     {
-        if(beacon->checkName() == "04L/22R")
+        if(beacon->checkName().contains("----"))
             return beacon.get();
 //        return beacon->inRange(position_point);
     }

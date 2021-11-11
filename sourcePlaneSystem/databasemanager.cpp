@@ -147,7 +147,7 @@ std::unique_ptr<std::vector<std::unique_ptr<ilsBeacon>>> DatabaseManager::getIls
 void DatabaseManager::testDatabase_1()
 {
     qDebug() << "testing airfields database";
-    QSqlQuery query("SELECT * FROM airfields WHERE internal_id=8206", *mDatabase);
+    QSqlQuery query("SELECT * FROM airfields WHERE id=8731", *mDatabase);
     query.exec();
     while(query.next())
     {
@@ -172,7 +172,7 @@ void DatabaseManager::testDatabase_1()
 void DatabaseManager::testDatabase_3()
 {
     qDebug() << "testing runways database";
-    QSqlQuery query("SELECT * FROM runways WHERE airfield_id=9827", *mDatabase);
+    QSqlQuery query("SELECT * FROM runways WHERE airfield_id=8732", *mDatabase);
     query.exec();
     while(query.next())
     {
@@ -192,7 +192,7 @@ void DatabaseManager::testDatabase_3()
 void DatabaseManager::testDatabase_4()
 {
     qDebug() << "testing rstations database";
-    QSqlQuery query("SELECT * FROM rstations WHERE airfield_id=9827", *mDatabase);
+    QSqlQuery query("SELECT * FROM rstations WHERE airfield_id=8732", *mDatabase);
     query.exec();
     while(query.next())
     {
