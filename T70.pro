@@ -94,7 +94,6 @@ SOURCES += \
     sourcePlaneSystem/hydro_8.cpp \
     sourcePlaneSystem/hydro_9.cpp \
     sourcePlaneSystem/hydro_int.cpp \
-    sourcePlaneSystem/input_feed.cpp \
     sourcePlaneSystem/interfacing.cpp \
     sourcePlaneSystem/land_comstations.cpp \
     sourcePlaneSystem/landinggear_event.cpp \
@@ -205,7 +204,6 @@ HEADERS += \
     sourcePlaneSystem/hydro_8.h \
     sourcePlaneSystem/hydro_9.h \
     sourcePlaneSystem/hydro_int.h \
-    sourcePlaneSystem/input_feed.h \
     sourcePlaneSystem/interfacing.h \
     sourcePlaneSystem/land_comstations.h \
     sourcePlaneSystem/landinggear_event.h \
