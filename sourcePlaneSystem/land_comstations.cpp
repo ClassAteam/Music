@@ -2,6 +2,7 @@
 #include "algorithms.h"
 #include "math.h"
 #include <QDebug>
+#include <memory>
 
 #include "databasemanager.h"
 
@@ -22,17 +23,21 @@ land_comstations::land_comstations()
     ilsBeacons = DatabaseManager::instance().getIlsBeacons();
 }
 
-ilsBeacon* land_comstations::tryIlsCapture(double x_position, double y_position)
+std::unique_ptr<ilsBeacon> land_comstations::tryIlsCapture(double x_position, double y_position)
 {
-    static ilsBeacon* null = new ilsBeacon;
+    std::unique_ptr<ilsBeacon> dumb_beacon(new ilsBeacon);
     QPointF position_point(x_position, y_position);
     for(auto &beacon : *ilsBeacons)
     {
-        if(beacon->checkName().contains("----"))
-            return beacon.get();
-//        return beacon->inRange(position_point);
+
+        //        if(beacon->checkName().contains("----"))
+        //            return beacon.get();
+
+        if(beacon->inRange(position_point))
+            return move(beacon);
     }
-    return null;
+
+    return dumb_beacon;
 }
 
 QLineF ilsBeacon::makeHorizonLine()
@@ -167,14 +172,17 @@ double ilsBeacon::distnaceToGlissadePlane(double x, double y, double z)
                                     glissadePlane[2]);
 }
 
-ilsBeacon* ilsBeacon::inRange(QPointF position)
+bool ilsBeacon::inRange(QPointF position)
 {
-    static ilsBeacon* null = new ilsBeacon;
+    std::unique_ptr<ilsBeacon> dumb_beacon(new ilsBeacon);
+    std::unique_ptr<ilsBeacon> curr_beacon(this);
 
     if(approachingZone.containsPoint(position, Qt::FillRule::OddEvenFill))
-        return this;
+    {
+        return true;
+    }
 
-    return null;
+    return false;
 }
 
 ilsBeacon::ilsBeacon() : name{"none"}, runWayStartPos{}, runWayEndPos{},

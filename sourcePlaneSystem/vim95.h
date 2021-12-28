@@ -51,7 +51,7 @@ private:
         ilsSystem();
 
     private:
-        ilsBeacon* currBeacon;
+        std::unique_ptr<ilsBeacon> currBeacon;
     };
 
 public:

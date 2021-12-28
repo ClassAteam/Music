@@ -18,7 +18,7 @@ class land_comstations
 {
 public:
     vorBeacon* tryVorCapture(double freq, double x_position, double y_position);
-    ilsBeacon* tryIlsCapture(double x_position, double y_position);
+    std::unique_ptr<ilsBeacon> tryIlsCapture(double x_position, double y_position);
 
     land_comstations();
     static land_comstations& instance();
@@ -65,7 +65,7 @@ public:
     bool isAccurateApproach(double x, double y, double z);
     QString checkName();
     void setName(QString name);
-    ilsBeacon* inRange(QPointF position);
+    bool inRange(QPointF position);
 
     ilsBeacon(QString name, QPointF runwaystart, QPointF runwayend,
               double glissadeAngle, double outer_marker_dist);

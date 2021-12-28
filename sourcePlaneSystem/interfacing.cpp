@@ -64,7 +64,6 @@ void interfacing::createLabelClue(bool* clue, QString name)
     lblClues.append(clue);
     lblClueID++;
     lblsPoolClue.append(label);
-
 }
 
 void interfacing::createLabelValue(double* value, QString name)
@@ -93,6 +92,7 @@ void interfacing::createSlider(double* variable, int low_val, int high_val)
     slID++;
     slPool.append(slider);
 }
+
 void interfacing::createRadioButton(int* toggler, QString name, bool isLastInGrp)
 {
     QRadioButton* rbutton = new QRadioButton(name, this);
@@ -118,11 +118,13 @@ void interfacing::createRadioButton(int* toggler, QString name, bool isLastInGrp
         rbGrPool.append(newGroup);
     }
 }
+
 void interfacing::setSlV(int value)
 {
     QSlider *slider = slPool[value];
     *slValues[value] = slider->value();
 }
+
 void interfacing::m_RedButton2(int value)
 {
     QPushButton *button = btnsPool[value];;
@@ -142,6 +144,7 @@ void interfacing::m_RedButton2(int value)
         button->setStyleSheet("max-width: 10em");
    }
 }
+
 void interfacing::setLbl()
 {
     for(int i = 0; i < lblsPoolClue.count(); i++)
@@ -201,7 +204,6 @@ void interfacing::setLbl()
             pal.setColor(QPalette::WindowText, Qt::gray);
             label->setPalette(pal);
             label->setFont(*lblClueFontInact);
-
         }
     }
 }
@@ -229,6 +231,7 @@ void interfacing::posOcupied()
         column++;
     }
 }
+
 void interfacing::trigerButton()
 {
     qDebug() << "timer is up";
